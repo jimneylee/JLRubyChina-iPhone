@@ -1,0 +1,3 @@
+[submodule "vendor/JLNimbusTimeline"]
+	path = vendor/JLNimbusTimeline
+	url = https://github.com/jimneylee/JLNimbusTimeline.git
