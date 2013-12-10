@@ -40,11 +40,16 @@ NSString *const kAPIBaseURLString = @"http://ruby-china.org/api/";
 #pragma mark - Topics
 // 活跃帖子、优质帖子、无人问津、最近创建
 // TODO: add topic type:
-+ (NSString*)relativePathForTopicsWithPageCounter:(NSInteger)pageCounter
-                             perpageCount:(NSInteger)perpageCount
++ (NSString*)relativePathForTopicsWithPageCounter:(NSUInteger)pageCounter
+                                     perpageCount:(NSUInteger)perpageCount
 {
     return [NSString stringWithFormat:@"topics.json?page=%d&per_page=%d",
                                         pageCounter, perpageCount];
+}
+
++ (NSString*)relativePathForTopicDetailWithTopicId:(unsigned long)topicId
+{
+    return [NSString stringWithFormat:@"topics/%ld.json", topicId];
 }
 
 @end

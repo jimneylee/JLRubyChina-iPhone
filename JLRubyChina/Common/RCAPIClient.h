@@ -17,9 +17,10 @@
 // search
 //================================================================================
 // 搜索用户
-+ (NSString*)relativePathForTopicsWithPageCounter:(NSInteger)pageCounter
-                                     perpageCount:(NSInteger)perpageCount;
-
++ (NSString*)relativePathForTopicsWithPageCounter:(NSUInteger)pageCounter
+                                     perpageCount:(NSUInteger)perpageCount;
+// 查看帖子详细
++ (NSString*)relativePathForTopicDetailWithTopicId:(unsigned long)topicId;
 @end
 
 NSString *const kAPIBaseURLString;
