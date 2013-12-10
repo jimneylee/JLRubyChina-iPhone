@@ -31,5 +31,8 @@
 #define JSON_NODE_ID @"node_id"
 #define JSON_LAST_REPLY_USER_ID @"last_reply_user_id"
 #define JSON_LAST_REPLY_USER_LOGIN @"last_reply_user_login"
-
+#define JSON_BODY @"body"
+#define JSON_HITS_COUNT @"hits"
+#define JSON_REPLIES_LIST @"replies"
+    
 #endif
