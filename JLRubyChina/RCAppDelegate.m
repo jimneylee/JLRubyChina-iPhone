@@ -63,10 +63,10 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-#if 0
+#if 1
     RCRootC *main = [[RCRootC alloc] init];
-    MLNavigationController *nav = [[MLNavigationController alloc] initWithRootViewController:main];
-    nav.backFloorNumber = 2;// 因为基于这个右边栏框架，底层默认有2个viewcontroller
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:main];
+    //nav.backFloorNumber = 2;// 因为基于这个右边栏框架，底层默认有2个viewcontroller
     nav.navigationBar.translucent = NO;
     self.revealSideViewController = [[PPRevealSideViewController alloc] initWithRootViewController:nav];
     [self.revealSideViewController setDirectionsToShowBounce:PPRevealSideDirectionNone];
