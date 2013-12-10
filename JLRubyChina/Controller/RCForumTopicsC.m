@@ -9,6 +9,7 @@
 #import "RCForumTopicsC.h"
 #import "RCForumTopicsModel.h"
 #import "RCTopicEntity.h"
+#import "RCTopicDetailC.h"
 
 @interface RCForumTopicsC ()
 
@@ -26,6 +27,8 @@
     self = [super initWithStyle:style];
     if (self) {
         self.title = APP_NAME;
+        self.navigationItem.leftBarButtonItem = [RCGlobalConfig createMenuBarButtonItemWithTarget:self
+                                                                                           action:@selector(showLeft:)];
     }
     return self;
 }
@@ -54,6 +57,19 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark Side View Controller
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)showLeft:(id)sender
+{
+    // used to push a new controller, but we preloaded it !
+    [self.revealSideViewController pushOldViewControllerOnDirection:PPRevealSideDirectionLeft
+                                                         withOffset:SIDE_DIRECTION_LEFT_OFFSET
+                                                           animated:YES];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Override
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -69,7 +85,13 @@
         if (!self.editing) {
             if ([object isKindOfClass:[RCTopicEntity class]]) {
                 RCTopicEntity* topic = (RCTopicEntity*)object;
-                [RCGlobalConfig showHUDMessage:topic.user.username addedToView:self.view];
+                if (topic.topicId > 0) {
+                    RCTopicDetailC* c = [[RCTopicDetailC alloc] initWithTopicId:topic.topicId];
+                    [self.navigationController pushViewController:c animated:YES];
+                }
+                else {
+                    [RCGlobalConfig showHUDMessage:@"帖子不存在或已被删除！" addedToView:self.view];
+                }
             }
             return YES;
         }

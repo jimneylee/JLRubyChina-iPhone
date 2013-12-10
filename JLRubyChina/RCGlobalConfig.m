@@ -41,4 +41,21 @@
     return [UIColor redColor];
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
++ (UIBarButtonItem*)createBarButtonItemWithTitle:(NSString*)buttonTitle Target:(id)target action:(SEL)action
+{
+    UIBarButtonItem* item = nil;
+    item = [[UIBarButtonItem alloc] initWithTitle:buttonTitle
+                                            style:UIBarButtonItemStylePlain
+                                           target:target
+                                           action:action];
+    return item;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
++ (UIBarButtonItem*)createMenuBarButtonItemWithTarget:(id)target action:(SEL)action
+{
+    return [RCGlobalConfig createBarButtonItemWithTitle:@"菜单" Target:target action:action];
+}
+
 @end

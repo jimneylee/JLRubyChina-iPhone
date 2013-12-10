@@ -43,5 +43,6 @@ typedef enum {
 // UI
 + (void)showHUDMessage:(NSString*)msg addedToView:(UIView*)view;
 + (UIColor *)mainThemeColor;
-
++ (UIBarButtonItem*)createBarButtonItemWithTitle:(NSString*)buttonTitle Target:(id)target action:(SEL)action;
++ (UIBarButtonItem*)createMenuBarButtonItemWithTarget:(id)target action:(SEL)action;
 @end
