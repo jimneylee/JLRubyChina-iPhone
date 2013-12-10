@@ -12,14 +12,14 @@
 @interface RCTopicEntity : JLNimbusEntity
 
 @property (nonatomic, strong) RCUserEntity* user;
-@property (nonatomic, copy) NSString* topicId;
+@property (nonatomic, assign) unsigned long topicId;
 @property (nonatomic, copy) NSString* topicTitle;
-@property (nonatomic, copy) NSString* nodeId;
+@property (nonatomic, assign) NSUInteger nodeId;
 @property (nonatomic, copy) NSString* nodeName;
 @property (nonatomic, strong) NSDate* createdAtDate;
 @property (nonatomic, strong) NSDate* updatedAtDate;
 @property (nonatomic, strong) NSDate* repliedAtDate;
 @property (nonatomic, assign) unsigned long repliesCount;
-@property (nonatomic, strong) RCUserEntity* lastReplieduser;
+@property (nonatomic, strong) RCUserEntity* lastRepliedUser;
 
 @end

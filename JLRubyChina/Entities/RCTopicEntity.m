@@ -28,6 +28,7 @@
 //}
 
 @implementation RCTopicEntity
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithDictionary:(NSDictionary*)dic
 {
@@ -37,27 +38,19 @@
     
     self = [super initWithDictionary:dic];
     if (self) {
-        self.topicId = dic[JSON_ID];
+        
+        self.topicId = [dic[JSON_ID] unsignedLongValue];
         self.topicTitle = dic[JSON_TITLE];
-        self.nodeId = dic[JSON_NODE_ID];
+        self.nodeId = [dic[JSON_NODE_ID] unsignedIntegerValue];
         self.nodeName = dic[JSON_NODE_NAME];
-        NSString* createdAtString = dic[JSON_CREATEED_AT];
-        if (createdAtString && [createdAtString isKindOfClass:[NSString class]] && createdAtString.length) {
-            self.createdAtDate = [NSDate formatDateWith_T_FromString:createdAtString];
-        }
-        NSString* updatedAtString = dic[JSON_UPDATEED_AT];
-        if (updatedAtString && [updatedAtString isKindOfClass:[NSString class]] && updatedAtString.length) {
-            self.updatedAtDate = [NSDate formatDateWith_T_FromString:updatedAtString];
-        }
-        NSString* repliedAtString = dic[JSON_REPLIED_AT];
-        if (repliedAtString && [repliedAtString isKindOfClass:[NSString class]] && repliedAtString.length) {
-            self.repliedAtDate = [NSDate formatDateWith_T_FromString:repliedAtString];
-        }
+        self.createdAtDate = [NSDate dateFromSourceDateString:dic[JSON_CREATEED_AT]];
+        self.updatedAtDate = [NSDate dateFromSourceDateString:dic[JSON_UPDATEED_AT]];
+        self.repliedAtDate = [NSDate dateFromSourceDateString:dic[JSON_REPLIED_AT]];
         self.repliesCount = [dic[JSON_REPLIES_COUNT] unsignedLongValue];
         self.user = [RCUserEntity entityWithDictionary:dic[JSON_USER]];
-        self.lastReplieduser = [[RCUserEntity alloc] init];
-        self.lastReplieduser.userId = dic[JSON_LAST_REPLY_USER_ID];
-        self.lastReplieduser.username = dic[JSON_LAST_REPLY_USER_LOGIN];
+        self.lastRepliedUser = [[RCUserEntity alloc] init];
+        self.lastRepliedUser.userId = dic[JSON_LAST_REPLY_USER_ID];
+        self.lastRepliedUser.username = dic[JSON_LAST_REPLY_USER_LOGIN];
     }
     return self;
 }
@@ -72,4 +65,5 @@
     RCTopicEntity* entity = [[RCTopicEntity alloc] initWithDictionary:dic];
     return entity;
 }
+
 @end
