@@ -10,6 +10,8 @@
 
 @interface NSDate (RubyChina)
 
++ (NSDate*)dateFromSourceDateString:(NSString*)dateString;
+
 + (NSDate *)formatDateWith_T_FromString:(NSString *)dateString;
 
 @end
