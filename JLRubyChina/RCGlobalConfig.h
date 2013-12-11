@@ -31,11 +31,17 @@
 #define CELL_CONTENT_VIEW_BORDER_COLOR RGBCOLOR(234, 234, 234)
 #define SIDE_DIRECTION_LEFT_OFFSET 160//左边栏tableview离右边距离，理解有点别扭，后面简洁化
 
+// 自定义链接协议
+#define PROTOCOL_AT_SOMEONE @"atsomeone://"
+#define PROTOCOL_SHARP_FLOOR @"sharpfloor://"
+#define PROTOCOL_NODE @"node://"
+
 typedef enum {
     RCForumTopicsType_LatestActivity,//当前活跃帖子
     RCForumTopicsType_HighQuality,//优质帖子
     RCForumTopicsType_NeverReviewed,//无人问津
     RCForumTopicsType_LatestCreate,//最新创建
+    RCForumTopicsType_NodeList//分类帖子
 }RCForumTopicsType;
 
 @interface RCGlobalConfig : NSObject
