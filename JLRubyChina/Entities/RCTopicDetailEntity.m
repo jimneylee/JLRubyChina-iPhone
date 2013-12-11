@@ -7,6 +7,7 @@
 //
 
 #import "RCTopicDetailEntity.h"
+#import "SCRegularParser.h"
 
 @implementation RCTopicDetailEntity
 
@@ -21,6 +22,7 @@
     if (self) {
         self.body = dic[JSON_BODY];
         self.hitsCount = [dic[JSON_HITS_COUNT] unsignedLongValue];
+        [self parseAllKeywords];
     }
     return self;
 }
@@ -34,6 +36,22 @@
     
     RCTopicDetailEntity* entity = [[RCTopicDetailEntity alloc] initWithDictionary:dic];
     return entity;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// 识别出 表情 at某人 share话题 标签
+- (void)parseAllKeywords
+{
+    if (self.body.length) {
+        // TODO: emotion
+        // 考虑优先剔除表情，这样@和#不会勿标识
+        if (!self.atPersonRanges) {
+            self.atPersonRanges = [SCRegularParser keywordRangesOfAtPersonInString:self.body];
+        }
+        if (!self.sharpFloorRanges) {
+            self.sharpFloorRanges = [SCRegularParser keywordRangesOfSharpFloorInString:self.body];
+        }
+    }
 }
 
 @end
