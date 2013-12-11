@@ -125,26 +125,25 @@
     }
     
     NSString* title = nil;
-    NSString* imageName = nil;
     switch (indexPath.row) {
         case LeftMenuType_Home:
-            title = @"社区";
-            imageName = @"icon_home.png";
+            title = @"热门讨论";
+            break;
+            
+        case LeftMenuType_ForumNodes:
+            title = @"板块节点";
             break;
             
         case LeftMenuType_UserCenter:
             title = @"个人中心";
-            imageName = @"icon_user.png";
             break;
             
         case LeftMenuType_More:
             title = @"更多设置";
-            imageName = @"icon_more.png";
             break;
             
         case LeftMenuType_AboutUs:
             title = @"关于我们";
-            imageName = @"icon_about.png";
             break;
             
         default:
@@ -156,7 +155,6 @@
     cell.textLabel.font = [UIFont boldSystemFontOfSize:16.f];
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
 
-    cell.imageView.image = [UIImage imageNamed:imageName];
     UIColor* bgColor = RGBACOLOR(71.f, 139.f, 201.f, 0.2f);
     UIView* bgView = [[UIView alloc] init];
     bgView.backgroundColor = bgColor;
