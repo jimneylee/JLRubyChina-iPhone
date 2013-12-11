@@ -48,9 +48,13 @@
         self.repliedAtDate = [NSDate dateFromSourceDateString:dic[JSON_REPLIED_AT]];
         self.repliesCount = [dic[JSON_REPLIES_COUNT] unsignedLongValue];
         self.user = [RCUserEntity entityWithDictionary:dic[JSON_USER]];
-        self.lastRepliedUser = [[RCUserEntity alloc] init];
-        self.lastRepliedUser.userId = dic[JSON_LAST_REPLY_USER_ID];
-        self.lastRepliedUser.username = dic[JSON_LAST_REPLY_USER_LOGIN];
+        
+        NSString* lastRepliedUserName = dic[JSON_LAST_REPLY_USER_LOGIN];
+        if (lastRepliedUserName && [lastRepliedUserName isKindOfClass:[NSString class]] && lastRepliedUserName.length) {
+            self.lastRepliedUser = [[RCUserEntity alloc] init];
+            self.lastRepliedUser.userId = [dic[JSON_LAST_REPLY_USER_ID] unsignedLongValue];
+            self.lastRepliedUser.username = lastRepliedUserName;
+        }
     }
     return self;
 }
