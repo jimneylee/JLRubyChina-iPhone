@@ -7,11 +7,14 @@
 //
 
 #import "RCTopicDetailC.h"
+#import "NIAttributedLabel.h"
 #import "RCTopicDetailModel.h"
 #import "RCReplyEntity.h"
+#import "RCTopicBodyView.h"
 
 @interface RCTopicDetailC ()
-
+@property (nonatomic, strong) RCTopicDetailEntity* topicDetailEntity;
+@property (nonatomic, strong) RCTopicBodyView* topicBodyView;
 @end
 
 @implementation RCTopicDetailC
@@ -53,6 +56,21 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Private
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)updateTopicHeaderView
+{
+//    if (!self.tableView.tableHeaderView) {
+//        self.topicBodyView = [[RCTopicBodyView alloc] initWithFrame:CGRectMake(0.f, 0.f, self.view.width, 0.f)];
+//        self.tableView.tableHeaderView = self.topicBodyView;
+//    }
+//    [self.topicBodyView updateViewWithTopicDetailEntity:self.topicDetailEntity];
+//    [self.topicBodyView setNeedsLayout];
+    
+    self.topicBodyView = [[RCTopicBodyView alloc] initWithFrame:CGRectMake(0.f, 0.f, self.view.width, 0.f)];
+    [self.topicBodyView updateViewWithTopicDetailEntity:self.topicDetailEntity];
+    [self.topicBodyView layoutIfNeeded];
+    self.tableView.tableHeaderView = self.topicBodyView;
+}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -79,6 +97,21 @@
             return NO;
         }
     };
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)didFinishLoadData
+{
+    [super didFinishLoadData];
+    self.topicDetailEntity = ((RCTopicDetailModel*)self.model).topicDetailEntity;
+    [self updateTopicHeaderView];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)didFailLoadData
+{
+    [super didFailLoadData];
+    //[self showTitleHeaderView];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

@@ -9,19 +9,24 @@
 #import "RCTopicCell.h"
 #import <QuartzCore/QuartzCore.h>
 #import "NimbusNetworkImage.h"
+#import "NIAttributedLabel.h"
+#import "NIWebController.h"
+#import "UIView+findViewController.h"
 #import "RCTopicEntity.h"
+#import "RCForumTopicsC.h"
 
 #define NAME_FONT_SIZE [UIFont systemFontOfSize:15.f]
 #define DATE_FONT_SIZE [UIFont systemFontOfSize:12.f]
-#define TITLE_FONT_SIZE [UIFont systemFontOfSize:18.f]
-#define LAST_REPLIED_FONT_SIZE [UIFont systemFontOfSize:18.f]
+#define TITLE_FONT_SIZE [UIFont systemFontOfSize:16.f]
+#define LAST_REPLIED_FONT_SIZE [UIFont systemFontOfSize:15.f]
 #define HEAD_IAMGE_HEIGHT 34
 
-@interface RCTopicCell()
+@interface RCTopicCell()<NIAttributedLabelDelegate>
+@property (nonatomic, strong) RCTopicEntity* topicEntity;
 @property (nonatomic, strong) UILabel* nameLabel;
 @property (nonatomic, strong) UILabel* dateLabel;
 @property (nonatomic, strong) UILabel* topicTitleLabel;
-@property (nonatomic, strong) UILabel* lastRepliedLabel;// todo use niattributelabel
+@property (nonatomic, strong) NIAttributedLabel* lastRepliedLabel;// todo use niattributelabel
 @property (nonatomic, strong) NINetworkImageView* headView;
 @end
 
@@ -96,9 +101,14 @@
         [self.contentView addSubview:self.topicTitleLabel];
         
         // topic title
-        self.lastRepliedLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        self.lastRepliedLabel = [[NIAttributedLabel alloc] initWithFrame:CGRectZero];
         self.lastRepliedLabel.font = NAME_FONT_SIZE;
         self.lastRepliedLabel.textColor = [UIColor grayColor];
+        self.lastRepliedLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        self.lastRepliedLabel.autoDetectLinks = YES;
+        self.lastRepliedLabel.delegate = self;
+        self.lastRepliedLabel.attributesForLinks =@{(NSString *)kCTForegroundColorAttributeName:(id)RGBCOLOR(6, 89, 155).CGColor};
+        self.lastRepliedLabel.highlightedLinkBackgroundColor = RGBCOLOR(26, 162, 233);
         [self.contentView addSubview:self.lastRepliedLabel];
         
         self.contentView.layer.borderColor = CELL_CONTENT_VIEW_BORDER_COLOR.CGColor;
@@ -128,7 +138,8 @@
     self.textLabel.backgroundColor = [UIColor clearColor];
     self.detailTextLabel.backgroundColor = [UIColor clearColor];
     self.topicTitleLabel.backgroundColor = [UIColor clearColor];
-
+    self.lastRepliedLabel.backgroundColor = [UIColor clearColor];
+    
     // layout
     CGFloat cellMargin = CELL_PADDING_4;
     CGFloat contentViewMarin = CELL_PADDING_6;
@@ -159,7 +170,8 @@
                                         kTitleLength, titleSize.height);
     
     self.lastRepliedLabel.frame = CGRectMake(self.topicTitleLabel.left, self.topicTitleLabel.bottom + CELL_PADDING_4,
-                                             self.topicTitleLabel.width, self.lastRepliedLabel.font.lineHeight);
+                                             self.topicTitleLabel.width, 0.f);
+    [self.lastRepliedLabel sizeToFit];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -168,6 +180,7 @@
     [super shouldUpdateCellWithObject:object];
     if ([object isKindOfClass:[RCTopicEntity class]]) {
         RCTopicEntity* o = (RCTopicEntity*)object;
+        self.topicEntity = o;
         if (o.user.avatarUrl.length) {
             [self.headView setPathToNetworkImage:o.user.avatarUrl];
         }
@@ -178,14 +191,72 @@
         self.detailTextLabel.text = [o.createdAtDate formatRelativeTime];
         self.topicTitleLabel.text = o.topicTitle;
         if (o.lastRepliedUser.username) {
-            self.lastRepliedLabel.text = [NSString stringWithFormat:@"%@•最后由%@于%@前回复",
+            self.lastRepliedLabel.text = [NSString stringWithFormat:@"%@•最后由%@于%@回复",
                                           o.nodeName, o.lastRepliedUser.username, [o.repliedAtDate formatRelativeTime]];
+            NSString* atSomeoneUrl = [NSString stringWithFormat:@"%@%@",
+                                      PROTOCOL_AT_SOMEONE, [o.lastRepliedUser.username urlEncoded]];
+            [self.lastRepliedLabel addLink:[NSURL URLWithString:atSomeoneUrl]
+                                     range:NSMakeRange(o.nodeName.length + 4, o.lastRepliedUser.username.length)];
         }
         else {
             self.lastRepliedLabel.text = [NSString stringWithFormat:@"%@•还没有回复，快进去讨论吧！", o.nodeName];
         }
+        NSString* nodeUrl = [NSString stringWithFormat:@"%@%@", PROTOCOL_NODE, [o.nodeName urlEncoded]];
+        [self.lastRepliedLabel addLink:[NSURL URLWithString:nodeUrl]
+                                 range:NSMakeRange(0, o.nodeName.length)];
     }
     return YES;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)attributedLabel:(NIAttributedLabel*)attributedLabel
+didSelectTextCheckingResult:(NSTextCheckingResult *)result
+                atPoint:(CGPoint)point {
+    NSURL* url = nil;
+    if (NSTextCheckingTypePhoneNumber == result.resultType) {
+        url = [NSURL URLWithString:[@"tel://" stringByAppendingString:result.phoneNumber]];
+        
+    } else if (NSTextCheckingTypeLink == result.resultType) {
+        url = result.URL;
+    }
+    
+    if (nil != url) {
+        if ([url.absoluteString hasPrefix:PROTOCOL_AT_SOMEONE]) {
+            NSString* someone = [url.absoluteString substringFromIndex:PROTOCOL_AT_SOMEONE.length];
+            someone = [someone stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            [RCGlobalConfig showHUDMessage:someone
+                               addedToView:[UIApplication sharedApplication].keyWindow];
+            // TODO: show someone homepage
+        }
+        else if ([url.absoluteString hasPrefix:PROTOCOL_NODE]) {
+            NSString* somenode = [url.absoluteString substringFromIndex:PROTOCOL_NODE.length];
+            somenode = [somenode stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            [RCGlobalConfig showHUDMessage:somenode
+                               addedToView:[UIApplication sharedApplication].keyWindow];
+            if (self.viewController) {
+                RCForumTopicsC* c = [[RCForumTopicsC alloc] initWithNodeName:self.topicEntity.nodeName
+                                                                      nodeId:self.topicEntity.nodeId];
+                [self.viewController.navigationController pushViewController:c animated:YES];
+            }
+        }
+        else {
+            if (self.viewController) {
+                NIWebController* c = [[NIWebController alloc] initWithURL:url];
+                [self.viewController.navigationController pushViewController:c animated:YES];
+            }
+        }
+    }
+    else {
+        [RCGlobalConfig showHUDMessage:@"抱歉，这是无效的链接" addedToView:self.viewController.view];
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (BOOL)attributedLabel:(NIAttributedLabel *)attributedLabel
+shouldPresentActionSheet:(UIActionSheet *)actionSheet
+ withTextCheckingResult:(NSTextCheckingResult *)result atPoint:(CGPoint)point
+{
+    return NO;
 }
 
 @end
