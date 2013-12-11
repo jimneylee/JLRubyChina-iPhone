@@ -17,7 +17,7 @@
 {
 	self = [super initWithDelegate:delegate];
 	if (self) {
-        // 数据一次性获取过来，没有分页，后面建议后台做分页
+        // TODO:数据一次性获取过来，没有分页，后面建议后台做分页
         self.perpageCount = NSUIntegerMax;
 	}
 	return self;
@@ -52,8 +52,13 @@
     return [RCReplyCell class];
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (NSArray*)entitiesParsedFromResponseObject:(id)responseObject
 {
+    // 1、parse topic detail body
+    self.topicDetailEntity = [RCTopicDetailEntity entityWithDictionary:responseObject];
+    
+    // 2、parse replies list with key: JSON_REPLIES_LIST
     NSArray* entities = [super entitiesParsedFromResponseObject:responseObject];
     RCReplyEntity* o = nil;
     for (NSUInteger i = 0; i < entities.count; i++) {
@@ -62,4 +67,5 @@
     }
     return entities;
 }
+
 @end

@@ -7,7 +7,9 @@
 //
 
 #import "RCBaseTableModel.h"
+#import "RCTopicDetailEntity.h"
 
 @interface RCTopicDetailModel : RCBaseTableModel
 @property (nonatomic, assign) unsigned long topicId;
+@property (nonatomic, strong) RCTopicDetailEntity* topicDetailEntity;
 @end
