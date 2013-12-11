@@ -11,6 +11,10 @@
 #import "RCTopicCell.h"
 #import "RCTopicEntity.h"
 
+@interface RCForumTopicsModel()
+
+@end
+
 @implementation RCForumTopicsModel
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -26,9 +30,21 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (NSString*)relativePath
 {
-    // TODO: set type
-    return [RCAPIClient relativePathForTopicsWithPageCounter:self.pageCounter
-                                                perpageCount:self.perpageCount];
+    NSString* path = nil;
+    switch (self.topicsType) {
+        case RCForumTopicsType_LatestActivity:
+            path = [RCAPIClient relativePathForTopicsWithPageCounter:self.pageCounter
+                                                        perpageCount:self.perpageCount];
+            break;
+        case RCForumTopicsType_NodeList:
+            path = [RCAPIClient relativePathForTopicsWithNodeId:self.nodeId
+                                                    PageCounter:self.pageCounter
+                                                   perpageCount:self.perpageCount];
+            break;
+        default:
+            break;
+    }
+    return path;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

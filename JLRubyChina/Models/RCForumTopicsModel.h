@@ -9,5 +9,7 @@
 #import "RCBaseTableModel.h"
 
 @interface RCForumTopicsModel : RCBaseTableModel
-
+@property (nonatomic, assign) RCForumTopicsType topicsType;
+@property (nonatomic, copy) NSString* nodeName;
+@property (nonatomic, assign) NSUInteger nodeId;
 @end
