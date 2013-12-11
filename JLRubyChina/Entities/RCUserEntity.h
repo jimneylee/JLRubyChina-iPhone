@@ -9,7 +9,7 @@
 #import "JLNimbusEntity.h"
 
 @interface RCUserEntity : JLNimbusEntity
-@property (nonatomic, copy) NSString* userId;
+@property (nonatomic, assign) unsigned long userId;
 @property (nonatomic, copy) NSString* username;
 @property (nonatomic, copy) NSString* avatarUrl;
 @end

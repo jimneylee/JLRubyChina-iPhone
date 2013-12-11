@@ -24,7 +24,7 @@
     
     self = [super initWithDictionary:dic];
     if (self) {
-        self.userId = dic[JSON_ID];
+        self.userId = [dic[JSON_ID] unsignedLongValue];
         self.username = dic[JSON_LOGIN];
         self.avatarUrl = dic[JSON_AVATAR_URL];
     }
