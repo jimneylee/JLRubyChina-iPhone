@@ -34,5 +34,10 @@
 #define JSON_BODY @"body"
 #define JSON_HITS_COUNT @"hits"
 #define JSON_REPLIES_LIST @"replies"
-    
+#define JSON_NAME @"name"
+#define JSON_TOPICS_COUNT @"topics_count"
+#define JSON_SUMMARY @"summary"
+#define JSON_SECTION_ID @"section_id"
+#define JSON_SECTION_NAME @"section_name"
+#define JSON_SORT @"sort"
 #endif
