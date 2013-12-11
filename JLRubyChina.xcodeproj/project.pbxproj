@@ -61,6 +61,17 @@
 		2897EF981856ECBD000BB6B9 /* RCUserEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF971856ECBD000BB6B9 /* RCUserEntity.m */; };
 		2897EF9B1856FB09000BB6B9 /* RCTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF9A1856FB09000BB6B9 /* RCTopicCell.m */; };
 		2897EF9E18571008000BB6B9 /* NSDate+RubyChina.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF9D18571008000BB6B9 /* NSDate+RubyChina.m */; };
+		28D4EF751857F78500C9C858 /* RCTopicBodyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4EF741857F78500C9C858 /* RCTopicBodyView.m */; };
+		28D4EF781858061E00C9C858 /* UIView+findViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4EF771858061E00C9C858 /* UIView+findViewController.m */; };
+		28D4EF7D1858266700C9C858 /* SMNetworkSpy.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4EF7A1858266700C9C858 /* SMNetworkSpy.m */; };
+		28D4EF7E1858266700C9C858 /* SCRegularParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4EF7C1858266700C9C858 /* SCRegularParser.m */; };
+		28D4EF81185826BF00C9C858 /* RCKeywordEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4EF80185826BF00C9C858 /* RCKeywordEntity.m */; };
+		28D4EF851858276A00C9C858 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4EF841858276A00C9C858 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		28D4EF8A18582B0A00C9C858 /* Notice in Resources */ = {isa = PBXBuildFile; fileRef = 28D4EF8918582B0A00C9C858 /* Notice */; };
+		28D4EF901858463E00C9C858 /* RCForumNodesC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4EF8F1858463E00C9C858 /* RCForumNodesC.m */; };
+		28D4EF93185846CA00C9C858 /* RCNodeEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4EF92185846CA00C9C858 /* RCNodeEntity.m */; };
+		28D4F06E18584E7C00C9C858 /* RCForumNodesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4F06D18584E7C00C9C858 /* RCForumNodesModel.m */; };
+		28D4F07118584EA500C9C858 /* RCNodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4F07018584EA500C9C858 /* RCNodeCell.m */; };
 		BBD07554FB194577BA42A7E6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DAEFF79992F4B9FB48FFA19 /* libPods.a */; };
 		CE96584F18573E98003066A5 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CE96584D18573E98003066A5 /* icon.png */; };
 		CE96585018573E98003066A5 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE96584E18573E98003066A5 /* icon@2x.png */; };
@@ -157,6 +168,32 @@
 		2897EF9A1856FB09000BB6B9 /* RCTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTopicCell.m; sourceTree = "<group>"; };
 		2897EF9C18571008000BB6B9 /* NSDate+RubyChina.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+RubyChina.h"; sourceTree = "<group>"; };
 		2897EF9D18571008000BB6B9 /* NSDate+RubyChina.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+RubyChina.m"; sourceTree = "<group>"; };
+		28D4EF731857F78500C9C858 /* RCTopicBodyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTopicBodyView.h; sourceTree = "<group>"; };
+		28D4EF741857F78500C9C858 /* RCTopicBodyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTopicBodyView.m; sourceTree = "<group>"; };
+		28D4EF761858061E00C9C858 /* UIView+findViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+findViewController.h"; sourceTree = "<group>"; };
+		28D4EF771858061E00C9C858 /* UIView+findViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+findViewController.m"; sourceTree = "<group>"; };
+		28D4EF791858266700C9C858 /* SMNetworkSpy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMNetworkSpy.h; sourceTree = "<group>"; };
+		28D4EF7A1858266700C9C858 /* SMNetworkSpy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMNetworkSpy.m; sourceTree = "<group>"; };
+		28D4EF7B1858266700C9C858 /* SCRegularParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRegularParser.h; sourceTree = "<group>"; };
+		28D4EF7C1858266700C9C858 /* SCRegularParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRegularParser.m; sourceTree = "<group>"; };
+		28D4EF7F185826BF00C9C858 /* RCKeywordEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCKeywordEntity.h; sourceTree = "<group>"; };
+		28D4EF80185826BF00C9C858 /* RCKeywordEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCKeywordEntity.m; sourceTree = "<group>"; };
+		28D4EF831858276A00C9C858 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		28D4EF841858276A00C9C858 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		28D4EF8918582B0A00C9C858 /* Notice */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Notice; sourceTree = "<group>"; };
+		28D4EF8E1858463E00C9C858 /* RCForumNodesC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCForumNodesC.h; sourceTree = "<group>"; };
+		28D4EF8F1858463E00C9C858 /* RCForumNodesC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCForumNodesC.m; sourceTree = "<group>"; };
+		28D4EF91185846CA00C9C858 /* RCNodeEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCNodeEntity.h; sourceTree = "<group>"; };
+		28D4EF92185846CA00C9C858 /* RCNodeEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCNodeEntity.m; sourceTree = "<group>"; };
+		28D4F06218584BAB00C9C858 /* NIAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIAttributedLabel.h; sourceTree = "<group>"; };
+		28D4F06318584BAB00C9C858 /* NIAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIAttributedLabel.m; sourceTree = "<group>"; };
+		28D4F06418584BAB00C9C858 /* NimbusAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimbusAttributedLabel.h; sourceTree = "<group>"; };
+		28D4F06518584BAB00C9C858 /* NSMutableAttributedString+NimbusAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+NimbusAttributedLabel.h"; sourceTree = "<group>"; };
+		28D4F06618584BAB00C9C858 /* NSMutableAttributedString+NimbusAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+NimbusAttributedLabel.m"; sourceTree = "<group>"; };
+		28D4F06C18584E7C00C9C858 /* RCForumNodesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCForumNodesModel.h; sourceTree = "<group>"; };
+		28D4F06D18584E7C00C9C858 /* RCForumNodesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCForumNodesModel.m; sourceTree = "<group>"; };
+		28D4F06F18584EA500C9C858 /* RCNodeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCNodeCell.h; sourceTree = "<group>"; };
+		28D4F07018584EA500C9C858 /* RCNodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCNodeCell.m; sourceTree = "<group>"; };
 		2DAEFF79992F4B9FB48FFA19 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BECB55DCFAF84993AE6D89A6 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		CE96584D18573E98003066A5 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -288,6 +325,8 @@
 		2897EF291856C40F000BB6B9 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				28D4EF86185829FA00C9C858 /* Nimbus_fixbug */,
+				28D4EF821858276A00C9C858 /* Reachability */,
 				2897EF901856E618000BB6B9 /* MultiLayerNavigation */,
 				2897EF2A1856C422000BB6B9 /* JLNimbusTimeline */,
 			);
@@ -376,6 +415,8 @@
 			children = (
 				2897EF9C18571008000BB6B9 /* NSDate+RubyChina.h */,
 				2897EF9D18571008000BB6B9 /* NSDate+RubyChina.m */,
+				28D4EF761858061E00C9C858 /* UIView+findViewController.h */,
+				28D4EF771858061E00C9C858 /* UIView+findViewController.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -401,6 +442,8 @@
 				2897EF811856E2BE000BB6B9 /* RCForumTopicsC.m */,
 				CE96587818576791003066A5 /* RCTopicDetailC.h */,
 				CE96587918576791003066A5 /* RCTopicDetailC.m */,
+				28D4EF8E1858463E00C9C858 /* RCForumNodesC.h */,
+				28D4EF8F1858463E00C9C858 /* RCForumNodesC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -416,6 +459,10 @@
 				CE96587618576748003066A5 /* RCTopicDetailEntity.m */,
 				CE96587E1857681C003066A5 /* RCReplyEntity.h */,
 				CE96587F1857681C003066A5 /* RCReplyEntity.m */,
+				28D4EF7F185826BF00C9C858 /* RCKeywordEntity.h */,
+				28D4EF80185826BF00C9C858 /* RCKeywordEntity.m */,
+				28D4EF91185846CA00C9C858 /* RCNodeEntity.h */,
+				28D4EF92185846CA00C9C858 /* RCNodeEntity.m */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -423,6 +470,10 @@
 		2897EF701856C54B000BB6B9 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				28D4EF791858266700C9C858 /* SMNetworkSpy.h */,
+				28D4EF7A1858266700C9C858 /* SMNetworkSpy.m */,
+				28D4EF7B1858266700C9C858 /* SCRegularParser.h */,
+				28D4EF7C1858266700C9C858 /* SCRegularParser.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -434,6 +485,10 @@
 				2897EF9A1856FB09000BB6B9 /* RCTopicCell.m */,
 				CE9658811857683A003066A5 /* RCReplyCell.h */,
 				CE9658821857683A003066A5 /* RCReplyCell.m */,
+				28D4EF731857F78500C9C858 /* RCTopicBodyView.h */,
+				28D4EF741857F78500C9C858 /* RCTopicBodyView.m */,
+				28D4F06F18584EA500C9C858 /* RCNodeCell.h */,
+				28D4F07018584EA500C9C858 /* RCNodeCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -447,6 +502,8 @@
 				2897EF851856E2EA000BB6B9 /* RCForumTopicsModel.m */,
 				CE96587B185767BD003066A5 /* RCTopicDetailModel.h */,
 				CE96587C185767BD003066A5 /* RCTopicDetailModel.m */,
+				28D4F06C18584E7C00C9C858 /* RCForumNodesModel.h */,
+				28D4F06D18584E7C00C9C858 /* RCForumNodesModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -460,6 +517,30 @@
 			);
 			name = MultiLayerNavigation;
 			path = vendor/MultiLayerNavigation;
+			sourceTree = "<group>";
+		};
+		28D4EF821858276A00C9C858 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				28D4EF831858276A00C9C858 /* Reachability.h */,
+				28D4EF841858276A00C9C858 /* Reachability.m */,
+			);
+			name = Reachability;
+			path = vendor/Reachability;
+			sourceTree = "<group>";
+		};
+		28D4EF86185829FA00C9C858 /* Nimbus_fixbug */ = {
+			isa = PBXGroup;
+			children = (
+				28D4F06218584BAB00C9C858 /* NIAttributedLabel.h */,
+				28D4F06318584BAB00C9C858 /* NIAttributedLabel.m */,
+				28D4F06418584BAB00C9C858 /* NimbusAttributedLabel.h */,
+				28D4F06518584BAB00C9C858 /* NSMutableAttributedString+NimbusAttributedLabel.h */,
+				28D4F06618584BAB00C9C858 /* NSMutableAttributedString+NimbusAttributedLabel.m */,
+				28D4EF8918582B0A00C9C858 /* Notice */,
+			);
+			name = Nimbus_fixbug;
+			path = vendor/Nimbus_fixbug;
 			sourceTree = "<group>";
 		};
 		CE96584A18573E98003066A5 /* Resource */ = {
@@ -575,6 +656,7 @@
 				2897EF531856C422000BB6B9 /* Three20.bundle in Resources */,
 				CE96585618573F57003066A5 /* icon80.png in Resources */,
 				CE96584F18573E98003066A5 /* icon.png in Resources */,
+				28D4EF8A18582B0A00C9C858 /* Notice in Resources */,
 				2897EF741856C60A000BB6B9 /* README.md in Resources */,
 				CE96585518573F57003066A5 /* icon58.png in Resources */,
 				2897EEFF1856BE94000BB6B9 /* InfoPlist.strings in Resources */,
@@ -631,17 +713,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28D4F06E18584E7C00C9C858 /* RCForumNodesModel.m in Sources */,
 				2897EF591856C422000BB6B9 /* UIFontAdditions.m in Sources */,
 				CE9658801857681C003066A5 /* RCReplyEntity.m in Sources */,
 				2897EF891856E327000BB6B9 /* RCTopicEntity.m in Sources */,
 				2897EF051856BE94000BB6B9 /* RCAppDelegate.m in Sources */,
 				2897EF671856C422000BB6B9 /* JLNimbusMoreButton.m in Sources */,
 				2897EF631856C422000BB6B9 /* JLAFHTTPClient.m in Sources */,
+				28D4EF7D1858266700C9C858 /* SMNetworkSpy.m in Sources */,
+				28D4F07118584EA500C9C858 /* RCNodeCell.m in Sources */,
+				28D4EF751857F78500C9C858 /* RCTopicBodyView.m in Sources */,
 				2897EF5F1856C422000BB6B9 /* JLNimbusTableViewController.m in Sources */,
+				28D4EF93185846CA00C9C858 /* RCNodeEntity.m in Sources */,
+				28D4EF81185826BF00C9C858 /* RCKeywordEntity.m in Sources */,
+				28D4EF851858276A00C9C858 /* Reachability.m in Sources */,
 				2897EF4D1856C422000BB6B9 /* NSDataAdditions.m in Sources */,
 				2897EF511856C422000BB6B9 /* NSStringAdditions.m in Sources */,
+				28D4EF781858061E00C9C858 /* UIView+findViewController.m in Sources */,
 				CE9658831857683A003066A5 /* RCReplyCell.m in Sources */,
 				2897EF9E18571008000BB6B9 /* NSDate+RubyChina.m in Sources */,
+				28D4EF901858463E00C9C858 /* RCForumNodesC.m in Sources */,
 				2897EF611856C422000BB6B9 /* JLNimbusEntity.m in Sources */,
 				2897EF791856E073000BB6B9 /* RCGlobalConfig.m in Sources */,
 				2897EF651856C422000BB6B9 /* JLNimbusTableModel.m in Sources */,
@@ -655,6 +746,7 @@
 				2897EF5D1856C422000BB6B9 /* UIWindowAdditions.m in Sources */,
 				2897EF8F1856E3D2000BB6B9 /* RCBaseTableModel.m in Sources */,
 				2897EF7E1856E11A000BB6B9 /* RCLeftC.m in Sources */,
+				28D4EF7E1858266700C9C858 /* SCRegularParser.m in Sources */,
 				2897EF7F1856E11A000BB6B9 /* RCRootC.m in Sources */,
 				2897EF721856C54B000BB6B9 /* RCAPIClient.m in Sources */,
 				2897EF981856ECBD000BB6B9 /* RCUserEntity.m in Sources */,
