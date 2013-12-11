@@ -90,6 +90,7 @@
 }
 - (void)showForumNodesView
 {
+    [self.navigationController popToRootViewControllerAnimated:NO];
     RCForumNodesC* c = [[RCForumNodesC alloc] init];
     if ([self.navigationController isKindOfClass:[MLNavigationController class]]) {
          [(MLNavigationController*)(self.navigationController) pushViewController:c animated:NO addScreenshot:NO];
