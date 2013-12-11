@@ -8,6 +8,8 @@
 
 #import "NICellCatalog.h"
 
+// TODO:
+// 评论太长，收起和放下
 @interface RCReplyCell : NITextCell
 
 @end

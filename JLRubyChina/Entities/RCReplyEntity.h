@@ -18,4 +18,7 @@
 @property (nonatomic, assign) NSUInteger floorNumber;
 @property (nonatomic, copy) NSString* floorNumberString;
 
+@property (nonatomic, strong) NSArray* atPersonRanges;
+@property (nonatomic, strong) NSArray* sharpFloorRanges;
+@property (nonatomic, strong) NSArray* emotionRanges;
 @end

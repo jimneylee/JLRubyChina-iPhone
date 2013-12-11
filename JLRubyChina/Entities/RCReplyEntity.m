@@ -8,6 +8,7 @@
 
 #import "RCReplyEntity.h"
 #import "NSDate+RubyChina.h"
+#import "SCRegularParser.h"
 
 @implementation RCReplyEntity
 
@@ -24,6 +25,8 @@
         self.createdAtDate = [NSDate dateFromSourceDateString:dic[JSON_CREATEED_AT]];
         self.updatedAtDate = [NSDate dateFromSourceDateString:dic[JSON_UPDATEED_AT]];
         self.user = [RCUserEntity entityWithDictionary:dic[JSON_USER]];
+        
+        [self parseAllKeywords];
     }
     return self;
 }
@@ -37,6 +40,22 @@
     
     RCReplyEntity* entity = [[RCReplyEntity alloc] initWithDictionary:dic];
     return entity;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// 识别出 表情 at某人 share话题 标签
+- (void)parseAllKeywords
+{
+    if (self.body.length) {
+        // TODO: emotion
+        // 考虑优先剔除表情，这样@和#不会勿标识
+        if (!self.atPersonRanges) {
+            self.atPersonRanges = [SCRegularParser keywordRangesOfAtPersonInString:self.body];
+        }
+        if (!self.sharpFloorRanges) {
+            self.sharpFloorRanges = [SCRegularParser keywordRangesOfSharpFloorInString:self.body];
+        }
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
