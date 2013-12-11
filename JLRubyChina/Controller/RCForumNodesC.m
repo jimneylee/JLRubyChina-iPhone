@@ -22,6 +22,9 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        self.title = @"分类导航";
+        self.navigationItem.leftBarButtonItem = [RCGlobalConfig createMenuBarButtonItemWithTarget:self
+                                                                                           action:@selector(showLeft:)];
     }
     return self;
 }
@@ -31,7 +34,7 @@
     [super viewDidLoad];
 
 	// Do any additional setup after loading the view.
-    self.tableView.separatorColor = [UIColor clearColor];
+    self.tableView.separatorColor = [UIColor lightGrayColor];
     self.tableView.backgroundColor = TABLE_VIEW_BG_COLOR;
     self.tableView.backgroundView = nil;
 }
@@ -40,6 +43,19 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark Side View Controller
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)showLeft:(id)sender
+{
+    // used to push a new controller, but we preloaded it !
+    [self.revealSideViewController pushOldViewControllerOnDirection:PPRevealSideDirectionLeft
+                                                         withOffset:SIDE_DIRECTION_LEFT_OFFSET
+                                                           animated:YES];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
