@@ -29,6 +29,9 @@
 // 论坛所有节点
 + (NSString*)relativePathForForumNodes;
 
+// 回复帖子
++ (NSString*)relativePathForReplyTopicId:(unsigned long)topicId;
+
 @end
 
 NSString *const kAPIBaseURLString;

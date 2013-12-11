@@ -31,8 +31,9 @@ NSString *const kAPIBaseURLString = @"http://ruby-china.org/api/";
 - (id)initWithBaseURL:(NSURL *)url
 {
     self = [super initWithBaseURL:url];
-    if (!self) {
-        return nil;
+    if (self) {
+        // ruby china use AFJSONParameterEncoding encoding
+        self.parameterEncoding = AFJSONParameterEncoding;
     }
     return self;
 }
@@ -63,6 +64,11 @@ NSString *const kAPIBaseURLString = @"http://ruby-china.org/api/";
 + (NSString*)relativePathForForumNodes
 {
     return [NSString stringWithFormat:@"nodes.json"];
+}
+
++ (NSString*)relativePathForReplyTopicId:(unsigned long)topicId
+{
+    return [NSString stringWithFormat:@"topics/%lu/replies.json", topicId];
 }
 
 @end
