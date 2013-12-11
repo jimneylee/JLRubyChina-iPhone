@@ -73,6 +73,8 @@
 		28D4F06E18584E7C00C9C858 /* RCForumNodesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4F06D18584E7C00C9C858 /* RCForumNodesModel.m */; };
 		28D4F07118584EA500C9C858 /* RCNodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4F07018584EA500C9C858 /* RCNodeCell.m */; };
 		BBD07554FB194577BA42A7E6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DAEFF79992F4B9FB48FFA19 /* libPods.a */; };
+		CE3889D11858A5790052566C /* ruby-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3889D01858A5790052566C /* ruby-logo@2x.png */; };
+		CE3889D41858AA790052566C /* RCReplyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3889D31858AA790052566C /* RCReplyModel.m */; };
 		CE96584F18573E98003066A5 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CE96584D18573E98003066A5 /* icon.png */; };
 		CE96585018573E98003066A5 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE96584E18573E98003066A5 /* icon@2x.png */; };
 		CE96585218573ED8003066A5 /* icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = CE96585118573ED8003066A5 /* icon120.png */; };
@@ -83,6 +85,15 @@
 		CE96587D185767BD003066A5 /* RCTopicDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE96587C185767BD003066A5 /* RCTopicDetailModel.m */; };
 		CE9658801857681C003066A5 /* RCReplyEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = CE96587F1857681C003066A5 /* RCReplyEntity.m */; };
 		CE9658831857683A003066A5 /* RCReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9658821857683A003066A5 /* RCReplyCell.m */; };
+		CEEA2BEF1858C41D004FDEDF /* RCQuickReplyC.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEA2BEE1858C41D004FDEDF /* RCQuickReplyC.m */; };
+		CEEA2BF91858C561004FDEDF /* MessageEntryBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA2BF11858C561004FDEDF /* MessageEntryBackground.png */; };
+		CEEA2BFA1858C561004FDEDF /* MessageEntryBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA2BF21858C561004FDEDF /* MessageEntryBackground@2x.png */; };
+		CEEA2BFB1858C561004FDEDF /* MessageEntryInputField.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA2BF31858C561004FDEDF /* MessageEntryInputField.png */; };
+		CEEA2BFC1858C561004FDEDF /* MessageEntryInputField@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA2BF41858C561004FDEDF /* MessageEntryInputField@2x.png */; };
+		CEEA2BFD1858C561004FDEDF /* MessageEntrySendButton.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA2BF51858C561004FDEDF /* MessageEntrySendButton.png */; };
+		CEEA2BFE1858C561004FDEDF /* MessageEntrySendButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA2BF61858C561004FDEDF /* MessageEntrySendButton@2x.png */; };
+		CEEA2BFF1858C561004FDEDF /* MessageEntrySendButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA2BF71858C561004FDEDF /* MessageEntrySendButtonPressed.png */; };
+		CEEA2C001858C561004FDEDF /* MessageEntrySendButtonPressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA2BF81858C561004FDEDF /* MessageEntrySendButtonPressed@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -196,6 +207,9 @@
 		28D4F07018584EA500C9C858 /* RCNodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCNodeCell.m; sourceTree = "<group>"; };
 		2DAEFF79992F4B9FB48FFA19 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BECB55DCFAF84993AE6D89A6 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		CE3889D01858A5790052566C /* ruby-logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ruby-logo@2x.png"; sourceTree = "<group>"; };
+		CE3889D21858AA790052566C /* RCReplyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCReplyModel.h; sourceTree = "<group>"; };
+		CE3889D31858AA790052566C /* RCReplyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCReplyModel.m; sourceTree = "<group>"; };
 		CE96584D18573E98003066A5 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		CE96584E18573E98003066A5 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		CE96585118573ED8003066A5 /* icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon120.png; sourceTree = "<group>"; };
@@ -211,6 +225,16 @@
 		CE96587F1857681C003066A5 /* RCReplyEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCReplyEntity.m; sourceTree = "<group>"; };
 		CE9658811857683A003066A5 /* RCReplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCReplyCell.h; sourceTree = "<group>"; };
 		CE9658821857683A003066A5 /* RCReplyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCReplyCell.m; sourceTree = "<group>"; };
+		CEEA2BED1858C41D004FDEDF /* RCQuickReplyC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCQuickReplyC.h; sourceTree = "<group>"; };
+		CEEA2BEE1858C41D004FDEDF /* RCQuickReplyC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCQuickReplyC.m; sourceTree = "<group>"; };
+		CEEA2BF11858C561004FDEDF /* MessageEntryBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageEntryBackground.png; sourceTree = "<group>"; };
+		CEEA2BF21858C561004FDEDF /* MessageEntryBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MessageEntryBackground@2x.png"; sourceTree = "<group>"; };
+		CEEA2BF31858C561004FDEDF /* MessageEntryInputField.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageEntryInputField.png; sourceTree = "<group>"; };
+		CEEA2BF41858C561004FDEDF /* MessageEntryInputField@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MessageEntryInputField@2x.png"; sourceTree = "<group>"; };
+		CEEA2BF51858C561004FDEDF /* MessageEntrySendButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageEntrySendButton.png; sourceTree = "<group>"; };
+		CEEA2BF61858C561004FDEDF /* MessageEntrySendButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MessageEntrySendButton@2x.png"; sourceTree = "<group>"; };
+		CEEA2BF71858C561004FDEDF /* MessageEntrySendButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageEntrySendButtonPressed.png; sourceTree = "<group>"; };
+		CEEA2BF81858C561004FDEDF /* MessageEntrySendButtonPressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MessageEntrySendButtonPressed@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -444,6 +468,8 @@
 				CE96587918576791003066A5 /* RCTopicDetailC.m */,
 				28D4EF8E1858463E00C9C858 /* RCForumNodesC.h */,
 				28D4EF8F1858463E00C9C858 /* RCForumNodesC.m */,
+				CEEA2BED1858C41D004FDEDF /* RCQuickReplyC.h */,
+				CEEA2BEE1858C41D004FDEDF /* RCQuickReplyC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -504,6 +530,8 @@
 				CE96587C185767BD003066A5 /* RCTopicDetailModel.m */,
 				28D4F06C18584E7C00C9C858 /* RCForumNodesModel.h */,
 				28D4F06D18584E7C00C9C858 /* RCForumNodesModel.m */,
+				CE3889D21858AA790052566C /* RCReplyModel.h */,
+				CE3889D31858AA790052566C /* RCReplyModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -554,6 +582,7 @@
 		CE96584B18573E98003066A5 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				CEEA2BF01858C561004FDEDF /* QuickReply */,
 				CE96584C18573E98003066A5 /* IconDefault */,
 			);
 			path = Images;
@@ -562,6 +591,7 @@
 		CE96584C18573E98003066A5 /* IconDefault */ = {
 			isa = PBXGroup;
 			children = (
+				CE3889D01858A5790052566C /* ruby-logo@2x.png */,
 				CE96584D18573E98003066A5 /* icon.png */,
 				CE96584E18573E98003066A5 /* icon@2x.png */,
 				CE96585318573F57003066A5 /* icon58.png */,
@@ -569,6 +599,21 @@
 				CE96585118573ED8003066A5 /* icon120.png */,
 			);
 			path = IconDefault;
+			sourceTree = "<group>";
+		};
+		CEEA2BF01858C561004FDEDF /* QuickReply */ = {
+			isa = PBXGroup;
+			children = (
+				CEEA2BF11858C561004FDEDF /* MessageEntryBackground.png */,
+				CEEA2BF21858C561004FDEDF /* MessageEntryBackground@2x.png */,
+				CEEA2BF31858C561004FDEDF /* MessageEntryInputField.png */,
+				CEEA2BF41858C561004FDEDF /* MessageEntryInputField@2x.png */,
+				CEEA2BF51858C561004FDEDF /* MessageEntrySendButton.png */,
+				CEEA2BF61858C561004FDEDF /* MessageEntrySendButton@2x.png */,
+				CEEA2BF71858C561004FDEDF /* MessageEntrySendButtonPressed.png */,
+				CEEA2BF81858C561004FDEDF /* MessageEntrySendButtonPressed@2x.png */,
+			);
+			path = QuickReply;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -651,16 +696,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE96585018573E98003066A5 /* icon@2x.png in Resources */,
+				CEEA2BFA1858C561004FDEDF /* MessageEntryBackground@2x.png in Resources */,
+				CE3889D11858A5790052566C /* ruby-logo@2x.png in Resources */,
+				CEEA2BFE1858C561004FDEDF /* MessageEntrySendButton@2x.png in Resources */,
 				2897EF761856C616000BB6B9 /* TODO in Resources */,
 				CE96585218573ED8003066A5 /* icon120.png in Resources */,
+				CEEA2BFC1858C561004FDEDF /* MessageEntryInputField@2x.png in Resources */,
 				2897EF531856C422000BB6B9 /* Three20.bundle in Resources */,
+				CEEA2C001858C561004FDEDF /* MessageEntrySendButtonPressed@2x.png in Resources */,
+				CEEA2BFF1858C561004FDEDF /* MessageEntrySendButtonPressed.png in Resources */,
 				CE96585618573F57003066A5 /* icon80.png in Resources */,
+				CEEA2BFB1858C561004FDEDF /* MessageEntryInputField.png in Resources */,
+				CEEA2BFD1858C561004FDEDF /* MessageEntrySendButton.png in Resources */,
 				CE96584F18573E98003066A5 /* icon.png in Resources */,
 				28D4EF8A18582B0A00C9C858 /* Notice in Resources */,
 				2897EF741856C60A000BB6B9 /* README.md in Resources */,
 				CE96585518573F57003066A5 /* icon58.png in Resources */,
 				2897EEFF1856BE94000BB6B9 /* InfoPlist.strings in Resources */,
 				2897EF941856E618000BB6B9 /* leftside_shadow_bg@2x.png in Resources */,
+				CEEA2BF91858C561004FDEDF /* MessageEntryBackground.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -716,6 +770,7 @@
 				28D4F06E18584E7C00C9C858 /* RCForumNodesModel.m in Sources */,
 				2897EF591856C422000BB6B9 /* UIFontAdditions.m in Sources */,
 				CE9658801857681C003066A5 /* RCReplyEntity.m in Sources */,
+				CEEA2BEF1858C41D004FDEDF /* RCQuickReplyC.m in Sources */,
 				2897EF891856E327000BB6B9 /* RCTopicEntity.m in Sources */,
 				2897EF051856BE94000BB6B9 /* RCAppDelegate.m in Sources */,
 				2897EF671856C422000BB6B9 /* JLNimbusMoreButton.m in Sources */,
@@ -747,6 +802,7 @@
 				2897EF8F1856E3D2000BB6B9 /* RCBaseTableModel.m in Sources */,
 				2897EF7E1856E11A000BB6B9 /* RCLeftC.m in Sources */,
 				28D4EF7E1858266700C9C858 /* SCRegularParser.m in Sources */,
+				CE3889D41858AA790052566C /* RCReplyModel.m in Sources */,
 				2897EF7F1856E11A000BB6B9 /* RCRootC.m in Sources */,
 				2897EF721856C54B000BB6B9 /* RCAPIClient.m in Sources */,
 				2897EF981856ECBD000BB6B9 /* RCUserEntity.m in Sources */,
