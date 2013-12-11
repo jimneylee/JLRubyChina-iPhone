@@ -17,14 +17,17 @@
 #define TITLE_FONT_SIZE [UIFont systemFontOfSize:15.f]
 #define SUBTITLE_FONT_SIZE [UIFont systemFontOfSize:12.f]
 #define CONTENT_FONT_SIZE [UIFont systemFontOfSize:16.f]
+#define BUTTON_FONT_SIZE [UIFont boldSystemFontOfSize:13.f]
+
 #define CONTENT_LINE_HEIGHT 20.f
 #define HEAD_IAMGE_HEIGHT 34
+#define BUTTON_SIZE CGSizeMake(40.f, 18.f)
 
 @interface RCReplyCell()<NIAttributedLabelDelegate>
 @property (nonatomic, strong) NIAttributedLabel* contentLabel;
 @property (nonatomic, strong) UILabel* floorLabel;
 @property (nonatomic, strong) NINetworkImageView* headView;
-
+@property (nonatomic, strong) UIButton* replyBtn;
 @end
 @implementation RCReplyCell
 
@@ -95,7 +98,7 @@
         self.selectionStyle = UITableViewCellSelectionStyleBlue;
         
         self.headView = [[NINetworkImageView alloc] initWithFrame:CGRectMake(0, 0, HEAD_IAMGE_HEIGHT,
-                                                                             HEAD_IAMGE_HEIGHT)];
+                                                                                    HEAD_IAMGE_HEIGHT)];
         [self.contentView addSubview:self.headView];
         
         // name
@@ -116,6 +119,17 @@
         self.floorLabel.textAlignment = NSTextAlignmentRight;
         [self.contentView addSubview:self.floorLabel];
         
+        self.replyBtn = [[UIButton alloc] initWithFrame:CGRectMake(0.f, 0.f, BUTTON_SIZE.width, BUTTON_SIZE.height)];
+        [self.replyBtn.titleLabel setFont:BUTTON_FONT_SIZE];
+        [self.replyBtn setTitle:@"回复" forState:UIControlStateNormal];
+        [self.replyBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [self.replyBtn setBackgroundColor:RGBCOLOR(27, 128, 219)];
+        [self.replyBtn addTarget:self action:@selector(replyAction) forControlEvents:UIControlEventTouchUpInside];
+        [self.contentView addSubview:self.replyBtn];
+        self.replyBtn.layer.borderColor = CELL_CONTENT_VIEW_BORDER_COLOR.CGColor;
+        self.replyBtn.layer.borderWidth = 1.0f;
+        
+        // content
         self.contentLabel = [[NIAttributedLabel alloc] initWithFrame:CGRectZero];
         self.contentLabel.numberOfLines = 0;
         self.contentLabel.font = CONTENT_FONT_SIZE;
@@ -171,20 +185,20 @@
                                       self.textLabel.font.lineHeight);
     
     // floor
-    if ([self.floorLabel.text isEqualToString:@"楼主"]) {
-        self.floorLabel.textColor = APP_THEME_COLOR;
-    }
-    self.floorLabel.frame = CGRectMake(self.textLabel.right, self.textLabel.top,
+    self.floorLabel.frame = CGRectMake(self.textLabel.right, self.textLabel.top - CELL_PADDING_4,
                                      self.textLabel.width, self.textLabel.height);
+    
+    // reply btn
+    self.replyBtn.right = self.contentView.width - contentViewMarin;
+    self.replyBtn.top = self.floorLabel.bottom;
+    
     // date
     self.detailTextLabel.frame = CGRectMake(self.textLabel.left, self.textLabel.bottom,
-                                            topWidth,
-                                            self.detailTextLabel.font.lineHeight);
+                                            topWidth, self.detailTextLabel.font.lineHeight);
+
     
-    // status content
+    // content
     CGFloat kContentLength = self.contentView.width - contentViewMarin * 2;
-//    CGSize contentSize = [self.contentLabel.text sizeWithFont:CONTENT_FONT_SIZE
-//                                            constrainedToSize:CGSizeMake(kContentLength, FLT_MAX)];
     self.contentLabel.frame = CGRectMake(self.headView.left, self.headView.bottom + CELL_PADDING_4,
                                          kContentLength, 0.f);
     [self.contentLabel sizeToFit];
@@ -240,6 +254,14 @@
     // TODO: check emotion
 }
 
+- (void)replyAction
+{
+    UIViewController* parentC = self.viewController;
+    // 弹出回复框
+    [RCGlobalConfig showHUDMessage:@"show textview" addedToView:parentC.view];
+
+}
+
 #pragma mark - NIAttributedLabelDelegate
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -255,7 +277,7 @@ didSelectTextCheckingResult:(NSTextCheckingResult *)result
     }
     
     if (nil != url) {
-        UIViewController* c = self.viewController;
+        UIViewController* parentC = self.viewController;
         if ([url.absoluteString hasPrefix:PROTOCOL_AT_SOMEONE]) {
             NSString* someone = [url.absoluteString substringFromIndex:PROTOCOL_AT_SOMEONE.length];
             someone = [someone stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -265,10 +287,11 @@ didSelectTextCheckingResult:(NSTextCheckingResult *)result
         else if ([url.absoluteString hasPrefix:PROTOCOL_SHARP_FLOOR]) {
             NSString* somefloor = [url.absoluteString substringFromIndex:PROTOCOL_SHARP_FLOOR.length];
             somefloor = [somefloor stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-            [RCGlobalConfig showHUDMessage:somefloor
+            [RCGlobalConfig showHUDMessage:[NSString stringWithFormat:@"Jump to #%@", somefloor]
                                addedToView:[UIApplication sharedApplication].keyWindow];
-            if (c) {
-                UITableViewController* t = (UITableViewController*)self.viewController;
+            
+            if ([parentC isKindOfClass:[UITableViewController class]]) {
+                UITableViewController* t = (UITableViewController*)parentC;
                 NSUInteger floor = [somefloor integerValue] - 1;
                 if (floor < [t.tableView numberOfRowsInSection:0]) {
                     [t.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:floor inSection:0]
@@ -277,9 +300,9 @@ didSelectTextCheckingResult:(NSTextCheckingResult *)result
             }
         }
         else {
-            if (c) {
-                NIWebController* c = [[NIWebController alloc] initWithURL:url];
-                [c.navigationController pushViewController:c animated:YES];
+            if (parentC) {
+                NIWebController* webC = [[NIWebController alloc] initWithURL:url];
+                [parentC.navigationController pushViewController:webC animated:YES];
             }
         }
     }

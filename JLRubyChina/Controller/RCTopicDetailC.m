@@ -11,6 +11,7 @@
 #import "RCTopicDetailModel.h"
 #import "RCReplyEntity.h"
 #import "RCTopicBodyView.h"
+#import "RCReplyModel.h"
 
 @interface RCTopicDetailC ()
 @property (nonatomic, strong) RCTopicDetailEntity* topicDetailEntity;
@@ -32,7 +33,9 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-
+        self.title = @"浏览帖子";
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemReply
+                                                                                               target:self action:@selector(replyTopicAction)];
     }
     return self;
 }
@@ -59,17 +62,27 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)updateTopicHeaderView
 {
-//    if (!self.tableView.tableHeaderView) {
-//        self.topicBodyView = [[RCTopicBodyView alloc] initWithFrame:CGRectMake(0.f, 0.f, self.view.width, 0.f)];
-//        self.tableView.tableHeaderView = self.topicBodyView;
-//    }
-//    [self.topicBodyView updateViewWithTopicDetailEntity:self.topicDetailEntity];
-//    [self.topicBodyView setNeedsLayout];
-    
-    self.topicBodyView = [[RCTopicBodyView alloc] initWithFrame:CGRectMake(0.f, 0.f, self.view.width, 0.f)];
+    if (!_topicBodyView) {
+        _topicBodyView = [[RCTopicBodyView alloc] initWithFrame:CGRectMake(0.f, 0.f, self.view.width, 0.f)];
+    }
     [self.topicBodyView updateViewWithTopicDetailEntity:self.topicDetailEntity];
+    // make call layoutSubviews first, dif from setNeedsLayout
     [self.topicBodyView layoutIfNeeded];
-    self.tableView.tableHeaderView = self.topicBodyView;
+    if (!self.tableView.tableHeaderView) {
+        self.tableView.tableHeaderView = self.topicBodyView;
+    }
+}
+
+- (void)replyTopicAction
+{
+    RCReplyModel* replyModel = [[RCReplyModel alloc] init];
+    [replyModel replyTopicId:self.topicDetailEntity.topicId withBody:@"不错"
+                     success:^{
+                         [RCGlobalConfig showHUDMessage:@"replied success!" addedToView:self.view];
+                         // 是否需要刷新后，自动滑动到底部，有待考虑，有时需要一次回复多个人，回复一次跳转到底部也不是很好
+                     } failure:^(NSError *error) {
+                         [RCGlobalConfig showHUDMessage:@"replied failure!" addedToView:self.view];
+                     }];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
