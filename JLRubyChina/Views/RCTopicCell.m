@@ -17,8 +17,9 @@
 
 #define NAME_FONT_SIZE [UIFont systemFontOfSize:15.f]
 #define DATE_FONT_SIZE [UIFont systemFontOfSize:12.f]
-#define TITLE_FONT_SIZE [UIFont systemFontOfSize:16.f]
+#define TITLE_FONT_SIZE [UIFont systemFontOfSize:18.f]
 #define LAST_REPLIED_FONT_SIZE [UIFont systemFontOfSize:15.f]
+#define REPLIES_COUNT_FONT_SIZE [UIFont boldSystemFontOfSize:18.f]
 #define HEAD_IAMGE_HEIGHT 34
 
 @interface RCTopicCell()<NIAttributedLabelDelegate>
@@ -26,6 +27,7 @@
 @property (nonatomic, strong) UILabel* nameLabel;
 @property (nonatomic, strong) UILabel* dateLabel;
 @property (nonatomic, strong) UILabel* topicTitleLabel;
+@property (nonatomic, strong) UILabel* repliesCountLabel;
 @property (nonatomic, strong) NIAttributedLabel* lastRepliedLabel;// todo use niattributelabel
 @property (nonatomic, strong) NINetworkImageView* headView;
 @end
@@ -49,13 +51,6 @@
         RCTopicEntity* o = (RCTopicEntity*)object;
         
         CGFloat kTitleLength = tableView.width -  sideMargin * 2;
-//        NSAttributedString *attrStr = [[NSAttributedString alloc] initWithString:o.topicTitle];
-//        NSRange range = NSMakeRange(0, attrStr.length);
-//        NSDictionary* dic = [attrStr attributesAtIndex:0 effectiveRange:&range];   // 获取该段attributedString的属性字典
-//        CGFloat kTitleLength = tableView.width - sideMargin * 2;
-//        CGRect titleRect = [o.topicTitle boundingRectWithSize:CGSizeMake(kTitleLength, FLT_MAX)
-//                                                      options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
-//                                                   attributes:dic context:nil];
         CGSize titleSize = [o.topicTitle sizeWithFont:TITLE_FONT_SIZE
                                     constrainedToSize:CGSizeMake(kTitleLength, FLT_MAX)];
         height = height + titleSize.height;
@@ -88,7 +83,7 @@
         self.textLabel.textColor = [UIColor blackColor];
         self.textLabel.highlightedTextColor = self.textLabel.textColor;
         
-        // source from & date
+        // date
         self.detailTextLabel.font = DATE_FONT_SIZE;
         self.detailTextLabel.textColor = [UIColor grayColor];
         self.detailTextLabel.highlightedTextColor = self.detailTextLabel.textColor;
@@ -99,6 +94,13 @@
         self.topicTitleLabel.font = TITLE_FONT_SIZE;
         self.topicTitleLabel.textColor = [UIColor blackColor];
         [self.contentView addSubview:self.topicTitleLabel];
+        
+        // replies count
+        self.repliesCountLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        self.repliesCountLabel.font = REPLIES_COUNT_FONT_SIZE;
+        self.repliesCountLabel.textColor = [UIColor whiteColor];
+        self.repliesCountLabel.textAlignment = NSTextAlignmentCenter;
+        [self.contentView addSubview:self.repliesCountLabel];
         
         // topic title
         self.lastRepliedLabel = [[NIAttributedLabel alloc] initWithFrame:CGRectZero];
@@ -113,6 +115,15 @@
         
         self.contentView.layer.borderColor = CELL_CONTENT_VIEW_BORDER_COLOR.CGColor;
         self.contentView.layer.borderWidth = 1.0f;
+        
+        // bg color
+        self.backgroundColor = [UIColor clearColor];
+        self.contentView.backgroundColor = CELL_CONTENT_VIEW_BG_COLOR;
+        self.textLabel.backgroundColor = [UIColor clearColor];
+        self.detailTextLabel.backgroundColor = [UIColor clearColor];
+        self.repliesCountLabel.backgroundColor = RGBCOLOR(27, 128, 219);//[UIColor clearColor];
+        self.topicTitleLabel.backgroundColor = [UIColor clearColor];
+        self.lastRepliedLabel.backgroundColor = [UIColor clearColor];
     }
     return self;
 }
@@ -132,14 +143,6 @@
 {
     [super layoutSubviews];
     
-    // bg color
-    self.backgroundColor = [UIColor clearColor];
-    self.contentView.backgroundColor = CELL_CONTENT_VIEW_BG_COLOR;
-    self.textLabel.backgroundColor = [UIColor clearColor];
-    self.detailTextLabel.backgroundColor = [UIColor clearColor];
-    self.topicTitleLabel.backgroundColor = [UIColor clearColor];
-    self.lastRepliedLabel.backgroundColor = [UIColor clearColor];
-    
     // layout
     CGFloat cellMargin = CELL_PADDING_4;
     CGFloat contentViewMarin = CELL_PADDING_6;
@@ -153,16 +156,21 @@
     self.headView.top = contentViewMarin;
     
     // name
-    // will - nodeNameButton
+    CGFloat kTextLength = self.contentView.width - contentViewMarin * 2 - (self.headView.right + CELL_PADDING_6);
     self.textLabel.frame = CGRectMake(self.headView.right + CELL_PADDING_6, contentViewMarin,
-                                      self.contentView.width - contentViewMarin * 2 - (self.headView.right + CELL_PADDING_6),
+                                      kTextLength / 2,
                                       self.textLabel.font.lineHeight);
     
     // source from & date
     self.detailTextLabel.frame = CGRectMake(self.textLabel.left, self.textLabel.bottom + CELL_PADDING_2,
-                                            self.textLabel.width, self.detailTextLabel.font.lineHeight);
+                                            kTextLength, self.detailTextLabel.font.lineHeight);
+    // replies count
+    CGSize repliesCountSize = [self.repliesCountLabel.text sizeWithFont:TITLE_FONT_SIZE];
+    self.repliesCountLabel.frame = CGRectMake(0.f, self.textLabel.top,
+                                              repliesCountSize.width + CELL_PADDING_6, self.repliesCountLabel.font.lineHeight);
+    self.repliesCountLabel.right = self.contentView.width - sideMargin;
     
-    // status content
+    // title
     CGFloat kTitleLength = self.contentView.width - contentViewMarin * 2;
     CGSize titleSize = [self.topicTitleLabel.text sizeWithFont:TITLE_FONT_SIZE
                                             constrainedToSize:CGSizeMake(kTitleLength, FLT_MAX)];
@@ -189,6 +197,7 @@
         }
         self.textLabel.text = o.user.username;
         self.detailTextLabel.text = [o.createdAtDate formatRelativeTime];
+        self.repliesCountLabel.text = [NSString stringWithFormat:@"%lu", o.repliesCount];
         self.topicTitleLabel.text = o.topicTitle;
         if (o.lastRepliedUser.username) {
             self.lastRepliedLabel.text = [NSString stringWithFormat:@"%@•最后由%@于%@回复",
@@ -221,6 +230,7 @@ didSelectTextCheckingResult:(NSTextCheckingResult *)result
     }
     
     if (nil != url) {
+        UIViewController* parentC = self.viewController;
         if ([url.absoluteString hasPrefix:PROTOCOL_AT_SOMEONE]) {
             NSString* someone = [url.absoluteString substringFromIndex:PROTOCOL_AT_SOMEONE.length];
             someone = [someone stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -231,18 +241,25 @@ didSelectTextCheckingResult:(NSTextCheckingResult *)result
         else if ([url.absoluteString hasPrefix:PROTOCOL_NODE]) {
             NSString* somenode = [url.absoluteString substringFromIndex:PROTOCOL_NODE.length];
             somenode = [somenode stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-            [RCGlobalConfig showHUDMessage:somenode
-                               addedToView:[UIApplication sharedApplication].keyWindow];
-            if (self.viewController) {
-                RCForumTopicsC* c = [[RCForumTopicsC alloc] initWithNodeName:self.topicEntity.nodeName
-                                                                      nodeId:self.topicEntity.nodeId];
-                [self.viewController.navigationController pushViewController:c animated:YES];
+
+            if (parentC) {
+                if ([parentC.title isEqualToString:somenode]) {
+                    [RCGlobalConfig showHUDMessage:[NSString stringWithFormat:@"Already in %@ :(", somenode]
+                                       addedToView:[UIApplication sharedApplication].keyWindow];
+                }
+                else {
+                    [RCGlobalConfig showHUDMessage:[NSString stringWithFormat:@"Go to %@ :)", somenode]
+                                       addedToView:[UIApplication sharedApplication].keyWindow];
+                    RCForumTopicsC* topicsC = [[RCForumTopicsC alloc] initWithNodeName:self.topicEntity.nodeName
+                                                                          nodeId:self.topicEntity.nodeId];
+                    [parentC.navigationController pushViewController:topicsC animated:YES];
+                }
             }
         }
         else {
-            if (self.viewController) {
-                NIWebController* c = [[NIWebController alloc] initWithURL:url];
-                [self.viewController.navigationController pushViewController:c animated:YES];
+            if (parentC) {
+                NIWebController* webC = [[NIWebController alloc] initWithURL:url];
+                [parentC.navigationController pushViewController:webC animated:YES];
             }
         }
     }
