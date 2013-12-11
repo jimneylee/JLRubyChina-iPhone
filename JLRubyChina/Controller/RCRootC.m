@@ -9,6 +9,7 @@
 #import "RCRootC.h"
 #import "MLNavigationController.h"
 #import "RCForumTopicsC.h"
+#import "RCForumNodesC.h"
 //#import "DZUserCenterC.h"
 //#import "DZAboutC.h"
 //#import "DZMoreC.h"
@@ -53,7 +54,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -79,13 +79,23 @@
 {
     [self.navigationController popToRootViewControllerAnimated:NO];
     if (!_forumTopics) {
-        _forumTopics = [[RCForumTopicsC alloc] initWithStyle:UITableViewStylePlain];
+        _forumTopics = [[RCForumTopicsC alloc] initWithTopicsType:RCForumTopicsType_LatestActivity];
     }
     if ([self.navigationController isKindOfClass:[MLNavigationController class]]) {
         [(MLNavigationController*)(self.navigationController) pushViewController:self.forumTopics animated:NO addScreenshot:NO];
     }
     else {
         [self.navigationController pushViewController:self.forumTopics animated:YES];
+    }
+}
+- (void)showForumNodesView
+{
+    RCForumNodesC* c = [[RCForumNodesC alloc] init];
+    if ([self.navigationController isKindOfClass:[MLNavigationController class]]) {
+         [(MLNavigationController*)(self.navigationController) pushViewController:c animated:NO addScreenshot:NO];
+    }
+    else {
+        [self.navigationController pushViewController:c animated:YES];
     }
 }
 
@@ -140,7 +150,12 @@
             [self showLeft:nil];
             [self showHomeView];
             break;
-        
+            
+        case LeftMenuType_ForumNodes:
+            [self showLeft:nil];
+            [self showForumNodesView];
+            break;
+            
         case LeftMenuType_UserCenter:
             [self showLeft:nil];
             [self showUserCenterView];
