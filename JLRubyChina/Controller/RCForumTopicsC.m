@@ -12,7 +12,6 @@
 #import "RCTopicDetailC.h"
 
 @interface RCForumTopicsC ()
-
 @end
 
 @implementation RCForumTopicsC
@@ -22,13 +21,36 @@
 #pragma mark - UIViewController
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+- (id)initWithTopicsType:(RCForumTopicsType)topicsType
+{
+    self = [self initWithStyle:UITableViewStylePlain];
+    if (self) {
+        self.title = [self stringForTopicsType:topicsType];
+        ((RCForumTopicsModel*)self.model).topicsType = topicsType;
+        self.navigationItem.leftBarButtonItem = [RCGlobalConfig createMenuBarButtonItemWithTarget:self
+                                                                                           action:@selector(showLeft:)];
+    }
+    return self;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (id)initWithNodeName:(NSString*)nodeName nodeId:(NSUInteger)nodeId
+{
+    self = [self initWithStyle:UITableViewStylePlain];
+    if (self) {
+        self.title = nodeName;
+        ((RCForumTopicsModel*)self.model).nodeId = nodeId;
+        ((RCForumTopicsModel*)self.model).topicsType = RCForumTopicsType_NodeList;
+    }
+    return self;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
-        self.title = APP_NAME;
-        self.navigationItem.leftBarButtonItem = [RCGlobalConfig createMenuBarButtonItemWithTarget:self
-                                                                                           action:@selector(showLeft:)];
+
     }
     return self;
 }
@@ -50,10 +72,42 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    // 添加手势 TODO:这边还需要斟酌
+    if (RCForumTopicsType_NodeList != ((RCForumTopicsModel*)self.model).topicsType) {
+        [self.revealSideViewController updateViewWhichHandleGestures];
+    }
+}
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Private
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (NSString*)stringForTopicsType:(RCForumTopicsType)topicsType
+{
+    NSString* topicsTypeName = nil;
+    switch (topicsType) {
+        case RCForumTopicsType_LatestActivity:
+            topicsTypeName = @"热门讨论";
+            break;
+        case RCForumTopicsType_HighQuality:
+            topicsTypeName = @"优质帖子";
+            break;
+        case RCForumTopicsType_NeverReviewed:
+            topicsTypeName = @"无人问津";
+            break;
+        case RCForumTopicsType_LatestCreate:
+            topicsTypeName = @"最新创建";
+            break;
+        default:
+            topicsTypeName = @"暂无分类";
+            break;
+    }
+    return topicsTypeName;
+}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////

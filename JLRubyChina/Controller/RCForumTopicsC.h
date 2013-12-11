@@ -9,5 +9,6 @@
 #import "JLNimbusTableViewController.h"
 
 @interface RCForumTopicsC : JLNimbusTableViewController
-
+- (id)initWithTopicsType:(RCForumTopicsType)topicsType;
+- (id)initWithNodeName:(NSString*)nodeName nodeId:(NSUInteger)nodeId;
 @end
