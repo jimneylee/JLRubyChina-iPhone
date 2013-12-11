@@ -255,24 +255,31 @@ didSelectTextCheckingResult:(NSTextCheckingResult *)result
     }
     
     if (nil != url) {
+        UIViewController* c = self.viewController;
         if ([url.absoluteString hasPrefix:PROTOCOL_AT_SOMEONE]) {
             NSString* someone = [url.absoluteString substringFromIndex:PROTOCOL_AT_SOMEONE.length];
-            // TODO: show someone homepage
             someone = [someone stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             [RCGlobalConfig showHUDMessage:someone
                                addedToView:[UIApplication sharedApplication].keyWindow];
         }
         else if ([url.absoluteString hasPrefix:PROTOCOL_SHARP_FLOOR]) {
-            NSString* sometrend = [url.absoluteString substringFromIndex:PROTOCOL_SHARP_FLOOR.length];
-            // TODO: show some floor about this trend
-            sometrend = [sometrend stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-            [RCGlobalConfig showHUDMessage:sometrend
+            NSString* somefloor = [url.absoluteString substringFromIndex:PROTOCOL_SHARP_FLOOR.length];
+            somefloor = [somefloor stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            [RCGlobalConfig showHUDMessage:somefloor
                                addedToView:[UIApplication sharedApplication].keyWindow];
+            if (c) {
+                UITableViewController* t = (UITableViewController*)self.viewController;
+                NSUInteger floor = [somefloor integerValue] - 1;
+                if (floor < [t.tableView numberOfRowsInSection:0]) {
+                    [t.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:floor inSection:0]
+                                       atScrollPosition:UITableViewScrollPositionTop animated:YES];
+                }
+            }
         }
         else {
-            if (self.viewController) {
+            if (c) {
                 NIWebController* c = [[NIWebController alloc] initWithURL:url];
-                [self.viewController.navigationController pushViewController:c animated:YES];
+                [c.navigationController pushViewController:c animated:YES];
             }
         }
     }
