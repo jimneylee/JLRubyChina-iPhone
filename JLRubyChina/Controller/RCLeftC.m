@@ -131,7 +131,7 @@
             break;
             
         case LeftMenuType_ForumNodes:
-            title = @"板块节点";
+            title = @"分类导航";
             break;
             
         case LeftMenuType_UserCenter:
