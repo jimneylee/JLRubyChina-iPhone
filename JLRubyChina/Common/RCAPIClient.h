@@ -21,6 +21,14 @@
                                      perpageCount:(NSUInteger)perpageCount;
 // 查看帖子详细
 + (NSString*)relativePathForTopicDetailWithTopicId:(unsigned long)topicId;
+
+// 节点帖子
++ (NSString*)relativePathForTopicsWithNodeId:(NSUInteger)nodeId
+                                 PageCounter:(NSUInteger)pageCounter
+                                perpageCount:(NSUInteger)perpageCount;
+// 论坛所有节点
++ (NSString*)relativePathForForumNodes;
+
 @end
 
 NSString *const kAPIBaseURLString;

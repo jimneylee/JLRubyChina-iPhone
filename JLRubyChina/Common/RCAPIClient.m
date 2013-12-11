@@ -52,4 +52,17 @@ NSString *const kAPIBaseURLString = @"http://ruby-china.org/api/";
     return [NSString stringWithFormat:@"topics/%ld.json", topicId];
 }
 
++ (NSString*)relativePathForTopicsWithNodeId:(NSUInteger)nodeId
+                                 PageCounter:(NSUInteger)pageCounter
+                                perpageCount:(NSUInteger)perpageCount
+{
+    return [NSString stringWithFormat:@"topics/node/%u.json?page=%d&per_page=%d",
+                                        nodeId, pageCounter, perpageCount];
+}
+
++ (NSString*)relativePathForForumNodes
+{
+    return [NSString stringWithFormat:@"nodes.json"];
+}
+
 @end
