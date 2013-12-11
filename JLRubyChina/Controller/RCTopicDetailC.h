@@ -8,7 +8,7 @@
 
 #import "JLNimbusTableViewController.h"
 
-// TODO:楼层调整
+// TODO:楼层调转
 @interface RCTopicDetailC : JLNimbusTableViewController
 - (id)initWithTopicId:(unsigned long)topicId;
 @end
