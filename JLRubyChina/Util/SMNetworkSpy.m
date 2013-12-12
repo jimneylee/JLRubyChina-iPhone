@@ -111,7 +111,7 @@ static SMNetworkSpy* sharedNetworkSpy = nil;
         title = @"当前2g/3g已连接";
     }
     
-    [RCGlobalConfig showHUDMessage:title addedToView:[UIApplication sharedApplication].keyWindow];
+    [RCGlobalConfig hudShowMessage:title addedToView:[UIApplication sharedApplication].keyWindow];
 }
 
 @end
