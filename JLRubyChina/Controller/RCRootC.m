@@ -7,9 +7,9 @@
 //
 
 #import "RCRootC.h"
-#import "MLNavigationController.h"
 #import "RCForumTopicsC.h"
 #import "RCForumNodesC.h"
+#import "RCCoolSitesC.h"
 //#import "DZUserCenterC.h"
 //#import "DZAboutC.h"
 //#import "DZMoreC.h"
@@ -81,62 +81,43 @@
     if (!_forumTopics) {
         _forumTopics = [[RCForumTopicsC alloc] initWithTopicsType:RCForumTopicsType_LatestActivity];
     }
-    if ([self.navigationController isKindOfClass:[MLNavigationController class]]) {
-        [(MLNavigationController*)(self.navigationController) pushViewController:self.forumTopics animated:NO addScreenshot:NO];
-    }
-    else {
-        [self.navigationController pushViewController:self.forumTopics animated:YES];
-    }
+    [self.navigationController pushViewController:self.forumTopics animated:YES];
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)showForumNodesView
 {
     [self.navigationController popToRootViewControllerAnimated:NO];
     RCForumNodesC* c = [[RCForumNodesC alloc] init];
-    if ([self.navigationController isKindOfClass:[MLNavigationController class]]) {
-         [(MLNavigationController*)(self.navigationController) pushViewController:c animated:NO addScreenshot:NO];
-    }
-    else {
-        [self.navigationController pushViewController:c animated:YES];
-    }
+    [self.navigationController pushViewController:c animated:YES];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)showCoolSitesView
+{
+    [self.navigationController popToRootViewControllerAnimated:NO];
+    RCCoolSitesC* c = [[RCCoolSitesC alloc] init];
+    [self.navigationController pushViewController:c animated:YES];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)showUserCenterView
 {
     [self.navigationController popToRootViewControllerAnimated:NO];
-//    DZUserCenterC* c = [[DZUserCenterC alloc] initWithStyle:UITableViewStyleGrouped];
-//    if ([self.navigationController isKindOfClass:[MLNavigationController class]]) {
-//        [(MLNavigationController*)(self.navigationController) pushViewController:c animated:NO addScreenshot:NO];
-//    }
-//    else {
-//        [self.navigationController pushViewController:c animated:YES];
-//    }
+
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)showMoreView
 {
     [self.navigationController popToRootViewControllerAnimated:NO];
-//    DZMoreC* c = [[DZMoreC alloc] initWithStyle:UITableViewStyleGrouped];
-//    if ([self.navigationController isKindOfClass:[MLNavigationController class]]) {
-//        [(MLNavigationController*)(self.navigationController) pushViewController:c animated:NO addScreenshot:NO];
-//    }
-//    else {
-//        [self.navigationController pushViewController:c animated:YES];
-//    }
+
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)showAboutUsView
 {
     [self.navigationController popToRootViewControllerAnimated:NO];
-//    DZAboutC* c = [[DZAboutC alloc] init];
-//    if ([self.navigationController isKindOfClass:[MLNavigationController class]]) {
-//        [(MLNavigationController*)(self.navigationController) pushViewController:c animated:NO addScreenshot:NO];
-//    }
-//    else {
-//        [self.navigationController pushViewController:c animated:YES];
-//    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -155,6 +136,11 @@
         case LeftMenuType_ForumNodes:
             [self showLeft:nil];
             [self showForumNodesView];
+            break;
+            
+        case LeftMenuType_CoolSites:
+            [self showLeft:nil];
+            [self showCoolSitesView];
             break;
             
         case LeftMenuType_UserCenter:
