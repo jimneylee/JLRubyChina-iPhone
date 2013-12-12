@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		281AED5918594ED600DEC6E2 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 281AED5718594ED600DEC6E2 /* 37x-Checkmark.png */; };
+		281AED5A18594ED600DEC6E2 /* 37x-Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 281AED5818594ED600DEC6E2 /* 37x-Checkmark@2x.png */; };
+		281AED5E185975D900DEC6E2 /* RCCoolSitesC.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AED5D185975D900DEC6E2 /* RCCoolSitesC.m */; };
+		281AED611859760F00DEC6E2 /* RCCoolSitesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AED601859760F00DEC6E2 /* RCCoolSitesModel.m */; };
+		281AED641859764700DEC6E2 /* RCSiteEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AED631859764700DEC6E2 /* RCSiteEntity.m */; };
+		281AED671859769100DEC6E2 /* RCSiteSectionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AED661859769100DEC6E2 /* RCSiteSectionEntity.m */; };
+		281AED6A185982E500DEC6E2 /* RCSiteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AED69185982E500DEC6E2 /* RCSiteCell.m */; };
 		2897EEF51856BE94000BB6B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2897EEF41856BE94000BB6B9 /* Foundation.framework */; };
 		2897EEF71856BE94000BB6B9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2897EEF61856BE94000BB6B9 /* CoreGraphics.framework */; };
 		2897EEF91856BE94000BB6B9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2897EEF81856BE94000BB6B9 /* UIKit.framework */; };
@@ -56,8 +63,6 @@
 		2897EF861856E2EA000BB6B9 /* RCForumTopicsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF851856E2EA000BB6B9 /* RCForumTopicsModel.m */; };
 		2897EF891856E327000BB6B9 /* RCTopicEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF881856E327000BB6B9 /* RCTopicEntity.m */; };
 		2897EF8F1856E3D2000BB6B9 /* RCBaseTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF8E1856E3D2000BB6B9 /* RCBaseTableModel.m */; };
-		2897EF941856E618000BB6B9 /* leftside_shadow_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2897EF911856E618000BB6B9 /* leftside_shadow_bg@2x.png */; };
-		2897EF951856E618000BB6B9 /* MLNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF931856E618000BB6B9 /* MLNavigationController.m */; };
 		2897EF981856ECBD000BB6B9 /* RCUserEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF971856ECBD000BB6B9 /* RCUserEntity.m */; };
 		2897EF9B1856FB09000BB6B9 /* RCTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF9A1856FB09000BB6B9 /* RCTopicCell.m */; };
 		2897EF9E18571008000BB6B9 /* NSDate+RubyChina.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF9D18571008000BB6B9 /* NSDate+RubyChina.m */; };
@@ -107,6 +112,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		281AED5718594ED600DEC6E2 /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark.png"; sourceTree = "<group>"; };
+		281AED5818594ED600DEC6E2 /* 37x-Checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark@2x.png"; sourceTree = "<group>"; };
+		281AED5C185975D900DEC6E2 /* RCCoolSitesC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCoolSitesC.h; sourceTree = "<group>"; };
+		281AED5D185975D900DEC6E2 /* RCCoolSitesC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCoolSitesC.m; sourceTree = "<group>"; };
+		281AED5F1859760F00DEC6E2 /* RCCoolSitesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCoolSitesModel.h; sourceTree = "<group>"; };
+		281AED601859760F00DEC6E2 /* RCCoolSitesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCoolSitesModel.m; sourceTree = "<group>"; };
+		281AED621859764700DEC6E2 /* RCSiteEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSiteEntity.h; sourceTree = "<group>"; };
+		281AED631859764700DEC6E2 /* RCSiteEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSiteEntity.m; sourceTree = "<group>"; };
+		281AED651859769100DEC6E2 /* RCSiteSectionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSiteSectionEntity.h; sourceTree = "<group>"; };
+		281AED661859769100DEC6E2 /* RCSiteSectionEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSiteSectionEntity.m; sourceTree = "<group>"; };
+		281AED68185982E500DEC6E2 /* RCSiteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSiteCell.h; sourceTree = "<group>"; };
+		281AED69185982E500DEC6E2 /* RCSiteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSiteCell.m; sourceTree = "<group>"; };
 		2897EEF11856BE94000BB6B9 /* JLRubyChina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JLRubyChina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2897EEF41856BE94000BB6B9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2897EEF61856BE94000BB6B9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -170,9 +187,6 @@
 		2897EF881856E327000BB6B9 /* RCTopicEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTopicEntity.m; sourceTree = "<group>"; };
 		2897EF8D1856E3D2000BB6B9 /* RCBaseTableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCBaseTableModel.h; sourceTree = "<group>"; };
 		2897EF8E1856E3D2000BB6B9 /* RCBaseTableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCBaseTableModel.m; sourceTree = "<group>"; };
-		2897EF911856E618000BB6B9 /* leftside_shadow_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leftside_shadow_bg@2x.png"; sourceTree = "<group>"; };
-		2897EF921856E618000BB6B9 /* MLNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLNavigationController.h; sourceTree = "<group>"; };
-		2897EF931856E618000BB6B9 /* MLNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLNavigationController.m; sourceTree = "<group>"; };
 		2897EF961856ECBD000BB6B9 /* RCUserEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCUserEntity.h; sourceTree = "<group>"; };
 		2897EF971856ECBD000BB6B9 /* RCUserEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCUserEntity.m; sourceTree = "<group>"; };
 		2897EF991856FB09000BB6B9 /* RCTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTopicCell.h; sourceTree = "<group>"; };
@@ -351,7 +365,6 @@
 			children = (
 				28D4EF86185829FA00C9C858 /* Nimbus_fixbug */,
 				28D4EF821858276A00C9C858 /* Reachability */,
-				2897EF901856E618000BB6B9 /* MultiLayerNavigation */,
 				2897EF2A1856C422000BB6B9 /* JLNimbusTimeline */,
 			);
 			name = Vendor;
@@ -470,6 +483,8 @@
 				28D4EF8F1858463E00C9C858 /* RCForumNodesC.m */,
 				CEEA2BED1858C41D004FDEDF /* RCQuickReplyC.h */,
 				CEEA2BEE1858C41D004FDEDF /* RCQuickReplyC.m */,
+				281AED5C185975D900DEC6E2 /* RCCoolSitesC.h */,
+				281AED5D185975D900DEC6E2 /* RCCoolSitesC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -489,6 +504,10 @@
 				28D4EF80185826BF00C9C858 /* RCKeywordEntity.m */,
 				28D4EF91185846CA00C9C858 /* RCNodeEntity.h */,
 				28D4EF92185846CA00C9C858 /* RCNodeEntity.m */,
+				281AED621859764700DEC6E2 /* RCSiteEntity.h */,
+				281AED631859764700DEC6E2 /* RCSiteEntity.m */,
+				281AED651859769100DEC6E2 /* RCSiteSectionEntity.h */,
+				281AED661859769100DEC6E2 /* RCSiteSectionEntity.m */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -515,6 +534,8 @@
 				28D4EF741857F78500C9C858 /* RCTopicBodyView.m */,
 				28D4F06F18584EA500C9C858 /* RCNodeCell.h */,
 				28D4F07018584EA500C9C858 /* RCNodeCell.m */,
+				281AED68185982E500DEC6E2 /* RCSiteCell.h */,
+				281AED69185982E500DEC6E2 /* RCSiteCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -532,19 +553,10 @@
 				28D4F06D18584E7C00C9C858 /* RCForumNodesModel.m */,
 				CE3889D21858AA790052566C /* RCReplyModel.h */,
 				CE3889D31858AA790052566C /* RCReplyModel.m */,
+				281AED5F1859760F00DEC6E2 /* RCCoolSitesModel.h */,
+				281AED601859760F00DEC6E2 /* RCCoolSitesModel.m */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		2897EF901856E618000BB6B9 /* MultiLayerNavigation */ = {
-			isa = PBXGroup;
-			children = (
-				2897EF911856E618000BB6B9 /* leftside_shadow_bg@2x.png */,
-				2897EF921856E618000BB6B9 /* MLNavigationController.h */,
-				2897EF931856E618000BB6B9 /* MLNavigationController.m */,
-			);
-			name = MultiLayerNavigation;
-			path = vendor/MultiLayerNavigation;
 			sourceTree = "<group>";
 		};
 		28D4EF821858276A00C9C858 /* Reachability */ = {
@@ -582,6 +594,8 @@
 		CE96584B18573E98003066A5 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				281AED5718594ED600DEC6E2 /* 37x-Checkmark.png */,
+				281AED5818594ED600DEC6E2 /* 37x-Checkmark@2x.png */,
 				CEEA2BF01858C561004FDEDF /* QuickReply */,
 				CE96584C18573E98003066A5 /* IconDefault */,
 			);
@@ -697,6 +711,7 @@
 			files = (
 				CE96585018573E98003066A5 /* icon@2x.png in Resources */,
 				CEEA2BFA1858C561004FDEDF /* MessageEntryBackground@2x.png in Resources */,
+				281AED5918594ED600DEC6E2 /* 37x-Checkmark.png in Resources */,
 				CE3889D11858A5790052566C /* ruby-logo@2x.png in Resources */,
 				CEEA2BFE1858C561004FDEDF /* MessageEntrySendButton@2x.png in Resources */,
 				2897EF761856C616000BB6B9 /* TODO in Resources */,
@@ -707,13 +722,13 @@
 				CEEA2BFF1858C561004FDEDF /* MessageEntrySendButtonPressed.png in Resources */,
 				CE96585618573F57003066A5 /* icon80.png in Resources */,
 				CEEA2BFB1858C561004FDEDF /* MessageEntryInputField.png in Resources */,
+				281AED5A18594ED600DEC6E2 /* 37x-Checkmark@2x.png in Resources */,
 				CEEA2BFD1858C561004FDEDF /* MessageEntrySendButton.png in Resources */,
 				CE96584F18573E98003066A5 /* icon.png in Resources */,
 				28D4EF8A18582B0A00C9C858 /* Notice in Resources */,
 				2897EF741856C60A000BB6B9 /* README.md in Resources */,
 				CE96585518573F57003066A5 /* icon58.png in Resources */,
 				2897EEFF1856BE94000BB6B9 /* InfoPlist.strings in Resources */,
-				2897EF941856E618000BB6B9 /* leftside_shadow_bg@2x.png in Resources */,
 				CEEA2BF91858C561004FDEDF /* MessageEntryBackground.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -767,6 +782,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				281AED5E185975D900DEC6E2 /* RCCoolSitesC.m in Sources */,
+				281AED641859764700DEC6E2 /* RCSiteEntity.m in Sources */,
 				28D4F06E18584E7C00C9C858 /* RCForumNodesModel.m in Sources */,
 				2897EF591856C422000BB6B9 /* UIFontAdditions.m in Sources */,
 				CE9658801857681C003066A5 /* RCReplyEntity.m in Sources */,
@@ -790,13 +807,15 @@
 				28D4EF901858463E00C9C858 /* RCForumNodesC.m in Sources */,
 				2897EF611856C422000BB6B9 /* JLNimbusEntity.m in Sources */,
 				2897EF791856E073000BB6B9 /* RCGlobalConfig.m in Sources */,
+				281AED611859760F00DEC6E2 /* RCCoolSitesModel.m in Sources */,
 				2897EF651856C422000BB6B9 /* JLNimbusTableModel.m in Sources */,
 				CE96587718576748003066A5 /* RCTopicDetailEntity.m in Sources */,
+				281AED671859769100DEC6E2 /* RCSiteSectionEntity.m in Sources */,
 				CE96587D185767BD003066A5 /* RCTopicDetailModel.m in Sources */,
 				2897EF9B1856FB09000BB6B9 /* RCTopicCell.m in Sources */,
-				2897EF951856E618000BB6B9 /* MLNavigationController.m in Sources */,
 				CE96587A18576791003066A5 /* RCTopicDetailC.m in Sources */,
 				2897EF861856E2EA000BB6B9 /* RCForumTopicsModel.m in Sources */,
+				281AED6A185982E500DEC6E2 /* RCSiteCell.m in Sources */,
 				2897EF011856BE94000BB6B9 /* main.m in Sources */,
 				2897EF5D1856C422000BB6B9 /* UIWindowAdditions.m in Sources */,
 				2897EF8F1856E3D2000BB6B9 /* RCBaseTableModel.m in Sources */,

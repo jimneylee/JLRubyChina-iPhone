@@ -9,7 +9,6 @@
 #import "RCAppDelegate.h"
 #import "AFNetworking.h"
 #import "PPRevealSideViewController.h"
-#import "MLNavigationController.h"
 #import "RCRootC.h"
 #import "RCForumTopicsC.h"
 
@@ -66,11 +65,10 @@
 #if 1
     RCRootC *main = [[RCRootC alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:main];
-    //nav.backFloorNumber = 2;// 因为基于这个右边栏框架，底层默认有2个viewcontroller
     nav.navigationBar.translucent = NO;
     self.revealSideViewController = [[PPRevealSideViewController alloc] initWithRootViewController:nav];
     [self.revealSideViewController setDirectionsToShowBounce:PPRevealSideDirectionNone];
-    [self.revealSideViewController setPanInteractionsWhenClosed:PPRevealSideInteractionContentView | PPRevealSideInteractionNavigationBar];
+    [self.revealSideViewController setPanInteractionsWhenClosed:/*PPRevealSideInteractionContentView | */PPRevealSideInteractionNavigationBar];
     
     self.window.rootViewController = self.revealSideViewController;
     [self.window makeKeyAndVisible];
