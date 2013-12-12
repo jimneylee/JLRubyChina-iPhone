@@ -9,8 +9,12 @@
 #import "RCQuickReplyC.h"
 #import "RCReplyModel.h"
 
+#define BTN_TITLE_REPLY @"回复"
+#define BTN_TITLE_CANCEL @"取消"
+
 @interface RCQuickReplyC ()
 @property (nonatomic, assign) unsigned long topicId;
+@property (nonatomic, strong) UIButton* sendBtn;
 @end
 
 @implementation RCQuickReplyC
@@ -62,7 +66,7 @@
 	// self.textView.maxNumberOfLines = 6;
     // you can also set the maximum height in points with maxHeight
     self.textView.maxHeight = kTextViewMaxHeight;
-	self.textView.returnKeyType = UIReturnKeyNext;
+	self.textView.returnKeyType = UIReturnKeyDefault;
 	self.textView.font = [UIFont systemFontOfSize:15.0f];
 	self.textView.delegate = self;
     self.textView.internalTextView.scrollIndicatorInsets = UIEdgeInsetsMake(5, 0, 5, 0);
@@ -103,13 +107,15 @@
 	sendBtn.frame = CGRectMake(self.containerView.frame.size.width - kSendbtnWidth - CELL_PADDING_6,
                                CELL_PADDING_8, kSendbtnWidth, kSendBtnHeight);
     sendBtn.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin;
-	[sendBtn setTitle:@"Send" forState:UIControlStateNormal];
+	[sendBtn setTitle:BTN_TITLE_CANCEL forState:UIControlStateNormal];
     [sendBtn setTitleShadowColor:[UIColor colorWithWhite:0 alpha:0.4] forState:UIControlStateNormal];
     sendBtn.titleLabel.shadowOffset = CGSizeMake (0.0, -1.0);
     sendBtn.titleLabel.font = [UIFont boldSystemFontOfSize:18.0f];
     [sendBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 	[sendBtn addTarget:self action:@selector(replyAction) forControlEvents:UIControlEventTouchUpInside];
     [sendBtn setBackgroundImage:sendBtnBgImage forState:UIControlStateNormal];
+    self.sendBtn = sendBtn;
+    
 	[self.containerView addSubview:sendBtn];
     self.containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
 }
@@ -160,6 +166,17 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - HPGrowingTextViewDelegate
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)growingTextViewDidChange:(HPGrowingTextView *)growingTextView
+{
+    if (0 == growingTextView.text.length) {
+        [self.sendBtn setTitle:BTN_TITLE_CANCEL forState:UIControlStateNormal];
+    }
+    else {
+        [self.sendBtn setTitle:BTN_TITLE_REPLY forState:UIControlStateNormal];
+    }
+}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)growingTextView:(HPGrowingTextView *)growingTextView willChangeHeight:(float)height
