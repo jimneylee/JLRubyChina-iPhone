@@ -9,6 +9,7 @@
 #import "RCReplyEntity.h"
 #import "NSDate+RubyChina.h"
 #import "SCRegularParser.h"
+#import "NSString+Emojize.h"
 
 @implementation RCReplyEntity
 
@@ -47,14 +48,14 @@
 - (void)parseAllKeywords
 {
     if (self.body.length) {
-        // TODO: emotion
-        // 考虑优先剔除表情，这样@和#不会勿标识
         if (!self.atPersonRanges) {
             self.atPersonRanges = [SCRegularParser keywordRangesOfAtPersonInString:self.body];
         }
         if (!self.sharpFloorRanges) {
             self.sharpFloorRanges = [SCRegularParser keywordRangesOfSharpFloorInString:self.body];
         }
+        // TODO: emotion
+        self.body = [self.body emojizedString];
     }
 }
 

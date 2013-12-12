@@ -15,14 +15,15 @@
 #import "RCReplyEntity.h"
 #import "RCKeywordEntity.h"
 
-#define TITLE_FONT_SIZE [UIFont systemFontOfSize:15.f]
-#define SUBTITLE_FONT_SIZE [UIFont systemFontOfSize:12.f]
-#define CONTENT_FONT_SIZE [UIFont systemFontOfSize:16.f]
+#define NAME_FONT_SIZE [UIFont systemFontOfSize:15.f]
+#define DATE_FONT_SIZE [UIFont systemFontOfSize:12.f]
+// 冬青字体：http://tadaland.com/ios-better-experience-font-hiragino.html
+#define CONTENT_FONT_SIZE [UIFont fontWithName:@"Hiragino Sans GB" size:17.f]
 #define BUTTON_FONT_SIZE [UIFont boldSystemFontOfSize:13.f]
 
-#define CONTENT_LINE_HEIGHT 20.f
+#define CONTENT_LINE_HEIGHT 21.f
 #define HEAD_IAMGE_HEIGHT 34
-#define BUTTON_SIZE CGSizeMake(40.f, 18.f)
+#define BUTTON_SIZE CGSizeMake(40.f, 22.f)
 
 @interface RCReplyCell()<NIAttributedLabelDelegate>
 @property (nonatomic, strong) NIAttributedLabel* contentLabel;
@@ -44,7 +45,7 @@
         contentLabel.numberOfLines = 0;
         contentLabel.lineBreakMode = NSLineBreakByWordWrapping;
         contentLabel.font = CONTENT_FONT_SIZE;
-        //contentLabel.lineHeight = CONTENT_LINE_HEIGHT;
+        contentLabel.lineHeight = CONTENT_LINE_HEIGHT;
         contentLabel.width = width;
     }
     else {
@@ -97,26 +98,26 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.selectionStyle = UITableViewCellSelectionStyleBlue;
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         
         self.headView = [[NINetworkImageView alloc] initWithFrame:CGRectMake(0, 0, HEAD_IAMGE_HEIGHT,
                                                                                     HEAD_IAMGE_HEIGHT)];
         [self.contentView addSubview:self.headView];
         
         // name
-        self.textLabel.font = TITLE_FONT_SIZE;
+        self.textLabel.font = NAME_FONT_SIZE;
         self.textLabel.textColor = [UIColor blackColor];
         self.textLabel.highlightedTextColor = self.textLabel.textColor;
         
-        // source from & date
-        self.detailTextLabel.font = SUBTITLE_FONT_SIZE;
+        // date
+        self.detailTextLabel.font = DATE_FONT_SIZE;
         self.detailTextLabel.textColor = [UIColor grayColor];
         self.detailTextLabel.highlightedTextColor = self.detailTextLabel.textColor;
         
         // lou
         self.floorLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         self.floorLabel.numberOfLines = 0;
-        self.floorLabel.font = SUBTITLE_FONT_SIZE;
+        self.floorLabel.font = DATE_FONT_SIZE;
         self.floorLabel.textColor = [UIColor blackColor];
         self.floorLabel.textAlignment = NSTextAlignmentRight;
         [self.contentView addSubview:self.floorLabel];
@@ -135,7 +136,7 @@
         self.contentLabel = [[NIAttributedLabel alloc] initWithFrame:CGRectZero];
         self.contentLabel.numberOfLines = 0;
         self.contentLabel.font = CONTENT_FONT_SIZE;
-        //self.contentLabel.lineHeight = CONTENT_LINE_HEIGHT;
+        self.contentLabel.lineHeight = CONTENT_LINE_HEIGHT;
         self.contentLabel.textColor = [UIColor blackColor];
         self.contentLabel.lineBreakMode = NSLineBreakByWordWrapping;
         self.contentLabel.autoDetectLinks = YES;
@@ -187,7 +188,7 @@
                                       self.textLabel.font.lineHeight);
     
     // floor
-    self.floorLabel.frame = CGRectMake(self.textLabel.right, self.textLabel.top - CELL_PADDING_4,
+    self.floorLabel.frame = CGRectMake(self.textLabel.right, CELL_PADDING_2,
                                      self.textLabel.width, self.textLabel.height);
     
     // reply btn
