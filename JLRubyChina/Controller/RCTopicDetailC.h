@@ -11,4 +11,5 @@
 // TODO:楼层调转
 @interface RCTopicDetailC : JLNimbusTableViewController
 - (id)initWithTopicId:(unsigned long)topicId;
+- (void)replyTopicWithFloorAtSomeone:(NSString*)floorAtsomeoneString;
 @end
