@@ -71,4 +71,9 @@ NSString *const kAPIBaseURLString = @"http://ruby-china.org/api/";
     return [NSString stringWithFormat:@"topics/%lu/replies.json", topicId];
 }
 
++ (NSString*)relativePathForCoolSites
+{
+    return [NSString stringWithFormat:@"sites.json"];
+}
+
 @end

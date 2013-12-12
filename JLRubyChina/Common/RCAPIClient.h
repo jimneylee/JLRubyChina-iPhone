@@ -32,6 +32,9 @@
 // 回复帖子
 + (NSString*)relativePathForReplyTopicId:(unsigned long)topicId;
 
+// 酷站
++ (NSString*)relativePathForCoolSites;
+
 @end
 
 NSString *const kAPIBaseURLString;
