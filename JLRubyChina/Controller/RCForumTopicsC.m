@@ -144,7 +144,7 @@
                     [self.navigationController pushViewController:c animated:YES];
                 }
                 else {
-                    [RCGlobalConfig showHUDMessage:@"帖子不存在或已被删除！" addedToView:self.view];
+                    [RCGlobalConfig hudShowMessage:@"帖子不存在或已被删除！" addedToView:self.view];
                 }
             }
             return YES;
@@ -159,21 +159,21 @@
 - (void)showMessageForEmpty
 {
     NSString* msg = @"信息为空";
-    [RCGlobalConfig showHUDMessage:msg addedToView:self.view];
+    [RCGlobalConfig hudShowMessage:msg addedToView:self.view];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)showMessageForError
 {
     NSString* msg = @"抱歉，无法获取信息，请稍后再试！";
-    [RCGlobalConfig showHUDMessage:msg addedToView:self.view];
+    [RCGlobalConfig hudShowMessage:msg addedToView:self.view];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)showMssageForLastPage
 {
     NSString* msg = @"已是最后一页";
-    [RCGlobalConfig showHUDMessage:msg addedToView:self.view];
+    [RCGlobalConfig hudShowMessage:msg addedToView:self.view];
 }
 
 @end
