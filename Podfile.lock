@@ -53,6 +53,7 @@ PODS:
   - Nimbus/WebController (1.0.0):
     - Nimbus/Core
   - PPRevealSideViewController (1.0.1)
+  - SDSegmentedControl (1.0.2)
   - SSKeychain (1.2.1)
 
 DEPENDENCIES:
@@ -63,6 +64,7 @@ DEPENDENCIES:
   - MTStatusBarOverlay
   - Nimbus (~> 1.0.0)
   - PPRevealSideViewController
+  - SDSegmentedControl
   - SSKeychain
 
 SPEC CHECKSUMS:
@@ -73,6 +75,7 @@ SPEC CHECKSUMS:
   MTStatusBarOverlay: 2cee705996e4e307191d423bf49e583b9b2c14ac
   Nimbus: 5396b75b180a4bf6fe813553d533121d42bdd9d9
   PPRevealSideViewController: b687e80c29a301b8f5a5b573c022c7da0b6af11e
+  SDSegmentedControl: 165956a426f1fd7ff1eb486c4931241f12e0867e
   SSKeychain: d18926838c2e7cd342e2a49e9f869858e49f035a
 
-COCOAPODS: 0.27.1
+COCOAPODS: 0.23.0
