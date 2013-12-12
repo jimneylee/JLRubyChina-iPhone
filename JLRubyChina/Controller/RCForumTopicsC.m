@@ -29,6 +29,9 @@
         ((RCForumTopicsModel*)self.model).topicsType = topicsType;
         self.navigationItem.leftBarButtonItem = [RCGlobalConfig createMenuBarButtonItemWithTarget:self
                                                                                            action:@selector(showLeft:)];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose
+                                                                                               target:self action:@selector(postNewTopicAction)];
+
     }
     return self;
 }
@@ -107,6 +110,12 @@
             break;
     }
     return topicsTypeName;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)postNewTopicAction
+{
+    
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
