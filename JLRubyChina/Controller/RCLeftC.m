@@ -134,6 +134,10 @@
             title = @"分类导航";
             break;
             
+        case LeftMenuType_CoolSites:
+            title = @"外链酷站";
+            break;
+            
         case LeftMenuType_UserCenter:
             title = @"个人中心";
             break;

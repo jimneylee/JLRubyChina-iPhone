@@ -12,6 +12,7 @@ typedef enum
 {
     LeftMenuType_Home=0,
     LeftMenuType_ForumNodes,
+    LeftMenuType_CoolSites,
     LeftMenuType_UserCenter,
     LeftMenuType_More,
     LeftMenuType_AboutUs
