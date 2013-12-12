@@ -7,161 +7,169 @@
 //
 
 #import "RCQuickReplyC.h"
+#import "RCReplyModel.h"
 
 @interface RCQuickReplyC ()
-
+@property (nonatomic, assign) unsigned long topicId;
 @end
 
 @implementation RCQuickReplyC
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - UIViewController
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (id)initWithTopicId:(unsigned long)topicId
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [self initWithNibName:nil bundle:nil];
     if (self) {
-		[[NSNotificationCenter defaultCenter] addObserver:self
-												 selector:@selector(keyboardWillShow:)
-													 name:UIKeyboardWillShowNotification
-												   object:nil];
-		
-		[[NSNotificationCenter defaultCenter] addObserver:self
-												 selector:@selector(keyboardWillHide:)
-													 name:UIKeyboardWillHideNotification
-												   object:nil];
+        self.topicId = topicId;
     }
     return self;
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+
+    }
+    return self;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.containerView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 40, 320, 40)];
     
-	self.textView = [[HPGrowingTextView alloc] initWithFrame:CGRectMake(6, 3, 240, 40)];
-    self.textView.isScrollable = NO;
+    CGFloat kViewWidth = [UIScreen mainScreen].bounds.size.width;
+    CGFloat kViewHeight = 40.f;
+    self.view.frame = CGRectMake(0, 0, kViewWidth, kViewHeight);
+    self.containerView = [[UIView alloc] initWithFrame:self.view.bounds];
+    
+    CGFloat kTextViewWidth = 240.f;
+    CGFloat kTextViewMaxHeight = [UIScreen mainScreen].bounds.size.height
+                                - TTKeyboardHeightForOrientation(self.interfaceOrientation)
+                                - NIStatusBarHeight() - NIToolbarHeightForOrientation(self.interfaceOrientation) * 2;
+	self.textView = [[HPGrowingTextView alloc] initWithFrame:CGRectMake(CELL_PADDING_6, CELL_PADDING_4,
+                                                                        kTextViewWidth, kViewHeight)];
+    self.textView.isScrollable = YES;
     self.textView.contentInset = UIEdgeInsetsMake(0, 5, 0, 5);
     
 	self.textView.minNumberOfLines = 1;
-	self.textView.maxNumberOfLines = 6;
+	// self.textView.maxNumberOfLines = 6;
     // you can also set the maximum height in points with maxHeight
-    // self.textView.maxHeight = 200.0f;
-	self.textView.returnKeyType = UIReturnKeyGo; //just as an example
+    self.textView.maxHeight = kTextViewMaxHeight;
+	self.textView.returnKeyType = UIReturnKeyNext;
 	self.textView.font = [UIFont systemFontOfSize:15.0f];
 	self.textView.delegate = self;
     self.textView.internalTextView.scrollIndicatorInsets = UIEdgeInsetsMake(5, 0, 5, 0);
     self.textView.backgroundColor = [UIColor whiteColor];
-    self.textView.placeholder = @"Type to see the textView grow!";
-    
+    self.textView.placeholder = @"In my opinion ...";
     // textView.text = @"test\n\ntest";
 	// textView.animateHeightChange = NO; //turns off animation
-    
     [self.view addSubview:self.containerView];
 	
-    UIImage *rawEntryBackground = [UIImage imageNamed:@"MessageEntryInputField.png"];
-    UIImage *entryBackground = [rawEntryBackground stretchableImageWithLeftCapWidth:13 topCapHeight:22];
-    UIImageView *entryImageView = [[UIImageView alloc] initWithImage:entryBackground];
-    entryImageView.frame = CGRectMake(5, 0, 248, 40);
-    entryImageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    
-    UIImage *rawBackground = [UIImage imageNamed:@"MessageEntryBackground.png"];
-    UIImage *background = [rawBackground stretchableImageWithLeftCapWidth:13 topCapHeight:22];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:background];
+    UIImage* textViewBgSourceImage = [UIImage imageNamed:@"MessageEntryInputField.png"];
+    UIImage* textViewBgImage = [textViewBgSourceImage stretchableImageWithLeftCapWidth:textViewBgSourceImage.size.width / 2
+                                                                    topCapHeight:textViewBgSourceImage.size.height / 2];
+    UIImageView* textViewImageView = [[UIImageView alloc] initWithImage:textViewBgImage];
+    CGFloat kTextViewBgImageViewWidth = 248.f;
+    textViewImageView.frame = CGRectMake(5, 0, kTextViewBgImageViewWidth, kViewHeight);
+    textViewImageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+
+    UIImage* mainBgSourceImage = [UIImage imageNamed:@"MessageEntryBackground.png"];
+    UIImage* mainBgImage = [mainBgSourceImage stretchableImageWithLeftCapWidth:mainBgSourceImage.size.width / 2
+                                                                 topCapHeight:mainBgSourceImage.size.height / 2];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:mainBgImage];
     imageView.frame = CGRectMake(0, 0, self.containerView.frame.size.width, self.containerView.frame.size.height);
     imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    
     self.textView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
     // view hierachy
     [self.containerView addSubview:imageView];
     [self.containerView addSubview:self.textView];
-    [self.containerView addSubview:entryImageView];
+    [self.containerView addSubview:textViewImageView];
     
-    UIImage *sendBtnBackground = [[UIImage imageNamed:@"MessageEntrySendButton.png"] stretchableImageWithLeftCapWidth:13 topCapHeight:0];
-    UIImage *selectedSendBtnBackground = [[UIImage imageNamed:@"MessageEntrySendButton.png"] stretchableImageWithLeftCapWidth:13 topCapHeight:0];
+    UIImage* sendBtnBgSourceImage = [UIImage imageNamed:@"MessageEntrySendButton.png"];
+    UIImage* sendBtnBgImage = [sendBtnBgSourceImage stretchableImageWithLeftCapWidth:sendBtnBgSourceImage.size.width / 2
+                                                                        topCapHeight:0];
+    CGFloat kSendbtnWidth = 63.f;
+    CGFloat kSendBtnHeight = 27.f;
     
-	UIButton *doneBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-	doneBtn.frame = CGRectMake(self.containerView.frame.size.width - 69, 8, 63, 27);
-    doneBtn.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin;
-	[doneBtn setTitle:@"Done" forState:UIControlStateNormal];
-    
-    [doneBtn setTitleShadowColor:[UIColor colorWithWhite:0 alpha:0.4] forState:UIControlStateNormal];
-    doneBtn.titleLabel.shadowOffset = CGSizeMake (0.0, -1.0);
-    doneBtn.titleLabel.font = [UIFont boldSystemFontOfSize:18.0f];
-    
-    [doneBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-	[doneBtn addTarget:self action:@selector(resignTextView) forControlEvents:UIControlEventTouchUpInside];
-    [doneBtn setBackgroundImage:sendBtnBackground forState:UIControlStateNormal];
-    [doneBtn setBackgroundImage:selectedSendBtnBackground forState:UIControlStateSelected];
-	[self.containerView addSubview:doneBtn];
+	UIButton* sendBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+	sendBtn.frame = CGRectMake(self.containerView.frame.size.width - kSendbtnWidth - CELL_PADDING_6,
+                               CELL_PADDING_8, kSendbtnWidth, kSendBtnHeight);
+    sendBtn.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin;
+	[sendBtn setTitle:@"Send" forState:UIControlStateNormal];
+    [sendBtn setTitleShadowColor:[UIColor colorWithWhite:0 alpha:0.4] forState:UIControlStateNormal];
+    sendBtn.titleLabel.shadowOffset = CGSizeMake (0.0, -1.0);
+    sendBtn.titleLabel.font = [UIFont boldSystemFontOfSize:18.0f];
+    [sendBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+	[sendBtn addTarget:self action:@selector(replyAction) forControlEvents:UIControlEventTouchUpInside];
+    [sendBtn setBackgroundImage:sendBtnBgImage forState:UIControlStateNormal];
+	[self.containerView addSubview:sendBtn];
     self.containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
--(void)resignTextView
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Private
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+-(void)replyAction
 {
-	[textView resignFirstResponder];
+    if (self.textView.text.length) {
+        RCReplyModel* replyModel = [[RCReplyModel alloc] init];
+        [replyModel replyTopicId:self.topicId withBody:self.textView.text
+                         success:^{
+                             self.textView.text = @"";
+                             [self.textView resignFirstResponder];
+                             MBProgressHUD* hud = [RCGlobalConfig hudShowMessage:@"Success!" addedToView:self.view];
+                             hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
+                             hud.mode = MBProgressHUDModeCustomView;
+                             // 是否需要刷新后，自动滑动到底部，有待考虑，有时需要一次回复多个人，后面看大家使用反馈
+                         } failure:^(NSError *error) {
+                             [RCGlobalConfig hudShowMessage:@"Failure!" addedToView:self.view];
+                         }];
+    }
+    else {
+        [self.textView resignFirstResponder];
+    }
 }
 
-//Code from Brett Schumann
--(void) keyboardWillShow:(NSNotification *)note{
-    // get keyboard size and loctaion
-	CGRect keyboardBounds;
-    [[note.userInfo valueForKey:UIKeyboardFrameEndUserInfoKey] getValue: &keyboardBounds];
-    NSNumber *duration = [note.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
-    NSNumber *curve = [note.userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey];
-    
-    // Need to translate the bounds to account for rotation.
-    keyboardBounds = [self.view convertRect:keyboardBounds toView:nil];
-    
-	// get a rect for the textView frame
-	CGRect containerFrame = containerView.frame;
-    containerFrame.origin.y = self.view.bounds.size.height - (keyboardBounds.size.height + containerFrame.size.height);
-	// animations settings
-	[UIView beginAnimations:nil context:NULL];
-	[UIView setAnimationBeginsFromCurrentState:YES];
-    [UIView setAnimationDuration:[duration doubleValue]];
-    [UIView setAnimationCurve:[curve intValue]];
-	
-	// set views with new info
-	containerView.frame = containerFrame;
-    
-	
-	// commit animations
-	[UIView commitAnimations];
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Public
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)appendString:(NSString*)string
+{
+    self.textView.text = [NSString stringWithFormat:@"%@ %@", self.textView.text, string];
 }
 
--(void) keyboardWillHide:(NSNotification *)note{
-    NSNumber *duration = [note.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
-    NSNumber *curve = [note.userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey];
-	
-	// get a rect for the textView frame
-	CGRect containerFrame = containerView.frame;
-    containerFrame.origin.y = self.view.bounds.size.height - containerFrame.size.height;
-	
-	// animations settings
-	[UIView beginAnimations:nil context:NULL];
-	[UIView setAnimationBeginsFromCurrentState:YES];
-    [UIView setAnimationDuration:[duration doubleValue]];
-    [UIView setAnimationCurve:[curve intValue]];
-    
-	// set views with new info
-	containerView.frame = containerFrame;
-	
-	// commit animations
-	[UIView commitAnimations];
-}
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - HPGrowingTextViewDelegate
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)growingTextView:(HPGrowingTextView *)growingTextView willChangeHeight:(float)height
 {
     float diff = (growingTextView.frame.size.height - height);
     
-	CGRect r = containerView.frame;
+	CGRect r = self.containerView.frame;
     r.size.height -= diff;
     r.origin.y += diff;
-	containerView.frame = r;
+	self.containerView.frame = r;
 }
+
 @end
