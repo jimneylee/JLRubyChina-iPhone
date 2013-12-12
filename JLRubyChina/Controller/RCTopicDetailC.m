@@ -202,15 +202,21 @@
 // 显示跳到底部和顶部
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
 {
-    if (!self.scrollBtn.superview) {
-        [[UIApplication sharedApplication].keyWindow addSubview:self.scrollBtn];
-        if (velocity.y > 0.f) {
-            [self.scrollBtn setTitle:@"↓" forState:UIControlStateNormal];
+    CGFloat minOffset = 200.f;
+    
+    if (scrollView.contentOffset.y > minOffset
+        && scrollView.contentOffset.y < scrollView.contentSize.height - minOffset) {
+        
+        if (!self.scrollBtn.superview) {
+            [[UIApplication sharedApplication].keyWindow addSubview:self.scrollBtn];
+            if (velocity.y > 0.f) {
+                [self.scrollBtn setTitle:@"↓" forState:UIControlStateNormal];
+            }
+            else {
+                [self.scrollBtn setTitle:@"↑" forState:UIControlStateNormal];
+            }
+            [self.scrollBtn performSelector:@selector(removeFromSuperview) withObject:Nil afterDelay:2.0f];
         }
-        else {
-            [self.scrollBtn setTitle:@"↑" forState:UIControlStateNormal];
-        }
-        [self.scrollBtn performSelector:@selector(removeFromSuperview) withObject:Nil afterDelay:2.0f];
     }
 }
 
