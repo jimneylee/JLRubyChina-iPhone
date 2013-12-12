@@ -222,14 +222,14 @@ didSelectTextCheckingResult:(NSTextCheckingResult *)result
             NSString* someone = [url.absoluteString substringFromIndex:PROTOCOL_AT_SOMEONE.length];
             // TODO: show someone homepage
             someone = [someone stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-            [RCGlobalConfig showHUDMessage:someone
+            [RCGlobalConfig hudShowMessage:someone
                                addedToView:[UIApplication sharedApplication].keyWindow];
         }
         else if ([url.absoluteString hasPrefix:PROTOCOL_SHARP_FLOOR]) {
             NSString* sometrend = [url.absoluteString substringFromIndex:PROTOCOL_SHARP_FLOOR.length];
             // TODO: show some floor about this trend
             sometrend = [sometrend stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-            [RCGlobalConfig showHUDMessage:sometrend
+            [RCGlobalConfig hudShowMessage:sometrend
                                addedToView:[UIApplication sharedApplication].keyWindow];
         }
         else
@@ -241,7 +241,7 @@ didSelectTextCheckingResult:(NSTextCheckingResult *)result
         }
     }
     else {
-        [RCGlobalConfig showHUDMessage:@"无效的链接" addedToView:self.viewController.view];
+        [RCGlobalConfig hudShowMessage:@"无效的链接" addedToView:self.viewController.view];
     }
 }
 

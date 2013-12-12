@@ -234,7 +234,7 @@ didSelectTextCheckingResult:(NSTextCheckingResult *)result
         if ([url.absoluteString hasPrefix:PROTOCOL_AT_SOMEONE]) {
             NSString* someone = [url.absoluteString substringFromIndex:PROTOCOL_AT_SOMEONE.length];
             someone = [someone stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-            [RCGlobalConfig showHUDMessage:someone
+            [RCGlobalConfig hudShowMessage:someone
                                addedToView:[UIApplication sharedApplication].keyWindow];
             // TODO: show someone homepage
         }
@@ -244,11 +244,11 @@ didSelectTextCheckingResult:(NSTextCheckingResult *)result
 
             if (parentC) {
                 if ([parentC.title isEqualToString:somenode]) {
-                    [RCGlobalConfig showHUDMessage:[NSString stringWithFormat:@"Already in %@ :(", somenode]
+                    [RCGlobalConfig hudShowMessage:[NSString stringWithFormat:@"Already in %@ :(", somenode]
                                        addedToView:[UIApplication sharedApplication].keyWindow];
                 }
                 else {
-                    [RCGlobalConfig showHUDMessage:[NSString stringWithFormat:@"Go to %@ :)", somenode]
+                    [RCGlobalConfig hudShowMessage:[NSString stringWithFormat:@"Go to %@ :)", somenode]
                                        addedToView:[UIApplication sharedApplication].keyWindow];
                     RCForumTopicsC* topicsC = [[RCForumTopicsC alloc] initWithNodeName:self.topicEntity.nodeName
                                                                           nodeId:self.topicEntity.nodeId];
@@ -264,7 +264,7 @@ didSelectTextCheckingResult:(NSTextCheckingResult *)result
         }
     }
     else {
-        [RCGlobalConfig showHUDMessage:@"抱歉，这是无效的链接" addedToView:self.viewController.view];
+        [RCGlobalConfig hudShowMessage:@"抱歉，这是无效的链接" addedToView:self.viewController.view];
     }
 }
 
