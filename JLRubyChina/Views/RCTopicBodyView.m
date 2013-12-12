@@ -14,13 +14,13 @@
 #import "UIView+findViewController.h"
 #import "RCKeywordEntity.h"
 
-#define TITLE_FONT_SIZE [UIFont boldSystemFontOfSize:16.f]
+// 字体 行高 文本色设置
+#define TITLE_FONT_SIZE [UIFont boldSystemFontOfSize:18.f]
 #define NAME_FONT_SIZE [UIFont systemFontOfSize:15.f]
 #define DATE_FONT_SIZE [UIFont systemFontOfSize:12.f]
 // 冬青字体：http://tadaland.com/ios-better-experience-font-hiragino.html
-// 本微博：字体 行高 文本色设置
-#define CONTENT_FONT_SIZE [UIFont fontWithName:@"Hiragino Sans GB" size:16.f]
-#define CONTENT_LINE_HEIGHT 18.f
+#define CONTENT_FONT_SIZE [UIFont fontWithName:@"Hiragino Sans GB" size:17.f]
+#define CONTENT_LINE_HEIGHT 21.f
 #define HEAD_IAMGE_HEIGHT 34
 
 @interface RCTopicBodyView()<NIAttributedLabelDelegate>
