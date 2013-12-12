@@ -11,6 +11,7 @@
 #import "NIAttributedLabel.h"
 #import "NIWebController.h"
 #import "UIView+findViewController.h"
+#import "RCTopicDetailC.h"
 #import "RCReplyEntity.h"
 #import "RCKeywordEntity.h"
 
@@ -28,6 +29,7 @@
 @property (nonatomic, strong) UILabel* floorLabel;
 @property (nonatomic, strong) NINetworkImageView* headView;
 @property (nonatomic, strong) UIButton* replyBtn;
+@property (nonatomic, strong) RCReplyEntity* replyEntity;
 @end
 @implementation RCReplyCell
 
@@ -210,6 +212,7 @@
     [super shouldUpdateCellWithObject:object];
     if ([object isKindOfClass:[RCReplyEntity class]]) {
         RCReplyEntity* o = (RCReplyEntity*)object;
+        self.replyEntity = o;
         if (o.user.avatarUrl.length) {
             [self.headView setPathToNetworkImage:o.user.avatarUrl];
         }
@@ -254,12 +257,16 @@
     // TODO: check emotion
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)replyAction
 {
     UIViewController* parentC = self.viewController;
     // 弹出回复框
-    [RCGlobalConfig showHUDMessage:@"show textview" addedToView:parentC.view];
-
+    if ([parentC isKindOfClass:[RCTopicDetailC class]]) {
+        RCTopicDetailC* topicDetailC = (RCTopicDetailC*)parentC;
+        [topicDetailC replyTopicWithFloorAtSomeone:[NSString stringWithFormat:@"#%u楼 @%@",
+                                                    self.replyEntity.floorNumber, self.replyEntity.user.username]];
+    }
 }
 
 #pragma mark - NIAttributedLabelDelegate
@@ -281,13 +288,13 @@ didSelectTextCheckingResult:(NSTextCheckingResult *)result
         if ([url.absoluteString hasPrefix:PROTOCOL_AT_SOMEONE]) {
             NSString* someone = [url.absoluteString substringFromIndex:PROTOCOL_AT_SOMEONE.length];
             someone = [someone stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-            [RCGlobalConfig showHUDMessage:someone
+            [RCGlobalConfig hudShowMessage:someone
                                addedToView:[UIApplication sharedApplication].keyWindow];
         }
         else if ([url.absoluteString hasPrefix:PROTOCOL_SHARP_FLOOR]) {
             NSString* somefloor = [url.absoluteString substringFromIndex:PROTOCOL_SHARP_FLOOR.length];
             somefloor = [somefloor stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-            [RCGlobalConfig showHUDMessage:[NSString stringWithFormat:@"Jump to #%@", somefloor]
+            [RCGlobalConfig hudShowMessage:[NSString stringWithFormat:@"Jump to #%@", somefloor]
                                addedToView:[UIApplication sharedApplication].keyWindow];
             
             if ([parentC isKindOfClass:[UITableViewController class]]) {
@@ -307,7 +314,7 @@ didSelectTextCheckingResult:(NSTextCheckingResult *)result
         }
     }
     else {
-        [RCGlobalConfig showHUDMessage:@"无效的链接" addedToView:self.viewController.view];
+        [RCGlobalConfig hudShowMessage:@"无效的链接" addedToView:self.viewController.view];
     }
 }
 
