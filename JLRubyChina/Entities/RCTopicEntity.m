@@ -9,24 +9,6 @@
 #import "RCTopicEntity.h"
 #import "NSDate+RubyChina.h"
 
-//{
-//    "id": 16115,
-//    "title": "鍒╃敤 net-ssh 鏈嶅姟鍣ㄤ箣闂村彂閫佹枃浠�",
-//    "created_at": "2013-12-10T13:27:41.334+08:00",
-//    "updated_at": "2013-12-10T13:27:41.334+08:00",
-//    "replied_at": null,
-//    "replies_count": 0,
-//    "node_name": "Ruby",
-//    "node_id": 1,
-//    "last_reply_user_id": null,
-//    "last_reply_user_login": null,
-//    "user": {
-//        "id": 2596,
-//        "login": "fengzhilian818",
-//        "avatar_url": "http://ruby-china.org/avatar/e351cfb6c0fa7e761e5287952f292a16.png?s=120"
-//            }
-//}
-
 @implementation RCTopicEntity
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
