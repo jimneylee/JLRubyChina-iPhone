@@ -40,4 +40,9 @@
 #define JSON_SECTION_ID @"section_id"
 #define JSON_SECTION_NAME @"section_name"
 #define JSON_SORT @"sort"
+#define JSON_SECTION_ID @"_ids"
+#define JSON_SITES_LIST @"sites"
+#define JSON_DESCRIPTION @"desc"
+#define JSON_FAV_ICON @"favicon"
+#define JSON_URL @"url"
 #endif
