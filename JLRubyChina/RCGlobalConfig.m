@@ -15,12 +15,18 @@
 #pragma mark - Global UI
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-+ (void)showHUDMessage:(NSString*)msg addedToView:(UIView*)view
++ (MBProgressHUD*)hudShowMessage:(NSString*)msg addedToView:(UIView*)view
 {
-    __block MBProgressHUD* hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    static MBProgressHUD* hud = nil;
+    if (!hud) {
+        hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    }
     hud.mode = MBProgressHUDModeText;
     hud.labelText = msg;
+    hud.hidden = NO;
+    hud.alpha = 1.0f;
     [hud hide:YES afterDelay:1.0f];
+    return hud;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -56,6 +62,15 @@
 + (UIBarButtonItem*)createMenuBarButtonItemWithTarget:(id)target action:(SEL)action
 {
     return [RCGlobalConfig createBarButtonItemWithTitle:@"菜单" Target:target action:action];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
++ (UIBarButtonItem*)createRefreshBarButtonItemWithTarget:(id)target action:(SEL)action
+{
+    UIBarButtonItem* item = nil;
+    item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+                                                         target:target action:action];
+    return item;
 }
 
 @end

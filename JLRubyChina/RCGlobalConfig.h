@@ -47,8 +47,10 @@ typedef enum {
 @interface RCGlobalConfig : NSObject
 
 // UI
-+ (void)showHUDMessage:(NSString*)msg addedToView:(UIView*)view;
++ (MBProgressHUD*)hudShowMessage:(NSString*)msg addedToView:(UIView*)view;
 + (UIColor *)mainThemeColor;
 + (UIBarButtonItem*)createBarButtonItemWithTitle:(NSString*)buttonTitle Target:(id)target action:(SEL)action;
 + (UIBarButtonItem*)createMenuBarButtonItemWithTarget:(id)target action:(SEL)action;
++ (UIBarButtonItem*)createRefreshBarButtonItemWithTarget:(id)target action:(SEL)action;
+
 @end
