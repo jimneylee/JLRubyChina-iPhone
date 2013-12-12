@@ -14,24 +14,41 @@
 #import "RCReplyModel.h"
 #import "RCQuickReplyC.h"
 
+#define SCROLL_DIRECTION_BOTTOM_TAG 1000
+#define SCROLL_DIRECTION_UP_TAG 1001
+
 @interface RCTopicDetailC ()
 @property (nonatomic, strong) RCTopicDetailEntity* topicDetailEntity;
 @property (nonatomic, strong) RCTopicBodyView* topicBodyView;
 @property (nonatomic, strong) RCQuickReplyC* quickReplyC;
 @property (nonatomic, strong) UIButton* scrollBtn;
+@property (nonatomic, strong) JLNimbusMoreButton* refreshFooterBtn;
+@property (nonatomic, assign) BOOL isRefreshingLatestReply;
 @end
 
 @implementation RCTopicDetailC
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithTopicId:(unsigned long)topicId
 {
-    self = [self initWithNibName:nil bundle:nil];
+    self = [self initWithStyle:UITableViewStylePlain];
     if (self) {
         ((RCTopicDetailModel*)self.model).topicId = topicId;
     }
     return self;
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    if (self) {
+        
+    }
+    return self;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -39,14 +56,18 @@
         self.title = @"浏览帖子";
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemReply
                                                                                                target:self action:@selector(replyTopicAction)];
+        // cell not selectable, also cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [self.actions attachToClass:[self.model objectClass] tapBlock:nil/*self.tapAction*/];
+        self.isRefreshingLatestReply = NO;
     }
     return self;
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+
     self.tableView.separatorColor = [UIColor clearColor];
     self.tableView.backgroundColor = TABLE_VIEW_BG_COLOR;
     self.tableView.backgroundView = nil;
@@ -56,20 +77,26 @@
     self.scrollBtn.backgroundColor = RGBACOLOR(0, 0, 0, 0.6f);
     self.scrollBtn.titleLabel.font = [UIFont boldSystemFontOfSize:30.f];
     self.scrollBtn.titleLabel.textColor = [UIColor whiteColor];
-    self.scrollBtn.right = keyWindow.width - CELL_PADDING_8;
+    self.scrollBtn.centerX = keyWindow.width / 2;
     self.scrollBtn.bottom = keyWindow.height - CELL_PADDING_8;
+    [self.scrollBtn addTarget:self action:@selector(scrollToBottomOrTopAction)
+             forControlEvents:UIControlEventTouchUpInside];
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self.quickReplyC.textView resignFirstResponder];
+    if ([self.quickReplyC.textView isFirstResponder]) {
+        [self.quickReplyC.textView resignFirstResponder];
+    }
     if (self.quickReplyC.view.superview) {
         [self.quickReplyC.view removeFromSuperview];
     }
@@ -89,6 +116,7 @@
         _topicBodyView = [[RCTopicBodyView alloc] initWithFrame:CGRectMake(0.f, 0.f, self.view.width, 0.f)];
     }
     [self.topicBodyView updateViewWithTopicDetailEntity:self.topicDetailEntity];
+    
     // call layoutSubviews at first to calculte view's height, dif from setNeedsLayout
     [self.topicBodyView layoutIfNeeded];
     if (!self.tableView.tableHeaderView) {
@@ -96,13 +124,14 @@
     }
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)replyTopicAction
 {
     // each time addSubview to keyWidow, otherwise keyborad is not showed, sorry, so dirty!
     [[UIApplication sharedApplication].keyWindow addSubview:_quickReplyC.view];
     self.quickReplyC.textView.internalTextView.inputAccessoryView = self.quickReplyC.view;
 
-    // call becomeFirstResponder, I donot know why
+    // call becomeFirstResponder twice, I donot know why, feel so bad!
     // maybe because textview is in superview(self.quickReplyC.view)
     [self.quickReplyC.textView.internalTextView becomeFirstResponder];
     [self.quickReplyC.textView.internalTextView becomeFirstResponder];
@@ -115,10 +144,63 @@
         _quickReplyC = [[RCQuickReplyC alloc] initWithTopicId:((RCTopicDetailModel*)self.model).topicId];
         // setting the first responder view of the table but we don't know its type (cell/header/footer)
         // [self.view addSubview:_quickReplyC.view];
-        // so mush show it in keywindow same to keyborad :)
+        // so mush show it in keywindow, same to keyborad :)
         [[UIApplication sharedApplication].keyWindow addSubview:_quickReplyC.view];
     }
     return _quickReplyC;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)scrollToBottomOrTopAction
+{
+    if (SCROLL_DIRECTION_BOTTOM_TAG == self.scrollBtn.tag) {
+        [self scrollToBottomAnimated:YES];
+    }
+    else if (SCROLL_DIRECTION_UP_TAG == self.scrollBtn.tag) {
+        [self scrollToTopAnimated:YES];
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)scrollToBottomNotAnimated
+{
+    [self.tableView scrollRectToVisible:CGRectMake(0.f, self.tableView.contentSize.height - self.view.height,
+                                                   self.tableView.width, self.tableView.height) animated:NO];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)scrollToBottomAnimated:(BOOL)animated
+{
+    [self.tableView scrollRectToVisible:CGRectMake(0.f, self.tableView.contentSize.height - self.view.height,
+                                                   self.tableView.width, self.tableView.height) animated:animated];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)scrollToTopAnimated:(BOOL)animated
+{
+    [self.tableView scrollRectToVisible:CGRectMake(0.f, 0.f,
+                                                   self.tableView.width, self.tableView.height) animated:animated];
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)createRefreshFooterBtn
+{
+    JLNimbusMoreButton* refreshFooterBtn = [JLNimbusMoreButton defaultMoreButton];
+    [refreshFooterBtn addTarget:self action:@selector(refreshLatestReplyAction)
+               forControlEvents:UIControlEventTouchUpInside];
+    refreshFooterBtn.moreTitle = @"上拉获取最新评论";
+    self.tableView.tableFooterView = refreshFooterBtn;
+    self.refreshFooterBtn = refreshFooterBtn;
+}
+
+- (void)refreshLatestReplyAction
+{
+    if (!self.isRefreshingLatestReply) {
+        [self refreshData:YES];
+        self.isRefreshingLatestReply = YES;
+        [self.refreshFooterBtn setAnimating:YES];
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -148,8 +230,9 @@
     return ^BOOL(id object, id target) {
         if (!self.editing) {
             if ([object isKindOfClass:[RCReplyEntity class]]) {
-                RCReplyEntity* topic = (RCReplyEntity*)object;
-                [RCGlobalConfig hudShowMessage:@"TODO:回复该贴/赞该贴" addedToView:self.view];
+                //RCReplyEntity* topic = (RCReplyEntity*)object;
+                //nothing to do!
+                //[RCGlobalConfig hudShowMessage:@"TODO:回复该贴/赞该贴" addedToView:self.view];
             }
             return YES;
         }
@@ -163,8 +246,19 @@
 - (void)didFinishLoadData
 {
     [super didFinishLoadData];
+    
+    if (!self.refreshFooterBtn ) {
+        [self createRefreshFooterBtn];
+    }
+    
     self.topicDetailEntity = ((RCTopicDetailModel*)self.model).topicDetailEntity;
     [self updateTopicHeaderView];
+    
+    if (self.isRefreshingLatestReply) {
+        [self performSelector:@selector(scrollToBottomNotAnimated) withObject:nil afterDelay:0.5f];
+        self.isRefreshingLatestReply = NO;
+        [self.refreshFooterBtn setAnimating:NO];
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -177,7 +271,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)showMessageForEmpty
 {
-    NSString* msg = @"信息为空";
+    NSString* msg = @"还没有评论，赶快参与吧！";
     [RCGlobalConfig hudShowMessage:msg addedToView:self.view];
 }
 
@@ -205,19 +299,30 @@
     CGFloat minOffset = 200.f;
     
     if (scrollView.contentOffset.y > minOffset
-        && scrollView.contentOffset.y < scrollView.contentSize.height - minOffset) {
-        
-        if (!self.scrollBtn.superview) {
-            [[UIApplication sharedApplication].keyWindow addSubview:self.scrollBtn];
-            if (velocity.y > 0.f) {
-                [self.scrollBtn setTitle:@"↓" forState:UIControlStateNormal];
-            }
-            else {
-                [self.scrollBtn setTitle:@"↑" forState:UIControlStateNormal];
-            }
-            [self.scrollBtn performSelector:@selector(removeFromSuperview) withObject:Nil afterDelay:2.0f];
+        && scrollView.contentOffset.y < scrollView.contentSize.height - self.view.height - minOffset) {
+        if (velocity.y > 0.f) {
+            [self.scrollBtn setTitle:@"↓" forState:UIControlStateNormal];
+            self.scrollBtn.tag = SCROLL_DIRECTION_BOTTOM_TAG;
         }
+        else {
+            [self.scrollBtn setTitle:@"↑" forState:UIControlStateNormal];
+            self.scrollBtn.tag = SCROLL_DIRECTION_UP_TAG;
+        }
+        [[UIApplication sharedApplication].keyWindow addSubview:self.scrollBtn];
+        [self.scrollBtn performSelector:@selector(removeFromSuperview) withObject:Nil afterDelay:2.0f];
     }
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#define DEFAULT_DRAG_UP_BOTTOM_OFFSET 30
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (self.refreshFooterBtn) {
+        CGFloat endScrollingheight = scrollView.contentOffset.y + scrollView.height;
+        if (scrollView.contentSize.height > scrollView.height
+            && endScrollingheight >= scrollView.contentSize.height + DEFAULT_DRAG_UP_BOTTOM_OFFSET) {
+            [self refreshLatestReplyAction];
+        }
+    }
+}
 @end
