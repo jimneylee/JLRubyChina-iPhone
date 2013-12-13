@@ -41,10 +41,10 @@ NSString *const kAPIBaseURLString = @"http://ruby-china.org/api/";
 #pragma mark - Topics
 // 活跃帖子、优质帖子、无人问津、最近创建
 // TODO: add topic type:
-+ (NSString*)relativePathForTopicsWithPageCounter:(NSUInteger)pageCounter
-                                     perpageCount:(NSUInteger)perpageCount
++ (NSString*)relativePathForTopicsWithPageCounter:(unsigned int)pageCounter
+                                     perpageCount:(unsigned int)perpageCount
 {
-    return [NSString stringWithFormat:@"topics.json?page=%d&per_page=%d",
+    return [NSString stringWithFormat:@"topics.json?page=%u&per_page=%u",
                                         pageCounter, perpageCount];
 }
 
@@ -53,11 +53,11 @@ NSString *const kAPIBaseURLString = @"http://ruby-china.org/api/";
     return [NSString stringWithFormat:@"topics/%ld.json", topicId];
 }
 
-+ (NSString*)relativePathForTopicsWithNodeId:(NSUInteger)nodeId
-                                 PageCounter:(NSUInteger)pageCounter
-                                perpageCount:(NSUInteger)perpageCount
++ (NSString*)relativePathForTopicsWithNodeId:(unsigned int)nodeId
+                                 PageCounter:(unsigned int)pageCounter
+                                perpageCount:(unsigned int)perpageCount
 {
-    return [NSString stringWithFormat:@"topics/node/%u.json?page=%d&per_page=%d",
+    return [NSString stringWithFormat:@"topics/node/%u.json?page=%u&per_page=%u",
                                         nodeId, pageCounter, perpageCount];
 }
 
@@ -66,14 +66,21 @@ NSString *const kAPIBaseURLString = @"http://ruby-china.org/api/";
     return [NSString stringWithFormat:@"nodes.json"];
 }
 
-+ (NSString*)relativePathForReplyTopicId:(unsigned long)topicId
-{
-    return [NSString stringWithFormat:@"topics/%lu/replies.json", topicId];
-}
-
 + (NSString*)relativePathForCoolSites
 {
     return [NSString stringWithFormat:@"sites.json"];
+}
+
+#pragma mark - Write
+
++ (NSString*)relativePathForPostNewTopic
+{
+    return [NSString stringWithFormat:@"topics.json"];
+}
+
++ (NSString*)relativePathForReplyTopicId:(unsigned long)topicId
+{
+    return [NSString stringWithFormat:@"topics/%lu/replies.json", topicId];
 }
 
 @end
