@@ -24,6 +24,7 @@
 @property (nonatomic, strong) UIButton* scrollBtn;
 @property (nonatomic, strong) JLNimbusMoreButton* refreshFooterBtn;
 @property (nonatomic, assign) BOOL isRefreshingLatestReply;
+@property (nonatomic, strong) NSArray* indexPaths;
 @end
 
 @implementation RCTopicDetailC
@@ -182,7 +183,6 @@
                                                    self.tableView.width, self.tableView.height) animated:animated];
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)createRefreshFooterBtn
 {
@@ -197,9 +197,9 @@
 - (void)refreshLatestReplyAction
 {
     if (!self.isRefreshingLatestReply) {
-        [self refreshData:YES];
         self.isRefreshingLatestReply = YES;
         [self.refreshFooterBtn setAnimating:YES];
+        [self refreshData:YES];
     }
 }
 
@@ -240,6 +240,61 @@
             return NO;
         }
     };
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)refreshData:(BOOL)refresh
+{
+    if (self.isRefreshingLatestReply) {
+        [self didBeginLoadData];
+        [self.model loadDataWithBlock:^(NSArray* indexPaths, NSError* error) {
+            if (indexPaths) {
+                if (indexPaths.count) {
+                    [self reloadTableViewWithIndexPaths:indexPaths];
+                }
+                else {
+                    [self showMessageForEmpty];
+                }
+                
+                [self didFinishLoadData];
+            }
+            else {
+                [self showMessageForError];
+                [self didFailLoadData];
+            }
+            //self.autoPullDownLoading = NO;
+            //[self finishLoadingAnimation];
+        } more:NO refresh:refresh];
+    }
+    else {
+        [super refreshData:refresh];
+        // sections = nil
+        if (self.model.sections.count > 0) {
+            NITableViewModelSection* section = self.model.sections[0];
+            // TODO: not get
+            self.indexPaths = section.rows;
+        }
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)reloadTableViewWithIndexPaths:(NSArray*)indexPaths
+{
+    if (self.indexPaths.count == indexPaths.count) {
+        [RCGlobalConfig hudShowMessage:@"暂时没有新的回复" addedToView:self.view];
+    }
+//    else if (!self.indexPaths) {
+//        [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+//        self.indexPaths = indexPaths;
+//    }
+    else if (self.indexPaths && indexPaths.count > self.indexPaths.count) {
+        NSMutableArray* addtionalIndexPaths = [NSMutableArray arrayWithCapacity:indexPaths.count-self.indexPaths.count];
+        for (NSUInteger i = self.indexPaths.count; i < indexPaths.count; i++) {
+            [addtionalIndexPaths addObject:[indexPaths objectAtIndex:i]];
+        }
+        [self.tableView insertRowsAtIndexPaths:addtionalIndexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+        self.indexPaths = indexPaths;
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
