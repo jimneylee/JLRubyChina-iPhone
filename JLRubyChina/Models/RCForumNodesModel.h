@@ -9,5 +9,5 @@
 #import "RCBaseTableModel.h"
 
 @interface RCForumNodesModel : RCBaseTableModel
-
+@property (nonatomic, strong) NSArray* nodesArray;
 @end
