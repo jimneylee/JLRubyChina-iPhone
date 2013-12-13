@@ -1,1 +1,12 @@
+spy delegate to appdelegate show network change
 change name
+set token
+umeng logistics
+crash report
+
+pod push command:
+pod spec lint libname.podspec
+pod push libname.podspec
+
+git submodule add https://github.com/jimneylee/RTagCloudView.git vendor/RTagCloudView
+git rm -r --cached vendor/RTagCloudView
