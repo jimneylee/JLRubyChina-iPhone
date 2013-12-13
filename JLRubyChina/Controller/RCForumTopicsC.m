@@ -10,8 +10,9 @@
 #import "RCForumTopicsModel.h"
 #import "RCTopicEntity.h"
 #import "RCTopicDetailC.h"
+#import "RCPostC.h"
 
-@interface RCForumTopicsC ()
+@interface RCForumTopicsC ()<RCPostDelegate>
 @end
 
 @implementation RCForumTopicsC
@@ -115,7 +116,9 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)postNewTopicAction
 {
-    
+    RCPostC* postC = [[RCPostC alloc] initWithStyle:UITableViewStyleGrouped];
+    postC.postDelegate = self;
+    [self.navigationController pushViewController:postC animated:YES];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -183,6 +186,16 @@
 {
     NSString* msg = @"已是最后一页";
     [RCGlobalConfig hudShowMessage:msg addedToView:self.view];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - SNPostCDelegate
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)didPostNewTopic
+{
+    [self autoPullDownRefreshActionAnimation];
 }
 
 @end
