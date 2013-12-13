@@ -1,3 +1,6 @@
 [submodule "vendor/JLNimbusTimeline"]
 	path = vendor/JLNimbusTimeline
 	url = https://github.com/jimneylee/JLNimbusTimeline.git
+[submodule "vendor/RTagCloudView"]
+	path = vendor/RTagCloudView
+	url = https://github.com/jimneylee/RTagCloudView.git
