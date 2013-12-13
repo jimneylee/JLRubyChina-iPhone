@@ -21,3 +21,10 @@
 
 #import "RCJSONKeys.h"
 #import "RCGlobalConfig.h"
+
+// debug log switch
+#ifdef DEBUG
+#    define NSLog(...) NSLog(__VA_ARGS__)
+#else
+#    define NSLog(...) {}
+#endif
