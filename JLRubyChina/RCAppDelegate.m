@@ -11,6 +11,7 @@
 #import "PPRevealSideViewController.h"
 #import "RCRootC.h"
 #import "RCForumTopicsC.h"
+#import "RCForumNodesCloudTagC.h"
 
 @implementation RCAppDelegate
 
@@ -73,7 +74,7 @@
     self.window.rootViewController = self.revealSideViewController;
     [self.window makeKeyAndVisible];
 #else
-    RCForumTopicsC* c = [[RCForumTopicsC alloc] initWithStyle:UITableViewStylePlain];
+    RCForumNodesCloudTagC* c = [[RCForumNodesCloudTagC alloc] init];
     self.window.rootViewController = c;
     [self.window makeKeyAndVisible];
 #endif
