@@ -14,6 +14,7 @@
 
 @interface RCQuickReplyC ()
 @property (nonatomic, assign) unsigned long topicId;
+@property(nonatomic, strong) UIView *containerView;
 @property (nonatomic, strong) UIButton* sendBtn;
 @end
 
@@ -61,10 +62,7 @@
                                                                         kTextViewWidth, kViewHeight)];
     self.textView.isScrollable = YES;
     self.textView.contentInset = UIEdgeInsetsMake(0, 5, 0, 5);
-    
 	self.textView.minNumberOfLines = 1;
-	// self.textView.maxNumberOfLines = 6;
-    // you can also set the maximum height in points with maxHeight
     self.textView.maxHeight = kTextViewMaxHeight;
 	self.textView.returnKeyType = UIReturnKeyDefault;
 	self.textView.font = [UIFont systemFontOfSize:15.0f];
@@ -72,8 +70,6 @@
     self.textView.internalTextView.scrollIndicatorInsets = UIEdgeInsetsMake(5, 0, 5, 0);
     self.textView.backgroundColor = [UIColor whiteColor];
     self.textView.placeholder = @"In my opinion ...";
-    // textView.text = @"test\n\ntest";
-	// textView.animateHeightChange = NO; //turns off animation
     [self.view addSubview:self.containerView];
 	
     UIImage* textViewBgSourceImage = [UIImage imageNamed:@"MessageEntryInputField.png"];

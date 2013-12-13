@@ -10,7 +10,6 @@
 #import "HPGrowingTextView.h"
 
 @interface RCQuickReplyC : UIViewController<HPGrowingTextViewDelegate>
-@property(nonatomic, strong) UIView *containerView;
 @property(nonatomic, strong) HPGrowingTextView *textView;
 - (id)initWithTopicId:(unsigned long)topicId;
 - (void)appendString:(NSString*)string;
