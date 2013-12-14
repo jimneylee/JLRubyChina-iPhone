@@ -10,8 +10,8 @@
 #import "AFNetworking.h"
 #import "PPRevealSideViewController.h"
 #import "RCRootC.h"
-#import "RCForumTopicsC.h"
-#import "RCForumNodesCloudTagC.h"
+#import "RCUserHomepageC.h"
+#import "RCAboutAppC.h"
 
 @implementation RCAppDelegate
 
@@ -55,6 +55,10 @@
 //    [[MTStatusBarOverlay sharedOverlay] addSubviewToBackgroundView:bgView atIndex:1];// above statusBarBackgroundImageView
 }
 
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self prepareForLaunching];
@@ -62,7 +66,6 @@
     // Override point for customization after application launch.
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
 #if 1
     RCRootC *main = [[RCRootC alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:main];
@@ -74,7 +77,7 @@
     self.window.rootViewController = self.revealSideViewController;
     [self.window makeKeyAndVisible];
 #else
-    RCForumNodesCloudTagC* c = [[RCForumNodesCloudTagC alloc] init];
+    RCAboutAppC* c = [[RCAboutAppC alloc] initWithNibName:@"RCAboutAppC" bundle:nil];
     self.window.rootViewController = c;
     [self.window makeKeyAndVisible];
 #endif
