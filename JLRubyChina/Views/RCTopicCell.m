@@ -12,8 +12,10 @@
 #import "NIAttributedLabel.h"
 #import "NIWebController.h"
 #import "UIView+findViewController.h"
+#import "UIImage+nimbusImageNamed.h"
 #import "RCTopicEntity.h"
 #import "RCForumTopicsC.h"
+#import "RCUserHomepageC.h"
 
 #define NAME_FONT_SIZE [UIFont systemFontOfSize:15.f]
 #define DATE_FONT_SIZE [UIFont systemFontOfSize:12.f]
@@ -76,6 +78,7 @@
         // head image
         self.headView = [[NINetworkImageView alloc] initWithFrame:CGRectMake(0, 0, HEAD_IAMGE_HEIGHT,
                                                                                    HEAD_IAMGE_HEIGHT)];
+        self.headView.initialImage = [UIImage nimbusImageNamed:@"head_s.png"];
         [self.contentView addSubview:self.headView];
 
         // name
@@ -195,17 +198,17 @@
         else {
             [self.headView setPathToNetworkImage:nil];
         }
-        self.textLabel.text = o.user.username;
+        self.textLabel.text = o.user.loginId;
         self.detailTextLabel.text = [o.createdAtDate formatRelativeTime];
         self.repliesCountLabel.text = [NSString stringWithFormat:@"%lu", o.repliesCount];
         self.topicTitleLabel.text = o.topicTitle;
-        if (o.lastRepliedUser.username) {
+        if (o.lastRepliedUser.loginId) {
             self.lastRepliedLabel.text = [NSString stringWithFormat:@"%@•最后由%@于%@回复",
-                                          o.nodeName, o.lastRepliedUser.username, [o.repliedAtDate formatRelativeTime]];
+                                          o.nodeName, o.lastRepliedUser.loginId, [o.repliedAtDate formatRelativeTime]];
             NSString* atSomeoneUrl = [NSString stringWithFormat:@"%@%@",
-                                      PROTOCOL_AT_SOMEONE, [o.lastRepliedUser.username urlEncoded]];
+                                      PROTOCOL_AT_SOMEONE, [o.lastRepliedUser.loginId urlEncoded]];
             [self.lastRepliedLabel addLink:[NSURL URLWithString:atSomeoneUrl]
-                                     range:NSMakeRange(o.nodeName.length + 4, o.lastRepliedUser.username.length)];
+                                     range:NSMakeRange(o.nodeName.length + 4, o.lastRepliedUser.loginId.length)];
         }
         else {
             self.lastRepliedLabel.text = [NSString stringWithFormat:@"%@•还没有回复，快进去讨论吧！", o.nodeName];
@@ -230,41 +233,44 @@ didSelectTextCheckingResult:(NSTextCheckingResult *)result
     }
     
     if (nil != url) {
-        UIViewController* parentC = self.viewController;
+        UIViewController* superviewC = self.viewController;
         if ([url.absoluteString hasPrefix:PROTOCOL_AT_SOMEONE]) {
             NSString* someone = [url.absoluteString substringFromIndex:PROTOCOL_AT_SOMEONE.length];
             someone = [someone stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-            [RCGlobalConfig hudShowMessage:someone
+            [RCGlobalConfig HUDShowMessage:someone
                                addedToView:[UIApplication sharedApplication].keyWindow];
-            // TODO: show someone homepage
+            if (superviewC) {
+                RCUserHomepageC* c = [[RCUserHomepageC alloc] initWithUserLoginId:self.topicEntity.user.loginId];
+                [superviewC.navigationController pushViewController:c animated:YES];
+            }
         }
         else if ([url.absoluteString hasPrefix:PROTOCOL_NODE]) {
             NSString* somenode = [url.absoluteString substringFromIndex:PROTOCOL_NODE.length];
             somenode = [somenode stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 
-            if (parentC) {
-                if ([parentC.title isEqualToString:somenode]) {
-                    [RCGlobalConfig hudShowMessage:[NSString stringWithFormat:@"Already in %@ :(", somenode]
+            if (superviewC) {
+                if ([superviewC.title isEqualToString:somenode]) {
+                    [RCGlobalConfig HUDShowMessage:[NSString stringWithFormat:@"Already in %@ :(", somenode]
                                        addedToView:[UIApplication sharedApplication].keyWindow];
                 }
                 else {
-                    [RCGlobalConfig hudShowMessage:[NSString stringWithFormat:@"Go to %@ :)", somenode]
+                    [RCGlobalConfig HUDShowMessage:[NSString stringWithFormat:@"Go to %@ :)", somenode]
                                        addedToView:[UIApplication sharedApplication].keyWindow];
                     RCForumTopicsC* topicsC = [[RCForumTopicsC alloc] initWithNodeName:self.topicEntity.nodeName
                                                                           nodeId:self.topicEntity.nodeId];
-                    [parentC.navigationController pushViewController:topicsC animated:YES];
+                    [superviewC.navigationController pushViewController:topicsC animated:YES];
                 }
             }
         }
         else {
-            if (parentC) {
+            if (superviewC) {
                 NIWebController* webC = [[NIWebController alloc] initWithURL:url];
-                [parentC.navigationController pushViewController:webC animated:YES];
+                [superviewC.navigationController pushViewController:webC animated:YES];
             }
         }
     }
     else {
-        [RCGlobalConfig hudShowMessage:@"抱歉，这是无效的链接" addedToView:self.viewController.view];
+        [RCGlobalConfig HUDShowMessage:@"抱歉，这是无效的链接" addedToView:self.viewController.view];
     }
 }
 
