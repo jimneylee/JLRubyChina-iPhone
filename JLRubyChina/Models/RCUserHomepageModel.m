@@ -1,0 +1,66 @@
+//
+//  RCTopicDetailModel.m
+//  JLRubyChina
+//
+//  Created by Lee jimney on 12/10/13.
+//  Copyright (c) 2013 jimneylee. All rights reserved.
+//
+
+#import "RCUserHomepageModel.h"
+#import "RCTopicCell.h"
+#import "RCTopicEntity.h"
+
+@implementation RCUserHomepageModel
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (id)initWithDelegate:(id<NITableViewModelDelegate>)delegate
+{
+	self = [super initWithDelegate:delegate];
+	if (self) {
+        // TODO:数据一次性获取过来，没有分页，后面建议后台做分页
+        self.perpageCount = NSIntegerMax;
+	}
+	return self;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Override
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (NSString*)relativePath
+{
+    // TODO: set type
+    return [RCAPIClient relativePathForVisitUserHomepageWithLoginId:self.loginId];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (NSString*)listKey
+{
+	return JSON_TOPICS_LIST;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (Class)objectClass
+{
+	return [RCTopicEntity class];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (Class)cellClass
+{
+    return [RCTopicCell class];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (NSArray*)entitiesParsedFromResponseObject:(id)responseObject
+{
+    // 1、parse topic detail body
+    self.userEntity = [RCUserFullEntity entityWithDictionary:responseObject];
+    
+    // 2、parse replies list with key: JSON_REPLIES_LIST
+    NSArray* entities = [super entitiesParsedFromResponseObject:responseObject];
+    return entities;
+}
+
+@end
