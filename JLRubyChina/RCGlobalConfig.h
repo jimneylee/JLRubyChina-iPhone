@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+// 测试access_token: @jimneylee
+#if DEBUG
+#define ACCESS_TOKEN_TEST @"8a67b1e1042c8093f709:4988"
+#define MY_LOGIN_ID_TEST @"jimneylee"
+#endif
+
 #define APP_NAME [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"]
 #define APP_VERSION [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]
 #define APP_ID [[[NSBundle mainBundle] objectForInfoDictionaryKey:@"APP_STORE_ID"] longValue]
@@ -17,6 +23,12 @@
 #define IOS_IS_AT_LEAST_6 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0)
 #define IOS_IS_AT_LEAST_7 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
 
+// 是否是iphone5的判断
+#define IS_WIDESCREEN ([[UIScreen mainScreen] bounds].size.height > 500 )
+#define IS_IPHONE ( [[[UIDevice currentDevice] model] isEqualToString:@"iPhone"] \
+                    || [[[UIDevice currentDevice] model] isEqualToString:@"iPhone Simulator"])
+#define IS_IPHONE5 (IS_IPHONE && IS_WIDESCREEN)
+
 #define INVALID_INDEX -1
 #define CELL_PADDING_10 10
 #define CELL_PADDING_8 8
@@ -25,11 +37,13 @@
 #define CELL_PADDING_2 2
 #define PHONE_SCREEN_WIDTH 320
 
-#define APP_THEME_COLOR [RCGlobalConfig mainThemeColor]
+#define APP_THEME_COLOR RGBCOLOR(41, 41, 41)
 #define TABLE_VIEW_BG_COLOR RGBCOLOR(230, 230, 230)
 #define CELL_CONTENT_VIEW_BG_COLOR RGBCOLOR(247, 247, 247)
 #define CELL_CONTENT_VIEW_BORDER_COLOR RGBCOLOR(234, 234, 234)
 #define SIDE_DIRECTION_LEFT_OFFSET 160//左边栏tableview离右边距离，理解有点别扭，后面简洁化
+
+#define RC_WIKI_URL @"http://ruby-china.org/wiki"
 
 // 自定义链接协议
 #define PROTOCOL_AT_SOMEONE @"atsomeone://"
@@ -41,13 +55,14 @@ typedef enum {
     RCForumTopicsType_HighQuality,//优质帖子
     RCForumTopicsType_NeverReviewed,//无人问津
     RCForumTopicsType_LatestCreate,//最新创建
-    RCForumTopicsType_NodeList//分类帖子
+    RCForumTopicsType_NodeList,//某一分类帖子
+    RCForumTopicsType_UserPosted//某个用户发的
 }RCForumTopicsType;
 
 @interface RCGlobalConfig : NSObject
 
 // UI
-+ (MBProgressHUD*)hudShowMessage:(NSString*)msg addedToView:(UIView*)view;
++ (MBProgressHUD*)HUDShowMessage:(NSString*)msg addedToView:(UIView*)view;
 + (UIColor *)mainThemeColor;
 + (UIBarButtonItem*)createBarButtonItemWithTitle:(NSString*)buttonTitle Target:(id)target action:(SEL)action;
 + (UIBarButtonItem*)createMenuBarButtonItemWithTarget:(id)target action:(SEL)action;

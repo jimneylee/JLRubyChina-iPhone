@@ -15,7 +15,7 @@
 #pragma mark - Global UI
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-+ (MBProgressHUD*)hudShowMessage:(NSString*)msg addedToView:(UIView*)view
++ (MBProgressHUD*)HUDShowMessage:(NSString*)msg addedToView:(UIView*)view
 {
     static MBProgressHUD* hud = nil;
     if (!hud) {
@@ -27,24 +27,6 @@
     hud.alpha = 1.0f;
     [hud hide:YES afterDelay:1.0f];
     return hud;
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-+ (UIColor *)mainThemeColor
-{
-    // dz 250 137 33
-    NSDictionary* colors = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"APP_THEME_COLORS"];
-    if (colors.allKeys.count >= 4) {
-        NSString* r = [colors objectForKey:@"r"];
-        NSString* g = [colors objectForKey:@"g"];
-        NSString* b = [colors objectForKey:@"b"];
-        NSString* a = [colors objectForKey:@"a"];
-        if (r && g && b && a) {
-            return RGBACOLOR([r intValue], [g intValue], [b intValue], [a floatValue]);
-        }
-    }
-    // default theme color
-    return [UIColor redColor];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
