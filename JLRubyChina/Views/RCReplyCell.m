@@ -11,6 +11,7 @@
 #import "NIAttributedLabel.h"
 #import "NIWebController.h"
 #import "UIView+findViewController.h"
+#import "UIImage+nimbusImageNamed.h"
 #import "RCTopicDetailC.h"
 #import "RCReplyEntity.h"
 #import "RCKeywordEntity.h"
@@ -102,6 +103,7 @@
         
         self.headView = [[NINetworkImageView alloc] initWithFrame:CGRectMake(0, 0, HEAD_IAMGE_HEIGHT,
                                                                                     HEAD_IAMGE_HEIGHT)];
+        self.headView.initialImage = [UIImage nimbusImageNamed:@"head_s.png"];
         [self.contentView addSubview:self.headView];
         
         // name
@@ -162,7 +164,9 @@
 - (void)prepareForReuse
 {
     [super prepareForReuse];
-    
+    if (self.headView.image) {
+        self.headView.image = nil;
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -220,7 +224,7 @@
         else {
             [self.headView setPathToNetworkImage:nil];
         }
-        self.textLabel.text = o.user.username;
+        self.textLabel.text = o.user.loginId;
         self.detailTextLabel.text = [o.createdAtDate formatRelativeTime];
         self.floorLabel.text = o.floorNumberString;
         self.contentLabel.text = o.body;
@@ -261,12 +265,19 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)replyAction
 {
-    UIViewController* parentC = self.viewController;
+    UIViewController* superviewC = self.viewController;
     // 弹出回复框
-    if ([parentC isKindOfClass:[RCTopicDetailC class]]) {
-        RCTopicDetailC* topicDetailC = (RCTopicDetailC*)parentC;
-        [topicDetailC replyTopicWithFloorAtSomeone:[NSString stringWithFormat:@"#%u楼 @%@",
-                                                    self.replyEntity.floorNumber, self.replyEntity.user.username]];
+    if ([superviewC isKindOfClass:[RCTopicDetailC class]]) {
+        RCTopicDetailC* topicDetailC = (RCTopicDetailC*)superviewC;
+        [topicDetailC replyTopicWithFloorAtSomeone:[NSString stringWithFormat:@"#%u楼 @%@ ",
+                                                    self.replyEntity.floorNumber, self.replyEntity.user.loginId]];
+        // 移动当前cell至顶部
+        NSIndexPath *indexPath = [topicDetailC.tableView indexPathForCell: self];
+        if (indexPath) {
+            [topicDetailC.tableView scrollToRowAtIndexPath:indexPath
+                                          atScrollPosition:UITableViewScrollPositionTop
+                                                  animated:YES];
+        }
     }
 }
 
@@ -285,21 +296,21 @@ didSelectTextCheckingResult:(NSTextCheckingResult *)result
     }
     
     if (nil != url) {
-        UIViewController* parentC = self.viewController;
+        UIViewController* superviewC = self.viewController;
         if ([url.absoluteString hasPrefix:PROTOCOL_AT_SOMEONE]) {
             NSString* someone = [url.absoluteString substringFromIndex:PROTOCOL_AT_SOMEONE.length];
             someone = [someone stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-            [RCGlobalConfig hudShowMessage:someone
+            [RCGlobalConfig HUDShowMessage:someone
                                addedToView:[UIApplication sharedApplication].keyWindow];
         }
         else if ([url.absoluteString hasPrefix:PROTOCOL_SHARP_FLOOR]) {
             NSString* somefloor = [url.absoluteString substringFromIndex:PROTOCOL_SHARP_FLOOR.length];
             somefloor = [somefloor stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-            [RCGlobalConfig hudShowMessage:[NSString stringWithFormat:@"Jump to #%@", somefloor]
+            [RCGlobalConfig HUDShowMessage:[NSString stringWithFormat:@"Jump to #%@", somefloor]
                                addedToView:[UIApplication sharedApplication].keyWindow];
             
-            if ([parentC isKindOfClass:[UITableViewController class]]) {
-                UITableViewController* t = (UITableViewController*)parentC;
+            if ([superviewC isKindOfClass:[UITableViewController class]]) {
+                UITableViewController* t = (UITableViewController*)superviewC;
                 NSUInteger floor = [somefloor integerValue] - 1;
                 if (floor < [t.tableView numberOfRowsInSection:0]) {
                     [t.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:floor inSection:0]
@@ -308,14 +319,14 @@ didSelectTextCheckingResult:(NSTextCheckingResult *)result
             }
         }
         else {
-            if (parentC) {
+            if (superviewC) {
                 NIWebController* webC = [[NIWebController alloc] initWithURL:url];
-                [parentC.navigationController pushViewController:webC animated:YES];
+                [superviewC.navigationController pushViewController:webC animated:YES];
             }
         }
     }
     else {
-        [RCGlobalConfig hudShowMessage:@"无效的链接" addedToView:self.viewController.view];
+        [RCGlobalConfig HUDShowMessage:@"无效的链接" addedToView:self.viewController.view];
     }
 }
 
