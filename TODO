@@ -10,3 +10,21 @@ pod push libname.podspec
 
 git submodule add https://github.com/jimneylee/RTagCloudView.git vendor/RTagCloudView
 git rm -r --cached vendor/RTagCloudView
+
+Method	URL
+GET	http://ruby-china.org/api/topics.json
+GET	http://ruby-china.org/api/topics/node/:id.json
+POST	http://ruby-china.org/api/topics.json
+GET	http://ruby-china.org/api/topics/:id.json
+POST	http://ruby-china.org/api/topics/:id/replies.json
+POST	http://ruby-china.org/api/topics/:id/follow.json
+POST	http://ruby-china.org/api/topics/:id/unfollow.json
+POST	http://ruby-china.org/api/topics/:id/favorite.json
+GET	http://ruby-china.org/api/nodes.json
+PUT	http://ruby-china.org/api/user/favorite/:user/:topic.json
+GET	http://ruby-china.org/api/users.json
+GET	http://ruby-china.org/api/users/temp_access_token.json
+GET	http://ruby-china.org/api/users/:user.json
+GET	http://ruby-china.org/api/users/:user/topics.json
+GET	http://ruby-china.org/api/users/:user/topics/favorite.json
+GET	http://ruby-china.org/api/sites.json
