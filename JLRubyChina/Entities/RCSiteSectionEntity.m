@@ -20,7 +20,7 @@
     
     self = [super initWithDictionary:dic];
     if (self) {
-        self.sectionId = [dic[JSON_SECTION_ID] unsignedIntegerValue];
+        self.sectionId = [dic[JSON_SITE_SECTION_ID] unsignedIntegerValue];
         self.name = dic[JSON_NAME];
         NSArray* sourceSitesArray = dic[JSON_SITES_LIST];
         if (sourceSitesArray.count) {
