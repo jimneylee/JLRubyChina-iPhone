@@ -170,7 +170,7 @@
     else {
         [self.headView setPathToNetworkImage:nil];
     }
-    self.nameLabel.text = topicDetailEntity.user.username;
+    self.nameLabel.text = topicDetailEntity.user.loginId;
     self.dateLabel.text = [NSString stringWithFormat:@"%@发布", [topicDetailEntity.createdAtDate formatRelativeTime]];
     self.bodyLabel.text = topicDetailEntity.body;
 }
@@ -222,14 +222,14 @@ didSelectTextCheckingResult:(NSTextCheckingResult *)result
             NSString* someone = [url.absoluteString substringFromIndex:PROTOCOL_AT_SOMEONE.length];
             // TODO: show someone homepage
             someone = [someone stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-            [RCGlobalConfig hudShowMessage:someone
+            [RCGlobalConfig HUDShowMessage:someone
                                addedToView:[UIApplication sharedApplication].keyWindow];
         }
         else if ([url.absoluteString hasPrefix:PROTOCOL_SHARP_FLOOR]) {
             NSString* sometrend = [url.absoluteString substringFromIndex:PROTOCOL_SHARP_FLOOR.length];
             // TODO: show some floor about this trend
             sometrend = [sometrend stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-            [RCGlobalConfig hudShowMessage:sometrend
+            [RCGlobalConfig HUDShowMessage:sometrend
                                addedToView:[UIApplication sharedApplication].keyWindow];
         }
         else
@@ -241,7 +241,7 @@ didSelectTextCheckingResult:(NSTextCheckingResult *)result
         }
     }
     else {
-        [RCGlobalConfig hudShowMessage:@"无效的链接" addedToView:self.viewController.view];
+        [RCGlobalConfig HUDShowMessage:@"无效的链接" addedToView:self.viewController.view];
     }
 }
 
