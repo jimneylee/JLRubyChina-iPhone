@@ -9,7 +9,7 @@
 #import "RCPostC.h"
 #import "MBProgressHUD.h"
 #import "RCPostModel.h"
-#import "RCForumNodesCloudTagC.h"
+#import "RCNodesCloudTagC.h"
 #import "RCNodeEntity.h"
 
 #define NODE_SELECT_PRIFIX_TITLE @"发布到："
@@ -19,7 +19,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-@interface RCPostC ()<UITextViewDelegate, UITextFieldDelegate, RCForumNodesCloudTagDelegate>
+@interface RCPostC ()<UITextViewDelegate, UITextFieldDelegate, RCNodesCloudTagDelegate>
 
 @property (nonatomic, strong) UILabel* nodeNameLabel;
 @property (nonatomic, strong) UITextField* titleTextField;
@@ -28,7 +28,6 @@
 @property (nonatomic, readwrite, retain) NITableViewModel* model;
 @property (nonatomic, readwrite, retain) NITableViewActions* actions;
 @property (nonatomic, strong) id delegate;
-@property (nonatomic, copy) NSString* fid;
 @property (nonatomic, copy) NSString* selectedNodeName;
 @property (nonatomic, strong) RCPostModel* postModel;
 @property (nonatomic, strong) RCNodeEntity* nodeEntity;
@@ -144,7 +143,7 @@
 - (void)selectNodeAction
 {
     // show node like tag cloud, so great idea :)
-    RCForumNodesCloudTagC* c = [[RCForumNodesCloudTagC alloc] init];
+    RCNodesCloudTagC* c = [[RCNodesCloudTagC alloc] init];
     c.delegate = self;
     [self.navigationController pushViewController:c animated:YES];
 }
@@ -170,15 +169,15 @@
     BOOL checkAllValid = YES;
 
     if (!nodeName.length) {
-        [RCGlobalConfig hudShowMessage:@"还没选择分类" addedToView:self.view];
+        [RCGlobalConfig HUDShowMessage:@"还没选择分类" addedToView:self.view];
         checkAllValid = NO;
     }
     else if (title.length < TITLE_TEXT_MIN_COUNT) {
-        [RCGlobalConfig hudShowMessage:[NSString stringWithFormat:@"标题字数不少于%d", TITLE_TEXT_MIN_COUNT] addedToView:self.view];
+        [RCGlobalConfig HUDShowMessage:[NSString stringWithFormat:@"标题字数不少于%d", TITLE_TEXT_MIN_COUNT] addedToView:self.view];
         checkAllValid = NO;
     }
     else if (body.length < BODY_TEXT_MIN_COUNT) {
-        [RCGlobalConfig hudShowMessage:[NSString stringWithFormat:@"正文字数不少于%d", BODY_TEXT_MIN_COUNT] addedToView:self.view];
+        [RCGlobalConfig HUDShowMessage:[NSString stringWithFormat:@"正文字数不少于%d", BODY_TEXT_MIN_COUNT] addedToView:self.view];
         checkAllValid = NO;
     }
     
@@ -213,6 +212,7 @@
 #else
         [self.postModel postNewTopicWithTitle:title
                                          body:body
+                                       nodeId:self.nodeEntity.nodeId
                                       success:^{
                                           hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
                                           hud.mode = MBProgressHUDModeCustomView;
@@ -273,7 +273,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-#pragma mark - RCForumNodesCloudTagDelegate
+#pragma mark - RCNodesCloudTagDelegate
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)didSelectANode:(RCNodeEntity*)nodeEntity
