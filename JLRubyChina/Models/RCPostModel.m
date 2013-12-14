@@ -14,14 +14,16 @@
 
 - (void)old_postNewTopicWithTitle:(NSString*)title
                              body:(NSString*)body
+                           nodeId:(NSUInteger)nodeId
                           success:(void(^)())success
                           failure:(void(^)(NSError *error))failure
 {
     // 不知道这么为什么不行，下面替代方法临时实现，比较丑陋
-    if (body.length) {
+    if (title.length && body.length && nodeId > 0) {
         NSMutableDictionary* parameters = [NSMutableDictionary dictionary];
         [parameters setObject:title forKey:@"title"];
         [parameters setObject:body forKey:@"body"];
+        [parameters setObject:[NSNumber numberWithInt:nodeId] forKey:@"node_id"];
         [parameters setObject:ACCESS_TOKEN_TEST forKey:@"token"];
         
         NSString* path = [RCAPIClient relativePathForPostNewTopic];
@@ -39,14 +41,16 @@
 
 - (void)postNewTopicWithTitle:(NSString*)title
                          body:(NSString*)body
+                       nodeId:(NSUInteger)nodeId
                       success:(void(^)())success
                       failure:(void(^)(NSError *error))failure
 {
     // 参考：http://stackoverflow.com/questions/9562459/afnetworking-posting-malformed-json-single-quotes-and-object-refs
-    if (title.length && body.length) {
+    if (title.length && body.length && nodeId > 0) {
         NSMutableDictionary* parameters = [NSMutableDictionary dictionary];
         [parameters setObject:title forKey:@"title"];
         [parameters setObject:body forKey:@"body"];
+        [parameters setObject:[NSNumber numberWithInt:nodeId] forKey:@"node_id"];
         [parameters setObject:ACCESS_TOKEN_TEST forKey:@"token"];
         
         NSString* path = [RCAPIClient relativePathForPostNewTopic];

@@ -11,6 +11,7 @@
 @interface RCPostModel : NSObject
 - (void)postNewTopicWithTitle:(NSString*)title
                          body:(NSString*)body
+                       nodeId:(NSUInteger)nodeId
                       success:(void(^)())success
                       failure:(void(^)(NSError *error))failure;
 @end
