@@ -31,11 +31,11 @@
         self.repliesCount = [dic[JSON_REPLIES_COUNT] unsignedLongValue];
         self.user = [RCUserEntity entityWithDictionary:dic[JSON_USER]];
         
-        NSString* lastRepliedUserName = dic[JSON_LAST_REPLY_USER_LOGIN];
-        if (lastRepliedUserName && [lastRepliedUserName isKindOfClass:[NSString class]] && lastRepliedUserName.length) {
+        NSString* lastRepliedUserLoginId = dic[JSON_LAST_REPLY_USER_LOGIN];
+        if (lastRepliedUserLoginId && [lastRepliedUserLoginId isKindOfClass:[NSString class]] && lastRepliedUserLoginId.length) {
             self.lastRepliedUser = [[RCUserEntity alloc] init];
-            self.lastRepliedUser.userId = [dic[JSON_LAST_REPLY_USER_ID] unsignedLongValue];
-            self.lastRepliedUser.username = lastRepliedUserName;
+            self.lastRepliedUser.hashId = [dic[JSON_LAST_REPLY_USER_ID] unsignedLongValue];
+            self.lastRepliedUser.loginId = lastRepliedUserLoginId;
         }
     }
     return self;
