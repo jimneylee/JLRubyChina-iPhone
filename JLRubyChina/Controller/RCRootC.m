@@ -7,12 +7,14 @@
 //
 
 #import "RCRootC.h"
+#import "NIWebController.h"
 #import "RCForumTopicsC.h"
 #import "RCForumNodesC.h"
 #import "RCCoolSitesC.h"
-//#import "DZUserCenterC.h"
-//#import "DZAboutC.h"
-//#import "DZMoreC.h"
+#import "RCTopMembersC.h"
+#import "RCWikiC.h"
+#import "RCUserHomepageC.h"
+#import "RCAboutAppC.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -101,10 +103,27 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)showUserCenterView
+- (void)showTopMembersView
 {
     [self.navigationController popToRootViewControllerAnimated:NO];
+    RCTopMembersC* c = [[RCTopMembersC alloc] init];
+    [self.navigationController pushViewController:c animated:YES];
+}
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)showWikiView
+{
+    [self.navigationController popToRootViewControllerAnimated:NO];
+    RCWikiC* c = [[RCWikiC alloc] initWithURL:[NSURL URLWithString:RC_WIKI_URL]];
+    [self.navigationController pushViewController:c animated:YES];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)showMyHomepageView
+{
+    [self.navigationController popToRootViewControllerAnimated:NO];
+    RCUserHomepageC* c = [[RCUserHomepageC alloc] initWithUserLoginId:MY_LOGIN_ID_TEST];
+    [self.navigationController pushViewController:c animated:YES];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -118,6 +137,8 @@
 - (void)showAboutUsView
 {
     [self.navigationController popToRootViewControllerAnimated:NO];
+    RCAboutAppC* c = [[RCAboutAppC alloc] init];
+    [self.navigationController pushViewController:c animated:YES];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -143,9 +164,19 @@
             [self showCoolSitesView];
             break;
             
-        case LeftMenuType_UserCenter:
+        case LeftMenuType_TopMembers:
             [self showLeft:nil];
-            [self showUserCenterView];
+            [self showTopMembersView];
+            break;
+            
+        case LeftMenuType_Wiki:
+            [self showLeft:nil];
+            [self showWikiView];
+            break;
+            
+        case LeftMenuType_MyHomePage:
+            [self showLeft:nil];
+            [self showMyHomepageView];
             break;
             
         case LeftMenuType_More:
