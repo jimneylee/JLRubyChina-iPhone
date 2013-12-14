@@ -16,10 +16,9 @@
 		281AED6A185982E500DEC6E2 /* RCSiteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AED69185982E500DEC6E2 /* RCSiteCell.m */; };
 		28386D9C185A946E00D7B5C9 /* RCPostModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28386D9B185A946E00D7B5C9 /* RCPostModel.m */; };
 		28386D9F185A97FB00D7B5C9 /* RCPostC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28386D9E185A97FB00D7B5C9 /* RCPostC.m */; };
-		28386DA2185A9EE400D7B5C9 /* RCTextInputFormElementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28386DA1185A9EE400D7B5C9 /* RCTextInputFormElementCell.m */; };
 		28386DA5185AA4C900D7B5C9 /* RCUIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 28386DA4185AA4C900D7B5C9 /* RCUIHelper.m */; };
 		28386DDA185AE48800D7B5C9 /* RTagCloudView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28386DD9185AE48800D7B5C9 /* RTagCloudView.m */; };
-		28386DE6185AE59600D7B5C9 /* RCForumNodesCloudTagC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28386DE5185AE59600D7B5C9 /* RCForumNodesCloudTagC.m */; };
+		28386DE6185AE59600D7B5C9 /* RCNodesCloudTagC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28386DE5185AE59600D7B5C9 /* RCNodesCloudTagC.m */; };
 		2897EEF51856BE94000BB6B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2897EEF41856BE94000BB6B9 /* Foundation.framework */; };
 		2897EEF71856BE94000BB6B9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2897EEF61856BE94000BB6B9 /* CoreGraphics.framework */; };
 		2897EEF91856BE94000BB6B9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2897EEF81856BE94000BB6B9 /* UIKit.framework */; };
@@ -84,8 +83,14 @@
 		28D4F06E18584E7C00C9C858 /* RCForumNodesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4F06D18584E7C00C9C858 /* RCForumNodesModel.m */; };
 		28D4F07118584EA500C9C858 /* RCNodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4F07018584EA500C9C858 /* RCNodeCell.m */; };
 		BBD07554FB194577BA42A7E6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DAEFF79992F4B9FB48FFA19 /* libPods.a */; };
-		CE3889D11858A5790052566C /* ruby-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3889D01858A5790052566C /* ruby-logo@2x.png */; };
 		CE3889D41858AA790052566C /* RCReplyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3889D31858AA790052566C /* RCReplyModel.m */; };
+		CE3A1B45185BFC670081C3E9 /* RCUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3A1B44185BFC670081C3E9 /* RCUserCell.m */; };
+		CE3A1B48185C05940081C3E9 /* RCTopMembersC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3A1B47185C05940081C3E9 /* RCTopMembersC.m */; };
+		CE3A1B4E185C06D20081C3E9 /* RCTopMembersModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3A1B4D185C06D20081C3E9 /* RCTopMembersModel.m */; };
+		CE3A1B54185C28540081C3E9 /* RCWikiC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3A1B53185C28540081C3E9 /* RCWikiC.m */; };
+		CE3A1B57185C35E00081C3E9 /* RCUserLauncherButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3A1B56185C35E00081C3E9 /* RCUserLauncherButtonView.m */; };
+		CE3A1B5A185C3A170081C3E9 /* RCUserHomepageC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3A1B59185C3A170081C3E9 /* RCUserHomepageC.m */; };
+		CE3A1B5D185C3A810081C3E9 /* RCUserHomepageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3A1B5C185C3A810081C3E9 /* RCUserHomepageModel.m */; };
 		CE96584F18573E98003066A5 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CE96584D18573E98003066A5 /* icon.png */; };
 		CE96585018573E98003066A5 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE96584E18573E98003066A5 /* icon@2x.png */; };
 		CE96585218573ED8003066A5 /* icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = CE96585118573ED8003066A5 /* icon120.png */; };
@@ -96,6 +101,19 @@
 		CE96587D185767BD003066A5 /* RCTopicDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE96587C185767BD003066A5 /* RCTopicDetailModel.m */; };
 		CE9658801857681C003066A5 /* RCReplyEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = CE96587F1857681C003066A5 /* RCReplyEntity.m */; };
 		CE9658831857683A003066A5 /* RCReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9658821857683A003066A5 /* RCReplyCell.m */; };
+		CE9DFAB9185C4D17007BAE75 /* UIImage+nimbusImageNamed.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9DFAB8185C4D17007BAE75 /* UIImage+nimbusImageNamed.m */; };
+		CE9DFABE185C53BB007BAE75 /* head_b.png in Resources */ = {isa = PBXBuildFile; fileRef = CE9DFABA185C53BB007BAE75 /* head_b.png */; };
+		CE9DFABF185C53BB007BAE75 /* head_b@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE9DFABB185C53BB007BAE75 /* head_b@2x.png */; };
+		CE9DFAC0185C53BB007BAE75 /* head_s.png in Resources */ = {isa = PBXBuildFile; fileRef = CE9DFABC185C53BB007BAE75 /* head_s.png */; };
+		CE9DFAC1185C53BB007BAE75 /* head_s@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE9DFABD185C53BB007BAE75 /* head_s@2x.png */; };
+		CE9DFAC4185C57BD007BAE75 /* RCHomepageHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9DFAC3185C57BD007BAE75 /* RCHomepageHeaderView.m */; };
+		CE9DFAC7185C5BB1007BAE75 /* RCUserFullEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9DFAC6185C5BB1007BAE75 /* RCUserFullEntity.m */; };
+		CEB2304D185C83F3004F54C7 /* ruby-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB2304C185C83F3004F54C7 /* ruby-logo@2x.png */; };
+		CEB23051185C8F2C004F54C7 /* RCAboutAppC.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB2304F185C8F2C004F54C7 /* RCAboutAppC.m */; };
+		CEB23052185C8F2C004F54C7 /* RCAboutAppC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB23050185C8F2C004F54C7 /* RCAboutAppC.xib */; };
+		CEB23055185CA64E004F54C7 /* Default-568@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB23053185CA64E004F54C7 /* Default-568@2x.png */; };
+		CEB23056185CA64E004F54C7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB23054185CA64E004F54C7 /* Default@2x.png */; };
+		CEB23058185CA669004F54C7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB23057185CA669004F54C7 /* Default.png */; };
 		CEEA2BEF1858C41D004FDEDF /* RCQuickReplyC.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEA2BEE1858C41D004FDEDF /* RCQuickReplyC.m */; };
 		CEEA2BF91858C561004FDEDF /* MessageEntryBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA2BF11858C561004FDEDF /* MessageEntryBackground.png */; };
 		CEEA2BFA1858C561004FDEDF /* MessageEntryBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEA2BF21858C561004FDEDF /* MessageEntryBackground@2x.png */; };
@@ -134,14 +152,12 @@
 		28386D9B185A946E00D7B5C9 /* RCPostModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCPostModel.m; sourceTree = "<group>"; };
 		28386D9D185A97FB00D7B5C9 /* RCPostC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCPostC.h; sourceTree = "<group>"; };
 		28386D9E185A97FB00D7B5C9 /* RCPostC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCPostC.m; sourceTree = "<group>"; };
-		28386DA0185A9EE400D7B5C9 /* RCTextInputFormElementCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTextInputFormElementCell.h; sourceTree = "<group>"; };
-		28386DA1185A9EE400D7B5C9 /* RCTextInputFormElementCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTextInputFormElementCell.m; sourceTree = "<group>"; };
 		28386DA3185AA4C900D7B5C9 /* RCUIHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCUIHelper.h; sourceTree = "<group>"; };
 		28386DA4185AA4C900D7B5C9 /* RCUIHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCUIHelper.m; sourceTree = "<group>"; };
 		28386DD8185AE48800D7B5C9 /* RTagCloudView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTagCloudView.h; sourceTree = "<group>"; };
 		28386DD9185AE48800D7B5C9 /* RTagCloudView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTagCloudView.m; sourceTree = "<group>"; };
-		28386DE4185AE59600D7B5C9 /* RCForumNodesCloudTagC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCForumNodesCloudTagC.h; sourceTree = "<group>"; };
-		28386DE5185AE59600D7B5C9 /* RCForumNodesCloudTagC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCForumNodesCloudTagC.m; sourceTree = "<group>"; };
+		28386DE4185AE59600D7B5C9 /* RCNodesCloudTagC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCNodesCloudTagC.h; sourceTree = "<group>"; };
+		28386DE5185AE59600D7B5C9 /* RCNodesCloudTagC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCNodesCloudTagC.m; sourceTree = "<group>"; };
 		2897EEF11856BE94000BB6B9 /* JLRubyChina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JLRubyChina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2897EEF41856BE94000BB6B9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2897EEF61856BE94000BB6B9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -239,9 +255,22 @@
 		28D4F07018584EA500C9C858 /* RCNodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCNodeCell.m; sourceTree = "<group>"; };
 		2DAEFF79992F4B9FB48FFA19 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BECB55DCFAF84993AE6D89A6 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
-		CE3889D01858A5790052566C /* ruby-logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ruby-logo@2x.png"; sourceTree = "<group>"; };
 		CE3889D21858AA790052566C /* RCReplyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCReplyModel.h; sourceTree = "<group>"; };
 		CE3889D31858AA790052566C /* RCReplyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCReplyModel.m; sourceTree = "<group>"; };
+		CE3A1B43185BFC670081C3E9 /* RCUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCUserCell.h; sourceTree = "<group>"; };
+		CE3A1B44185BFC670081C3E9 /* RCUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCUserCell.m; sourceTree = "<group>"; };
+		CE3A1B46185C05940081C3E9 /* RCTopMembersC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTopMembersC.h; sourceTree = "<group>"; };
+		CE3A1B47185C05940081C3E9 /* RCTopMembersC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTopMembersC.m; sourceTree = "<group>"; };
+		CE3A1B4C185C06D20081C3E9 /* RCTopMembersModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTopMembersModel.h; sourceTree = "<group>"; };
+		CE3A1B4D185C06D20081C3E9 /* RCTopMembersModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTopMembersModel.m; sourceTree = "<group>"; };
+		CE3A1B52185C28540081C3E9 /* RCWikiC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCWikiC.h; sourceTree = "<group>"; };
+		CE3A1B53185C28540081C3E9 /* RCWikiC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCWikiC.m; sourceTree = "<group>"; };
+		CE3A1B55185C35E00081C3E9 /* RCUserLauncherButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCUserLauncherButtonView.h; sourceTree = "<group>"; };
+		CE3A1B56185C35E00081C3E9 /* RCUserLauncherButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCUserLauncherButtonView.m; sourceTree = "<group>"; };
+		CE3A1B58185C3A170081C3E9 /* RCUserHomepageC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCUserHomepageC.h; sourceTree = "<group>"; };
+		CE3A1B59185C3A170081C3E9 /* RCUserHomepageC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCUserHomepageC.m; sourceTree = "<group>"; };
+		CE3A1B5B185C3A810081C3E9 /* RCUserHomepageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCUserHomepageModel.h; sourceTree = "<group>"; };
+		CE3A1B5C185C3A810081C3E9 /* RCUserHomepageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCUserHomepageModel.m; sourceTree = "<group>"; };
 		CE96584D18573E98003066A5 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		CE96584E18573E98003066A5 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		CE96585118573ED8003066A5 /* icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon120.png; sourceTree = "<group>"; };
@@ -257,6 +286,23 @@
 		CE96587F1857681C003066A5 /* RCReplyEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCReplyEntity.m; sourceTree = "<group>"; };
 		CE9658811857683A003066A5 /* RCReplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCReplyCell.h; sourceTree = "<group>"; };
 		CE9658821857683A003066A5 /* RCReplyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCReplyCell.m; sourceTree = "<group>"; };
+		CE9DFAB7185C4D17007BAE75 /* UIImage+nimbusImageNamed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+nimbusImageNamed.h"; sourceTree = "<group>"; };
+		CE9DFAB8185C4D17007BAE75 /* UIImage+nimbusImageNamed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+nimbusImageNamed.m"; sourceTree = "<group>"; };
+		CE9DFABA185C53BB007BAE75 /* head_b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = head_b.png; sourceTree = "<group>"; };
+		CE9DFABB185C53BB007BAE75 /* head_b@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "head_b@2x.png"; sourceTree = "<group>"; };
+		CE9DFABC185C53BB007BAE75 /* head_s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = head_s.png; sourceTree = "<group>"; };
+		CE9DFABD185C53BB007BAE75 /* head_s@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "head_s@2x.png"; sourceTree = "<group>"; };
+		CE9DFAC2185C57BD007BAE75 /* RCHomepageHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCHomepageHeaderView.h; sourceTree = "<group>"; };
+		CE9DFAC3185C57BD007BAE75 /* RCHomepageHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCHomepageHeaderView.m; sourceTree = "<group>"; };
+		CE9DFAC5185C5BB1007BAE75 /* RCUserFullEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCUserFullEntity.h; sourceTree = "<group>"; };
+		CE9DFAC6185C5BB1007BAE75 /* RCUserFullEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCUserFullEntity.m; sourceTree = "<group>"; };
+		CEB2304C185C83F3004F54C7 /* ruby-logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ruby-logo@2x.png"; path = "IconDefault/ruby-logo@2x.png"; sourceTree = "<group>"; };
+		CEB2304E185C8F2C004F54C7 /* RCAboutAppC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAboutAppC.h; sourceTree = "<group>"; };
+		CEB2304F185C8F2C004F54C7 /* RCAboutAppC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAboutAppC.m; sourceTree = "<group>"; };
+		CEB23050185C8F2C004F54C7 /* RCAboutAppC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCAboutAppC.xib; sourceTree = "<group>"; };
+		CEB23053185CA64E004F54C7 /* Default-568@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568@2x.png"; sourceTree = "<group>"; };
+		CEB23054185CA64E004F54C7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		CEB23057185CA669004F54C7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		CEEA2BED1858C41D004FDEDF /* RCQuickReplyC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCQuickReplyC.h; sourceTree = "<group>"; };
 		CEEA2BEE1858C41D004FDEDF /* RCQuickReplyC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCQuickReplyC.m; sourceTree = "<group>"; };
 		CEEA2BF11858C561004FDEDF /* MessageEntryBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageEntryBackground.png; sourceTree = "<group>"; };
@@ -483,6 +529,8 @@
 				2897EF9D18571008000BB6B9 /* NSDate+RubyChina.m */,
 				28D4EF761858061E00C9C858 /* UIView+findViewController.h */,
 				28D4EF771858061E00C9C858 /* UIView+findViewController.m */,
+				CE9DFAB7185C4D17007BAE75 /* UIImage+nimbusImageNamed.h */,
+				CE9DFAB8185C4D17007BAE75 /* UIImage+nimbusImageNamed.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -516,10 +564,19 @@
 				CEEA2BEE1858C41D004FDEDF /* RCQuickReplyC.m */,
 				281AED5C185975D900DEC6E2 /* RCCoolSitesC.h */,
 				281AED5D185975D900DEC6E2 /* RCCoolSitesC.m */,
+				CE3A1B46185C05940081C3E9 /* RCTopMembersC.h */,
+				CE3A1B47185C05940081C3E9 /* RCTopMembersC.m */,
 				28386D9D185A97FB00D7B5C9 /* RCPostC.h */,
 				28386D9E185A97FB00D7B5C9 /* RCPostC.m */,
-				28386DE4185AE59600D7B5C9 /* RCForumNodesCloudTagC.h */,
-				28386DE5185AE59600D7B5C9 /* RCForumNodesCloudTagC.m */,
+				28386DE4185AE59600D7B5C9 /* RCNodesCloudTagC.h */,
+				28386DE5185AE59600D7B5C9 /* RCNodesCloudTagC.m */,
+				CE3A1B52185C28540081C3E9 /* RCWikiC.h */,
+				CE3A1B53185C28540081C3E9 /* RCWikiC.m */,
+				CE3A1B58185C3A170081C3E9 /* RCUserHomepageC.h */,
+				CE3A1B59185C3A170081C3E9 /* RCUserHomepageC.m */,
+				CEB2304E185C8F2C004F54C7 /* RCAboutAppC.h */,
+				CEB2304F185C8F2C004F54C7 /* RCAboutAppC.m */,
+				CEB23050185C8F2C004F54C7 /* RCAboutAppC.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -529,6 +586,8 @@
 			children = (
 				2897EF961856ECBD000BB6B9 /* RCUserEntity.h */,
 				2897EF971856ECBD000BB6B9 /* RCUserEntity.m */,
+				CE9DFAC5185C5BB1007BAE75 /* RCUserFullEntity.h */,
+				CE9DFAC6185C5BB1007BAE75 /* RCUserFullEntity.m */,
 				2897EF871856E327000BB6B9 /* RCTopicEntity.h */,
 				2897EF881856E327000BB6B9 /* RCTopicEntity.m */,
 				CE96587518576748003066A5 /* RCTopicDetailEntity.h */,
@@ -571,8 +630,12 @@
 				28D4F07018584EA500C9C858 /* RCNodeCell.m */,
 				281AED68185982E500DEC6E2 /* RCSiteCell.h */,
 				281AED69185982E500DEC6E2 /* RCSiteCell.m */,
-				28386DA0185A9EE400D7B5C9 /* RCTextInputFormElementCell.h */,
-				28386DA1185A9EE400D7B5C9 /* RCTextInputFormElementCell.m */,
+				CE3A1B43185BFC670081C3E9 /* RCUserCell.h */,
+				CE3A1B44185BFC670081C3E9 /* RCUserCell.m */,
+				CE9DFAC2185C57BD007BAE75 /* RCHomepageHeaderView.h */,
+				CE9DFAC3185C57BD007BAE75 /* RCHomepageHeaderView.m */,
+				CE3A1B55185C35E00081C3E9 /* RCUserLauncherButtonView.h */,
+				CE3A1B56185C35E00081C3E9 /* RCUserLauncherButtonView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -594,6 +657,10 @@
 				28386D9B185A946E00D7B5C9 /* RCPostModel.m */,
 				281AED5F1859760F00DEC6E2 /* RCCoolSitesModel.h */,
 				281AED601859760F00DEC6E2 /* RCCoolSitesModel.m */,
+				CE3A1B4C185C06D20081C3E9 /* RCTopMembersModel.h */,
+				CE3A1B4D185C06D20081C3E9 /* RCTopMembersModel.m */,
+				CE3A1B5B185C3A810081C3E9 /* RCUserHomepageModel.h */,
+				CE3A1B5C185C3A810081C3E9 /* RCUserHomepageModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -633,8 +700,13 @@
 		CE96584B18573E98003066A5 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				CEB2304C185C83F3004F54C7 /* ruby-logo@2x.png */,
 				281AED5718594ED600DEC6E2 /* 37x-Checkmark.png */,
 				281AED5818594ED600DEC6E2 /* 37x-Checkmark@2x.png */,
+				CE9DFABA185C53BB007BAE75 /* head_b.png */,
+				CE9DFABB185C53BB007BAE75 /* head_b@2x.png */,
+				CE9DFABC185C53BB007BAE75 /* head_s.png */,
+				CE9DFABD185C53BB007BAE75 /* head_s@2x.png */,
 				CEEA2BF01858C561004FDEDF /* QuickReply */,
 				CE96584C18573E98003066A5 /* IconDefault */,
 			);
@@ -644,12 +716,14 @@
 		CE96584C18573E98003066A5 /* IconDefault */ = {
 			isa = PBXGroup;
 			children = (
-				CE3889D01858A5790052566C /* ruby-logo@2x.png */,
 				CE96584D18573E98003066A5 /* icon.png */,
 				CE96584E18573E98003066A5 /* icon@2x.png */,
 				CE96585318573F57003066A5 /* icon58.png */,
 				CE96585418573F57003066A5 /* icon80.png */,
 				CE96585118573ED8003066A5 /* icon120.png */,
+				CEB23057185CA669004F54C7 /* Default.png */,
+				CEB23054185CA64E004F54C7 /* Default@2x.png */,
+				CEB23053185CA64E004F54C7 /* Default-568@2x.png */,
 			);
 			path = IconDefault;
 			sourceTree = "<group>";
@@ -749,13 +823,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE96585018573E98003066A5 /* icon@2x.png in Resources */,
+				CE9DFABF185C53BB007BAE75 /* head_b@2x.png in Resources */,
+				CEB23058185CA669004F54C7 /* Default.png in Resources */,
 				CEEA2BFA1858C561004FDEDF /* MessageEntryBackground@2x.png in Resources */,
 				281AED5918594ED600DEC6E2 /* 37x-Checkmark.png in Resources */,
-				CE3889D11858A5790052566C /* ruby-logo@2x.png in Resources */,
 				CEEA2BFE1858C561004FDEDF /* MessageEntrySendButton@2x.png in Resources */,
 				2897EF761856C616000BB6B9 /* TODO in Resources */,
+				CEB2304D185C83F3004F54C7 /* ruby-logo@2x.png in Resources */,
 				CE96585218573ED8003066A5 /* icon120.png in Resources */,
 				CEEA2BFC1858C561004FDEDF /* MessageEntryInputField@2x.png in Resources */,
+				CEB23055185CA64E004F54C7 /* Default-568@2x.png in Resources */,
+				CE9DFABE185C53BB007BAE75 /* head_b.png in Resources */,
+				CEB23052185C8F2C004F54C7 /* RCAboutAppC.xib in Resources */,
+				CEB23056185CA64E004F54C7 /* Default@2x.png in Resources */,
 				2897EF531856C422000BB6B9 /* Three20.bundle in Resources */,
 				CEEA2C001858C561004FDEDF /* MessageEntrySendButtonPressed@2x.png in Resources */,
 				CEEA2BFF1858C561004FDEDF /* MessageEntrySendButtonPressed.png in Resources */,
@@ -764,10 +844,12 @@
 				281AED5A18594ED600DEC6E2 /* 37x-Checkmark@2x.png in Resources */,
 				CEEA2BFD1858C561004FDEDF /* MessageEntrySendButton.png in Resources */,
 				CE96584F18573E98003066A5 /* icon.png in Resources */,
+				CE9DFAC0185C53BB007BAE75 /* head_s.png in Resources */,
 				28D4EF8A18582B0A00C9C858 /* Notice in Resources */,
 				2897EF741856C60A000BB6B9 /* README.md in Resources */,
 				CE96585518573F57003066A5 /* icon58.png in Resources */,
 				2897EEFF1856BE94000BB6B9 /* InfoPlist.strings in Resources */,
+				CE9DFAC1185C53BB007BAE75 /* head_s@2x.png in Resources */,
 				CEEA2BF91858C561004FDEDF /* MessageEntryBackground.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -829,17 +911,19 @@
 				CE9658801857681C003066A5 /* RCReplyEntity.m in Sources */,
 				CEEA2BEF1858C41D004FDEDF /* RCQuickReplyC.m in Sources */,
 				2897EF891856E327000BB6B9 /* RCTopicEntity.m in Sources */,
-				28386DA2185A9EE400D7B5C9 /* RCTextInputFormElementCell.m in Sources */,
 				2897EF051856BE94000BB6B9 /* RCAppDelegate.m in Sources */,
 				2897EF671856C422000BB6B9 /* JLNimbusMoreButton.m in Sources */,
-				28386DE6185AE59600D7B5C9 /* RCForumNodesCloudTagC.m in Sources */,
+				28386DE6185AE59600D7B5C9 /* RCNodesCloudTagC.m in Sources */,
 				2897EF631856C422000BB6B9 /* JLAFHTTPClient.m in Sources */,
+				CE3A1B48185C05940081C3E9 /* RCTopMembersC.m in Sources */,
+				CE3A1B5A185C3A170081C3E9 /* RCUserHomepageC.m in Sources */,
 				28D4EF7D1858266700C9C858 /* SMNetworkSpy.m in Sources */,
 				28D4F07118584EA500C9C858 /* RCNodeCell.m in Sources */,
 				28D4EF751857F78500C9C858 /* RCTopicBodyView.m in Sources */,
 				2897EF5F1856C422000BB6B9 /* JLNimbusTableViewController.m in Sources */,
 				28D4EF93185846CA00C9C858 /* RCNodeEntity.m in Sources */,
 				28D4EF81185826BF00C9C858 /* RCKeywordEntity.m in Sources */,
+				CE3A1B5D185C3A810081C3E9 /* RCUserHomepageModel.m in Sources */,
 				28386DA5185AA4C900D7B5C9 /* RCUIHelper.m in Sources */,
 				28D4EF851858276A00C9C858 /* Reachability.m in Sources */,
 				2897EF4D1856C422000BB6B9 /* NSDataAdditions.m in Sources */,
@@ -847,6 +931,8 @@
 				28D4EF781858061E00C9C858 /* UIView+findViewController.m in Sources */,
 				CE9658831857683A003066A5 /* RCReplyCell.m in Sources */,
 				2897EF9E18571008000BB6B9 /* NSDate+RubyChina.m in Sources */,
+				CEB23051185C8F2C004F54C7 /* RCAboutAppC.m in Sources */,
+				CE9DFAC7185C5BB1007BAE75 /* RCUserFullEntity.m in Sources */,
 				28D4EF901858463E00C9C858 /* RCForumNodesC.m in Sources */,
 				2897EF611856C422000BB6B9 /* JLNimbusEntity.m in Sources */,
 				2897EF791856E073000BB6B9 /* RCGlobalConfig.m in Sources */,
@@ -857,22 +943,28 @@
 				CE96587D185767BD003066A5 /* RCTopicDetailModel.m in Sources */,
 				2897EF9B1856FB09000BB6B9 /* RCTopicCell.m in Sources */,
 				CE96587A18576791003066A5 /* RCTopicDetailC.m in Sources */,
+				CE9DFAB9185C4D17007BAE75 /* UIImage+nimbusImageNamed.m in Sources */,
 				2897EF861856E2EA000BB6B9 /* RCForumTopicsModel.m in Sources */,
+				CE3A1B57185C35E00081C3E9 /* RCUserLauncherButtonView.m in Sources */,
 				281AED6A185982E500DEC6E2 /* RCSiteCell.m in Sources */,
 				2897EF011856BE94000BB6B9 /* main.m in Sources */,
 				2897EF5D1856C422000BB6B9 /* UIWindowAdditions.m in Sources */,
 				2897EF8F1856E3D2000BB6B9 /* RCBaseTableModel.m in Sources */,
 				2897EF7E1856E11A000BB6B9 /* RCLeftC.m in Sources */,
+				CE3A1B45185BFC670081C3E9 /* RCUserCell.m in Sources */,
 				28D4EF7E1858266700C9C858 /* SCRegularParser.m in Sources */,
 				CE3889D41858AA790052566C /* RCReplyModel.m in Sources */,
 				28386DDA185AE48800D7B5C9 /* RTagCloudView.m in Sources */,
+				CE9DFAC4185C57BD007BAE75 /* RCHomepageHeaderView.m in Sources */,
 				2897EF7F1856E11A000BB6B9 /* RCRootC.m in Sources */,
 				2897EF721856C54B000BB6B9 /* RCAPIClient.m in Sources */,
 				2897EF981856ECBD000BB6B9 /* RCUserEntity.m in Sources */,
 				2897EF5B1856C422000BB6B9 /* UIViewAdditions.m in Sources */,
 				2897EF571856C422000BB6B9 /* TTGlobalUICommon.m in Sources */,
+				CE3A1B54185C28540081C3E9 /* RCWikiC.m in Sources */,
 				28386D9F185A97FB00D7B5C9 /* RCPostC.m in Sources */,
 				2897EF551856C422000BB6B9 /* TTGlobalCoreLocale.m in Sources */,
+				CE3A1B4E185C06D20081C3E9 /* RCTopMembersModel.m in Sources */,
 				2897EF821856E2BE000BB6B9 /* RCForumTopicsC.m in Sources */,
 				2897EF4F1856C422000BB6B9 /* NSDateAdditions.m in Sources */,
 			);
@@ -1008,6 +1100,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JLRubyChina/JLRubyChina-Prefix.pch";
 				INFOPLIST_FILE = "JLRubyChina/JLRubyChina-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1020,6 +1113,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JLRubyChina/JLRubyChina-Prefix.pch";
 				INFOPLIST_FILE = "JLRubyChina/JLRubyChina-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
