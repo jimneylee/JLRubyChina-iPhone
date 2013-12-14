@@ -41,6 +41,13 @@
                                                     PageCounter:self.pageCounter
                                                    perpageCount:self.perpageCount];
             break;
+            
+        case RCForumTopicsType_UserPosted:
+            path = [RCAPIClient relativePathForTopicsWithUserLoginId:self.loginId
+                                                         pageCounter:self.pageCounter
+                                                        perpageCount:self.perpageCount];
+            break;
+            
         default:
             break;
     }
