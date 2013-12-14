@@ -13,7 +13,7 @@
 @implementation RCReplyModel
 
 - (void)old_replyTopicId:(unsigned long)topicId
-            withBody:(NSString*)body
+            body:(NSString*)body
              success:(void(^)())success
              failure:(void(^)(NSError *error))failure
 {
@@ -37,7 +37,7 @@
 }
 
 - (void)replyTopicId:(unsigned long)topicId
-            withBody:(NSString*)body
+            body:(NSString*)body
              success:(void(^)())success
              failure:(void(^)(NSError *error))failure
 {

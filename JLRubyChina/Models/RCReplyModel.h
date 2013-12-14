@@ -10,7 +10,7 @@
 
 @interface RCReplyModel : NSObject
 - (void)replyTopicId:(unsigned long)topicId
-            withBody:(NSString*)body
+            body:(NSString*)body
              success:(void(^)())success
              failure:(void(^)(NSError *error))failure;
 @end
