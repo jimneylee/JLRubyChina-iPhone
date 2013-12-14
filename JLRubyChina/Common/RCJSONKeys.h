@@ -13,9 +13,6 @@
 #define INVALID_INDEX -1
 #define PERPAGE_COUNT 20
 
-// 测试access_token: @jimneylee
-#define ACCESS_TOKEN_TEST @"8a67b1e1042c8093f709:4988"
-
 //==========================================================================
 // common
 #define JSON_ID @"id"
@@ -35,12 +32,13 @@
 #define JSON_HITS_COUNT @"hits"
 #define JSON_REPLIES_LIST @"replies"
 #define JSON_NAME @"name"
+#define JSON_TOPICS_LIST @"topics"
 #define JSON_TOPICS_COUNT @"topics_count"
 #define JSON_SUMMARY @"summary"
 #define JSON_SECTION_ID @"section_id"
 #define JSON_SECTION_NAME @"section_name"
 #define JSON_SORT @"sort"
-#define JSON_SECTION_ID @"_ids"
+#define JSON_SITE_SECTION_ID @"_id"
 #define JSON_SITES_LIST @"sites"
 #define JSON_DESCRIPTION @"desc"
 #define JSON_FAV_ICON @"favicon"
