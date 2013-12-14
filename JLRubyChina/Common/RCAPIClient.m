@@ -8,7 +8,8 @@
 
 #import "RCAPIClient.h"
 
-NSString *const kAPIBaseURLString = @"http://ruby-china.org/api/";
+//NSString *const kAPIBaseURLString = @"http://ruby-china.org/api/";
+NSString *const kAPIBaseURLString = @"http://ruby-china.org/api/v2";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -61,6 +62,14 @@ NSString *const kAPIBaseURLString = @"http://ruby-china.org/api/";
                                         nodeId, pageCounter, perpageCount];
 }
 
++ (NSString*)relativePathForTopicsWithUserLoginId:(NSString*)loginId
+                                      pageCounter:(unsigned int)pageCounter
+                                     perpageCount:(unsigned int)perpageCount
+{
+    return [NSString stringWithFormat:@"users/%@/topics.json?page=%u&per_page=%u",
+                                        loginId, pageCounter, perpageCount];
+}
+
 + (NSString*)relativePathForForumNodes
 {
     return [NSString stringWithFormat:@"nodes.json"];
@@ -69,6 +78,12 @@ NSString *const kAPIBaseURLString = @"http://ruby-china.org/api/";
 + (NSString*)relativePathForCoolSites
 {
     return [NSString stringWithFormat:@"sites.json"];
+}
+
++ (NSString*)relativePathForTopMembersWithPageCounter:(unsigned int)pageCounter
+                                         perpageCount:(unsigned int)perpageCount;
+{
+    return [NSString stringWithFormat:@"users.json?page=%u&per_page=%u", pageCounter, perpageCount];
 }
 
 #pragma mark - Write
@@ -81,6 +96,13 @@ NSString *const kAPIBaseURLString = @"http://ruby-china.org/api/";
 + (NSString*)relativePathForReplyTopicId:(unsigned long)topicId
 {
     return [NSString stringWithFormat:@"topics/%lu/replies.json", topicId];
+}
+
+#pragma mark - User
+
++ (NSString*)relativePathForVisitUserHomepageWithLoginId:(NSString*)username
+{
+    return [NSString stringWithFormat:@"users/%@.json", username];
 }
 
 @end
