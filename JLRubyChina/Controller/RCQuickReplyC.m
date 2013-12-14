@@ -50,7 +50,7 @@
     [super viewDidLoad];
     
     CGFloat kViewWidth = [UIScreen mainScreen].bounds.size.width;
-    CGFloat kViewHeight = 40.f;
+    CGFloat kViewHeight = 44.f;
     self.view.frame = CGRectMake(0, 0, kViewWidth, kViewHeight);
     self.containerView = [[UIView alloc] initWithFrame:self.view.bounds];
     
@@ -65,11 +65,11 @@
 	self.textView.minNumberOfLines = 1;
     self.textView.maxHeight = kTextViewMaxHeight;
 	self.textView.returnKeyType = UIReturnKeyDefault;
-	self.textView.font = [UIFont systemFontOfSize:15.0f];
+	self.textView.font = [UIFont systemFontOfSize:17.0f];
 	self.textView.delegate = self;
     self.textView.internalTextView.scrollIndicatorInsets = UIEdgeInsetsMake(5, 0, 5, 0);
     self.textView.backgroundColor = [UIColor whiteColor];
-    self.textView.placeholder = @"In my opinion ...";
+    self.textView.placeholder = @"我也说几句...";
     [self.view addSubview:self.containerView];
 	
     UIImage* textViewBgSourceImage = [UIImage imageNamed:@"MessageEntryInputField.png"];
@@ -132,20 +132,30 @@
 {
     if (self.textView.text.length) {
         RCReplyModel* replyModel = [[RCReplyModel alloc] init];
-        [replyModel replyTopicId:self.topicId withBody:self.textView.text
+        [replyModel replyTopicId:self.topicId
+                            body:self.textView.text
                          success:^{
                              self.textView.text = @"";
                              [self.textView resignFirstResponder];
-                             MBProgressHUD* hud = [RCGlobalConfig hudShowMessage:@"Success!" addedToView:self.view];
+                             MBProgressHUD* hud = [RCGlobalConfig HUDShowMessage:@"回复成功!" addedToView:self.view];
                              hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
                              hud.mode = MBProgressHUDModeCustomView;
+                             if ([self.replyDelegate respondsToSelector:@selector(didReplySuccess)]) {
+                                 [self.replyDelegate didReplySuccess];
+                             }
                              // 是否需要刷新后，自动滑动到底部，有待考虑，有时需要一次回复多个人，后面看大家使用反馈
                          } failure:^(NSError *error) {
-                             [RCGlobalConfig hudShowMessage:@"Failure!" addedToView:self.view];
+                             [RCGlobalConfig HUDShowMessage:@"回复失败!" addedToView:self.view];
+                             if ([self.replyDelegate respondsToSelector:@selector(didReplyFailure)]) {
+                                 [self.replyDelegate didReplyFailure];
+                             }
                          }];
     }
     else {
         [self.textView resignFirstResponder];
+        if ([self.replyDelegate respondsToSelector:@selector(didReplyCancel)]) {
+            [self.replyDelegate didReplyCancel];
+        }
     }
 }
 
@@ -156,7 +166,12 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)appendString:(NSString*)string
 {
-    self.textView.text = [NSString stringWithFormat:@"%@ %@", self.textView.text, string];
+    if (self.textView.text.length) {
+        self.textView.text = [NSString stringWithFormat:@"%@ %@", self.textView.text, string];
+    }
+    else {
+        self.textView.text = string;
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
