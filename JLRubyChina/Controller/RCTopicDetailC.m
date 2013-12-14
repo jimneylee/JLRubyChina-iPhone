@@ -7,7 +7,6 @@
 //
 
 #import "RCTopicDetailC.h"
-#import "NIAttributedLabel.h"
 #import "RCTopicDetailModel.h"
 #import "RCReplyEntity.h"
 #import "RCTopicBodyView.h"
@@ -17,14 +16,11 @@
 #define SCROLL_DIRECTION_BOTTOM_TAG 1000
 #define SCROLL_DIRECTION_UP_TAG 1001
 
-@interface RCTopicDetailC ()
+@interface RCTopicDetailC ()<RCQuickReplyDelegate>
 @property (nonatomic, strong) RCTopicDetailEntity* topicDetailEntity;
 @property (nonatomic, strong) RCTopicBodyView* topicBodyView;
 @property (nonatomic, strong) RCQuickReplyC* quickReplyC;
 @property (nonatomic, strong) UIButton* scrollBtn;
-@property (nonatomic, strong) JLNimbusMoreButton* refreshFooterBtn;
-@property (nonatomic, assign) BOOL isRefreshingLatestReply;
-@property (nonatomic, strong) NSArray* indexPaths;
 @end
 
 @implementation RCTopicDetailC
@@ -55,11 +51,15 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = @"浏览帖子";
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemReply
-                                                                                               target:self action:@selector(replyTopicAction)];
+        self.navigationItem.rightBarButtonItems =
+        [NSArray arrayWithObjects:
+         [RCGlobalConfig createRefreshBarButtonItemWithTarget:self
+                                                       action:@selector(autoPullDownRefreshActionAnimation)],
+         [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemReply
+                                                       target:self action:@selector(replyTopicAction)],
+         nil];
         // cell not selectable, also cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [self.actions attachToClass:[self.model objectClass] tapBlock:nil/*self.tapAction*/];
-        self.isRefreshingLatestReply = NO;
     }
     return self;
 }
@@ -104,6 +104,9 @@
     if (self.scrollBtn.superview) {
         [self.scrollBtn removeFromSuperview];
     }
+    if (self.navigationController.navigationBarHidden) {
+        [self.navigationController setNavigationBarHidden:NO animated:NO];
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -128,14 +131,25 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)replyTopicAction
 {
-    // each time addSubview to keyWidow, otherwise keyborad is not showed, sorry, so dirty!
-    [[UIApplication sharedApplication].keyWindow addSubview:_quickReplyC.view];
-    self.quickReplyC.textView.internalTextView.inputAccessoryView = self.quickReplyC.view;
+    [self showReplyAsInputAccessoryView];
+    if (!self.navigationController.navigationBarHidden) {
+        [self.navigationController setNavigationBarHidden:YES animated:YES];
+    }
+}
 
-    // call becomeFirstResponder twice, I donot know why, feel so bad!
-    // maybe because textview is in superview(self.quickReplyC.view)
-    [self.quickReplyC.textView.internalTextView becomeFirstResponder];
-    [self.quickReplyC.textView.internalTextView becomeFirstResponder];
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)showReplyAsInputAccessoryView
+{
+    if (![self.quickReplyC.textView.internalTextView isFirstResponder]) {
+        // each time addSubview to keyWidow, otherwise keyborad is not showed, sorry, so dirty!
+        [[UIApplication sharedApplication].keyWindow addSubview:_quickReplyC.view];
+        self.quickReplyC.textView.internalTextView.inputAccessoryView = self.quickReplyC.view;
+        
+        // call becomeFirstResponder twice, I donot know why, feel so bad!
+        // maybe because textview is in superview(self.quickReplyC.view)
+        [self.quickReplyC.textView.internalTextView becomeFirstResponder];
+        [self.quickReplyC.textView.internalTextView becomeFirstResponder];
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -143,6 +157,7 @@
 {
     if (!_quickReplyC) {
         _quickReplyC = [[RCQuickReplyC alloc] initWithTopicId:((RCTopicDetailModel*)self.model).topicId];
+        _quickReplyC.replyDelegate = self;
         // setting the first responder view of the table but we don't know its type (cell/header/footer)
         // [self.view addSubview:_quickReplyC.view];
         // so mush show it in keywindow, same to keyborad :)
@@ -184,26 +199,6 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)createRefreshFooterBtn
-{
-    JLNimbusMoreButton* refreshFooterBtn = [JLNimbusMoreButton defaultMoreButton];
-    [refreshFooterBtn addTarget:self action:@selector(refreshLatestReplyAction)
-               forControlEvents:UIControlEventTouchUpInside];
-    refreshFooterBtn.moreTitle = @"上拉获取最新评论";
-    self.tableView.tableFooterView = refreshFooterBtn;
-    self.refreshFooterBtn = refreshFooterBtn;
-}
-
-- (void)refreshLatestReplyAction
-{
-    if (!self.isRefreshingLatestReply) {
-        self.isRefreshingLatestReply = YES;
-        [self.refreshFooterBtn setAnimating:YES];
-        [self refreshData:YES];
-    }
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Public
 
@@ -232,7 +227,7 @@
             if ([object isKindOfClass:[RCReplyEntity class]]) {
                 //RCReplyEntity* topic = (RCReplyEntity*)object;
                 //nothing to do!
-                //[RCGlobalConfig hudShowMessage:@"TODO:回复该贴/赞该贴" addedToView:self.view];
+                //[RCGlobalConfig HUDShowMessage:@"TODO:回复该贴/赞该贴" addedToView:self.view];
             }
             return YES;
         }
@@ -243,104 +238,60 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)refreshData:(BOOL)refresh
-{
-    if (self.isRefreshingLatestReply) {
-        [self didBeginLoadData];
-        [self.model loadDataWithBlock:^(NSArray* indexPaths, NSError* error) {
-            if (indexPaths) {
-                if (indexPaths.count) {
-                    [self reloadTableViewWithIndexPaths:indexPaths];
-                }
-                else {
-                    [self showMessageForEmpty];
-                }
-                
-                [self didFinishLoadData];
-            }
-            else {
-                [self showMessageForError];
-                [self didFailLoadData];
-            }
-            //self.autoPullDownLoading = NO;
-            //[self finishLoadingAnimation];
-        } more:NO refresh:refresh];
-    }
-    else {
-        [super refreshData:refresh];
-        // sections = nil
-        if (self.model.sections.count > 0) {
-            NITableViewModelSection* section = self.model.sections[0];
-            // TODO: not get
-            self.indexPaths = section.rows;
-        }
-    }
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)reloadTableViewWithIndexPaths:(NSArray*)indexPaths
-{
-    if (self.indexPaths.count == indexPaths.count) {
-        [RCGlobalConfig hudShowMessage:@"暂时没有新的回复" addedToView:self.view];
-    }
-//    else if (!self.indexPaths) {
-//        [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
-//        self.indexPaths = indexPaths;
-//    }
-    else if (self.indexPaths && indexPaths.count > self.indexPaths.count) {
-        NSMutableArray* addtionalIndexPaths = [NSMutableArray arrayWithCapacity:indexPaths.count-self.indexPaths.count];
-        for (NSUInteger i = self.indexPaths.count; i < indexPaths.count; i++) {
-            [addtionalIndexPaths addObject:[indexPaths objectAtIndex:i]];
-        }
-        [self.tableView insertRowsAtIndexPaths:addtionalIndexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
-        self.indexPaths = indexPaths;
-    }
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)didFinishLoadData
 {
     [super didFinishLoadData];
     
-    if (!self.refreshFooterBtn ) {
-        [self createRefreshFooterBtn];
-    }
-    
     self.topicDetailEntity = ((RCTopicDetailModel*)self.model).topicDetailEntity;
     [self updateTopicHeaderView];
-    
-    if (self.isRefreshingLatestReply) {
-        [self performSelector:@selector(scrollToBottomNotAnimated) withObject:nil afterDelay:0.5f];
-        self.isRefreshingLatestReply = NO;
-        [self.refreshFooterBtn setAnimating:NO];
-    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)didFailLoadData
 {
     [super didFailLoadData];
-    //[self showTitleHeaderView];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)showMessageForEmpty
 {
     NSString* msg = @"还没有评论，赶快参与吧！";
-    [RCGlobalConfig hudShowMessage:msg addedToView:self.view];
+    [RCGlobalConfig HUDShowMessage:msg addedToView:self.view];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)showMessageForError
 {
-    NSString* msg = @"抱歉，无法获取信息，请稍后再试！";
-    [RCGlobalConfig hudShowMessage:msg addedToView:self.view];
+    NSString* msg = @"抱歉，无法获取信息！";
+    [RCGlobalConfig HUDShowMessage:msg addedToView:self.view];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)showMssageForLastPage
 {
     // no page
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - RCQuickReplyDelegate
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)didReplySuccess
+{
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)didReplyFailure
+{
+    // nothing to do
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)didReplyCancel
+{
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -368,16 +319,4 @@
     }
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
-#define DEFAULT_DRAG_UP_BOTTOM_OFFSET 30
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
-{
-    if (self.refreshFooterBtn) {
-        CGFloat endScrollingheight = scrollView.contentOffset.y + scrollView.height;
-        if (scrollView.contentSize.height > scrollView.height
-            && endScrollingheight >= scrollView.contentSize.height + DEFAULT_DRAG_UP_BOTTOM_OFFSET) {
-            [self refreshLatestReplyAction];
-        }
-    }
-}
 @end
