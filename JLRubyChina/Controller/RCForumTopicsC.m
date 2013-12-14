@@ -13,6 +13,7 @@
 #import "RCPostC.h"
 
 @interface RCForumTopicsC ()<RCPostDelegate>
+@property (nonatomic, assign) RCForumTopicsType topicsType;
 @end
 
 @implementation RCForumTopicsC
@@ -28,11 +29,16 @@
     if (self) {
         self.title = [self stringForTopicsType:topicsType];
         ((RCForumTopicsModel*)self.model).topicsType = topicsType;
+        self.topicsType = topicsType;
         self.navigationItem.leftBarButtonItem = [RCGlobalConfig createMenuBarButtonItemWithTarget:self
                                                                                            action:@selector(showLeft:)];
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose
-                                                                                               target:self action:@selector(postNewTopicAction)];
-
+        self.navigationItem.rightBarButtonItems =
+        [NSArray arrayWithObjects:
+         [RCGlobalConfig createRefreshBarButtonItemWithTarget:self
+                                                       action:@selector(autoPullDownRefreshActionAnimation)],
+         [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose
+                                                       target:self action:@selector(postNewTopicAction)],
+                                nil];
     }
     return self;
 }
@@ -43,8 +49,26 @@
     self = [self initWithStyle:UITableViewStylePlain];
     if (self) {
         self.title = nodeName;
+        self.topicsType = RCForumTopicsType_NodeList;
         ((RCForumTopicsModel*)self.model).nodeId = nodeId;
-        ((RCForumTopicsModel*)self.model).topicsType = RCForumTopicsType_NodeList;
+        ((RCForumTopicsModel*)self.model).topicsType = self.topicsType;
+        self.navigationItem.rightBarButtonItem = [RCGlobalConfig createRefreshBarButtonItemWithTarget:self
+                                                                                               action:@selector(autoPullDownRefreshActionAnimation)];
+    }
+    return self;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (id)initWithUserLoginId:(NSString*)loginId
+{
+    self = [self initWithStyle:UITableViewStylePlain];
+    if (self) {
+        self.title = loginId;
+        self.topicsType = RCForumTopicsType_UserPosted;
+        ((RCForumTopicsModel*)self.model).loginId = loginId;
+        ((RCForumTopicsModel*)self.model).topicsType = self.topicsType;
+        self.navigationItem.rightBarButtonItem = [RCGlobalConfig createRefreshBarButtonItemWithTarget:self
+                                                                                               action:@selector(autoPullDownRefreshActionAnimation)];
     }
     return self;
 }
@@ -79,7 +103,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    // 添加手势 TODO:这边还需要斟酌
+    // 添加手势 TODO:这边还需要斟酌，暂时只考虑热门帖子，如果首页顶部有下拉选择其他如精华贴，这边同步要修改
     if (RCForumTopicsType_NodeList != ((RCForumTopicsModel*)self.model).topicsType) {
         [self.revealSideViewController updateViewWhichHandleGestures];
     }
@@ -148,22 +172,17 @@
 - (NITableViewActionBlock)tapAction
 {
     return ^BOOL(id object, id target) {
-        if (!self.editing) {
-            if ([object isKindOfClass:[RCTopicEntity class]]) {
-                RCTopicEntity* topic = (RCTopicEntity*)object;
-                if (topic.topicId > 0) {
-                    RCTopicDetailC* c = [[RCTopicDetailC alloc] initWithTopicId:topic.topicId];
-                    [self.navigationController pushViewController:c animated:YES];
-                }
-                else {
-                    [RCGlobalConfig hudShowMessage:@"帖子不存在或已被删除！" addedToView:self.view];
-                }
+        if ([object isKindOfClass:[RCTopicEntity class]]) {
+            RCTopicEntity* topic = (RCTopicEntity*)object;
+            if (topic.topicId > 0) {
+                RCTopicDetailC* c = [[RCTopicDetailC alloc] initWithTopicId:topic.topicId];
+                [self.navigationController pushViewController:c animated:YES];
             }
-            return YES;
+            else {
+                [RCGlobalConfig HUDShowMessage:@"帖子不存在或已被删除！" addedToView:self.view];
+            }
         }
-        else {
-            return NO;
-        }
+        return YES;
     };
 }
 
@@ -171,21 +190,21 @@
 - (void)showMessageForEmpty
 {
     NSString* msg = @"信息为空";
-    [RCGlobalConfig hudShowMessage:msg addedToView:self.view];
+    [RCGlobalConfig HUDShowMessage:msg addedToView:self.view];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)showMessageForError
 {
-    NSString* msg = @"抱歉，无法获取信息，请稍后再试！";
-    [RCGlobalConfig hudShowMessage:msg addedToView:self.view];
+    NSString* msg = @"抱歉，无法获取信息！";
+    [RCGlobalConfig HUDShowMessage:msg addedToView:self.view];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)showMssageForLastPage
 {
     NSString* msg = @"已是最后一页";
-    [RCGlobalConfig hudShowMessage:msg addedToView:self.view];
+    [RCGlobalConfig HUDShowMessage:msg addedToView:self.view];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -195,7 +214,9 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)didPostNewTopic
 {
-    [self autoPullDownRefreshActionAnimation];
+    if (RCForumTopicsType_LatestActivity == self.topicsType) {
+        [self autoPullDownRefreshActionAnimation];
+    }
 }
 
 @end
