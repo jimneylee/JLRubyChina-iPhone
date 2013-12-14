@@ -7,6 +7,8 @@
 //
 
 #import "RCLeftC.h"
+#import "NIAttributedLabel.h"
+#import "NSMutableAttributedString+NimbusAttributedLabel.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -70,7 +72,6 @@
 {
     [super viewDidLoad];
     
-    //UIColor* bgColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"left_side_bg.jpg"]];
     UIColor* bgColor = APP_THEME_COLOR;
     self.view.backgroundColor = bgColor;
     [self.tableView setFrame:CGRectMake(0.f, 0.f,
@@ -80,6 +81,9 @@
     [self.tableView setBackgroundColor:[UIColor clearColor]];
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     [self.view addSubview:self.tableView];
+    
+    self.tableView.tableHeaderView = [self createTableHeaderView];
+    self.tableView.tableFooterView = [self createTableFooterView];
     
     [self setSelectedMenuType:LeftMenuType_Home];
 }
@@ -93,6 +97,56 @@
                                                             inSection:0]
                                 animated:NO
                           scrollPosition:UITableViewScrollPositionNone];
+}
+
+- (UIView*)createTableHeaderView
+{
+    CGFloat tableHeaderHeight = IOS_IS_AT_LEAST_7
+    ? NIStatusBarHeight() + NIToolbarHeightForOrientation(self.interfaceOrientation)
+    : NIToolbarHeightForOrientation(self.interfaceOrientation);
+    
+    // copy from nimbus CustomTextAttributedLabelViewController
+    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.width, tableHeaderHeight)];
+    view.backgroundColor = [UIColor clearColor];
+    
+    NSString* string = @"Ruby China";
+    NSRange rangeOfRuby = [string rangeOfString:@"Ruby"];
+    NSRange rangeOfChina = [string rangeOfString:@"China"];
+    
+    // We must create a mutable attributed string in order to set the CoreText properties.
+    NSMutableAttributedString* text = [[NSMutableAttributedString alloc] initWithString:string];
+    
+    // See http://iosfonts.com/ for a list of all fonts supported out of the box on iOS.
+    UIFont* font = [UIFont fontWithName:@"HelveticaNeue-BoldItalic" size:26];
+    [text setFont:font range:rangeOfRuby];
+    [text setFont:font range:rangeOfChina];
+    [text setTextColor:RGBCOLOR(177, 9, 0) range:rangeOfRuby];
+    [text setTextColor:RGBCOLOR(200, 200, 200) range:rangeOfChina];
+    NIAttributedLabel* label = [[NIAttributedLabel alloc] initWithFrame:CGRectZero];
+    label.lineBreakMode = NSLineBreakByWordWrapping;
+    label.autoresizingMask = UIViewAutoresizingFlexibleDimensions;
+    label.textAlignment = NSTextAlignmentCenter;
+    label.frame = CGRectInset(self.view.bounds, 10, 25);
+    label.attributedText = text;
+    label.shadowOffset = CGSizeMake(0.0f, 1.0f);
+    label.shadowColor = RGBCOLOR(177, 9, 0);
+    
+    [view addSubview:label];
+    
+    return view;
+}
+
+- (UIView*)createTableFooterView
+{
+    CGFloat tableHeaderHeight = 60.f;
+    
+    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.width, tableHeaderHeight)];
+    view.backgroundColor = [UIColor clearColor];
+    
+    UIImageView* logoImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ruby-logo.png"]];
+    logoImageView.center = CGPointMake(view.width / 2, view.height / 2);
+    [view addSubview:logoImageView];
+    return view;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -131,15 +185,23 @@
             break;
             
         case LeftMenuType_ForumNodes:
-            title = @"分类导航";
+            title = @"节点分类";
             break;
             
         case LeftMenuType_CoolSites:
-            title = @"外链酷站";
+            title = @"酷站导航";
             break;
             
-        case LeftMenuType_UserCenter:
-            title = @"个人中心";
+        case LeftMenuType_TopMembers:
+            title = @"活跃会员";
+            break;
+            
+        case LeftMenuType_MyHomePage:
+            title = @"我的主页";
+            break;
+            
+        case LeftMenuType_Wiki:
+            title = @"RCWiki";
             break;
             
         case LeftMenuType_More:
@@ -147,14 +209,14 @@
             break;
             
         case LeftMenuType_AboutUs:
-            title = @"关于我们";
+            title = @"关于APP";
             break;
             
         default:
             break;
     }
     cell.textLabel.text = title;
-    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.textLabel.textColor = [UIColor lightGrayColor];
     cell.textLabel.highlightedTextColor = [UIColor whiteColor];
     cell.textLabel.font = [UIFont boldSystemFontOfSize:16.f];
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
@@ -182,22 +244,27 @@
     }
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    CGFloat tableHeaderHeight = IOS_IS_AT_LEAST_7
-    ? NIStatusBarHeight() + NIToolbarHeightForOrientation(self.interfaceOrientation)
-    : NIToolbarHeightForOrientation(self.interfaceOrientation);
-    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.width, tableHeaderHeight)];
-    view.backgroundColor = [UIColor clearColor];
-    return view;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    CGFloat tableHeaderHeight = IOS_IS_AT_LEAST_7
-    ? NIStatusBarHeight() + NIToolbarHeightForOrientation(self.interfaceOrientation)
-    : NIToolbarHeightForOrientation(self.interfaceOrientation);
-    return tableHeaderHeight;
-}
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//    CGFloat tableHeaderHeight = IOS_IS_AT_LEAST_7
+//    ? NIStatusBarHeight() + NIToolbarHeightForOrientation(self.interfaceOrientation)
+//    : NIToolbarHeightForOrientation(self.interfaceOrientation);
+//    
+//    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.width, tableHeaderHeight)];
+//    view.backgroundColor = [UIColor clearColor];
+//    
+//    UIImageView* logoImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ruby-logo.png"]];
+//    logoImageView.center = CGPointMake(view.width / 2, view.height / 2);
+//    [view addSubview:logoImageView];
+//    return view;
+//}
+//
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+//{
+//    CGFloat tableHeaderHeight = IOS_IS_AT_LEAST_7
+//    ? NIStatusBarHeight() + NIToolbarHeightForOrientation(self.interfaceOrientation)
+//    : NIToolbarHeightForOrientation(self.interfaceOrientation);
+//    return tableHeaderHeight;
+//}
 
 @end
