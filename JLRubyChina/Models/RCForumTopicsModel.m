@@ -43,9 +43,15 @@
             break;
             
         case RCForumTopicsType_UserPosted:
-            path = [RCAPIClient relativePathForTopicsWithUserLoginId:self.loginId
-                                                         pageCounter:self.pageCounter
-                                                        perpageCount:self.perpageCount];
+            path = [RCAPIClient relativePathForPostedTopicsWithUserLoginId:self.loginId
+                                                               pageCounter:self.pageCounter
+                                                              perpageCount:self.perpageCount];
+            break;
+            
+        case RCForumTopicsType_UserFavorited:
+            path = [RCAPIClient relativePathForFavoritedTopicsWithUserLoginId:self.loginId
+                                                                  pageCounter:self.pageCounter
+                                                                 perpageCount:self.perpageCount];
             break;
             
         default:
