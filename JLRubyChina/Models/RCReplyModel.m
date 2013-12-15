@@ -21,7 +21,7 @@
     if (body.length) {
         NSMutableDictionary* parameters = [NSMutableDictionary dictionary];
         [parameters setObject:body forKey:@"body"];
-        [parameters setObject:ACCESS_TOKEN_TEST forKey:@"token"];
+        [parameters setObject:[RCGlobalConfig myLoginId] forKey:@"token"];
         
         NSString* path = [RCAPIClient relativePathForReplyTopicId:topicId];
         [[RCAPIClient sharedClient] postPath:path parameters:parameters
@@ -45,7 +45,7 @@
     if (body.length) {
         NSMutableDictionary* parameters = [NSMutableDictionary dictionary];
         [parameters setObject:body forKey:@"body"];
-        [parameters setObject:ACCESS_TOKEN_TEST forKey:@"token"];
+        [parameters setObject:[RCGlobalConfig myLoginId] forKey:@"token"];
         
         NSString* path = [RCAPIClient relativePathForReplyTopicId:topicId];
         NSError *error = nil;

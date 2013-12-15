@@ -13,7 +13,7 @@
 #import "RCTopMembersModel.h"
 #import "RCUserHomepageC.h"
 
-#define PAGE_MAX_COUNT (IS_IPHONE5 ? (5 * 5) : (4*4))
+#define PAGE_MAX_COUNT (IS_IPHONE5 ? (3 * 5) : (3*4))
 
 @interface RCTopMembersC ()<NILauncherViewModelDelegate>
 @property (nonatomic, assign) NITableViewActionBlock tapAction;
@@ -29,7 +29,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = @"TOP活跃会员";
+        self.title = @"TOP 活跃会员";
         self.navigationItem.leftBarButtonItem = [RCGlobalConfig createMenuBarButtonItemWithTarget:self
                                                                                            action:@selector(showLeft:)];
         self.navigationItem.rightBarButtonItem = [RCGlobalConfig createRefreshBarButtonItemWithTarget:self
@@ -88,6 +88,7 @@
         RCUserEntity* user = nil;
         NILauncherViewObject* viewObject = nil;
         NSMutableArray* pageArray = nil;
+        int myTopNumber = -1;
         
         for (NSUInteger i = 0; i < topMembersArray.count; i++) {
             user = topMembersArray[i];
@@ -99,14 +100,38 @@
                 [contents addObject:pageArray];
             }
             [pageArray addObject:viewObject];
+            
+            if ([user.loginId isEqualToString:[RCGlobalConfig myLoginId]]) {
+                myTopNumber = i+1;
+            }
         }
+        
         self.topMembersArray = topMembersArray;
         self.launcherModel = [[NILauncherViewModel alloc] initWithArrayOfPages:contents delegate:self];
         self.launcherView.dataSource = self.launcherModel;
         [self.launcherView reloadData];
+        
+        self.title = [NSString stringWithFormat:@"TOP%d 活跃会员", self.topMembersArray.count];
+        
+        // check if i am in top N, show HUD for fun
+        if ([RCGlobalConfig myLoginId].length) {
+            if (myTopNumber > 0) {
+                [RCGlobalConfig HUDShowMessage:[NSString stringWithFormat:@"你是TOP%u，请再接再厉！", myTopNumber]
+                                   addedToView:[UIApplication sharedApplication].keyWindow];
+            }
+            else {
+                [RCGlobalConfig HUDShowMessage:[NSString stringWithFormat:@"榜上无名，come on！"]
+                                   addedToView:[UIApplication sharedApplication].keyWindow];
+            }
+        }
+        else {
+            [RCGlobalConfig HUDShowMessage:[NSString stringWithFormat:@"请到我的主页先登录!"]
+                               addedToView:[UIApplication sharedApplication].keyWindow];
+        }
     }
     else {
-        // HUD show
+        [RCGlobalConfig HUDShowMessage:[NSString stringWithFormat:@"没有获取到信息！"]
+                           addedToView:[UIApplication sharedApplication].keyWindow];
     }
 }
 

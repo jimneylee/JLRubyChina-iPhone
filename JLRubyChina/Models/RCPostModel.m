@@ -24,7 +24,7 @@
         [parameters setObject:title forKey:@"title"];
         [parameters setObject:body forKey:@"body"];
         [parameters setObject:[NSNumber numberWithInt:nodeId] forKey:@"node_id"];
-        [parameters setObject:ACCESS_TOKEN_TEST forKey:@"token"];
+        [parameters setObject:[RCGlobalConfig myLoginId] forKey:@"token"];
         
         NSString* path = [RCAPIClient relativePathForPostNewTopic];
         [[RCAPIClient sharedClient] postPath:path parameters:parameters
@@ -51,7 +51,7 @@
         [parameters setObject:title forKey:@"title"];
         [parameters setObject:body forKey:@"body"];
         [parameters setObject:[NSNumber numberWithInt:nodeId] forKey:@"node_id"];
-        [parameters setObject:ACCESS_TOKEN_TEST forKey:@"token"];
+        [parameters setObject:[RCGlobalConfig myLoginId] forKey:@"token"];
         
         NSString* path = [RCAPIClient relativePathForPostNewTopic];
         NSError *error = nil;
