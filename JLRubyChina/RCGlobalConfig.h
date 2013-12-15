@@ -56,7 +56,8 @@ typedef enum {
     RCForumTopicsType_NeverReviewed,//无人问津
     RCForumTopicsType_LatestCreate,//最新创建
     RCForumTopicsType_NodeList,//某一分类帖子
-    RCForumTopicsType_UserPosted//某个用户发的
+    RCForumTopicsType_UserPosted,//某个用户发的
+    RCForumTopicsType_UserFavorited//某个用户收藏
 }RCForumTopicsType;
 
 @interface RCGlobalConfig : NSObject
