@@ -7,6 +7,7 @@
 //
 
 #import "RCUserFullEntity.h"
+#import "NSString+stringFromValue.h"
 
 //"user":
 //"location": "鍖椾含",
@@ -30,15 +31,15 @@
     
     self = [super initWithDictionary:dic];
     if (self) {
-        self.name = dic[@"name"];
-        self.location = dic[@"location"];
-        self.company = dic[@"company"];
-        self.twitter = dic[@"twitter"];
-        self.website = dic[@"website"];
-        self.introduce = dic[@"bio"];
-        self.tagline = dic[@"tagline"];
-        self.githubUrl = dic[@"github_url"];
-        self.email = dic[@"email"];
+        self.name = [NSString stringFromValue:dic[@"name"]];
+        self.location = [NSString stringFromValue:dic[@"location"]];
+        self.company = [NSString stringFromValue:dic[@"company"]];
+        self.twitter = [NSString stringFromValue:dic[@"twitter"]];
+        self.website = [NSString stringFromValue:dic[@"website"]];
+        self.introduce = [NSString stringFromValue:dic[@"bio"]];
+        self.tagline = [NSString stringFromValue:dic[@"tagline"]];
+        self.githubUrl = [NSString stringFromValue:dic[@"github_url"]];
+        self.email = [NSString stringFromValue:dic[@"email"]];
     }
     return self;
 }
