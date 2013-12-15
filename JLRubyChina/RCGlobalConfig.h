@@ -10,7 +10,7 @@
 
 // 测试access_token: @jimneylee
 #if DEBUG
-#define ACCESS_TOKEN_TEST @"8a67b1e1042c8093f709:4988"
+#define MY_ACCESS_TOKEN_TEST @"8a67b1e1042c8093f709:4988"
 #define MY_LOGIN_ID_TEST @"jimneylee"
 #endif
 
@@ -61,9 +61,12 @@ typedef enum {
 
 @interface RCGlobalConfig : NSObject
 
-// UI
+//Global Data
++ (NSString*)myToken;
++ (NSString*)myLoginId;
+
+// Global UI
 + (MBProgressHUD*)HUDShowMessage:(NSString*)msg addedToView:(UIView*)view;
-+ (UIColor *)mainThemeColor;
 + (UIBarButtonItem*)createBarButtonItemWithTitle:(NSString*)buttonTitle Target:(id)target action:(SEL)action;
 + (UIBarButtonItem*)createMenuBarButtonItemWithTarget:(id)target action:(SEL)action;
 + (UIBarButtonItem*)createRefreshBarButtonItemWithTarget:(id)target action:(SEL)action;
