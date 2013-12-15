@@ -62,11 +62,19 @@ NSString *const kAPIBaseURLString = @"http://ruby-china.org/api/v2";
                                         nodeId, pageCounter, perpageCount];
 }
 
-+ (NSString*)relativePathForTopicsWithUserLoginId:(NSString*)loginId
-                                      pageCounter:(unsigned int)pageCounter
-                                     perpageCount:(unsigned int)perpageCount
++ (NSString*)relativePathForPostedTopicsWithUserLoginId:(NSString*)loginId
+                                            pageCounter:(unsigned int)pageCounter
+                                           perpageCount:(unsigned int)perpageCount
 {
     return [NSString stringWithFormat:@"users/%@/topics.json?page=%u&per_page=%u",
+                                        loginId, pageCounter, perpageCount];
+}
+
++ (NSString*)relativePathForFavoritedTopicsWithUserLoginId:(NSString*)loginId
+                                               pageCounter:(unsigned int)pageCounter
+                                              perpageCount:(unsigned int)perpageCount
+{
+    return [NSString stringWithFormat:@"users/%@/topics/favorite.json?page=%u&per_page=%u",
                                         loginId, pageCounter, perpageCount];
 }
 
