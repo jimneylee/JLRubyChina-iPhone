@@ -133,17 +133,21 @@
 - (void)updateSegmentedControl
 {
     if (!_segmentedControl) {
-        // TODO: pull request to fix this bug: initWithFrame
+        // TODO: pull request to author fix this bug: initWithFrame can not call [self commonInit]
         _segmentedControl = [[SDSegmentedControl alloc] init];
         _segmentedControl.frame = CGRectMake(0.f, 0.f, self.view.width, _segmentedControl.height);
         _segmentedControl.interItemSpace = 0.f;
-        [_segmentedControl addTarget:self action:@selector(segmentedDidChange) forControlEvents:UIControlEventValueChanged];
-        self.tableView.tableHeaderView = _segmentedControl;
+        [_segmentedControl addTarget:self action:@selector(segmentedDidChange)
+                    forControlEvents:UIControlEventValueChanged];
+    }
+    if (self.segmentedControl.numberOfSegments > 0) {
+        [self.segmentedControl removeAllSegments];
     }
     for (RCSiteSectionEntity* s in self.model.siteSectionsArray) {
         [self.segmentedControl insertSegmentWithTitle:s.name
                                               atIndex:self.segmentedControl.numberOfSegments
                                              animated:NO];
+        self.segmentedControl.selectedSegmentIndex = 0;
     }
 }
 
@@ -198,6 +202,19 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [self.cellFactory tableView:tableView heightForRowAtIndexPath:indexPath model:self.model];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    return self.segmentedControl;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    CGFloat kDefaultSegemetedControlHeight = 43.f;// see: SDSegmentedControl commonInit
+    return kDefaultSegemetedControlHeight;
 }
 
 @end
