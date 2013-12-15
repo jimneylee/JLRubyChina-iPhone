@@ -91,6 +91,9 @@
 		CE3A1B57185C35E00081C3E9 /* RCUserLauncherButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3A1B56185C35E00081C3E9 /* RCUserLauncherButtonView.m */; };
 		CE3A1B5A185C3A170081C3E9 /* RCUserHomepageC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3A1B59185C3A170081C3E9 /* RCUserHomepageC.m */; };
 		CE3A1B5D185C3A810081C3E9 /* RCUserHomepageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3A1B5C185C3A810081C3E9 /* RCUserHomepageModel.m */; };
+		CE7E319A185D8BDE005F583E /* NSString+stringFromValue.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7E3199185D8BDE005F583E /* NSString+stringFromValue.m */; };
+		CE7E319D185D9346005F583E /* icon_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7E319B185D9346005F583E /* icon_menu.png */; };
+		CE7E319E185D9346005F583E /* icon_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7E319C185D9346005F583E /* icon_menu@2x.png */; };
 		CE96584F18573E98003066A5 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CE96584D18573E98003066A5 /* icon.png */; };
 		CE96585018573E98003066A5 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE96584E18573E98003066A5 /* icon@2x.png */; };
 		CE96585218573ED8003066A5 /* icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = CE96585118573ED8003066A5 /* icon120.png */; };
@@ -271,6 +274,10 @@
 		CE3A1B59185C3A170081C3E9 /* RCUserHomepageC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCUserHomepageC.m; sourceTree = "<group>"; };
 		CE3A1B5B185C3A810081C3E9 /* RCUserHomepageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCUserHomepageModel.h; sourceTree = "<group>"; };
 		CE3A1B5C185C3A810081C3E9 /* RCUserHomepageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCUserHomepageModel.m; sourceTree = "<group>"; };
+		CE7E3198185D8BDE005F583E /* NSString+stringFromValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+stringFromValue.h"; sourceTree = "<group>"; };
+		CE7E3199185D8BDE005F583E /* NSString+stringFromValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+stringFromValue.m"; sourceTree = "<group>"; };
+		CE7E319B185D9346005F583E /* icon_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_menu.png; sourceTree = "<group>"; };
+		CE7E319C185D9346005F583E /* icon_menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_menu@2x.png"; sourceTree = "<group>"; };
 		CE96584D18573E98003066A5 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		CE96584E18573E98003066A5 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		CE96585118573ED8003066A5 /* icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon120.png; sourceTree = "<group>"; };
@@ -531,6 +538,8 @@
 				28D4EF771858061E00C9C858 /* UIView+findViewController.m */,
 				CE9DFAB7185C4D17007BAE75 /* UIImage+nimbusImageNamed.h */,
 				CE9DFAB8185C4D17007BAE75 /* UIImage+nimbusImageNamed.m */,
+				CE7E3198185D8BDE005F583E /* NSString+stringFromValue.h */,
+				CE7E3199185D8BDE005F583E /* NSString+stringFromValue.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -707,6 +716,8 @@
 				CE9DFABB185C53BB007BAE75 /* head_b@2x.png */,
 				CE9DFABC185C53BB007BAE75 /* head_s.png */,
 				CE9DFABD185C53BB007BAE75 /* head_s@2x.png */,
+				CE7E319B185D9346005F583E /* icon_menu.png */,
+				CE7E319C185D9346005F583E /* icon_menu@2x.png */,
 				CEEA2BF01858C561004FDEDF /* QuickReply */,
 				CE96584C18573E98003066A5 /* IconDefault */,
 			);
@@ -823,6 +834,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE96585018573E98003066A5 /* icon@2x.png in Resources */,
+				CE7E319E185D9346005F583E /* icon_menu@2x.png in Resources */,
 				CE9DFABF185C53BB007BAE75 /* head_b@2x.png in Resources */,
 				CEB23058185CA669004F54C7 /* Default.png in Resources */,
 				CEEA2BFA1858C561004FDEDF /* MessageEntryBackground@2x.png in Resources */,
@@ -849,6 +861,7 @@
 				2897EF741856C60A000BB6B9 /* README.md in Resources */,
 				CE96585518573F57003066A5 /* icon58.png in Resources */,
 				2897EEFF1856BE94000BB6B9 /* InfoPlist.strings in Resources */,
+				CE7E319D185D9346005F583E /* icon_menu.png in Resources */,
 				CE9DFAC1185C53BB007BAE75 /* head_s@2x.png in Resources */,
 				CEEA2BF91858C561004FDEDF /* MessageEntryBackground.png in Resources */,
 			);
@@ -935,6 +948,7 @@
 				CE9DFAC7185C5BB1007BAE75 /* RCUserFullEntity.m in Sources */,
 				28D4EF901858463E00C9C858 /* RCForumNodesC.m in Sources */,
 				2897EF611856C422000BB6B9 /* JLNimbusEntity.m in Sources */,
+				CE7E319A185D8BDE005F583E /* NSString+stringFromValue.m in Sources */,
 				2897EF791856E073000BB6B9 /* RCGlobalConfig.m in Sources */,
 				281AED611859760F00DEC6E2 /* RCCoolSitesModel.m in Sources */,
 				2897EF651856C422000BB6B9 /* JLNimbusTableModel.m in Sources */,

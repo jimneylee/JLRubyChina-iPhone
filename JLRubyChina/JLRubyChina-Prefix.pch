@@ -21,6 +21,7 @@
 
 #import "RCJSONKeys.h"
 #import "RCGlobalConfig.h"
+#import "UIImage+nimbusImageNamed.h"
 
 // debug log switch
 #ifdef DEBUG
