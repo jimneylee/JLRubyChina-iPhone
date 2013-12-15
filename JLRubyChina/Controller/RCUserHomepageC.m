@@ -16,6 +16,7 @@
 
 @interface RCUserHomepageC ()
 @property (nonatomic, strong) RCHomepageHeaderView* homepageHeaderView;
+@property (nonatomic, strong) NSArray* reloadedIndexPaths;
 @end
 
 @implementation RCUserHomepageC
@@ -146,12 +147,22 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)reloadWithIndexPaths:(NSArray*)indexPaths
+{
+    [super reloadWithIndexPaths:indexPaths];
+    self.reloadedIndexPaths = indexPaths;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)didFinishLoadData
 {
     [super didFinishLoadData];
     
     [self updateTopicHeaderView];
-    [self createViewMoreFooterView];
+    // TODO: 由于当前不知道用户已发帖子总数，暂时以是否取到前5条为判断，待修改
+    if (self.reloadedIndexPaths.count >= 5) {
+        [self createViewMoreFooterView];
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -191,6 +202,28 @@
     [self.revealSideViewController pushOldViewControllerOnDirection:PPRevealSideDirectionLeft
                                                          withOffset:SIDE_DIRECTION_LEFT_OFFSET
                                                            animated:YES];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - UITableViewDelegate
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    CGFloat tableHeaderHeight = 20.f;
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.tableView.width, tableHeaderHeight)];
+    label.backgroundColor = TABLE_VIEW_BG_COLOR;
+    label.textColor = [UIColor darkGrayColor];
+    label.text = @"  帖子";
+    return label;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    CGFloat tableHeaderHeight = 20.f;
+    return tableHeaderHeight;
 }
 
 @end
