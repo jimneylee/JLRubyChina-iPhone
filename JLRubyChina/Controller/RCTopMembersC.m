@@ -110,6 +110,8 @@
         self.launcherModel = [[NILauncherViewModel alloc] initWithArrayOfPages:contents delegate:self];
         self.launcherView.dataSource = self.launcherModel;
         [self.launcherView reloadData];
+        //beacuse pageScrollView is private property, so when refresh again, can not move to first page
+        //[self.launcherView.pageScrollView moveToPageAtIndex:0 animated:YES];
         
         self.title = [NSString stringWithFormat:@"TOP%d 活跃会员", self.topMembersArray.count];
         
