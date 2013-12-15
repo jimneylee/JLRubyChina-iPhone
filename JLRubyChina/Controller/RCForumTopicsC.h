@@ -19,4 +19,7 @@
 // 用户的帖子列表
 - (id)initWithUserLoginId:(NSString*)loginId;
 
+// 用户收藏的帖子列表
+- (id)initForFavoritedWithUserLoginId:(NSString*)loginId;
+
 @end

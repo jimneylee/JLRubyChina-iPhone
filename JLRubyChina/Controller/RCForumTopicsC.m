@@ -74,6 +74,21 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+- (id)initForFavoritedWithUserLoginId:(NSString*)loginId
+{
+    self = [self initWithStyle:UITableViewStylePlain];
+    if (self) {
+        self.title = loginId;
+        self.topicsType = RCForumTopicsType_UserFavorited;
+        ((RCForumTopicsModel*)self.model).loginId = loginId;
+        ((RCForumTopicsModel*)self.model).topicsType = self.topicsType;
+        self.navigationItem.rightBarButtonItem = [RCGlobalConfig createRefreshBarButtonItemWithTarget:self
+                                                                                               action:@selector(autoPullDownRefreshActionAnimation)];
+    }
+    return self;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
