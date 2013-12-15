@@ -78,10 +78,6 @@
                 RCForumTopicsC* c = [[RCForumTopicsC alloc] initWithNodeName:entity.nodeName
                                                                       nodeId:entity.nodeId];
                 [self.navigationController pushViewController:c animated:YES];
-//                if ([self.trendsDelegate respondsToSelector:@selector(didSelectATrend:)]) {
-//                    [self.trendsDelegate didSelectATrend:[entity getNameWithSharp]];
-//                    [self.navigationController popViewControllerAnimated:YES];
-//                }
             }
             return YES;
         }
