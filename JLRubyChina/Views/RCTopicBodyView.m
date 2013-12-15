@@ -21,8 +21,11 @@
 #define DATE_FONT_SIZE [UIFont systemFontOfSize:12.f]
 // 冬青字体：http://tadaland.com/ios-better-experience-font-hiragino.html
 #define CONTENT_FONT_SIZE [UIFont fontWithName:@"Hiragino Sans GB" size:17.f]
+#define BUTTON_FONT_SIZE [UIFont boldSystemFontOfSize:15.f]
+
 #define CONTENT_LINE_HEIGHT 21.f
 #define HEAD_IAMGE_HEIGHT 34
+#define BUTTON_SIZE CGSizeMake(104.f, 30.f)
 
 @interface RCTopicBodyView()<NIAttributedLabelDelegate>
 @property (nonatomic, strong) RCTopicDetailEntity* topicDetailEntity;
@@ -32,6 +35,9 @@
 @property (nonatomic, strong) UILabel* nameLabel;
 @property (nonatomic, strong) UILabel* dateLabel;
 @property (nonatomic, strong) NIAttributedLabel* bodyLabel;
+@property (nonatomic, strong) UIButton* followBtn;
+@property (nonatomic, strong) UIButton* unfollowBtn;
+@property (nonatomic, strong) UIButton* favoriteBtn;
 @end
 
 @implementation RCTopicBodyView
@@ -156,8 +162,12 @@
                                       kContentLength, 0.f);
     [self.bodyLabel sizeToFit];
 #endif
-    
+    // body height
     height = height + self.bodyLabel.height;
+    
+    // botton height
+    height = height + BUTTON_SIZE.height;
+    
     height = height + sideMargin;
     
     // content view
@@ -166,6 +176,14 @@
                                         height - cellMargin * 2);
     // self height
     self.height = height;
+    
+    // button
+    self.followBtn.left = 0.f;
+    self.followBtn.bottom = self.contentView.height;
+    self.unfollowBtn.left = self.followBtn.right;
+    self.unfollowBtn.bottom = self.followBtn.bottom;
+    self.favoriteBtn.left = self.unfollowBtn.right;
+    self.favoriteBtn.bottom = self.unfollowBtn.bottom;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -208,6 +226,96 @@
             
         }
     }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - UIButton Action
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)followAction
+{
+    // TODO:
+    [RCGlobalConfig HUDShowMessage:@"to do it!"
+                       addedToView:[UIApplication sharedApplication].keyWindow];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)unfollowAction
+{
+    // TODO:
+    [RCGlobalConfig HUDShowMessage:@"to do it!"
+                       addedToView:[UIApplication sharedApplication].keyWindow];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)favoriteAction
+{
+    // TODO:
+    [RCGlobalConfig HUDShowMessage:@"to do it!"
+                       addedToView:[UIApplication sharedApplication].keyWindow];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - View init
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (UIButton*)followBtn
+{
+    if (!_followBtn) {
+        _followBtn = [[UIButton alloc] initWithFrame:CGRectMake(0.f, 0.f,
+                                                                BUTTON_SIZE.width, BUTTON_SIZE.height)];
+        [_followBtn.titleLabel setFont:BUTTON_FONT_SIZE];
+        [_followBtn setTitle:@"关注" forState:UIControlStateNormal];
+        [_followBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [_followBtn setTitleColor:[UIColor blueColor] forState:UIControlStateHighlighted];
+        [_followBtn addTarget:self action:@selector(followAction)
+             forControlEvents:UIControlEventTouchUpInside];
+        [self.contentView addSubview:_followBtn];
+        _followBtn.layer.borderColor = CELL_CONTENT_VIEW_BORDER_COLOR.CGColor;
+        _followBtn.layer.borderWidth = 1.0f;
+    }
+    return _followBtn;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (UIButton*)unfollowBtn
+{
+    if (!_unfollowBtn) {
+        _unfollowBtn = [[UIButton alloc] initWithFrame:CGRectMake(0.f, 0.f,
+                                                                      BUTTON_SIZE.width, BUTTON_SIZE.height)];
+        [_unfollowBtn.titleLabel setFont:BUTTON_FONT_SIZE];
+        [_unfollowBtn setTitle:@"取消关注" forState:UIControlStateNormal];
+        [_unfollowBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [_unfollowBtn setTitleColor:[UIColor blueColor] forState:UIControlStateHighlighted];
+        [_unfollowBtn addTarget:self action:@selector(unfollowAction)
+                   forControlEvents:UIControlEventTouchUpInside];
+        [self.contentView addSubview:_unfollowBtn];
+        _unfollowBtn.layer.borderColor = CELL_CONTENT_VIEW_BORDER_COLOR.CGColor;
+        _unfollowBtn.layer.borderWidth = 1.0f;
+    }
+    return _unfollowBtn;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (UIButton*)favoriteBtn
+{
+    if (!_favoriteBtn) {
+        _favoriteBtn = [[UIButton alloc] initWithFrame:CGRectMake(0.f, 0.f,
+                                                                         BUTTON_SIZE.width, BUTTON_SIZE.height)];
+        [_favoriteBtn.titleLabel setFont:BUTTON_FONT_SIZE];
+        [_favoriteBtn.titleLabel setTextColor:[UIColor grayColor]];
+        [_favoriteBtn setTitle:@"收藏" forState:UIControlStateNormal];
+        [_favoriteBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [_favoriteBtn setTitleColor:[UIColor blueColor] forState:UIControlStateHighlighted];
+        [_favoriteBtn addTarget:self action:@selector(favoriteAction)
+                      forControlEvents:UIControlEventTouchUpInside];
+        [self.contentView addSubview:_favoriteBtn];
+        _favoriteBtn.layer.borderColor = CELL_CONTENT_VIEW_BORDER_COLOR.CGColor;
+        _favoriteBtn.layer.borderWidth = 1.0f;
+    }
+    return _favoriteBtn;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

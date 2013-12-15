@@ -101,9 +101,28 @@ NSString *const kAPIBaseURLString = @"http://ruby-china.org/api/v2";
     return [NSString stringWithFormat:@"topics.json"];
 }
 
+// 回复帖子
 + (NSString*)relativePathForReplyTopicId:(unsigned long)topicId
 {
     return [NSString stringWithFormat:@"topics/%lu/replies.json", topicId];
+}
+
+// 收藏帖子
++ (NSString*)relativePathForFavoriteTopicId:(unsigned long)topicId
+{
+    return [NSString stringWithFormat:@"topics/%lu/favorite.json", topicId];
+}
+
+// 关注帖子
++ (NSString*)relativePathForFollowTopicId:(unsigned long)topicId
+{
+    return [NSString stringWithFormat:@"topics/%lu/follow.json", topicId];
+}
+
+// 取消关注帖子
++ (NSString*)relativePathForUnfollowTopicId:(unsigned long)topicId
+{
+    return [NSString stringWithFormat:@"topics/%lu/unfollow.json", topicId];
 }
 
 #pragma mark - User

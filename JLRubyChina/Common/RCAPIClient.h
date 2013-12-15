@@ -80,6 +80,15 @@
 // 回复帖子
 + (NSString*)relativePathForReplyTopicId:(unsigned long)topicId;
 
+// 收藏帖子
++ (NSString*)relativePathForFavoriteTopicId:(unsigned long)topicId;
+
+// 关注帖子
++ (NSString*)relativePathForFollowTopicId:(unsigned long)topicId;
+
+// 取消关注帖子
++ (NSString*)relativePathForUnfollowTopicId:(unsigned long)topicId;
+
 //================================================================================
 // user page
 //================================================================================
