@@ -110,8 +110,20 @@
     }
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)visitUserHomepageWithLoginId:(NSString*)loginId
+{
+    [RCGlobalConfig HUDShowMessage:loginId
+                       addedToView:[UIApplication sharedApplication].keyWindow];
+    RCUserHomepageC* c = [[RCUserHomepageC alloc] initWithUserLoginId:loginId];
+    [self.navigationController pushViewController:c animated:YES];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - NILauncherViewModelDelegate
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)launcherViewModel:(NILauncherViewModel *)launcherViewModel
       configureButtonView:(UIView<NILauncherButtonView> *)buttonView
           forLauncherView:(NILauncherView *)launcherView
@@ -131,16 +143,18 @@
 //    launcherButtonView.label.layer.shadowRadius = 1;
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - NILauncherDelegate
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)launcherView:(NILauncherView *)launcher didSelectItemOnPage:(NSInteger)page atIndex:(NSInteger)index {
     // Now that we're using a model we can easily refer back to which object was selected when we
     // receive a selection notification.
     //id<NILauncherViewObject> object = [self.launcherModel objectAtIndex:index pageIndex:page];
     RCUserLauncherViewObject* object = (RCUserLauncherViewObject*)[self.launcherModel objectAtIndex:index pageIndex:page];
     if (object.title.length) {
-        RCUserHomepageC* c = [[RCUserHomepageC alloc] initWithUserLoginId:object.title];
-        [self.navigationController pushViewController:c animated:YES];
+        [self visitUserHomepageWithLoginId:object.title];
     }
 }
 

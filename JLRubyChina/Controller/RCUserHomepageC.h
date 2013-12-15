@@ -9,5 +9,11 @@
 #import "JLNimbusTableViewController.h"
 
 @interface RCUserHomepageC : JLNimbusTableViewController
+
+// only me in left side, my home homepage
+- (id)initWithMyLoginId:(NSString*)loginId;
+
+// for anyone include me, can back to privious controller
 - (id)initWithUserLoginId:(NSString*)loginId;
+
 @end

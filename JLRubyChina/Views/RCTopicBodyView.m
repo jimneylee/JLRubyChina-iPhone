@@ -12,6 +12,7 @@
 #import "NIAttributedLabel.h"
 #import "NIWebController.h"
 #import "UIView+findViewController.h"
+#import "RCUserHomepageC.h"
 #import "RCKeywordEntity.h"
 
 // 字体 行高 文本色设置
@@ -59,6 +60,10 @@
         NINetworkImageView* headView = [[NINetworkImageView alloc] initWithFrame:CGRectMake(0, 0, HEAD_IAMGE_HEIGHT, HEAD_IAMGE_HEIGHT)];
         [contentView addSubview:headView];
         self.headView = headView;
+        UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                              action:@selector(visitUserHomepage)];
+        self.headView.userInteractionEnabled = YES;
+        [self.headView addGestureRecognizer:tap];
         
         // name
         UILabel* nameLabel = [[UILabel alloc] init];
@@ -74,6 +79,7 @@
         [contentView addSubview:dateLabel];
         self.dateLabel = dateLabel;
         
+        // body
         NIAttributedLabel* bodyLabel = [[NIAttributedLabel alloc] initWithFrame:CGRectZero];
         bodyLabel.numberOfLines = 0;
         bodyLabel.font = CONTENT_FONT_SIZE;
@@ -87,9 +93,11 @@
         [contentView addSubview:bodyLabel];
         self.bodyLabel = bodyLabel;
         
+        // layer border if inneed
         self.contentView.layer.borderColor = CELL_CONTENT_VIEW_BORDER_COLOR.CGColor;
         self.contentView.layer.borderWidth = 1.0f;
         
+        // backgroud
         self.backgroundColor = [UIColor clearColor];
         self.contentView.backgroundColor = CELL_CONTENT_VIEW_BG_COLOR;
         self.titleLabel.backgroundColor = [UIColor clearColor];
@@ -200,9 +208,22 @@
             
         }
     }
-    // TODO: check emotion
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)visitUserHomepage
+{
+    UIViewController* superviewC = self.viewController;
+    [RCGlobalConfig HUDShowMessage:self.topicDetailEntity.user.loginId
+                       addedToView:[UIApplication sharedApplication].keyWindow];
+    if (superviewC) {
+        RCUserHomepageC* c = [[RCUserHomepageC alloc] initWithUserLoginId:self.topicDetailEntity.user.loginId];
+        [superviewC.navigationController pushViewController:c animated:YES];
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - NIAttributedLabelDelegate
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

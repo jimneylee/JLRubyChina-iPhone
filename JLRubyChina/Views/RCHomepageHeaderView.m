@@ -9,6 +9,8 @@
 #import "RCHomepageHeaderView.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIImage+nimbusImageNamed.h"
+#import "UIView+findViewController.h"
+#import "RCUserHomepageC.h"
 #import "RCUserFullEntity.h"
 
 #define NAME_FONT_SIZE [UIFont boldSystemFontOfSize:22.f]
@@ -23,6 +25,7 @@
 @property (nonatomic, strong) UILabel* loginIdLabel;
 @property (nonatomic, strong) UILabel* tagLineLabel;
 @property (nonatomic, strong) NINetworkImageView* headView;
+@property (nonatomic, strong) RCUserFullEntity* user;
 @end
 
 @implementation RCHomepageHeaderView
@@ -44,7 +47,11 @@
                                                                                     HEAD_IAMGE_HEIGHT)];
         self.headView.initialImage = [UIImage nimbusImageNamed:@"head_s.png"];
         [self.contentView addSubview:self.headView];
-
+        UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                              action:@selector(visitUserHomepage)];
+        self.headView.userInteractionEnabled = YES;
+        [self.headView addGestureRecognizer:tap];
+        
         // username
         UILabel* nameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         nameLabel.font = NAME_FONT_SIZE;
@@ -126,15 +133,30 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)updateViewWithHomepageUser:(RCUserFullEntity*)user
 {
-    if (user.avatarUrl.length) {
-        [self.headView setPathToNetworkImage:user.avatarUrl];
+    if (user) {
+        self.user = user;
+        if (user.avatarUrl.length) {
+            [self.headView setPathToNetworkImage:user.avatarUrl];
+        }
+        else {
+            [self.headView setPathToNetworkImage:nil];
+        }
+        self.nameLabel.text = user.name;
+        self.loginIdLabel.text = user.loginId;
+        self.tagLineLabel.text = [NSString stringWithFormat:@"签名：%@", user.tagline.length ? user.tagline : @"暂无"];
     }
-    else {
-        [self.headView setPathToNetworkImage:nil];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)visitUserHomepage
+{
+    UIViewController* superviewC = self.viewController;
+    [RCGlobalConfig HUDShowMessage:self.user.loginId
+                       addedToView:[UIApplication sharedApplication].keyWindow];
+    if (superviewC) {
+        RCUserHomepageC* c = [[RCUserHomepageC alloc] initWithUserLoginId:self.user.loginId];
+        [superviewC.navigationController pushViewController:c animated:YES];
     }
-    self.nameLabel.text = user.name;
-    self.loginIdLabel.text = user.loginId;
-    self.tagLineLabel.text = [NSString stringWithFormat:@"签名：%@", user.tagline];
 }
 
 @end

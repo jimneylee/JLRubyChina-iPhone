@@ -80,7 +80,11 @@
                                                                                    HEAD_IAMGE_HEIGHT)];
         self.headView.initialImage = [UIImage nimbusImageNamed:@"head_s.png"];
         [self.contentView addSubview:self.headView];
-
+        UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                              action:@selector(visitUserHomepage)];
+        self.headView.userInteractionEnabled = YES;
+        [self.headView addGestureRecognizer:tap];
+        
         // name
         self.textLabel.font = NAME_FONT_SIZE;
         self.textLabel.textColor = [UIColor blackColor];
@@ -136,9 +140,9 @@
 - (void)prepareForReuse
 {
     [super prepareForReuse];
-    if (self.headView.image) {
-        self.headView.image = nil;
-    }
+//    if (self.headView.image) {
+//        self.headView.image = nil;
+//    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -221,6 +225,22 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)visitUserHomepage
+{
+    UIViewController* superviewC = self.viewController;
+    [RCGlobalConfig HUDShowMessage:self.topicEntity.user.loginId
+                       addedToView:[UIApplication sharedApplication].keyWindow];
+    if (superviewC) {
+        RCUserHomepageC* c = [[RCUserHomepageC alloc] initWithUserLoginId:self.topicEntity.user.loginId];
+        [superviewC.navigationController pushViewController:c animated:YES];
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - NIAttributedLabelDelegate
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)attributedLabel:(NIAttributedLabel*)attributedLabel
 didSelectTextCheckingResult:(NSTextCheckingResult *)result
                 atPoint:(CGPoint)point {
@@ -240,7 +260,7 @@ didSelectTextCheckingResult:(NSTextCheckingResult *)result
             [RCGlobalConfig HUDShowMessage:someone
                                addedToView:[UIApplication sharedApplication].keyWindow];
             if (superviewC) {
-                RCUserHomepageC* c = [[RCUserHomepageC alloc] initWithUserLoginId:self.topicEntity.user.loginId];
+                RCUserHomepageC* c = [[RCUserHomepageC alloc] initWithUserLoginId:self.topicEntity.lastRepliedUser.loginId];
                 [superviewC.navigationController pushViewController:c animated:YES];
             }
         }
@@ -250,11 +270,11 @@ didSelectTextCheckingResult:(NSTextCheckingResult *)result
 
             if (superviewC) {
                 if ([superviewC.title isEqualToString:somenode]) {
-                    [RCGlobalConfig HUDShowMessage:[NSString stringWithFormat:@"Already in %@ :(", somenode]
+                    [RCGlobalConfig HUDShowMessage:[NSString stringWithFormat:@"Already in %@", somenode]
                                        addedToView:[UIApplication sharedApplication].keyWindow];
                 }
                 else {
-                    [RCGlobalConfig HUDShowMessage:[NSString stringWithFormat:@"Go to %@ :)", somenode]
+                    [RCGlobalConfig HUDShowMessage:[NSString stringWithFormat:@"Go to %@", somenode]
                                        addedToView:[UIApplication sharedApplication].keyWindow];
                     RCForumTopicsC* topicsC = [[RCForumTopicsC alloc] initWithNodeName:self.topicEntity.nodeName
                                                                           nodeId:self.topicEntity.nodeId];

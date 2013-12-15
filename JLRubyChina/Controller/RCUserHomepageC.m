@@ -21,6 +21,19 @@
 @implementation RCUserHomepageC
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+- (id)initWithMyLoginId:(NSString*)loginId
+{
+    self = [self initWithStyle:UITableViewStylePlain];
+    if (self) {
+        ((RCUserHomepageModel*)self.model).loginId = loginId;
+        self.title = loginId;
+        self.navigationItem.leftBarButtonItem = [RCGlobalConfig createMenuBarButtonItemWithTarget:self
+                                                                                           action:@selector(showLeft:)];
+    }
+    return self;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithUserLoginId:(NSString*)loginId
 {
     self = [self initWithStyle:UITableViewStylePlain];
@@ -36,8 +49,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.navigationItem.leftBarButtonItem = [RCGlobalConfig createMenuBarButtonItemWithTarget:self
-                                                                                           action:@selector(showLeft:)];
+
     }
     return self;
 }

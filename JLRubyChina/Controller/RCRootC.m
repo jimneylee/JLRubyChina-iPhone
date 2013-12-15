@@ -122,7 +122,7 @@
 - (void)showMyHomepageView
 {
     [self.navigationController popToRootViewControllerAnimated:NO];
-    RCUserHomepageC* c = [[RCUserHomepageC alloc] initWithUserLoginId:MY_LOGIN_ID_TEST];
+    RCUserHomepageC* c = [[RCUserHomepageC alloc] initWithMyLoginId:MY_LOGIN_ID_TEST];
     [self.navigationController pushViewController:c animated:YES];
 }
 

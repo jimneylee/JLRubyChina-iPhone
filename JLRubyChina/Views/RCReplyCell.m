@@ -12,6 +12,7 @@
 #import "NIWebController.h"
 #import "UIView+findViewController.h"
 #import "UIImage+nimbusImageNamed.h"
+#import "RCUserHomepageC.h"
 #import "RCTopicDetailC.h"
 #import "RCReplyEntity.h"
 #import "RCKeywordEntity.h"
@@ -101,10 +102,15 @@
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
+        // head
         self.headView = [[NINetworkImageView alloc] initWithFrame:CGRectMake(0, 0, HEAD_IAMGE_HEIGHT,
                                                                                     HEAD_IAMGE_HEIGHT)];
         self.headView.initialImage = [UIImage nimbusImageNamed:@"head_s.png"];
         [self.contentView addSubview:self.headView];
+        UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                              action:@selector(visitUserHomepage)];
+        self.headView.userInteractionEnabled = YES;
+        [self.headView addGestureRecognizer:tap];
         
         // name
         self.textLabel.font = NAME_FONT_SIZE;
@@ -281,6 +287,20 @@
     }
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)visitUserHomepage
+{
+    UIViewController* superviewC = self.viewController;
+    [RCGlobalConfig HUDShowMessage:self.replyEntity.user.loginId
+                       addedToView:[UIApplication sharedApplication].keyWindow];
+    if (superviewC) {
+        RCUserHomepageC* c = [[RCUserHomepageC alloc] initWithUserLoginId:self.replyEntity.user.loginId];
+        [superviewC.navigationController pushViewController:c animated:YES];
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - NIAttributedLabelDelegate
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
