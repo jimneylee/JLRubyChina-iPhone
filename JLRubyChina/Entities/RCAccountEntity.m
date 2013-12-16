@@ -12,6 +12,26 @@
 NSString* kRubyChinaService = @"RubyChinaService";
 NSString* kLoginId = @"LoginId";
 
+//{
+//    avatar =     {
+//        big =         {
+//            url = "photo/big.jpg";
+//        };
+//        large =         {
+//            url = "photo/large.jpg";
+//        };
+//        normal =         {
+//            url = "photo/normal.jpg";
+//        };
+//        small =         {
+//            url = "photo/small.jpg";
+//        };
+//        url = "photo/.jpg";
+//    };
+//    email = "jimneylee@gmail.com";
+//    login = jimneylee;
+//    "private_token" = "8a67b1e1042c8093f709:4988";
+//}
 @implementation RCAccountEntity
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

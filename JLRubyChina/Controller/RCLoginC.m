@@ -153,9 +153,13 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         textInputCell.selectionStyle = UITableViewCellSelectionStyleNone;
         if (USERNAME_INDEX == indexPath.row) {
             self.usernameTextField = textInputCell.textField;
+            self.usernameTextField.clearsOnBeginEditing = NO;
+            self.usernameTextField.clearButtonMode = UITextFieldViewModeAlways;
         }
         else if(PASSWORD_INDEX == indexPath.row) {
             self.passwordTextField = textInputCell.textField;
+            self.passwordTextField.clearsOnBeginEditing = NO;
+            self.passwordTextField.clearButtonMode = UITextFieldViewModeAlways;
         }
     }
     else if ([cell isKindOfClass:[NITextCell class]]) {
