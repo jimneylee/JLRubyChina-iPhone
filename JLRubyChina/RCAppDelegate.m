@@ -10,6 +10,7 @@
 #import "AFNetworking.h"
 #import "PPRevealSideViewController.h"
 #import "MTStatusBarOverlay.h"
+#import "LTUpdate.h"
 #import "RCRootC.h"
 #import "RCAccountEntity.h"
 #import "RCUserHomepageC.h"
@@ -88,7 +89,7 @@
     self.window.rootViewController = c;
     [self.window makeKeyAndVisible];
 #endif
-    
+    [[LTUpdate shared] update];
     [self appearanceChange];
     return YES;
 }
