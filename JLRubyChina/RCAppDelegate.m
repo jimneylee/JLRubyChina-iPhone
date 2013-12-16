@@ -9,7 +9,9 @@
 #import "RCAppDelegate.h"
 #import "AFNetworking.h"
 #import "PPRevealSideViewController.h"
+#import "MTStatusBarOverlay.h"
 #import "RCRootC.h"
+#import "RCAccountEntity.h"
 #import "RCUserHomepageC.h"
 #import "RCAboutAppC.h"
 
@@ -37,7 +39,12 @@
                                                        @"text/html",
                                                        @"text/plain", nil]];
     
-    // TODO: auto login
+    // 导入上次登录成功的loginId和token
+    RCAccountEntity* account = [RCAccountEntity loadStoredUserAccount];
+    if (account) {
+        [RCGlobalConfig setMyLoginId:account.loginId];
+        [RCGlobalConfig setMyToken:account.privateToken];
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -49,10 +56,11 @@
 //        [[UINavigationBar appearance] setBarTintColor:APP_THEME_COLOR];
 //        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 //    }
+    
     // MTStatusBarOverlay 修改背景色为白色
-//    UIView* bgView = [[UIView alloc] initWithFrame:[UIApplication sharedApplication].statusBarFrame];
-//    bgView.backgroundColor = [UIColor whiteColor];
-//    [[MTStatusBarOverlay sharedOverlay] addSubviewToBackgroundView:bgView atIndex:1];// above statusBarBackgroundImageView
+    UIView* bgView = [[UIView alloc] initWithFrame:[UIApplication sharedApplication].statusBarFrame];
+    bgView.backgroundColor = [UIColor whiteColor];
+    [[MTStatusBarOverlay sharedOverlay] addSubviewToBackgroundView:bgView atIndex:1];// above statusBarBackgroundImageView
 }
 
 - (BOOL)prefersStatusBarHidden {
@@ -62,7 +70,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self prepareForLaunching];
-    [self appearanceChange];
     // Override point for customization after application launch.
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -82,6 +89,7 @@
     [self.window makeKeyAndVisible];
 #endif
     
+    [self appearanceChange];
     return YES;
 }
 							
