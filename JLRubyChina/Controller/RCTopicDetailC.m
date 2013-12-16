@@ -131,9 +131,14 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)replyTopicAction
 {
-    [self showReplyAsInputAccessoryView];
-    if (!self.navigationController.navigationBarHidden) {
-        [self.navigationController setNavigationBarHidden:YES animated:YES];
+    if ([RCGlobalConfig myToken]) {
+        [self showReplyAsInputAccessoryView];
+        if (!self.navigationController.navigationBarHidden) {
+            [self.navigationController setNavigationBarHidden:YES animated:YES];
+        }
+    }
+    else {
+        [RCGlobalConfig showLoginControllerFromNavigationController:self.navigationController];
     }
 }
 
@@ -205,8 +210,13 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)replyTopicWithFloorAtSomeone:(NSString*)floorAtsomeoneString
 {
-    [self.quickReplyC appendString:floorAtsomeoneString];
-    [self replyTopicAction];
+    if ([RCGlobalConfig myToken]) {
+        [self replyTopicAction];
+        [self.quickReplyC appendString:floorAtsomeoneString];
+    }
+    else {
+        [RCGlobalConfig showLoginControllerFromNavigationController:self.navigationController];
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
