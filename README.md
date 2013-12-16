@@ -84,18 +84,18 @@ V1.0.0
 10、如果需要的话，添加友盟统计
 
 # Screenshots
-![image](https://github.com/jimneylee/JLRubyChina-iPhone/raw/master/Resource/Screenshots/default.png)
+![image](https://github.com/jimneylee/JLRubyChina-iPhone/raw/master/Resource/Screenshots/default.png)|
 ![image](https://github.com/jimneylee/JLRubyChina-iPhone/raw/master/Resource/Screenshots/home_activity_topics.png)
-
-![image](https://github.com/jimneylee/JLRubyChina-iPhone/raw/master/Resource/Screenshots/left_menu_side.png)
+===
+![image](https://github.com/jimneylee/JLRubyChina-iPhone/raw/master/Resource/Screenshots/left_menu_side.png)|
 ![image](https://github.com/jimneylee/JLRubyChina-iPhone/raw/master/Resource/Screenshots/node_select.png)
-
+===
 ![image](https://github.com/jimneylee/JLRubyChina-iPhone/raw/master/Resource/Screenshots/topic_reply.png)
 ![image](https://github.com/jimneylee/JLRubyChina-iPhone/raw/master/Resource/Screenshots/home_page.png)
-
+===
 ![image](https://github.com/jimneylee/JLRubyChina-iPhone/raw/master/Resource/Screenshots/nodes.png)
 ![image](https://github.com/jimneylee/JLRubyChina-iPhone/raw/master/Resource/Screenshots/outside_link_sites.png)
-
+===
 ![image](https://github.com/jimneylee/JLRubyChina-iPhone/raw/master/Resource/Screenshots/top_members.png)
 ![image](https://github.com/jimneylee/JLRubyChina-iPhone/raw/master/Resource/Screenshots/more.png)
 
