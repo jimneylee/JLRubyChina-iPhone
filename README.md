@@ -1,5 +1,7 @@
 #JLRubyChina-iPhone
-Ruby China社区的iPhone客户端。制作这个客户端是为了回报社区，希望能给社区的同学带来一点帮助，节省一点时间。欢迎大家在使用过程中，提出改进建议和意见。同时期望更多的同学参与维护和优化APP，使我们Ruby China社区的iPhone客户端比其他技术社区更给力。这是我的初衷，希望也是你的。
+[Ruby China](http://ruby-china.org/)社区的iPhone客户端。
+制作这个客户端是为了回报社区，希望能给社区的同学带来一点帮助，节省一点时间。欢迎大家在使用过程中，提出改进建议和意见。同时期望更多的同学参与维护和优化APP，使我们[Ruby China](http://ruby-china.org/)社区的iPhone客户端比其他技术社区更给力。
+这是我的初衷，希望也是你的。
 
 # 更新依赖库
 1、submodule更新
@@ -9,7 +11,7 @@ $ git submodule update
 ```
 注：如需要添加其他的submodule
 ``` bash
-       git submodule add https://github.com/jimneylee/JLNimbusTimeline.git vendor/JLNimbusTimeline
+$ git submodule add https://github.com/jimneylee/JLNimbusTimeline.git vendor/JLNimbusTimeline
 ```
 2、[CocoaPods](http://cocoapods.org)更新
 ``` bash   
@@ -36,31 +38,59 @@ $ git rm -r --cached vendor/JLNimbusTimeline
 $ [sudo]pod install
 ```
 # DONE
-****************************************************
 V1.0.0
 1、首页热门帖子显示
+
 2、帖子详细浏览、帖子回复列表
+
 3、帖子关注、收藏、回复及@某人
+
 4、发帖到指定分类
+
 5、分类节点列表查看
+
 6、酷站分组显示
+
 7、会员TOP N查看
+
 8、我的主页，已发帖子、收藏帖子查看
+
 9、Ruby China Wiki
+
 10、更多功能包含：清空缓存、更新检测、给我评分、关于APP
 
 # TODO
-****************************************************
 1、与后台API接口修改确认，参见API Problem文档说明
+
 2、发帖、回复添加表情选择
+
 3、支持markdown语法解析显示
+
 4、分类节点做分组与排序
+
 5、个人主页详细资料
+
 6、网络2G/3G/WIFI切换提示
+
 7、发布模式下需屏蔽No Point分类
+
 8、增加社交组件分享
+
 9、经公测稳定，提交AppStore审核，方便大家下载使用
+
 10、如果需要的话，添加友盟统计
+
+# Screenshots
+![image](https://github.com/jimneylee/JLRubyChina-iPhone/blob/master/Resource/Screenshots/default.png)
+![image](https://github.com/jimneylee/JLRubyChina-iPhone/blob/master/Resource/Screenshots/home_activity_topics.png)
+![image](https://github.com/jimneylee/JLRubyChina-iPhone/blob/master/Resource/Screenshots/left_menu_side.png)
+![image](https://github.com/jimneylee/JLRubyChina-iPhone/blob/master/Resource/Screenshots/node_select.png)
+![image](https://github.com/jimneylee/JLRubyChina-iPhone/blob/master/Resource/Screenshots/topic_reply.png)
+![image](https://github.com/jimneylee/JLRubyChina-iPhone/blob/master/Resource/Screenshots/home_page.png)
+![image](https://github.com/jimneylee/JLRubyChina-iPhone/blob/master/Resource/Screenshots/nodes.png)
+![image](https://github.com/jimneylee/JLRubyChina-iPhone/blob/master/Resource/Screenshots/outside_link_sites.png)
+![image](https://github.com/jimneylee/JLRubyChina-iPhone/blob/master/Resource/Screenshots/top_members.png)
+![image](https://github.com/jimneylee/JLRubyChina-iPhone/blob/master/Resource/Screenshots/more.png)
 
 # LICENSE
 本项目基于MIT协议发布
