@@ -30,17 +30,16 @@
     if (self) {
         self.isMyHome = YES;
         self.title = loginId;
+        if (loginId.length) {
+            ((RCUserHomepageModel*)self.model).loginId = self.title;
+        }
+        //else didFinishLoadData 中跳转到登录页面
         self.navigationItem.leftBarButtonItem = [RCGlobalConfig createMenuBarButtonItemWithTarget:self
                                                                                            action:@selector(showLeft:)];
-        if (loginId.length) {
-            ((RCUserHomepageModel*)self.model).loginId = loginId;
-        }
-        else {
-            [RCGlobalConfig showLoginControllerFromNavigationController:self.navigationController];
-        }
-        
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLoginNotification)
-                                                     name:RCDidLoginNotification object:nil];
+                                                     name:DID_LOGIN_NOTIFICATION object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLogoutNotification)
+                                                     name:DID_LOGOUT_NOTIFICATION object:nil];
     }
     return self;
 }
@@ -85,9 +84,10 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)viewWillDisappear:(BOOL)animated
+- (void)viewDidAppear:(BOOL)animated
 {
-    [super viewWillDisappear:animated];
+    [super viewDidAppear:animated];
+
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -134,14 +134,17 @@
 - (void)doRefreshAction
 {
     if (self.isMyHome) {
-        if ([RCGlobalConfig myLoginId]) {
-            ((RCUserHomepageModel*)self.model).loginId = [RCGlobalConfig myLoginId];
-        }
-        else {
+        if (![RCGlobalConfig myLoginId]) {
             [RCGlobalConfig showLoginControllerFromNavigationController:self.navigationController];
         }
+        else {
+            ((RCUserHomepageModel*)self.model).loginId = [RCGlobalConfig myLoginId];
+            [super autoPullDownRefreshActionAnimation];
+        }
     }
-    [super autoPullDownRefreshActionAnimation];
+    else {
+        [super autoPullDownRefreshActionAnimation];
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -195,6 +198,9 @@
 - (void)didFailLoadData
 {
     [super didFailLoadData];
+    if (self.isMyHome && ![RCGlobalConfig myLoginId]) {
+        [RCGlobalConfig showLoginControllerFromNavigationController:self.navigationController];
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -239,6 +245,12 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)didLoginNotification
+{
+    [self doRefreshAction];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)didLogoutNotification
 {
     [self doRefreshAction];
 }
