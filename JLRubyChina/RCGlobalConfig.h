@@ -64,12 +64,15 @@ typedef enum {
 
 //Global Data
 + (NSString*)myToken;
++ (void)setMyToken:(NSString*)token;
 + (NSString*)myLoginId;
++ (void)setMyLoginId:(NSString*)loginId;
 
 // Global UI
 + (MBProgressHUD*)HUDShowMessage:(NSString*)msg addedToView:(UIView*)view;
 + (UIBarButtonItem*)createBarButtonItemWithTitle:(NSString*)buttonTitle Target:(id)target action:(SEL)action;
 + (UIBarButtonItem*)createMenuBarButtonItemWithTarget:(id)target action:(SEL)action;
 + (UIBarButtonItem*)createRefreshBarButtonItemWithTarget:(id)target action:(SEL)action;
++ (void)showLoginControllerFromNavigationController:(UINavigationController*)navigationController;
 
 @end

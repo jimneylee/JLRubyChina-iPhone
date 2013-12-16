@@ -7,6 +7,7 @@
 //
 
 #import "RCGlobalConfig.h"
+#import "RCLoginC.h"
 
 static NSString* myToken = nil;
 static NSString* myLoginId = nil;
@@ -19,15 +20,25 @@ static NSString* myLoginId = nil;
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 + (NSString*)myToken
 {
-    // TODO: set in setting or my home right item
-    // use ssh keychain save security
-    return MY_ACCESS_TOKEN_TEST;
+    return myToken;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
++ (void)setMyToken:(NSString*)token
+{
+    myToken = [token copy];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 + (NSString*)myLoginId
 {
-    return MY_LOGIN_ID_TEST;
+    return myLoginId;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
++ (void)setMyLoginId:(NSString*)loginId
+{
+    myLoginId = [loginId copy];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -76,6 +87,13 @@ static NSString* myLoginId = nil;
     item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
                                                          target:target action:action];
     return item;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
++ (void)showLoginControllerFromNavigationController:(UINavigationController*)navigationController
+{
+    RCLoginC* loginC = [[RCLoginC alloc] initWithStyle:UITableViewStyleGrouped];
+    [navigationController pushViewController:loginC animated:YES];
 }
 
 @end
