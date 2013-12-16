@@ -87,6 +87,9 @@
 		28D4F06E18584E7C00C9C858 /* RCForumNodesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4F06D18584E7C00C9C858 /* RCForumNodesModel.m */; };
 		28D4F07118584EA500C9C858 /* RCNodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4F07018584EA500C9C858 /* RCNodeCell.m */; };
 		BBD07554FB194577BA42A7E6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DAEFF79992F4B9FB48FFA19 /* libPods.a */; };
+		CE13258D185F340200208653 /* RCMoreC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE13258C185F340200208653 /* RCMoreC.m */; };
+		CE132590185F4F5800208653 /* CHANGE in Resources */ = {isa = PBXBuildFile; fileRef = CE13258F185F4F5800208653 /* CHANGE */; };
+		CE132592185F537600208653 /* API Problem in Resources */ = {isa = PBXBuildFile; fileRef = CE132591185F537600208653 /* API Problem */; };
 		CE3889D41858AA790052566C /* RCReplyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3889D31858AA790052566C /* RCReplyModel.m */; };
 		CE3A1B45185BFC670081C3E9 /* RCUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3A1B44185BFC670081C3E9 /* RCUserCell.m */; };
 		CE3A1B48185C05940081C3E9 /* RCTopMembersC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3A1B47185C05940081C3E9 /* RCTopMembersC.m */; };
@@ -270,6 +273,11 @@
 		28D4F07018584EA500C9C858 /* RCNodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCNodeCell.m; sourceTree = "<group>"; };
 		2DAEFF79992F4B9FB48FFA19 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BECB55DCFAF84993AE6D89A6 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		CE13258B185F340200208653 /* RCMoreC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCMoreC.h; sourceTree = "<group>"; };
+		CE13258C185F340200208653 /* RCMoreC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCMoreC.m; sourceTree = "<group>"; };
+		CE13258E185F3A0200208653 /* MacroDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDefines.h; sourceTree = "<group>"; };
+		CE13258F185F4F5800208653 /* CHANGE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGE; sourceTree = "<group>"; };
+		CE132591185F537600208653 /* API Problem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "API Problem"; sourceTree = "<group>"; };
 		CE3889D21858AA790052566C /* RCReplyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCReplyModel.h; sourceTree = "<group>"; };
 		CE3889D31858AA790052566C /* RCReplyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCReplyModel.m; sourceTree = "<group>"; };
 		CE3A1B43185BFC670081C3E9 /* RCUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCUserCell.h; sourceTree = "<group>"; };
@@ -374,6 +382,8 @@
 			children = (
 				2897EF751856C616000BB6B9 /* TODO */,
 				2897EF731856C60A000BB6B9 /* README.md */,
+				CE13258F185F4F5800208653 /* CHANGE */,
+				CE132591185F537600208653 /* API Problem */,
 				2897EF291856C40F000BB6B9 /* Vendor */,
 				2897EEFA1856BE94000BB6B9 /* JLRubyChina */,
 				2897EF191856BE94000BB6B9 /* JLRubyChinaTests */,
@@ -411,6 +421,7 @@
 				2897EF041856BE94000BB6B9 /* RCAppDelegate.m */,
 				2897EF771856E073000BB6B9 /* RCGlobalConfig.h */,
 				2897EF781856E073000BB6B9 /* RCGlobalConfig.m */,
+				CE13258E185F3A0200208653 /* MacroDefines.h */,
 				2897EF691856C54B000BB6B9 /* Categories */,
 				2897EF701856C54B000BB6B9 /* Util */,
 				2897EF6A1856C54B000BB6B9 /* Common */,
@@ -575,8 +586,6 @@
 				2897EF7B1856E11A000BB6B9 /* RCLeftC.m */,
 				2897EF7C1856E11A000BB6B9 /* RCRootC.h */,
 				2897EF7D1856E11A000BB6B9 /* RCRootC.m */,
-				28B094A3185ED914003F8789 /* RCLoginC.h */,
-				28B094A4185ED914003F8789 /* RCLoginC.m */,
 				2897EF801856E2BE000BB6B9 /* RCForumTopicsC.h */,
 				2897EF811856E2BE000BB6B9 /* RCForumTopicsC.m */,
 				28D4EF8E1858463E00C9C858 /* RCForumNodesC.h */,
@@ -597,6 +606,10 @@
 				28386D9E185A97FB00D7B5C9 /* RCPostC.m */,
 				28386DE4185AE59600D7B5C9 /* RCNodesCloudTagC.h */,
 				28386DE5185AE59600D7B5C9 /* RCNodesCloudTagC.m */,
+				28B094A3185ED914003F8789 /* RCLoginC.h */,
+				28B094A4185ED914003F8789 /* RCLoginC.m */,
+				CE13258B185F340200208653 /* RCMoreC.h */,
+				CE13258C185F340200208653 /* RCMoreC.m */,
 				CEB2304E185C8F2C004F54C7 /* RCAboutAppC.h */,
 				CEB2304F185C8F2C004F54C7 /* RCAboutAppC.m */,
 				CEB23050185C8F2C004F54C7 /* RCAboutAppC.xib */,
@@ -865,6 +878,7 @@
 				CE96585218573ED8003066A5 /* icon120.png in Resources */,
 				CEEA2BFC1858C561004FDEDF /* MessageEntryInputField@2x.png in Resources */,
 				CEB23055185CA64E004F54C7 /* Default-568@2x.png in Resources */,
+				CE132590185F4F5800208653 /* CHANGE in Resources */,
 				CE9DFABE185C53BB007BAE75 /* head_b.png in Resources */,
 				CEB23052185C8F2C004F54C7 /* RCAboutAppC.xib in Resources */,
 				CEB23056185CA64E004F54C7 /* Default@2x.png in Resources */,
@@ -883,6 +897,7 @@
 				2897EEFF1856BE94000BB6B9 /* InfoPlist.strings in Resources */,
 				CE7E319D185D9346005F583E /* icon_menu.png in Resources */,
 				CE9DFAC1185C53BB007BAE75 /* head_s@2x.png in Resources */,
+				CE132592185F537600208653 /* API Problem in Resources */,
 				CEEA2BF91858C561004FDEDF /* MessageEntryBackground.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -952,6 +967,7 @@
 				CE3A1B5A185C3A170081C3E9 /* RCUserHomepageC.m in Sources */,
 				28D4EF7D1858266700C9C858 /* SMNetworkSpy.m in Sources */,
 				28D4F07118584EA500C9C858 /* RCNodeCell.m in Sources */,
+				CE13258D185F340200208653 /* RCMoreC.m in Sources */,
 				28D4EF751857F78500C9C858 /* RCTopicBodyView.m in Sources */,
 				2897EF5F1856C422000BB6B9 /* JLNimbusTableViewController.m in Sources */,
 				28D4EF93185846CA00C9C858 /* RCNodeEntity.m in Sources */,
