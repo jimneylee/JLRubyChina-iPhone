@@ -1,6 +1,6 @@
 //
-//  SNLoginModel.m
-//  SkyNet
+//  RCLoginModel.m
+//  RubyChina
 //
 //  Created by jimneylee on 13-7-25.
 //  Copyright (c) 2013年 jimneylee. All rights reserved.
@@ -22,6 +22,8 @@
 {
     NSString* path = [RCAPIClient relativePathForSignIn];
     
+    // 由于登录的接口与其他接口base_url不太一样，后台没有放到api路径下，故单独处理
+    // ruby-china.org/account/sign_in.json
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://ruby-china.org/"]];
     [httpClient setParameterEncoding:AFJSONParameterEncoding];
     [httpClient setAuthorizationHeaderWithUsername:username password:password];
@@ -31,10 +33,12 @@
     [httpClient postPath:path parameters:nil
                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                      if ([responseObject isKindOfClass:[NSDictionary class]]) {
-                                         RCAccountEntity* user = [RCAccountEntity entityWithDictionary:responseObject];
-                                         [RCAccountEntity storePrivateToken:user.privateToken forLoginId:user.loginId];
+                                         RCAccountEntity* account = [RCAccountEntity entityWithDictionary:responseObject];
+                                         [RCGlobalConfig setMyLoginId:account.loginId];
+                                         [RCGlobalConfig setMyToken:account.privateToken];
+                                         [RCAccountEntity storePrivateToken:account.privateToken forLoginId:account.loginId];
                                          if (block) {
-                                             block(user, nil);
+                                             block(account, nil);
                                          }
                                      }
                                      else {
