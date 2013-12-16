@@ -155,9 +155,14 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)postNewTopicAction
 {
-    RCPostC* postC = [[RCPostC alloc] initWithStyle:UITableViewStyleGrouped];
-    postC.postDelegate = self;
-    [self.navigationController pushViewController:postC animated:YES];
+    if ([RCGlobalConfig myToken].length) {
+        RCPostC* postC = [[RCPostC alloc] initWithStyle:UITableViewStyleGrouped];
+        postC.postDelegate = self;
+        [self.navigationController pushViewController:postC animated:YES];
+    }
+    else {
+        [RCGlobalConfig showLoginControllerFromNavigationController:self.navigationController];
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
