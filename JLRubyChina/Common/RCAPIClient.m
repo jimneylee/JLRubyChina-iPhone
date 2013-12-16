@@ -39,6 +39,14 @@ NSString *const kAPIBaseURLString = @"http://ruby-china.org/api/v2";
     return self;
 }
 
+#pragma mark - Sign in
+
+// 登录
++ (NSString*)relativePathForSignIn
+{
+    return [NSString stringWithFormat:@"account/sign_in.json"];
+}
+
 #pragma mark - Topics
 // 活跃帖子、优质帖子、无人问津、最近创建
 // TODO: add topic type:
@@ -49,11 +57,13 @@ NSString *const kAPIBaseURLString = @"http://ruby-china.org/api/v2";
                                         pageCounter, perpageCount];
 }
 
+// 帖子详细
 + (NSString*)relativePathForTopicDetailWithTopicId:(unsigned long)topicId
 {
     return [NSString stringWithFormat:@"topics/%ld.json", topicId];
 }
 
+// 节点帖子
 + (NSString*)relativePathForTopicsWithNodeId:(unsigned int)nodeId
                                  PageCounter:(unsigned int)pageCounter
                                 perpageCount:(unsigned int)perpageCount
@@ -62,6 +72,7 @@ NSString *const kAPIBaseURLString = @"http://ruby-china.org/api/v2";
                                         nodeId, pageCounter, perpageCount];
 }
 
+// 用户发的帖子列表
 + (NSString*)relativePathForPostedTopicsWithUserLoginId:(NSString*)loginId
                                             pageCounter:(unsigned int)pageCounter
                                            perpageCount:(unsigned int)perpageCount
@@ -70,6 +81,7 @@ NSString *const kAPIBaseURLString = @"http://ruby-china.org/api/v2";
                                         loginId, pageCounter, perpageCount];
 }
 
+// 用户收藏帖子列表
 + (NSString*)relativePathForFavoritedTopicsWithUserLoginId:(NSString*)loginId
                                                pageCounter:(unsigned int)pageCounter
                                               perpageCount:(unsigned int)perpageCount
@@ -78,16 +90,19 @@ NSString *const kAPIBaseURLString = @"http://ruby-china.org/api/v2";
                                         loginId, pageCounter, perpageCount];
 }
 
+// 论坛所有节点
 + (NSString*)relativePathForForumNodes
 {
     return [NSString stringWithFormat:@"nodes.json"];
 }
 
+// 酷站
 + (NSString*)relativePathForCoolSites
 {
     return [NSString stringWithFormat:@"sites.json"];
 }
 
+// TOP会员
 + (NSString*)relativePathForTopMembersWithPageCounter:(unsigned int)pageCounter
                                          perpageCount:(unsigned int)perpageCount;
 {
@@ -96,6 +111,7 @@ NSString *const kAPIBaseURLString = @"http://ruby-china.org/api/v2";
 
 #pragma mark - Write
 
+// 发布新帖
 + (NSString*)relativePathForPostNewTopic
 {
     return [NSString stringWithFormat:@"topics.json"];
@@ -127,6 +143,7 @@ NSString *const kAPIBaseURLString = @"http://ruby-china.org/api/v2";
 
 #pragma mark - User
 
+// 用户主页
 + (NSString*)relativePathForVisitUserHomepageWithLoginId:(NSString*)username
 {
     return [NSString stringWithFormat:@"users/%@.json", username];
