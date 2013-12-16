@@ -23,8 +23,6 @@
     if (self) {
         // Custom initialization
         self.title = @"关于APP";
-        self.navigationItem.leftBarButtonItem = [RCGlobalConfig createMenuBarButtonItemWithTarget:self
-                                                                                           action:@selector(showLeft:)];
     }
     return self;
 }
@@ -76,12 +74,12 @@
     UIFont* font = [UIFont fontWithName:@"HelveticaNeue-BoldItalic" size:26];
     [text setFont:font range:rangeOfRuby];
     [text setFont:font range:rangeOfChina];
-    [text setTextColor:RGBCOLOR(177, 9, 0) range:rangeOfRuby];
+    [text setTextColor:RUBY_RED_COLOR range:rangeOfRuby];
     [text setTextColor:RGBCOLOR(200, 200, 200) range:rangeOfChina];
 
     self.nameLabel.attributedText = text;
     self.nameLabel.shadowOffset = CGSizeMake(0.0f, 1.0f);
-    self.nameLabel.shadowColor = RGBCOLOR(177, 9, 0);
+    self.nameLabel.shadowColor = RUBY_RED_COLOR;
 }
 
 - (void)setupSiteUrlLabel
@@ -118,19 +116,6 @@ shouldPresentActionSheet:(UIActionSheet *)actionSheet
  withTextCheckingResult:(NSTextCheckingResult *)result atPoint:(CGPoint)point
 {
     return NO;
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
-#pragma mark Side View Controller
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)showLeft:(id)sender
-{
-    // used to push a new controller, but we preloaded it !
-    [self.revealSideViewController pushOldViewControllerOnDirection:PPRevealSideDirectionLeft
-                                                         withOffset:SIDE_DIRECTION_LEFT_OFFSET
-                                                           animated:YES];
 }
 
 @end
