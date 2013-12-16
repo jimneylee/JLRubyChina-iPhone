@@ -11,5 +11,3 @@
 @interface RCLoginC : UITableViewController
 
 @end
-
-NSString *const RCDidLoginNotification;

@@ -10,8 +10,6 @@
 #import "RCLoginModel.h"
 #import "RCUserFullEntity.h"
 
-NSString *const RCDidLoginNotification = @"DidLoginNotification";
-
 #define USERNAME_INDEX 0
 #define PASSWORD_INDEX 1
 
@@ -114,29 +112,27 @@ NSString *const RCDidLoginNotification = @"DidLoginNotification";
 - (void)loginWithUsername:(NSString*)username password:(NSString *)password
 {    
     __block MBProgressHUD* hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = @"正在登录";
+    hud.labelText = @"正在登录...";
     [self.userModel loginWithUsername:username
                               password:password
                                  block:^(RCAccountEntity* user, NSError* error) {
         if (user) {
             NSLog(@"login success");
-            [hud hide:YES];
+            hud.mode = MBProgressHUDModeText;
+            hud.labelText = @"登录成功，欢迎来到ruby china！";
+            [hud hide:YES afterDelay:1.5f];
             [self.navigationController popViewControllerAnimated:YES];
-            [[NSNotificationCenter defaultCenter] postNotificationName:RCDidLoginNotification
+            [[NSNotificationCenter defaultCenter] postNotificationName:DID_LOGIN_NOTIFICATION
                                                                 object:nil userInfo:nil];
         }
         else {
             NSLog(@"login failed");
             hud.mode = MBProgressHUDModeText;
-            hud.labelText = @"抱歉，登录失败，请稍后再试！";
+            hud.labelText = @"登录失败，用户名或密码有错！";
             [hud hide:YES afterDelay:1.5f];
         }
     }];
 }
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
-#pragma mark - Public
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
