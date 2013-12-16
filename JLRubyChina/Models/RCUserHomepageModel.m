@@ -30,7 +30,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (NSString*)relativePath
 {
-    // TODO: set type
     return [RCAPIClient relativePathForVisitUserHomepageWithLoginId:self.loginId];
 }
 
