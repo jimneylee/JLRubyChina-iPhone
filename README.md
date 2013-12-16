@@ -1,1 +1,66 @@
 #JLRubyChina-iPhone
+
+# 更新依赖库
+1、submodule更新
+``` bash
+$ git submodule init 
+$ git submodule update
+```
+注：如需要添加其他的submodule
+``` bash
+       git submodule add https://github.com/jimneylee/JLNimbusTimeline.git vendor/JLNimbusTimeline
+```
+2、[CocoaPods](http://cocoapods.org)更新
+``` bash   
+$ pod install
+```   
+注：如需要添加其他依赖库，请修改Podfile
+
+# ERROR解决方法
+1、官方push到CocoaPods的nimbus 1.0.0版本，存在NIAttributedLabel在UITableViewCell中link无法响应touch的bug
+   请暂时用Nimbus_fix目录下的5个文件（主要就是修改了NIAttributedLabel文件）替换Pod工程中Nimbus里面对应的这个文件
+   参考：http://stackoverflow.com/questions/17467086/using-niattributedlabel-in-uitableviewcell
+2、若出现这个问题：'vendor/JLNimbusTimeline' already exists in the index
+``` bash
+$ git rm --cached vendor/JLNimbusTimeline
+```
+3、若出现这个问题：fatal: not removing 'vendor/JLNimbusTimeline' recursively without -r
+``` bash
+$ git rm -r --cached vendor/JLNimbusTimeline
+```
+4、若出现这个问题：diff: /../Podfile.lock: No such file or directory
+   diff: /Manifest.lock: No such file or directory 
+   error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+``` bash
+$ [sudo]pod install
+```
+# DONE
+****************************************************
+V1.0.0
+1、首页热门帖子显示
+2、帖子详细浏览、帖子回复列表
+3、帖子关注、收藏、回复及@某人
+4、发帖到指定分类
+5、分类节点列表查看
+6、酷站分组显示
+7、会员TOP N查看
+8、我的主页，已发帖子、收藏帖子查看
+9、Ruby China Wiki
+10、更多功能包含：清空缓存、更新检测、给我评分、关于APP
+
+# TODO
+****************************************************
+1、与后台API接口修改确认，参见API Problem文档说明
+2、发帖、回复添加表情选择
+3、支持markdown语法解析显示
+4、分类节点做分组与排序
+5、个人主页详细资料
+6、网络2G/3G/WIFI切换提示
+7、发布模式下需屏蔽No Point分类
+8、增加社交组件分享
+9、经公测稳定，提交AppStore审核，方便大家下载使用
+10、如果需要的话，添加友盟统计
+
+# LICENSE
+本项目基于MIT协议发布
+MIT: [http://rem.mit-license.org](http://rem.mit-license.org)
