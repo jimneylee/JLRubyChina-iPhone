@@ -670,6 +670,8 @@
 			children = (
 				2897EF8D1856E3D2000BB6B9 /* RCBaseTableModel.h */,
 				2897EF8E1856E3D2000BB6B9 /* RCBaseTableModel.m */,
+				28B094A6185ED92D003F8789 /* RCLoginModel.h */,
+				28B094A7185ED92D003F8789 /* RCLoginModel.m */,
 				2897EF841856E2EA000BB6B9 /* RCForumTopicsModel.h */,
 				2897EF851856E2EA000BB6B9 /* RCForumTopicsModel.m */,
 				CE96587B185767BD003066A5 /* RCTopicDetailModel.h */,
@@ -688,8 +690,6 @@
 				CE3A1B4D185C06D20081C3E9 /* RCTopMembersModel.m */,
 				CE3A1B5B185C3A810081C3E9 /* RCUserHomepageModel.h */,
 				CE3A1B5C185C3A810081C3E9 /* RCUserHomepageModel.m */,
-				28B094A6185ED92D003F8789 /* RCLoginModel.h */,
-				28B094A7185ED92D003F8789 /* RCLoginModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
