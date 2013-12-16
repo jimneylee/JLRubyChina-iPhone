@@ -17,7 +17,7 @@ typedef enum
     LeftMenuType_MyHomePage,
     LeftMenuType_Wiki,
     LeftMenuType_More,
-    LeftMenuType_AboutUs
+    LeftMenuType_End
 }LeftMenuType;
 
 @protocol LeftMenuDelegate;

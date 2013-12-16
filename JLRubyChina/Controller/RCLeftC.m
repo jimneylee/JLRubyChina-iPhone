@@ -120,7 +120,7 @@
     UIFont* font = [UIFont fontWithName:@"HelveticaNeue-BoldItalic" size:26];
     [text setFont:font range:rangeOfRuby];
     [text setFont:font range:rangeOfChina];
-    [text setTextColor:RGBCOLOR(177, 9, 0) range:rangeOfRuby];
+    [text setTextColor:RUBY_RED_COLOR range:rangeOfRuby];
     [text setTextColor:RGBCOLOR(200, 200, 200) range:rangeOfChina];
     NIAttributedLabel* label = [[NIAttributedLabel alloc] initWithFrame:CGRectZero];
     label.lineBreakMode = NSLineBreakByWordWrapping;
@@ -129,7 +129,7 @@
     label.frame = CGRectInset(self.view.bounds, 10, 25);
     label.attributedText = text;
     label.shadowOffset = CGSizeMake(0.0f, 1.0f);
-    label.shadowColor = RGBCOLOR(177, 9, 0);
+    label.shadowColor = RUBY_RED_COLOR;
     
     [view addSubview:label];
     
@@ -164,7 +164,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return LeftMenuType_AboutUs + 1;
+    return LeftMenuType_End;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -206,10 +206,6 @@
             
         case LeftMenuType_More:
             title = @"更多设置";
-            break;
-            
-        case LeftMenuType_AboutUs:
-            title = @"关于APP";
             break;
             
         default:
