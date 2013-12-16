@@ -28,7 +28,7 @@
 @property (nonatomic, readwrite, retain) NITableViewModel* model;
 @property (nonatomic, readwrite, retain) NITableViewActions* actions;
 @property (nonatomic, strong) id delegate;
-@property (nonatomic, copy) NSString* selectedNodeName;
+@property (nonatomic, copy) NSString* selectedNodeName;// 保存当前分类，cell重用时赋值，后面考虑重新设计，现在的方法太复杂
 @property (nonatomic, strong) RCPostModel* postModel;
 @property (nonatomic, strong) RCNodeEntity* nodeEntity;
 
@@ -76,15 +76,10 @@
                                                      delegate:(id)[NICellFactory class]];
     self.tableView.dataSource = self.model;
     self.tableView.delegate = [self.actions forwardingTo:self];
-    
     self.tableView.tableFooterView = self.bodyTextView;
     
-    // When including text editing cells in table views you should provide a means for the user to
-    // stop editing the control. To do this we add a gesture recognizer to the table view.
     UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                           action:@selector(didTapTableView)];
-    
-    // We still want the table view to be able to process touch events when we tap.
     tap.cancelsTouchesInView = NO;
     [self.tableView addGestureRecognizer:tap];
 }
@@ -124,17 +119,20 @@
 {
     NSMutableArray* tableContents = [NSMutableArray arrayWithCapacity:2];
     
-    self.selectedNodeName = NODE_SELECT_PRIFIX_TITLE;
-    [tableContents addObject:
-     [_actions attachToObject:[NITitleCellObject objectWithTitle:self.selectedNodeName]
-                  tapSelector:@selector(selectNodeAction)]];
-    
+    // title
     NITextInputFormElement* inputElement = nil;
     inputElement = [NITextInputFormElement textInputElementWithID:0
                                                   placeholderText:@"标题"
                                                             value:nil];
     inputElement.delegate = self;
     [tableContents addObject:inputElement];
+    
+    // node name
+    self.selectedNodeName = NODE_SELECT_PRIFIX_TITLE;
+    NITitleCellObject* titleCellObject = [NITitleCellObject objectWithTitle:self.selectedNodeName];
+    [tableContents addObject:
+     [_actions attachToObject:titleCellObject
+                  tapSelector:@selector(selectNodeAction)]];
     
     return tableContents;
 }
@@ -148,6 +146,7 @@
     [self.navigationController pushViewController:c animated:YES];
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (BOOL)checkPostBtnEnable
 {
     if (self.nodeEntity.nodeName.length > 0
@@ -161,6 +160,7 @@
     return self.navigationItem.rightBarButtonItem.enabled;
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (BOOL)showMessageWithCheckAllValid
 {
     NSString* nodeName = self.nodeEntity.nodeName;
@@ -250,19 +250,16 @@
   willDisplayCell:(UITableViewCell *)cell
 forRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([cell isKindOfClass:[NITextInputFormElementCell class]]) {
-        if (!self.titleTextField) {
-            NITextInputFormElementCell* textInputCell = (NITextInputFormElementCell *)cell;
-            self.titleTextField = textInputCell.textField;
-            [self.titleTextField addTarget:self
+        NITextInputFormElementCell* textInputCell = (NITextInputFormElementCell *)cell;
+        [textInputCell.textField addTarget:self
                                     action:@selector(textFieldDidChangeValue)
                           forControlEvents:UIControlEventAllEditingEvents];
-        }
+        self.titleTextField = textInputCell.textField;
     }
     else if ([cell isKindOfClass:[NITextCell class]]) {
-        if (!self.nodeNameLabel) {
-            NITextCell* textCell = (NITextCell*)cell;
-            self.nodeNameLabel = textCell.textLabel;
-        }
+        NITextCell* textCell = (NITextCell*)cell;
+        textCell.textLabel.text = self.selectedNodeName;// set node name while reuse
+        self.nodeNameLabel = textCell.textLabel;
     }
 }
 
@@ -281,6 +278,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     self.nodeEntity = nodeEntity;
     self.nodeNameLabel.text = [NSString stringWithFormat:@"%@%@",
                                NODE_SELECT_PRIFIX_TITLE, nodeEntity.nodeName];
+    self.selectedNodeName = self.nodeNameLabel.text;
     [self checkPostBtnEnable];
 }
 

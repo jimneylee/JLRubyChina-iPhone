@@ -12,6 +12,7 @@
 
 @implementation RCPostModel
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)old_postNewTopicWithTitle:(NSString*)title
                              body:(NSString*)body
                            nodeId:(NSUInteger)nodeId
@@ -23,8 +24,8 @@
         NSMutableDictionary* parameters = [NSMutableDictionary dictionary];
         [parameters setObject:title forKey:@"title"];
         [parameters setObject:body forKey:@"body"];
-        [parameters setObject:[NSNumber numberWithInt:nodeId] forKey:@"node_id"];
-        [parameters setObject:[RCGlobalConfig myLoginId] forKey:@"token"];
+        [parameters setObject:[NSNumber numberWithUnsignedInt:nodeId] forKey:@"node_id"];
+        [parameters setObject:[RCGlobalConfig myToken] forKey:@"token"];
         
         NSString* path = [RCAPIClient relativePathForPostNewTopic];
         [[RCAPIClient sharedClient] postPath:path parameters:parameters
@@ -39,6 +40,7 @@
     }
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)postNewTopicWithTitle:(NSString*)title
                          body:(NSString*)body
                        nodeId:(NSUInteger)nodeId
@@ -50,8 +52,8 @@
         NSMutableDictionary* parameters = [NSMutableDictionary dictionary];
         [parameters setObject:title forKey:@"title"];
         [parameters setObject:body forKey:@"body"];
-        [parameters setObject:[NSNumber numberWithInt:nodeId] forKey:@"node_id"];
-        [parameters setObject:[RCGlobalConfig myLoginId] forKey:@"token"];
+        [parameters setObject:[NSNumber numberWithUnsignedInt:nodeId] forKey:@"node_id"];
+        [parameters setObject:[RCGlobalConfig myToken] forKey:@"token"];
         
         NSString* path = [RCAPIClient relativePathForPostNewTopic];
         NSError *error = nil;

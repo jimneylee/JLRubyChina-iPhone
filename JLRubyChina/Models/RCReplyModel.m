@@ -12,6 +12,7 @@
 
 @implementation RCReplyModel
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)old_replyTopicId:(unsigned long)topicId
             body:(NSString*)body
              success:(void(^)())success
@@ -21,7 +22,7 @@
     if (body.length) {
         NSMutableDictionary* parameters = [NSMutableDictionary dictionary];
         [parameters setObject:body forKey:@"body"];
-        [parameters setObject:[RCGlobalConfig myLoginId] forKey:@"token"];
+        [parameters setObject:[RCGlobalConfig myToken] forKey:@"token"];
         
         NSString* path = [RCAPIClient relativePathForReplyTopicId:topicId];
         [[RCAPIClient sharedClient] postPath:path parameters:parameters
@@ -36,6 +37,7 @@
     }
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)replyTopicId:(unsigned long)topicId
             body:(NSString*)body
              success:(void(^)())success
@@ -45,7 +47,7 @@
     if (body.length) {
         NSMutableDictionary* parameters = [NSMutableDictionary dictionary];
         [parameters setObject:body forKey:@"body"];
-        [parameters setObject:[RCGlobalConfig myLoginId] forKey:@"token"];
+        [parameters setObject:[RCGlobalConfig myToken] forKey:@"token"];
         
         NSString* path = [RCAPIClient relativePathForReplyTopicId:topicId];
         NSError *error = nil;
