@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @protocol RCPostDelegate;
+
+// TODO：当前采用tableview实现，除了键盘弹出好处理，其他太过复杂，后面考虑简单化
 @interface RCPostC : UITableViewController
 
 @property (nonatomic, assign) id<RCPostDelegate> postDelegate;
