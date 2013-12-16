@@ -7,6 +7,7 @@ PODS:
   - Nimbus (1.0.0):
     - Nimbus/AttributedLabel
     - Nimbus/Badge
+    - Nimbus/Collections
     - Nimbus/Core
     - Nimbus/CSS
     - Nimbus/Interapp
@@ -22,6 +23,8 @@ PODS:
   - Nimbus/AttributedLabel (1.0.0):
     - Nimbus/Core
   - Nimbus/Badge (1.0.0):
+    - Nimbus/Core
+  - Nimbus/Collections (1.0.0):
     - Nimbus/Core
   - Nimbus/Core (1.0.0)
   - Nimbus/CSS (1.0.0):
@@ -75,10 +78,10 @@ SPEC CHECKSUMS:
   JSONKit: 409734ab3407fce90ef7eaa95d7168f38d9a6601
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
   MTStatusBarOverlay: 2cee705996e4e307191d423bf49e583b9b2c14ac
-  Nimbus: 5396b75b180a4bf6fe813553d533121d42bdd9d9
+  Nimbus: 01c4339214b2f35be2e9284cb6e98beb7fe0f08a
   NSStringEmojize: ea303101d9174142813454c4f3616a1a569c1052
   PPRevealSideViewController: b687e80c29a301b8f5a5b573c022c7da0b6af11e
   SDSegmentedControl: 165956a426f1fd7ff1eb486c4931241f12e0867e
   SSKeychain: d18926838c2e7cd342e2a49e9f869858e49f035a
 
-COCOAPODS: 0.27.1
+COCOAPODS: 0.23.0
