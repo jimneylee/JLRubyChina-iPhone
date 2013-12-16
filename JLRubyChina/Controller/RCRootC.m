@@ -15,6 +15,7 @@
 #import "RCWikiC.h"
 #import "RCUserHomepageC.h"
 #import "RCAboutAppC.h"
+#import "RCMoreC.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -23,7 +24,7 @@
 
 @property(strong, nonatomic) RCLeftC* LeftSideC;
 @property(strong, nonatomic) RCForumTopicsC* forumTopics;
-//@property(strong, nonatomic) DZUserCenterC* userCenterC;
+@property(strong, nonatomic) RCUserHomepageC* myHomepageC;
 
 @end
 
@@ -122,22 +123,17 @@
 - (void)showMyHomepageView
 {
     [self.navigationController popToRootViewControllerAnimated:NO];
-    RCUserHomepageC* c = [[RCUserHomepageC alloc] initWithMyLoginId:[RCGlobalConfig myLoginId]];
-    [self.navigationController pushViewController:c animated:YES];
+    if (!_myHomepageC) {
+        _myHomepageC = [[RCUserHomepageC alloc] initWithMyLoginId:[RCGlobalConfig myLoginId]];
+    }
+    [self.navigationController pushViewController:_myHomepageC animated:YES];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)showMoreView
 {
     [self.navigationController popToRootViewControllerAnimated:NO];
-
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)showAboutUsView
-{
-    [self.navigationController popToRootViewControllerAnimated:NO];
-    RCAboutAppC* c = [[RCAboutAppC alloc] init];
+    RCMoreC* c = [[RCMoreC alloc] initWithStyle:UITableViewStyleGrouped];
     [self.navigationController pushViewController:c animated:YES];
 }
 
@@ -182,11 +178,6 @@
         case LeftMenuType_More:
             [self showLeft:nil];
             [self showMoreView];
-            break;
-            
-        case LeftMenuType_AboutUs:
-            [self showLeft:nil];
-            [self showAboutUsView];
             break;
             
         default:
