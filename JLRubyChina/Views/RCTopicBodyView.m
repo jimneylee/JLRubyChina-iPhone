@@ -12,8 +12,10 @@
 #import "NIAttributedLabel.h"
 #import "NIWebController.h"
 #import "UIView+findViewController.h"
+#import "MTStatusBarOverlay.h"
 #import "RCUserHomepageC.h"
 #import "RCKeywordEntity.h"
+#import "RCTopicActionModel.h"
 
 // 字体 行高 文本色设置
 #define TITLE_FONT_SIZE [UIFont boldSystemFontOfSize:18.f]
@@ -29,6 +31,8 @@
 
 @interface RCTopicBodyView()<NIAttributedLabelDelegate>
 @property (nonatomic, strong) RCTopicDetailEntity* topicDetailEntity;
+@property (nonatomic, strong) RCTopicActionModel* actionModel;
+
 @property (nonatomic, strong) UIView* contentView;
 @property (nonatomic, strong) UILabel* titleLabel;
 @property (nonatomic, strong) NINetworkImageView* headView;
@@ -123,6 +127,7 @@
     CGFloat contentViewMarin = CELL_PADDING_6;
     CGFloat sideMargin = cellMargin + contentViewMarin;
     
+    // top margin
     CGFloat height = sideMargin;
     
     // title
@@ -162,12 +167,14 @@
                                       kContentLength, 0.f);
     [self.bodyLabel sizeToFit];
 #endif
+    
     // body height
     height = height + self.bodyLabel.height;
     
     // botton height
     height = height + BUTTON_SIZE.height;
     
+    // bottom margin
     height = height + sideMargin;
     
     // content view
@@ -235,25 +242,70 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)followAction
 {
-    // TODO:
-    [RCGlobalConfig HUDShowMessage:@"to do it!"
-                       addedToView:[UIApplication sharedApplication].keyWindow];
+    if ([RCGlobalConfig myToken]) {
+        if (!_actionModel) {
+            _actionModel = [[RCTopicActionModel alloc] init];
+        }
+        
+        [[MTStatusBarOverlay sharedOverlay] postMessage:@"帖子关注中..."];
+        [self.actionModel followTopicId:self.topicDetailEntity.topicId success:^{
+            [[MTStatusBarOverlay sharedOverlay] postImmediateFinishMessage:@"帖子关注成功" duration:2.0f animated:YES];
+        } failure:^(NSError *error) {
+            [[MTStatusBarOverlay sharedOverlay] postImmediateErrorMessage:@"帖子关注失败" duration:2.0f animated:YES];
+        }];
+    }
+    else {
+        UIViewController* superviewC = self.viewController;
+        if (superviewC) {
+            [RCGlobalConfig showLoginControllerFromNavigationController:superviewC.navigationController];
+        }
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)unfollowAction
 {
-    // TODO:
-    [RCGlobalConfig HUDShowMessage:@"to do it!"
-                       addedToView:[UIApplication sharedApplication].keyWindow];
+    if ([RCGlobalConfig myToken]) {
+        if (!_actionModel) {
+            _actionModel = [[RCTopicActionModel alloc] init];
+        }
+        
+        [[MTStatusBarOverlay sharedOverlay] postMessage:@"帖子取消关注中..."];
+        [self.actionModel unfollowTopicId:self.topicDetailEntity.topicId success:^{
+            [[MTStatusBarOverlay sharedOverlay] postImmediateFinishMessage:@"取消关注成功" duration:2.0f animated:YES];
+        } failure:^(NSError *error) {
+            [[MTStatusBarOverlay sharedOverlay] postImmediateErrorMessage:@"取消关注失败" duration:2.0f animated:YES];
+        }];
+    }
+    else {
+        UIViewController* superviewC = self.viewController;
+        if (superviewC) {
+            [RCGlobalConfig showLoginControllerFromNavigationController:superviewC.navigationController];
+        }
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)favoriteAction
 {
-    // TODO:
-    [RCGlobalConfig HUDShowMessage:@"to do it!"
-                       addedToView:[UIApplication sharedApplication].keyWindow];
+    if ([RCGlobalConfig myToken]) {
+        if (!_actionModel) {
+            _actionModel = [[RCTopicActionModel alloc] init];
+        }
+        
+        [[MTStatusBarOverlay sharedOverlay] postMessage:@"帖子收藏中..."];
+        [self.actionModel favoriteTopicId:self.topicDetailEntity.topicId success:^{
+            [[MTStatusBarOverlay sharedOverlay] postImmediateFinishMessage:@"帖子收藏成功" duration:2.0f animated:YES];
+        } failure:^(NSError *error) {
+            [[MTStatusBarOverlay sharedOverlay] postImmediateErrorMessage:@"帖子收藏失败" duration:2.0f animated:YES];
+        }];
+    }
+    else {
+        UIViewController* superviewC = self.viewController;
+        if (superviewC) {
+            [RCGlobalConfig showLoginControllerFromNavigationController:superviewC.navigationController];
+        }
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
