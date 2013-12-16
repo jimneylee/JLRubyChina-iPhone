@@ -17,6 +17,7 @@
 // common
 #define JSON_ID @"id"
 #define JSON_LOGIN @"login"
+#define JSON_PRIVATE_TOKEN @"private_token"
 #define JSON_AVATAR_URL @"avatar_url"
 #define JSON_USER @"user"
 #define JSON_TITLE @"title"
