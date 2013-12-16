@@ -13,10 +13,12 @@
 #import "RCTopicEntity.h"
 #import "RCTopicDetailC.h"
 #import "RCForumTopicsC.h"
+#import "RCLoginC.h"
 
 @interface RCUserHomepageC ()
 @property (nonatomic, strong) RCHomepageHeaderView* homepageHeaderView;
 @property (nonatomic, strong) NSArray* reloadedIndexPaths;
+@property (nonatomic, assign) BOOL isMyHome;
 @end
 
 @implementation RCUserHomepageC
@@ -26,10 +28,19 @@
 {
     self = [self initWithStyle:UITableViewStylePlain];
     if (self) {
-        ((RCUserHomepageModel*)self.model).loginId = loginId;
+        self.isMyHome = YES;
         self.title = loginId;
         self.navigationItem.leftBarButtonItem = [RCGlobalConfig createMenuBarButtonItemWithTarget:self
                                                                                            action:@selector(showLeft:)];
+        if (loginId.length) {
+            ((RCUserHomepageModel*)self.model).loginId = loginId;
+        }
+        else {
+            [RCGlobalConfig showLoginControllerFromNavigationController:self.navigationController];
+        }
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLoginNotification)
+                                                     name:RCDidLoginNotification object:nil];
     }
     return self;
 }
@@ -50,7 +61,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-
+        self.navigationItem.rightBarButtonItem = [RCGlobalConfig createRefreshBarButtonItemWithTarget:self
+                                                                                               action:@selector(doRefreshAction)];
     }
     return self;
 }
@@ -119,6 +131,20 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)doRefreshAction
+{
+    if (self.isMyHome) {
+        if ([RCGlobalConfig myLoginId]) {
+            ((RCUserHomepageModel*)self.model).loginId = [RCGlobalConfig myLoginId];
+        }
+        else {
+            [RCGlobalConfig showLoginControllerFromNavigationController:self.navigationController];
+        }
+    }
+    [super autoPullDownRefreshActionAnimation];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Override
 
@@ -182,6 +208,9 @@
 - (void)showMessageForError
 {
     NSString* msg = @"抱歉，无法获取信息！";
+    if (self.isMyHome && [RCGlobalConfig myLoginId].length) {
+        msg = @"请先登录后，刷新";
+    }
     [RCGlobalConfig HUDShowMessage:msg addedToView:self.view];
 }
 
@@ -202,6 +231,16 @@
     [self.revealSideViewController pushOldViewControllerOnDirection:PPRevealSideDirectionLeft
                                                          withOffset:SIDE_DIRECTION_LEFT_OFFSET
                                                            animated:YES];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - RCD
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)didLoginNotification
+{
+    [self doRefreshAction];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
