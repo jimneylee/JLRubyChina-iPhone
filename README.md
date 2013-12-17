@@ -1,5 +1,5 @@
 # 强烈提醒，勿随意发帖测试
-请把玩这个客户端源码的同学，不要在[Ruby China](http://ruby-china.org/)社区上随意发帖测试
+请把玩这个客户端源码的同学，不要在[Ruby China](http://ruby-china.org/)社区上随意发帖测试，谢谢配合。
 
 #JLRubyChina-iPhone
 [Ruby China](http://ruby-china.org/)社区的iPhone客户端。
