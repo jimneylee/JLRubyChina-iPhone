@@ -40,8 +40,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)replyTopicId:(unsigned long)topicId
             body:(NSString*)body
-             success:(void(^)())success
-             failure:(void(^)(NSError *error))failure
+             success:(void(^)(RCReplyEntity* replyEntity))success
+             failure:(void(^)(NSError* error))failure
 {
     // 参考：http://stackoverflow.com/questions/9562459/afnetworking-posting-malformed-json-single-quotes-and-object-refs
     if (body.length) {
@@ -68,14 +68,24 @@
         AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
         [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSString* resultString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-            NSLog(@"Response: %@", resultString);
-            if ([resultString isEqualToString:@"true"]) {
-                success();
+            NSString* responseString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+//          {"id":172002,"body":"不错","body_html":"<p>不错</p>","created_at":"2013-12-17T10:36:08.090+08:00","updated_at":"2013-12-17T10:36:08.090+08:00",
+//          "user":{"id":4988,"login":"jimneylee","avatar_url":"http://ruby-china.org/avatar/67cb78ce56281adaf0724c66f99c3ca3.png?s=120"}}
+            // TODO:回复成功后，直接插入到tablview底部
+            NSLog(@"Response: %@", responseString);
+            NSError *error = nil;
+            id responseJSON  = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:&error];
+            if ([responseJSON isKindOfClass:[NSDictionary class]]) {
+                RCReplyEntity* replyEntity = [RCReplyEntity entityWithDictionary:responseJSON];
+                if (replyEntity) {
+                    success(replyEntity);
+                    return;
+                }
+                else {
+                    NSLog(@"error:%@", error);
+                }
             }
-            else {
-                failure(nil);
-            }
+            failure(nil);
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
             failure(nil);

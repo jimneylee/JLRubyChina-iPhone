@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "HPGrowingTextView.h"
+#import "RCReplyEntity.h"
 
 @protocol RCQuickReplyDelegate;
 @interface RCQuickReplyC : UIViewController<HPGrowingTextViewDelegate>
@@ -22,7 +23,7 @@
 
 @protocol RCQuickReplyDelegate <NSObject>
 @optional
-- (void)didReplySuccess;
+- (void)didReplySuccessWithMyReply:(RCReplyEntity*)replyEntity;
 - (void)didReplyFailure;
 - (void)didReplyCancel;
 

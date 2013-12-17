@@ -287,9 +287,15 @@
 #pragma mark - RCQuickReplyDelegate
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)didReplySuccess
+- (void)didReplySuccessWithMyReply:(RCReplyEntity*)replyEntity
 {
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+    
+    // 回复成功后，直接插入到tablview底部
+    NSArray* indexPaths = [self.model addObject:replyEntity];
+    [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+    // 感觉没必要滑到底部
+    //[self scrollToBottomAnimated:YES];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

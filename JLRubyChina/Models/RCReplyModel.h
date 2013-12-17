@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RCReplyEntity.h"
 
 @interface RCReplyModel : NSObject
 - (void)replyTopicId:(unsigned long)topicId
             body:(NSString*)body
-             success:(void(^)())success
+             success:(void(^)(RCReplyEntity* replyEntity))success
              failure:(void(^)(NSError *error))failure;
 @end

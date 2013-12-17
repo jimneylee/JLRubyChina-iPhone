@@ -8,6 +8,7 @@
 
 #import "RCQuickReplyC.h"
 #import "RCReplyModel.h"
+#import "MTStatusBarOverlay.h"
 
 #define BTN_TITLE_REPLY @"回复"
 #define BTN_TITLE_CANCEL @"取消"
@@ -132,22 +133,27 @@
 {
     if (self.textView.text.length) {
         RCReplyModel* replyModel = [[RCReplyModel alloc] init];
+        [[MTStatusBarOverlay sharedOverlay] postMessage:@"回复中..."];
         [replyModel replyTopicId:self.topicId
                             body:self.textView.text
-                         success:^{
+                         success:^(RCReplyEntity* replyEntity){
                              self.textView.text = @"";
                              [self.textView resignFirstResponder];
-                             MBProgressHUD* hud = [RCGlobalConfig HUDShowMessage:@"回复成功!" addedToView:self.view];
-                             hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
-                             hud.mode = MBProgressHUDModeCustomView;
-                             if ([self.replyDelegate respondsToSelector:@selector(didReplySuccess)]) {
-                                 [self.replyDelegate didReplySuccess];
+                             
+//                             MBProgressHUD* hud = [RCGlobalConfig HUDShowMessage:@"回复成功!" addedToView:self.view];
+//                             hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
+//                             hud.mode = MBProgressHUDModeCustomView;
+                             
+                             if ([self.replyDelegate respondsToSelector:@selector(didReplySuccessWithMyReply:)]) {
+                                 [self.replyDelegate didReplySuccessWithMyReply:replyEntity];
+                                 [[MTStatusBarOverlay sharedOverlay] postImmediateFinishMessage:@"回复成功" duration:2.0f animated:YES];
                              }
                              // 是否需要刷新后，自动滑动到底部，有待考虑，有时需要一次回复多个人，后面看大家使用反馈
                          } failure:^(NSError *error) {
                              [RCGlobalConfig HUDShowMessage:@"回复失败!" addedToView:self.view];
                              if ([self.replyDelegate respondsToSelector:@selector(didReplyFailure)]) {
                                  [self.replyDelegate didReplyFailure];
+                                 [[MTStatusBarOverlay sharedOverlay] postImmediateErrorMessage:@"回复失败，请重新发送" duration:2.0f animated:YES];
                              }
                          }];
     }
