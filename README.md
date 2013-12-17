@@ -39,6 +39,10 @@ $ git rm -r --cached vendor/JLNimbusTimeline
 ``` bash
 $ [sudo]pod install
 ```
+# 完整项目ZIP发布包
+  建议不熟悉gitmodule依赖和cocoapods依赖的同学，耐心配置好依赖库，一定会有问题，但是过程中你一定会学习到很多。
+  [这边是我自己本地完整的工程](https://github.com/jimneylee/JLRubyChina-iPhone-Release)，给大家预留一份，拉到本地可以直接便宜运行。
+  
 # DONE
 V1.0.0
 1、首页热门帖子显示
