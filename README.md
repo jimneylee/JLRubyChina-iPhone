@@ -44,6 +44,7 @@ $ [sudo]pod install
 ```
 # 完整项目ZIP发布包
   ## 这边个单独发布仓库，感觉没必要，已删除。
+  
   ~~建议不熟悉gitmodule依赖和cocoapods依赖的同学，耐心配置好依赖库，一定会有问题，但是过程中你一定会学习到很多。
   [这边是我自己本地完整的工程](https://github.com/jimneylee/JLRubyChina-iPhone-Release)，给大家预留一份，拉到本地可以直接便宜运行。~~
   
