@@ -5,6 +5,13 @@
 [Ruby China](http://ruby-china.org/)社区的iPhone客户端。
 希望能给社区的同学带来一点帮助，节省一点时间。欢迎大家在使用过程中，提出改进建议和意见。同时期望更多的同学参与学习交流，维护和优化APP。
 
+# Try MacBuildServer Install
+<!-- MacBuildServer Install Button -->
+<div class="macbuildserver-block">
+    <a class="macbuildserver-button" href="http://macbuildserver.com/project/github/build/?xcode_project=JLRubyChina.xcworkspace.xcodeproj&amp;target=JLRubyChina&amp;repo_url=git%3A%2F%2Fgithub.com%2Fjimneylee%2FJLRubyChina-iPhone.git&amp;build_conf=Release" target="_blank"><img src="http://com.macbuildserver.github.s3-website-us-east-1.amazonaws.com/button_up.png"/></a><br/><sup><a href="http://macbuildserver.com/" target="_blank">by MacBuildServer</a></sup>
+</div>
+<!-- MacBuildServer Install Button -->
+
 # 开发环境
 XCode5 iOS7.0
 
