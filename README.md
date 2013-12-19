@@ -35,6 +35,7 @@ $ pod install
 1、官方push到CocoaPods的nimbus 1.0.0版本，存在NIAttributedLabel在UITableViewCell中link无法响应touch的bug
    请暂时用Nimbus_fix目录下的5个文件（主要就是修改了NIAttributedLabel文件）替换Pod工程中Nimbus里面对应的这个文件
    参考：http://stackoverflow.com/questions/17467086/using-niattributedlabel-in-uitableviewcell
+   
 2、若出现这个问题：'vendor/JLNimbusTimeline' already exists in the index
 ``` bash
 $ git rm --cached vendor/JLNimbusTimeline
