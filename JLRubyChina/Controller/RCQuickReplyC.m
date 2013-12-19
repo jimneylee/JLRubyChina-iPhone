@@ -9,6 +9,7 @@
 #import "RCQuickReplyC.h"
 #import "RCReplyModel.h"
 #import "MTStatusBarOverlay.h"
+#import "NSString+Emojize.h"
 
 #define BTN_TITLE_REPLY @"回复"
 #define BTN_TITLE_CANCEL @"取消"
@@ -170,6 +171,8 @@
 {
     if (self.textView.text.length) {
         RCReplyModel* replyModel = [[RCReplyModel alloc] init];
+        // replace emoji to string code
+        // NSString* replyString = [self.textView.text copy];
         [[MTStatusBarOverlay sharedOverlay] postMessage:@"回复中..."];
         [replyModel replyTopicId:self.topicId
                             body:self.textView.text
@@ -220,7 +223,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)didTouchEmojiView:(TSEmojiView*)emojiView touchedEmoji:(NSString*)str
 {
-    _textView.text = [NSString stringWithFormat:@"%@%@", _textView.text, str];
+    NSString* code = [RCGlobalConfig emojiReverseAliases][str];
+    _textView.text = [NSString stringWithFormat:@"%@%@", _textView.text, code];//str
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
