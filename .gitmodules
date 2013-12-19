@@ -7,3 +7,6 @@
 [submodule "vendor/MarkdownSyntaxEditor"]
 	path = vendor/MarkdownSyntaxEditor
 	url = https://github.com/jimneylee/MarkdownSyntaxEditor.git
+[submodule "vendor/TSEmojiView"]
+	path = vendor/TSEmojiView
+	url = https://github.com/fly2wind/TSEmojiView.git
