@@ -52,6 +52,10 @@ $ git rm -r --cached vendor/JLNimbusTimeline
 ``` bash
 $ [sudo]pod install
 ```
+5、若出现这个问题：library not found for -lPods
+   Pods工程中，试着如下修改TARGETS的Pods，今天搞了一上午才解决这个错误问题
+![image](https://github.com/jimneylee/JLRubyChina-iPhone/raw/master/Resource/Screenshots/ErrorResolve/not_found_pods.png)
+
 # 完整项目ZIP发布包
   完整项目的单独发布仓库，感觉没必要，已删除。建议不熟悉gitmodule依赖和cocoapods依赖的同学，耐心配置好依赖库。过程中有什么问题，请提交到issue，我会一一解答。
   

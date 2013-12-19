@@ -58,6 +58,7 @@ PODS:
     - Nimbus/Core
   - NSStringEmojize (0.2.0)
   - PPRevealSideViewController (1.0.1)
+  - RTagCloudView (1.0.0)
   - SDSegmentedControl (1.0.2)
   - SSKeychain (1.2.1)
 
@@ -71,6 +72,7 @@ DEPENDENCIES:
   - Nimbus (~> 1.0.0)
   - NSStringEmojize
   - PPRevealSideViewController
+  - RTagCloudView
   - SDSegmentedControl
   - SSKeychain
 
@@ -84,7 +86,8 @@ SPEC CHECKSUMS:
   Nimbus: 01c4339214b2f35be2e9284cb6e98beb7fe0f08a
   NSStringEmojize: ea303101d9174142813454c4f3616a1a569c1052
   PPRevealSideViewController: b687e80c29a301b8f5a5b573c022c7da0b6af11e
+  RTagCloudView: 2c190afd8b633d908aba80b8f741403c004431be
   SDSegmentedControl: 165956a426f1fd7ff1eb486c4931241f12e0867e
   SSKeychain: d18926838c2e7cd342e2a49e9f869858e49f035a
 
-COCOAPODS: 0.27.1
+COCOAPODS: 0.23.0

@@ -5,36 +5,60 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>F040FD97-BA9E-4AAD-9424-210F66FE44D2</string>
+	<string>59F95353-8F33-4534-B884-22EB2BE0316B</string>
 	<key>IDESourceControlProjectName</key>
 	<string>JLRubyChina</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>89A2599F-171F-4ABC-B940-6960B71B8B35</key>
-		<string>https://git.oschina.net/jimneylee/JLRubyChina-iPhone.git</string>
+		<key>231350F0-0F61-480C-8AAE-22F5E70BCCE7</key>
+		<string>https://github.com/azu/MarkdownSyntaxEditor.git</string>
+		<key>5FF662F2-2215-462A-9DD1-68130CEB014C</key>
+		<string>https://github.com/jimneylee/JLRubyChina-iPhone</string>
+		<key>C3B94360-57F8-4374-A8FB-B2C4E455E2C6</key>
+		<string>https://github.com/jimneylee/JLNimbusTimeline.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>JLRubyChina.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>89A2599F-171F-4ABC-B940-6960B71B8B35</key>
+		<key>231350F0-0F61-480C-8AAE-22F5E70BCCE7</key>
+		<string>../vendor/MarkdownSyntaxEditor</string>
+		<key>5FF662F2-2215-462A-9DD1-68130CEB014C</key>
 		<string>..</string>
+		<key>C3B94360-57F8-4374-A8FB-B2C4E455E2C6</key>
+		<string>../vendor/JLNimbusTimeline</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://git.oschina.net/jimneylee/JLRubyChina-iPhone.git</string>
+	<string>https://github.com/jimneylee/JLRubyChina-iPhone</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>89A2599F-171F-4ABC-B940-6960B71B8B35</string>
+	<string>5FF662F2-2215-462A-9DD1-68130CEB014C</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>89A2599F-171F-4ABC-B940-6960B71B8B35</string>
+			<string>C3B94360-57F8-4374-A8FB-B2C4E455E2C6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>JLNimbusTimeline</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5FF662F2-2215-462A-9DD1-68130CEB014C</string>
 			<key>IDESourceControlWCCName</key>
 			<string>JLRubyChina-iPhone</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>231350F0-0F61-480C-8AAE-22F5E70BCCE7</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MarkdownSyntaxEditor</string>
 		</dict>
 	</array>
 </dict>

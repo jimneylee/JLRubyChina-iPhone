@@ -99,6 +99,7 @@
 		28CBC13418629839007C68FC /* MarkdownSyntaxGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CBC11818629839007C68FC /* MarkdownSyntaxGenerator.m */; };
 		28CBC13518629839007C68FC /* MarkdownSyntaxModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CBC11A18629839007C68FC /* MarkdownSyntaxModel.m */; };
 		28CBC13618629839007C68FC /* MarkdownTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CBC11D18629839007C68FC /* MarkdownTextView.m */; };
+		28CBC1391862A09B007C68FC /* not_found_pods.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC1381862A09B007C68FC /* not_found_pods.png */; };
 		28D4EF751857F78500C9C858 /* RCTopicBodyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4EF741857F78500C9C858 /* RCTopicBodyView.m */; };
 		28D4EF781858061E00C9C858 /* UIView+findViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4EF771858061E00C9C858 /* UIView+findViewController.m */; };
 		28D4EF7D1858266700C9C858 /* SMNetworkSpy.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4EF7A1858266700C9C858 /* SMNetworkSpy.m */; };
@@ -306,6 +307,7 @@
 		28CBC11A18629839007C68FC /* MarkdownSyntaxModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkdownSyntaxModel.m; sourceTree = "<group>"; };
 		28CBC11C18629839007C68FC /* MarkdownTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkdownTextView.h; sourceTree = "<group>"; };
 		28CBC11D18629839007C68FC /* MarkdownTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkdownTextView.m; sourceTree = "<group>"; };
+		28CBC1381862A09B007C68FC /* not_found_pods.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = not_found_pods.png; sourceTree = "<group>"; };
 		28D4EF731857F78500C9C858 /* RCTopicBodyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTopicBodyView.h; sourceTree = "<group>"; };
 		28D4EF741857F78500C9C858 /* RCTopicBodyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTopicBodyView.m; sourceTree = "<group>"; };
 		28D4EF761858061E00C9C858 /* UIView+findViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+findViewController.h"; sourceTree = "<group>"; };
@@ -845,6 +847,14 @@
 			path = MarkdownTextView;
 			sourceTree = "<group>";
 		};
+		28CBC1371862A09B007C68FC /* ErrorResolve */ = {
+			isa = PBXGroup;
+			children = (
+				28CBC1381862A09B007C68FC /* not_found_pods.png */,
+			);
+			path = ErrorResolve;
+			sourceTree = "<group>";
+		};
 		28D4EF821858276A00C9C858 /* Reachability */ = {
 			isa = PBXGroup;
 			children = (
@@ -872,6 +882,7 @@
 		CE132593185F5A8400208653 /* Screenshots */ = {
 			isa = PBXGroup;
 			children = (
+				28CBC1371862A09B007C68FC /* ErrorResolve */,
 				CE132594185F5A8400208653 /* default.png */,
 				CE132595185F5A8400208653 /* home_activity_topics.png */,
 				CE132596185F5A8400208653 /* left_menu_side.png */,
@@ -1061,6 +1072,7 @@
 				28CBC12118629839007C68FC /* key-blue@2x.png in Resources */,
 				28CBC12418629839007C68FC /* key.png in Resources */,
 				28CBC13118629839007C68FC /* undo-black@2x.png in Resources */,
+				28CBC1391862A09B007C68FC /* not_found_pods.png in Resources */,
 				CE96585618573F57003066A5 /* icon80.png in Resources */,
 				CE1325A5185F5A8400208653 /* topic_reply.png in Resources */,
 				CEEA2BFB1858C561004FDEDF /* MessageEntryInputField.png in Resources */,
@@ -1339,10 +1351,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BECB55DCFAF84993AE6D89A6 /* Pods.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JLRubyChina/JLRubyChina-Prefix.pch";
 				INFOPLIST_FILE = "JLRubyChina/JLRubyChina-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1352,10 +1366,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BECB55DCFAF84993AE6D89A6 /* Pods.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JLRubyChina/JLRubyChina-Prefix.pch";
 				INFOPLIST_FILE = "JLRubyChina/JLRubyChina-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
