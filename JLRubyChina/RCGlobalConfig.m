@@ -96,6 +96,7 @@ static NSString* myLoginId = nil;
     [navigationController pushViewController:loginC animated:YES];
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 // emoji -> code
 + (NSDictionary *)emojiReverseAliases {
     static NSDictionary *_emojiReverseAliases;
@@ -105,7 +106,7 @@ static NSString* myLoginId = nil;
             @"\U0001F604" : @":smile:",
             @"\U0001F60A" : @":blush:",
             @"\U0001F603" : @":smiley:",
-//            @"\u263A",
+            @"\U0000263A" : @":relaxed:",
             @"\U0001F609" : @":wink:",
             @"\U0001F60D" : @":heart_eyes:",
             @"\U0001F618" : @":kissing_heart:",
