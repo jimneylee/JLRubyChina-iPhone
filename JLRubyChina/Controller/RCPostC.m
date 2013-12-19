@@ -104,7 +104,8 @@
         _bodyTextView.contentInset = UIEdgeInsetsMake(0, 5, 0, 5);
         _bodyTextView.returnKeyType = UIReturnKeyDefault;
         _bodyTextView.font = [UIFont systemFontOfSize:18.0f];
-        _bodyTextView.delegate = self;
+        // TODO:字数合理不好判断了
+        //_bodyTextView.delegate = self;
         _bodyTextView.scrollIndicatorInsets = UIEdgeInsetsMake(5, 0, 5, 0);
         _bodyTextView.backgroundColor = [UIColor whiteColor];
     }
