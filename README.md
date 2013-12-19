@@ -21,9 +21,11 @@ XCode5 iOS7.0
 $ git submodule init 
 $ git submodule update
 ```
-注：如需要添加其他的submodule
+注：`git submodule update`无法更新依赖库时，请按如下重新添加：
 ``` bash
 $ git submodule add https://github.com/jimneylee/JLNimbusTimeline.git vendor/JLNimbusTimeline
+$ git submodule add https://github.com/jimneylee/MarkdownSyntaxEditor.git vendor/MarkdownSyntaxEditor
+$ git submodule add https://github.com/jimneylee/TSEmojiView.git vendor/TSEmojiView
 ```
 2、[CocoaPods](http://cocoapods.org)更新
 ``` bash   
@@ -35,7 +37,7 @@ $ pod install
 1、帖子列表高亮名字或链接无法点击
 
    官方push到CocoaPods的nimbus 1.0.0版本，存在NIAttributedLabel在UITableViewCell中link无法响应touch的bug
-   请暂时用Nimbus_fix目录下的5个文件（主要就是修改了NIAttributedLabel文件）替换Pod工程中Nimbus里面对应的这个文件
+   请暂时用Nimbus_fix目录下的5个文件（主要就是修改了NIAttributedLabel文件）替换Pod工程中Nimbus里面对应的这5个文件
    参考：http://stackoverflow.com/questions/17467086/using-niattributedlabel-in-uitableviewcell
 
 2、若出现这个问题：'vendor/JLNimbusTimeline' already exists in the index
@@ -57,6 +59,19 @@ $ [sudo]pod install
    Pods工程中，试着如下修改TARGETS的Pods，今天搞了一上午才解决这个错误问题
 ![image](https://github.com/jimneylee/JLRubyChina-iPhone/raw/master/Resource/Screenshots/ErrorResolve/not_found_pods.png)
 
+6、若`git submodule add https://github.com/jimneylee/JLNimbusTimeline.git vendor/JLNimbusTimeline`出现这个问题：
+
+    A git directory for 'vendor/JLNimbusTimeline' is found locally with remote(s):
+    origin	https://github.com/jimneylee/JLNimbusTimeline.git
+    If you want to reuse this local git directory instead of cloning again from
+    https://github.com/jimneylee/JLNimbusTimeline.git
+    use the '--force' option. If the local git directory is not the correct repo
+    or you are unsure what this means choose another name with the '--name' option.
+``` bash
+$ cd ./git/modules/vendor
+$ rm -rf JLNimbusTimeline
+```
+
 # 完整项目ZIP发布包
   完整项目的单独发布仓库，感觉没必要，已删除。建议不熟悉gitmodule依赖和cocoapods依赖的同学，耐心配置好依赖库。过程中有什么问题，请提交到issue，我会一一解答。
   
@@ -64,33 +79,34 @@ $ [sudo]pod install
   [这边是我自己本地完整的工程](https://github.com/jimneylee/JLRubyChina-iPhone-Release)，给大家预留一份，拉到本地可以直接便宜运行。~~
   
 # DONE
-V1.0.0
 1、首页热门帖子显示
 
 2、帖子详细浏览、帖子回复列表
 
-3、帖子关注、收藏、回复及@某人
+3、帖子关注、收藏、@某人
 
-4、发帖到指定分类
+4、回复帖子支持表情选择
 
-5、分类节点列表查看
+5、发帖到指定分类，支持markdown语法
 
-6、酷站分组显示
+6、分类节点列表查看
 
-7、会员TOP N查看
+7、酷站分组显示
 
-8、我的主页，已发帖子、收藏帖子查看
+8、会员TOP N查看
 
-9、Ruby China Wiki
+9、我的主页，已发帖子、收藏帖子查看
 
-10、更多功能包含：清空缓存、更新检测、给我评分、关于APP
+10、Ruby China Wiki
+
+11、更多功能包含：清空缓存、更新检测、给我评分、关于APP
 
 # TODO
 1、与后台API接口修改确认，参见API Problem文档说明
 
-2、发帖、回复添加表情选择
+2、发帖添加表情选择
 
-3、支持markdown语法解析显示
+3、帖子列表支持markdown语法解析显示
 
 4、分类节点做分组与排序
 
