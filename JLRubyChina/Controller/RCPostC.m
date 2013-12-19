@@ -10,6 +10,7 @@
 #import "MBProgressHUD.h"
 #import "RCPostModel.h"
 #import "RCNodesCloudTagC.h"
+#import "MarkdownTextView.h"
 #import "RCNodeEntity.h"
 
 #define NODE_SELECT_PRIFIX_TITLE @"发布到："
@@ -23,7 +24,7 @@
 
 @property (nonatomic, strong) UILabel* nodeNameLabel;
 @property (nonatomic, strong) UITextField* titleTextField;
-@property (nonatomic, strong) UITextView* bodyTextView;
+@property (nonatomic, strong) MarkdownTextView* bodyTextView;
 
 @property (nonatomic, readwrite, retain) NITableViewModel* model;
 @property (nonatomic, readwrite, retain) NITableViewActions* actions;
@@ -98,7 +99,7 @@
                             - TTKeyboardHeightForOrientation(self.interfaceOrientation)
                             - NIStatusBarHeight() - NIToolbarHeightForOrientation(self.interfaceOrientation);
         CGFloat kTextViewWidth = self.view.width;
-        _bodyTextView = [[UITextView alloc] initWithFrame:CGRectMake(0.f, 0.f,
+        _bodyTextView = [[MarkdownTextView alloc] initWithFrame:CGRectMake(0.f, 0.f,
                                                                 kTextViewWidth, kViewHeight)];
         _bodyTextView.contentInset = UIEdgeInsetsMake(0, 5, 0, 5);
         _bodyTextView.returnKeyType = UIReturnKeyDefault;
@@ -290,6 +291,17 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 - (void)textViewDidChange:(UITextView *)textView
 {
     [self checkPostBtnEnable];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)textViewDidEndEditing:(UITextView *) textView {
+    [self.navigationController setNavigationBarHidden:NO];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)textViewDidBeginEditing:(UITextView *) textView {
+    [self.navigationController setNavigationBarHidden:YES];
+    
 }
 
 @end
