@@ -33,4 +33,7 @@ typedef enum {
 + (UIBarButtonItem*)createRefreshBarButtonItemWithTarget:(id)target action:(SEL)action;
 + (void)showLoginControllerFromNavigationController:(UINavigationController*)navigationController;
 
+// emoji reverse code
++ (NSDictionary *)emojiReverseAliases;
+
 @end

@@ -96,4 +96,43 @@ static NSString* myLoginId = nil;
     [navigationController pushViewController:loginC animated:YES];
 }
 
+// emoji -> code
++ (NSDictionary *)emojiReverseAliases {
+    static NSDictionary *_emojiReverseAliases;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _emojiReverseAliases = @{
+            @"\U0001F604" : @":smile:",
+            @"\U0001F60A" : @":blush:",
+            @"\U0001F603" : @":smiley:",
+//            @"\u263A",
+            @"\U0001F609" : @":wink:",
+            @"\U0001F60D" : @":heart_eyes:",
+            @"\U0001F618" : @":kissing_heart:",
+            @"\U0001F61A" : @":kissing_closed_eyes:",
+            @"\U0001F633" : @":flushed:",
+            @"\U0001F60C" : @":relieved:",
+            @"\U0001F601" : @":grin:",
+            @"\U0001F61C" : @":stuck_out_tongue_winking_eye:",
+            @"\U0001F61D" : @":stuck_out_tongue_closed_eyes:",
+            @"\U0001F612" : @":unamused:",
+            @"\U0001F60F" : @":smirk:",
+            @"\U0001F613" : @":sweat:",
+            @"\U0001F614" : @":pensive:",
+            @"\U0001F61E" : @":disappointed:",
+            @"\U0001F616" : @":confounded:",
+            @"\U0001F625" : @":disappointed_relieved:",
+            @"\U0001F630" : @":cold_sweat:",
+            @"\U0001F628" : @":fearful:",
+            @"\U0001F623" : @":persevere:",
+            @"\U0001F622" : @":cry:",
+            @"\U0001F62D" : @":sob:",
+            @"\U0001F602" : @":joy:",
+            @"\U0001F632" : @":astonished:",
+            @"\U0001F631" : @":scream:",
+        };
+    });
+    return _emojiReverseAliases;
+}
+
 @end
