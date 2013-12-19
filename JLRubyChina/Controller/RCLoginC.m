@@ -151,6 +151,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
             self.usernameTextField = textInputCell.textField;
             self.usernameTextField.clearsOnBeginEditing = NO;
             self.usernameTextField.clearButtonMode = UITextFieldViewModeAlways;
+            self.usernameTextField.keyboardType = UIKeyboardTypeEmailAddress;
         }
         else if(PASSWORD_INDEX == indexPath.row) {
             self.passwordTextField = textInputCell.textField;
