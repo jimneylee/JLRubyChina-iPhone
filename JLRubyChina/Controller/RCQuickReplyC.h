@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "HPGrowingTextView.h"
+#import "TSEmojiView.h"
 #import "RCReplyEntity.h"
 
 @protocol RCQuickReplyDelegate;
 @interface RCQuickReplyC : UIViewController<HPGrowingTextViewDelegate>
 
 @property(nonatomic, strong) HPGrowingTextView *textView;
+@property (nonatomic, strong) TSEmojiView* emojiView;
 @property (nonatomic, assign) id<RCQuickReplyDelegate> replyDelegate;
 
 - (id)initWithTopicId:(unsigned long)topicId;

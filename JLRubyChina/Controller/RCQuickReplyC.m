@@ -12,10 +12,13 @@
 
 #define BTN_TITLE_REPLY @"回复"
 #define BTN_TITLE_CANCEL @"取消"
+#define BTN_TITLE_EMOJI @"表情"
+#define BTN_TITLE_KEYBOARD @"键盘"
 
-@interface RCQuickReplyC ()
+@interface RCQuickReplyC ()<TSEmojiViewDelegate>
 @property (nonatomic, assign) unsigned long topicId;
-@property(nonatomic, strong) UIView *containerView;
+@property (nonatomic, strong) UIView* containerView;
+@property (nonatomic, strong) UIButton* emojiBtn;
 @property (nonatomic, strong) UIButton* sendBtn;
 @end
 
@@ -50,70 +53,66 @@
 {
     [super viewDidLoad];
     
-    CGFloat kViewWidth = [UIScreen mainScreen].bounds.size.width;
-    CGFloat kViewHeight = 44.f;
-    self.view.frame = CGRectMake(0, 0, kViewWidth, kViewHeight);
-    self.containerView = [[UIView alloc] initWithFrame:self.view.bounds];
+    UIView* containerView = [[UIView alloc] initWithFrame:CGRectZero];
+    containerView.backgroundColor = [UIColor grayColor];
+    self.containerView = containerView;
     
-    CGFloat kTextViewWidth = 240.f;
-    CGFloat kTextViewMaxHeight = [UIScreen mainScreen].bounds.size.height
-                                - TTKeyboardHeightForOrientation(self.interfaceOrientation)
-                                - NIStatusBarHeight() - NIToolbarHeightForOrientation(self.interfaceOrientation) * 2;
-	self.textView = [[HPGrowingTextView alloc] initWithFrame:CGRectMake(CELL_PADDING_6, CELL_PADDING_4,
-                                                                        kTextViewWidth, kViewHeight)];
-    self.textView.isScrollable = YES;
-    self.textView.contentInset = UIEdgeInsetsMake(0, 5, 0, 5);
-	self.textView.minNumberOfLines = 1;
-    self.textView.maxHeight = kTextViewMaxHeight;
-	self.textView.returnKeyType = UIReturnKeyDefault;
-	self.textView.font = [UIFont systemFontOfSize:17.0f];
-	self.textView.delegate = self;
-    self.textView.internalTextView.scrollIndicatorInsets = UIEdgeInsetsMake(5, 0, 5, 0);
-    self.textView.backgroundColor = [UIColor whiteColor];
-    self.textView.placeholder = @"我也说几句...";
-    [self.view addSubview:self.containerView];
-	
-    UIImage* textViewBgSourceImage = [UIImage imageNamed:@"MessageEntryInputField.png"];
-    UIImage* textViewBgImage = [textViewBgSourceImage stretchableImageWithLeftCapWidth:textViewBgSourceImage.size.width / 2
-                                                                    topCapHeight:textViewBgSourceImage.size.height / 2];
-    UIImageView* textViewImageView = [[UIImageView alloc] initWithImage:textViewBgImage];
-    CGFloat kTextViewBgImageViewWidth = 248.f;
-    textViewImageView.frame = CGRectMake(5, 0, kTextViewBgImageViewWidth, kViewHeight);
-    textViewImageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-
-    UIImage* mainBgSourceImage = [UIImage imageNamed:@"MessageEntryBackground.png"];
-    UIImage* mainBgImage = [mainBgSourceImage stretchableImageWithLeftCapWidth:mainBgSourceImage.size.width / 2
-                                                                 topCapHeight:mainBgSourceImage.size.height / 2];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:mainBgImage];
-    imageView.frame = CGRectMake(0, 0, self.containerView.frame.size.width, self.containerView.frame.size.height);
-    imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    self.textView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    UIButton* emojiBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+	[emojiBtn setTitle:BTN_TITLE_EMOJI forState:UIControlStateNormal];
+    [emojiBtn.titleLabel setFont:[UIFont boldSystemFontOfSize:20.0f]];
+    [emojiBtn.titleLabel setTextAlignment:NSTextAlignmentCenter];
+    [emojiBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+	[emojiBtn addTarget:self action:@selector(showEmojiViewAction) forControlEvents:UIControlEventTouchUpInside];
+    self.emojiBtn = emojiBtn;
     
-    // view hierachy
-    [self.containerView addSubview:imageView];
-    [self.containerView addSubview:self.textView];
-    [self.containerView addSubview:textViewImageView];
-    
-    UIImage* sendBtnBgSourceImage = [UIImage imageNamed:@"MessageEntrySendButton.png"];
-    UIImage* sendBtnBgImage = [sendBtnBgSourceImage stretchableImageWithLeftCapWidth:sendBtnBgSourceImage.size.width / 2
-                                                                        topCapHeight:0];
-    CGFloat kSendbtnWidth = 63.f;
-    CGFloat kSendBtnHeight = 27.f;
+	HPGrowingTextView* textView = [[HPGrowingTextView alloc] initWithFrame:CGRectZero];
+    textView.isScrollable = YES;
+    textView.contentInset = UIEdgeInsetsMake(0, 5, 0, 5);
+	textView.minNumberOfLines = 1;
+	textView.returnKeyType = UIReturnKeyDefault;
+	textView.font = [UIFont systemFontOfSize:20.0f];
+	textView.delegate = self;
+    textView.internalTextView.scrollIndicatorInsets = UIEdgeInsetsMake(5, 0, 5, 0);
+    textView.backgroundColor = [UIColor whiteColor];
+    textView.placeholder = @"我也说几句...";
+    self.textView = textView;
     
 	UIButton* sendBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-	sendBtn.frame = CGRectMake(self.containerView.frame.size.width - kSendbtnWidth - CELL_PADDING_6,
-                               CELL_PADDING_8, kSendbtnWidth, kSendBtnHeight);
-    sendBtn.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin;
 	[sendBtn setTitle:BTN_TITLE_CANCEL forState:UIControlStateNormal];
-    [sendBtn setTitleShadowColor:[UIColor colorWithWhite:0 alpha:0.4] forState:UIControlStateNormal];
-    sendBtn.titleLabel.shadowOffset = CGSizeMake (0.0, -1.0);
-    sendBtn.titleLabel.font = [UIFont boldSystemFontOfSize:18.0f];
+    [sendBtn.titleLabel setFont:[UIFont boldSystemFontOfSize:20.0f]];
+    [sendBtn.titleLabel setTextAlignment:NSTextAlignmentCenter];
     [sendBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 	[sendBtn addTarget:self action:@selector(replyAction) forControlEvents:UIControlEventTouchUpInside];
-    [sendBtn setBackgroundImage:sendBtnBgImage forState:UIControlStateNormal];
     self.sendBtn = sendBtn;
     
+    // view
+    [self.view addSubview:self.containerView];
+    [self.containerView addSubview:emojiBtn];
+    [self.containerView addSubview:self.textView];
 	[self.containerView addSubview:sendBtn];
+    
+    // layout
+    CGFloat kViewWidth = [UIScreen mainScreen].bounds.size.width;
+    CGFloat kViewHeight = TTToolbarHeightForOrientation(self.interfaceOrientation);
+    
+    CGFloat kBtnWidth = 40.f;
+    CGFloat KBtnHeight = 20.f;
+    CGFloat kBtnSideMargin = CELL_PADDING_4;
+    CGFloat kBtnTopMargin = (kViewHeight - KBtnHeight) / 2;
+    
+    CGFloat kTextViewWidth = kViewWidth - kBtnSideMargin * 4 - kBtnWidth * 2;
+    CGFloat kTextViewMaxHeight = [UIScreen mainScreen].bounds.size.height
+    - TTKeyboardHeightForOrientation(self.interfaceOrientation)
+    - NIStatusBarHeight() - NIToolbarHeightForOrientation(self.interfaceOrientation) * 2;
+
+    self.view.frame = CGRectMake(0, 0, kViewWidth, kViewHeight);
+    self.containerView.frame = self.view.bounds;
+	self.emojiBtn.frame = CGRectMake(kBtnSideMargin, kBtnTopMargin, kBtnWidth, KBtnHeight);
+    self.textView.frame = CGRectMake(emojiBtn.right + kBtnSideMargin, 0.f, kTextViewWidth, kViewHeight);
+    self.textView.maxHeight = kTextViewMaxHeight;
+    self.sendBtn.frame = CGRectMake(self.textView.right + kBtnSideMargin, kBtnTopMargin, kBtnWidth, KBtnHeight);
+    
+    //self.textView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
 }
 
@@ -129,6 +128,44 @@
 #pragma mark - Private
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)showEmojiViewAction
+{
+    if (!_emojiView) {
+        _emojiView = [[TSEmojiView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - TTKeyboardHeightForOrientation(self.interfaceOrientation),
+                                                                   self.view.width, TTKeyboardHeightForOrientation(self.interfaceOrientation))];
+        _emojiView.delegate = self;
+    }
+    if (!self.textView.internalTextView.inputView) {
+        // show emoji view
+        [self.emojiBtn setTitle:BTN_TITLE_KEYBOARD forState:UIControlStateNormal];
+        [self.textView.internalTextView resignFirstResponder];
+        self.textView.internalTextView.inputView = self.emojiView;
+        [self.textView.internalTextView becomeFirstResponder];
+        
+        // by default, inputAccessoryView is in front of inputView,
+        // when touch first row of emoji view, emoji's TSEmojiViewLayer is coverd by inputAccessoryView
+        // after do hack, know that inputView's superview is the same to inputAccessoryView 's superview。
+        // it is UIPeripheralHostView, so i can bring front inputView, make emoji's TSEmojiViewLayer show well!
+#ifdef DEBUG
+        UIView* s1 = self.textView.internalTextView.inputView.superview;
+        NSLog(@"inputView.superview = %@", s1);
+        UIView* s2 = self.textView.internalTextView.inputAccessoryView.superview;
+        NSLog(@"inputAccessoryView.superview = %@", s2);
+#endif
+        if (self.textView.internalTextView.inputView.superview) {
+            [self.textView.internalTextView.inputView.superview bringSubviewToFront:self.textView.internalTextView.inputView];
+        }
+    }
+    else {
+        // show keyboard
+        [self.emojiBtn setTitle:BTN_TITLE_EMOJI forState:UIControlStateNormal];
+        [self.textView.internalTextView resignFirstResponder];
+        self.textView.internalTextView.inputView = nil;
+        [self.textView.internalTextView becomeFirstResponder];
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 -(void)replyAction
 {
     if (self.textView.text.length) {
@@ -139,10 +176,6 @@
                          success:^(RCReplyEntity* replyEntity){
                              self.textView.text = @"";
                              [self.textView resignFirstResponder];
-                             
-//                             MBProgressHUD* hud = [RCGlobalConfig HUDShowMessage:@"回复成功!" addedToView:self.view];
-//                             hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
-//                             hud.mode = MBProgressHUDModeCustomView;
                              
                              if ([self.replyDelegate respondsToSelector:@selector(didReplySuccessWithMyReply:)]) {
                                  [self.replyDelegate didReplySuccessWithMyReply:replyEntity];
@@ -178,6 +211,16 @@
     else {
         self.textView.text = string;
     }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - TSEmojiViewDelegate
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)didTouchEmojiView:(TSEmojiView*)emojiView touchedEmoji:(NSString*)str
+{
+    _textView.text = [NSString stringWithFormat:@"%@%@", _textView.text, str];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
