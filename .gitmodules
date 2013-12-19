@@ -6,4 +6,4 @@
 	url = https://github.com/jimneylee/RTagCloudView.git
 [submodule "vendor/MarkdownSyntaxEditor"]
 	path = vendor/MarkdownSyntaxEditor
-	url = https://github.com/azu/MarkdownSyntaxEditor.git
+	url = https://github.com/jimneylee/MarkdownSyntaxEditor.git
