@@ -167,15 +167,28 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+// TODO: will move this method it util
+- (NSString*)stringByReplaceEmojiUnicodeWithTextCodeForSourceText:(NSString*)sourceText
+{
+    NSLog(@"before source Text:%@", sourceText);
+    for (NSString* key in [RCGlobalConfig emojiReverseAliases]) {
+        sourceText = [sourceText stringByReplacingOccurrencesOfString:key withString:[RCGlobalConfig emojiReverseAliases][key]];
+    }
+    NSLog(@"after source Text:%@", sourceText);
+    return sourceText;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 -(void)replyAction
 {
     if (self.textView.text.length) {
         RCReplyModel* replyModel = [[RCReplyModel alloc] init];
-        // replace emoji to string code
-        // NSString* replyString = [self.textView.text copy];
+        // replace emoji unicode to text code
+        NSString* bodyText = [self.textView.text copy];
+        NSString* pureBodyText = [self stringByReplaceEmojiUnicodeWithTextCodeForSourceText:bodyText];
         [[MTStatusBarOverlay sharedOverlay] postMessage:@"回复中..."];
         [replyModel replyTopicId:self.topicId
-                            body:self.textView.text
+                            body:pureBodyText //self.textView.text
                          success:^(RCReplyEntity* replyEntity){
                              self.textView.text = @"";
                              [self.textView resignFirstResponder];
@@ -223,8 +236,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)didTouchEmojiView:(TSEmojiView*)emojiView touchedEmoji:(NSString*)str
 {
-    NSString* code = [RCGlobalConfig emojiReverseAliases][str];
-    _textView.text = [NSString stringWithFormat:@"%@%@", _textView.text, code];//str
+    //NSString* code = [RCGlobalConfig emojiReverseAliases][str];
+    self.textView.text = [NSString stringWithFormat:@"%@%@", self.textView.text, str];//code
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
