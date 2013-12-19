@@ -10,25 +10,25 @@
 #import "JLAFHTTPClient.h"
 
 /** UNDO
- POST   ruby-china.org/api/topics/:id/follow.json
- POST   ruby-china.org/api/topics/:id/unfollow.json
- POST   ruby-china.org/api/topics/:id/favorite.json
  GET	ruby-china.org/api/users/temp_access_token.json
 */
 
 /* DONE
- GET     ruby-china.org/api/topics.json
- GET     ruby-china.org/api/topics/node/:id.json
- POST    ruby-china.org/api/topics.json
- GET     ruby-china.org/api/topics/:id.json
- POST    ruby-china.org/api/topics/:id/replies.json
- GET     ruby-china.org/api/nodes.json
- GET     ruby-china.org/api/sites.json
+ GET    ruby-china.org/api/topics.json
+ GET    ruby-china.org/api/topics/node/:id.json
+ POST   ruby-china.org/api/topics.json
+ GET    ruby-china.org/api/topics/:id.json
+ POST   ruby-china.org/api/topics/:id/replies.json
+ GET    ruby-china.org/api/nodes.json
+ GET    ruby-china.org/api/sites.json
  PUT    ruby-china.org/api/user/favorite/:user/:topic.json
  GET    ruby-china.org/api/users.json
  GET	ruby-china.org/api/users/:user.json
  GET	ruby-china.org/api/users/:user/topics.json
  GET	ruby-china.org/api/users/:user/topics/favorite.json
+ POST   ruby-china.org/api/topics/:id/follow.json
+ POST   ruby-china.org/api/topics/:id/unfollow.json
+ POST   ruby-china.org/api/topics/:id/favorite.json
 */
 @interface RCAPIClient : JLAFHTTPClient
 
