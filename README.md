@@ -72,6 +72,17 @@ $ cd ./git/modules/vendor
 $ rm -rf JLNimbusTimeline
 ```
 
+# 多个git server仓库同步
+今天研究了多个git server仓库同步，把项目同步到[osc](http://git.oschina.net)和[gitcafe](https://gitcafe.com)，不熟悉如何同步到多个git server，可以参考我的[这篇blog](http://blog.sina.com.cn/s/blog_6d2b48100101i8i4.html)，仓库地址分别如下
+
+github:https://github.com/jimneylee/JLRubyChina-iPhone
+
+gitcafe:https://gitcafe.com/jimneylee/JLRubyChina-iPhone
+
+oschina:http://git.oschina.net/jimneylee/JLRubyChina-iPhone
+
+使用相同的ssh key，同步还是很方便的，后面考虑进一步精简步骤，自动化发布到各个git server
+
 # 完整项目ZIP发布包
   完整项目的单独发布仓库，感觉没必要，已删除。建议不熟悉gitmodule依赖和cocoapods依赖的同学，耐心配置好依赖库。过程中有什么问题，请提交到issue，我会一一解答。
   
