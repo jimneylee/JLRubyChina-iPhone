@@ -35,9 +35,9 @@ $ pod install
 
 # 替换pod添加的依赖库
 
-    用工程中的`vendor`目录下的`Nimbus_fixbug`和`JSONKit_fixerror`中的文件，替换pod添加的对应文件。`Nimbus_fixbug`是为了解决
-    `帖子列表高亮名字或链接无法点击`。`JSONKit_fixerror`为了解决编译引起的错误和警告。由于JSONKit是Nimbus的递归依赖引入，所以
-    直接添加`JSONKit`文件到目录，不能根本解决问题。
+用工程中的`vendor`目录下的`Nimbus_fixbug`和`JSONKit_fixerror`中的文件，替换pod添加的对应文件。`Nimbus_fixbug`是为了解决
+`帖子列表高亮名字或链接无法点击`。`JSONKit_fixerror`为了解决编译引起的错误和警告。由于JSONKit是Nimbus的递归依赖引入，所以
+直接添加`JSONKit`文件到目录，不能根本解决问题。
 
 # ERROR解决方法
 1、帖子列表高亮名字或链接无法点击
