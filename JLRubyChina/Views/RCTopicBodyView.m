@@ -132,11 +132,21 @@
     
     // title
     self.titleLabel.text = self.topicDetailEntity.topicTitle;
-    CGFloat titleWidth = self.width - sideMargin * 2;
-    CGSize titleSize = [self.topicDetailEntity.topicTitle sizeWithFont:self.titleLabel.font
-                                                constrainedToSize:CGSizeMake(titleWidth, FLT_MAX)
+    CGFloat kTitleLength = self.width - sideMargin * 2;
+#if 1
+    NSAttributedString *attributedText =
+    [[NSAttributedString alloc] initWithString:self.topicDetailEntity.topicTitle
+                                    attributes:@{NSFontAttributeName:TITLE_FONT_SIZE}];
+    CGRect rect = [attributedText boundingRectWithSize:(CGSize){kTitleLength, CGFLOAT_MAX}
+                                               options:NSStringDrawingUsesLineFragmentOrigin
+                                               context:nil];
+    CGSize titleSize = rect.size;
+#else
+    CGSize titleSize = [self.topicDetailEntity.topicTitle sizeWithFont:TITLE_FONT_SIZE
+                                                constrainedToSize:CGSizeMake(kTitleLength, FLT_MAX)
                                                     lineBreakMode:NSLineBreakByCharWrapping];
-    self.titleLabel.frame = CGRectMake(contentViewMarin, contentViewMarin, titleWidth, titleSize.height);
+#endif
+    self.titleLabel.frame = CGRectMake(contentViewMarin, contentViewMarin, kTitleLength, titleSize.height);
     height = height + self.titleLabel.height;
     height = height + CELL_PADDING_4;
 

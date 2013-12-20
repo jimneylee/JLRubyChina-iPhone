@@ -29,9 +29,19 @@
     
     RCSiteEntity* o = (RCSiteEntity*)object;
     CGFloat kContentLength =  tableView.width - contentViewMarin * 2;
+#if 1
+    NSAttributedString *attributedText =
+    [[NSAttributedString alloc] initWithString:o.description
+                                    attributes:@{NSFontAttributeName:SUBTITLE_FONT_SIZE}];
+    CGRect rect = [attributedText boundingRectWithSize:(CGSize){kContentLength, CGFLOAT_MAX}
+                                               options:NSStringDrawingUsesLineFragmentOrigin
+                                               context:nil];
+    CGSize size = rect.size;
+#else
     CGSize size = [o.description sizeWithFont:SUBTITLE_FONT_SIZE
                                         constrainedToSize:CGSizeMake(kContentLength, FLT_MAX)
-                                            lineBreakMode:UILineBreakModeWordWrap];
+                                            lineBreakMode:NSLineBreakByWordWrapping];
+#endif
     height = height + size.height;
     height = height + contentViewMarin;
     
@@ -66,10 +76,21 @@
     
     CGFloat contentViewMarin = CELL_PADDING_6;
     CGFloat kContentLength = self.contentView.width - contentViewMarin * 2;
-    self.textLabel.frame = CGRectMake(contentViewMarin, contentViewMarin, kContentLength / 2, self.textLabel.font.lineHeight);
-    CGSize size = [self.detailTextLabel.text sizeWithFont:self.detailTextLabel.font
+    self.textLabel.frame = CGRectMake(contentViewMarin, contentViewMarin,
+                                      kContentLength / 2, self.textLabel.font.lineHeight);
+#if 1
+    NSAttributedString *attributedText =
+    [[NSAttributedString alloc] initWithString:self.detailTextLabel.text
+                                    attributes:@{NSFontAttributeName:SUBTITLE_FONT_SIZE}];
+    CGRect rect = [attributedText boundingRectWithSize:(CGSize){kContentLength, CGFLOAT_MAX}
+                                               options:NSStringDrawingUsesLineFragmentOrigin
+                                               context:nil];
+    CGSize size = rect.size;
+#else
+    CGSize size = [self.detailTextLabel.text sizeWithFont:SUBTITLE_FONT_SIZE
                                          constrainedToSize:CGSizeMake(kContentLength, FLT_MAX)
-                                             lineBreakMode:UILineBreakModeWordWrap];
+                                             lineBreakMode:NSLineBreakByWordWrapping];
+#endif
     self.detailTextLabel.frame = CGRectMake(self.textLabel.left, self.textLabel.bottom + CELL_PADDING_2,
                                             kContentLength, size.height);
 }

@@ -30,9 +30,19 @@
     
     RCNodeEntity* o = (RCNodeEntity*)object;
     CGFloat kContentLength =  tableView.width - contentViewMarin * 2;
+#if 1
+    NSAttributedString *attributedText =
+    [[NSAttributedString alloc] initWithString:o.summary
+                                    attributes:@{NSFontAttributeName:SUBTITLE_FONT_SIZE}];
+    CGRect rect = [attributedText boundingRectWithSize:(CGSize){kContentLength, CGFLOAT_MAX}
+                                               options:NSStringDrawingUsesLineFragmentOrigin
+                                               context:nil];
+    CGSize size = rect.size;
+#else
     CGSize size = [o.summary sizeWithFont:SUBTITLE_FONT_SIZE
                                         constrainedToSize:CGSizeMake(kContentLength, FLT_MAX)
-                                            lineBreakMode:UILineBreakModeWordWrap];
+                                            lineBreakMode:NSLineBreakByWordWrapping];
+#endif
     height = height + size.height;
     height = height + contentViewMarin;
     
@@ -79,9 +89,19 @@
     self.textLabel.frame = CGRectMake(contentViewMarin, contentViewMarin, kContentLength / 2, self.textLabel.font.lineHeight);
     self.topicsCountLabel.frame = CGRectMake(self.textLabel.right, self.textLabel.top,
                                        kContentLength / 2, self.topicsCountLabel.font.lineHeight);
-    CGSize size = [self.detailTextLabel.text sizeWithFont:self.detailTextLabel.font
+#if 1
+    NSAttributedString *attributedText =
+    [[NSAttributedString alloc] initWithString:self.detailTextLabel.text
+                                    attributes:@{NSFontAttributeName:SUBTITLE_FONT_SIZE}];
+    CGRect rect = [attributedText boundingRectWithSize:(CGSize){kContentLength, CGFLOAT_MAX}
+                                               options:NSStringDrawingUsesLineFragmentOrigin
+                                               context:nil];
+    CGSize size = rect.size;
+#else
+    CGSize size = [self.detailTextLabel.text sizeWithFont:SUBTITLE_FONT_SIZE
                                          constrainedToSize:CGSizeMake(kContentLength, FLT_MAX)
-                                             lineBreakMode:UILineBreakModeWordWrap];
+                                             lineBreakMode:NSLineBreakByWordWrapping];
+#endif
     self.detailTextLabel.frame = CGRectMake(self.textLabel.left, self.textLabel.bottom + CELL_PADDING_2,
                                             kContentLength, size.height);
 }

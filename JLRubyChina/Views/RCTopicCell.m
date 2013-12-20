@@ -53,10 +53,20 @@
         RCTopicEntity* o = (RCTopicEntity*)object;
         
         CGFloat kTitleLength = tableView.width -  sideMargin * 2;
+#if 1
+        NSAttributedString *attributedText =
+        [[NSAttributedString alloc] initWithString:o.topicTitle
+                                        attributes:@{NSFontAttributeName:TITLE_FONT_SIZE}];
+        CGRect rect = [attributedText boundingRectWithSize:(CGSize){kTitleLength, CGFLOAT_MAX}
+                                                   options:NSStringDrawingUsesLineFragmentOrigin
+                                                   context:nil];
+        CGSize titleSize = rect.size;
+#else
         CGSize titleSize = [o.topicTitle sizeWithFont:TITLE_FONT_SIZE
                                     constrainedToSize:CGSizeMake(kTitleLength, FLT_MAX)];
+#endif
         height = height + titleSize.height;
-        
+
         height = height + CELL_PADDING_4;
         height = height + LAST_REPLIED_FONT_SIZE.lineHeight;
         
@@ -116,7 +126,8 @@
         self.lastRepliedLabel.lineBreakMode = NSLineBreakByWordWrapping;
         self.lastRepliedLabel.autoDetectLinks = YES;
         self.lastRepliedLabel.delegate = self;
-        self.lastRepliedLabel.attributesForLinks =@{(NSString *)kCTForegroundColorAttributeName:(id)RGBCOLOR(6, 89, 155).CGColor};
+        self.lastRepliedLabel.attributesForLinks =
+        @{(NSString *)kCTForegroundColorAttributeName:(id)RGBCOLOR(6, 89, 155).CGColor};
         self.lastRepliedLabel.highlightedLinkBackgroundColor = RGBCOLOR(26, 162, 233);
         [self.contentView addSubview:self.lastRepliedLabel];
         
@@ -140,9 +151,9 @@
 - (void)prepareForReuse
 {
     [super prepareForReuse];
-//    if (self.headView.image) {
-//        self.headView.image = nil;
-//    }
+    if (self.headView.image) {
+        self.headView.image = nil;
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -172,15 +183,30 @@
     self.detailTextLabel.frame = CGRectMake(self.textLabel.left, self.textLabel.bottom + CELL_PADDING_2,
                                             kTextLength, self.detailTextLabel.font.lineHeight);
     // replies count
+#if 1
+    CGSize repliesCountSize = [self.repliesCountLabel.text sizeWithAttributes:@{NSFontAttributeName:TITLE_FONT_SIZE}];
+#else
     CGSize repliesCountSize = [self.repliesCountLabel.text sizeWithFont:TITLE_FONT_SIZE];
+#endif
     self.repliesCountLabel.frame = CGRectMake(0.f, self.textLabel.top,
-                                              repliesCountSize.width + CELL_PADDING_6, self.repliesCountLabel.font.lineHeight);
+                                              repliesCountSize.width + CELL_PADDING_6,
+                                              self.repliesCountLabel.font.lineHeight);
     self.repliesCountLabel.right = self.contentView.width - sideMargin;
     
     // title
     CGFloat kTitleLength = self.contentView.width - contentViewMarin * 2;
+#if 1
+    NSAttributedString *attributedText =
+    [[NSAttributedString alloc] initWithString:self.topicTitleLabel.text
+                                    attributes:@{NSFontAttributeName:TITLE_FONT_SIZE}];
+    CGRect rect = [attributedText boundingRectWithSize:(CGSize){kTitleLength, CGFLOAT_MAX}
+                                               options:NSStringDrawingUsesLineFragmentOrigin
+                                               context:nil];
+    CGSize titleSize = rect.size;
+#else
     CGSize titleSize = [self.topicTitleLabel.text sizeWithFont:TITLE_FONT_SIZE
                                             constrainedToSize:CGSizeMake(kTitleLength, FLT_MAX)];
+#endif
     self.topicTitleLabel.frame = CGRectMake(self.headView.left, self.headView.bottom + CELL_PADDING_4,
                                         kTitleLength, titleSize.height);
     
