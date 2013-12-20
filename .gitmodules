@@ -1,12 +1,9 @@
 [submodule "vendor/JLNimbusTimeline"]
 	path = vendor/JLNimbusTimeline
 	url = https://github.com/jimneylee/JLNimbusTimeline.git
-[submodule "vendor/RTagCloudView"]
-	path = vendor/RTagCloudView
-	url = https://github.com/jimneylee/RTagCloudView.git
 [submodule "vendor/MarkdownSyntaxEditor"]
 	path = vendor/MarkdownSyntaxEditor
 	url = https://github.com/jimneylee/MarkdownSyntaxEditor.git
 [submodule "vendor/TSEmojiView"]
 	path = vendor/TSEmojiView
-	url = https://github.com/fly2wind/TSEmojiView.git
+	url = https://github.com/jimneylee/TSEmojiView.git
