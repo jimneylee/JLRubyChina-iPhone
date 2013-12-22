@@ -230,9 +230,9 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (NITableViewActionBlock)tapAction
+- (NIActionBlock)tapAction
 {
-    return ^BOOL(id object, id target) {
+    return ^BOOL(id object, id target, NSIndexPath* indexPath) {
         if (!self.editing) {
             if ([object isKindOfClass:[RCReplyEntity class]]) {
                 //RCReplyEntity* topic = (RCReplyEntity*)object;
