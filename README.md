@@ -80,11 +80,11 @@ $ [sudo]pod install
 ```
 6、若出现这个问题：library not found for -lPods
 
-   解决1、你没有通过打开JLRubyChina.xcworkspace打开工程
+   解决方法1、没有通过pod update生成的JLRubyChina.xcworkspace来打开工程
 
 ![image](https://github.com/jimneylee/JLRubyChina-iPhone/raw/master/Resource/Screenshots/ErrorResolve/open_xcworkspace.jpg)
 
-   解决2、Pods工程中，试着如下修改TARGETS的Pods，今天搞了一上午才解决这个错误问题
+   解决方法2、Pods工程中，试着如下修改TARGETS的Pods，今天搞了一上午才解决这个错误问题
 ![image](https://github.com/jimneylee/JLRubyChina-iPhone/raw/master/Resource/Screenshots/ErrorResolve/not_found_pods.png)
 
 6、若`git submodule add https://github.com/jimneylee/JLNimbusTimeline.git vendor/JLNimbusTimeline`出现这个问题：
