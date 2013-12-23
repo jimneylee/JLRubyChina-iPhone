@@ -65,23 +65,23 @@ $ git rm -r --cached vendor/JLNimbusTimeline
 ```
 4、如果JLNimbusTimeline里面编译出错，`git submodule update`无法更新时，请删除JLNimbusTimeline重新添加，步骤如下：
 
-    1、`.git/config`删除依赖JLNimbusTimeline相关
+  1、`.git/config`删除依赖JLNimbusTimeline相关
 ``` bash
 $ vi .git/config
 ```
-    2、删除`.git/modules/vendor`下JLNimbusTimeline目录
+  2、删除`.git/modules/vendor`下JLNimbusTimeline目录
 ``` bash
 $ rm -rf .git/modules/vendor/JLNimbusTimeline
 ```
-    3、到工程vendor目录，删除JLNimbusTimeline
+  3、到工程vendor目录，删除JLNimbusTimeline
 ``` bash
 $ rm -rf vendor/JLNimbusTimeline
 ```
-    4、删除`git submodule add`对应的cache
+  4、删除`git submodule add`对应的cache
 ``` bash
 $ git rm --cached vendor/JLNimbusTimeline
 ```
-    5、重新添加submodule
+  5、重新添加submodule
 ``` bash
 $ git submodule add https://github.com/jimneylee/JLNimbusTimeline.git vendor/JLNimbusTimeline
 ```
