@@ -19,6 +19,7 @@
 		28386D9F185A97FB00D7B5C9 /* RCPostC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28386D9E185A97FB00D7B5C9 /* RCPostC.m */; };
 		28386DA5185AA4C900D7B5C9 /* RCUIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 28386DA4185AA4C900D7B5C9 /* RCUIHelper.m */; };
 		28386DE6185AE59600D7B5C9 /* RCNodesCloudTagC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28386DE5185AE59600D7B5C9 /* RCNodesCloudTagC.m */; };
+		2847BE231867F45900D9CEF0 /* open_xcworkspace.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2847BE221867F45900D9CEF0 /* open_xcworkspace.jpg */; };
 		2897EEF51856BE94000BB6B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2897EEF41856BE94000BB6B9 /* Foundation.framework */; };
 		2897EEF71856BE94000BB6B9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2897EEF61856BE94000BB6B9 /* CoreGraphics.framework */; };
 		2897EEF91856BE94000BB6B9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2897EEF81856BE94000BB6B9 /* UIKit.framework */; };
@@ -239,6 +240,7 @@
 		2847BE1C1867D91D00D9CEF0 /* NimbusAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimbusAttributedLabel.h; sourceTree = "<group>"; };
 		2847BE1D1867D91D00D9CEF0 /* NSMutableAttributedString+NimbusAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+NimbusAttributedLabel.h"; sourceTree = "<group>"; };
 		2847BE1E1867D91D00D9CEF0 /* NSMutableAttributedString+NimbusAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+NimbusAttributedLabel.m"; sourceTree = "<group>"; };
+		2847BE221867F45900D9CEF0 /* open_xcworkspace.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = open_xcworkspace.jpg; sourceTree = "<group>"; };
 		2897EEF11856BE94000BB6B9 /* JLRubyChina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JLRubyChina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2897EEF41856BE94000BB6B9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2897EEF61856BE94000BB6B9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -926,6 +928,7 @@
 			isa = PBXGroup;
 			children = (
 				28CBC1381862A09B007C68FC /* not_found_pods.png */,
+				2847BE221867F45900D9CEF0 /* open_xcworkspace.jpg */,
 			);
 			path = ErrorResolve;
 			sourceTree = "<group>";
@@ -1213,6 +1216,7 @@
 				28CBC12D18629839007C68FC /* trackpoint-blue@2x.png in Resources */,
 				CEEA2BFF1858C561004FDEDF /* MessageEntrySendButtonPressed.png in Resources */,
 				CE3675AB186337A70015756D /* emo_003@2x.png in Resources */,
+				2847BE231867F45900D9CEF0 /* open_xcworkspace.jpg in Resources */,
 				CE3675C4186337A70015756D /* emo_028@2x.png in Resources */,
 				28CBC12018629839007C68FC /* key-blue.png in Resources */,
 				CE3675AD186337A70015756D /* emo_005@2x.png in Resources */,
