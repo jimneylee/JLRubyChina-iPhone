@@ -45,6 +45,7 @@ $ pod install
 有问题，请添加到issue中！
 
 4、通过JLRubyChina.xcworkspace打开项目
+
 ![image](https://github.com/jimneylee/JLRubyChina-iPhone/raw/master/Resource/Screenshots/ErrorResolve/open_xcworkspace.jpg)
 
 # ERROR解决方法
@@ -71,6 +72,7 @@ $ [sudo]pod install
 5、若出现这个问题：library not found for -lPods
 
    解决1、你没有通过打开JLRubyChina.xcworkspace打开工程
+
 ![image](https://github.com/jimneylee/JLRubyChina-iPhone/raw/master/Resource/Screenshots/ErrorResolve/open_xcworkspace.jpg)
 
    解决2、Pods工程中，试着如下修改TARGETS的Pods，今天搞了一上午才解决这个错误问题
