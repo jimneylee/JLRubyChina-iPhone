@@ -158,9 +158,9 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (NIActionBlock)tapAction
+- (NITableViewActionBlock)tapAction
 {
-    return ^BOOL(id object, id target, NSIndexPath* indexPath) {
+    return ^BOOL(id object, id target) {
         if ([object isKindOfClass:[RCTopicEntity class]]) {
             RCTopicEntity* topic = (RCTopicEntity*)object;
             if (topic.topicId > 0) {

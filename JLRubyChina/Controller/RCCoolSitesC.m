@@ -14,7 +14,7 @@
 #import "RCSiteEntity.h"
 
 @interface RCCoolSitesC ()
-@property (nonatomic, assign) NIActionBlock tapAction;
+@property (nonatomic, assign) NITableViewActionBlock tapAction;
 @property (nonatomic, strong) RCCoolSitesModel* model;
 @property (nonatomic, strong) NITableViewActions* actions;
 @property (nonatomic, strong) NICellFactory* cellFactory;
@@ -175,9 +175,9 @@
 #pragma mark - Override
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (NIActionBlock)tapAction
+- (NITableViewActionBlock)tapAction
 {
-    return ^BOOL(id object, id target, NSIndexPath* indexPath) {
+    return ^BOOL(id object, id target) {
         if ([object isKindOfClass:[RCSiteEntity class]]) {
             RCSiteEntity* o = (RCSiteEntity*)object;
             if (o.url.length) {

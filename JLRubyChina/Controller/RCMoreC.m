@@ -33,11 +33,11 @@
     if (self) {
         self.title = @"更多设置";
         _actions = [[NITableViewActions alloc] initWithTarget:self];
-        NIActionBlock tapClearCacheAction = ^BOOL(id object, id target, NSIndexPath* indexPath) {
+        NITableViewActionBlock tapClearCacheAction = ^BOOL(id object, id target) {
             [self showClearCaceActionSheet];
             return YES;
         };
-        NIActionBlock tapLogoutLoginAction = ^BOOL(id object, id target, NSIndexPath* indexPath) {
+        NITableViewActionBlock tapLogoutLoginAction = ^BOOL(id object, id target) {
             if ([RCGlobalConfig myToken]) {
                 [self showLogoutActionSheet];
             }
@@ -46,7 +46,7 @@
             }
             return YES;
         };
-        NIActionBlock tapCheckLatestVersionAction = ^BOOL(id object, id target, NSIndexPath* indexPath) {
+        NITableViewActionBlock tapCheckLatestVersionAction = ^BOOL(id object, id target) {
             [[LTUpdate shared] update:LTUpdateDaily
                              complete:^(BOOL isNewVersionAvailable, LTUpdateVersionDetails *versionDetails) {
                                  if (!isNewVersionAvailable) {
@@ -55,11 +55,11 @@
                              }];
             return YES;
         };
-        NIActionBlock tapRateAction = ^BOOL(id object, id target, NSIndexPath* indexPath) {
+        NITableViewActionBlock tapRateAction = ^BOOL(id object, id target) {
             [self showRateAppActionSheet];
             return YES;
         };
-        NIActionBlock tapAboutAction = ^BOOL(id object, id target, NSIndexPath* indexPath) {
+        NITableViewActionBlock tapAboutAction = ^BOOL(id object, id target) {
             [self showAboutView];
             return YES;
         };

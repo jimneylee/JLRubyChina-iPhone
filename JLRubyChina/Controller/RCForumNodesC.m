@@ -69,9 +69,9 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (NIActionBlock)tapAction
+- (NITableViewActionBlock)tapAction
 {
-    return ^BOOL(id object, id target, NSIndexPath* indexPath) {
+    return ^BOOL(id object, id target) {
         if (!self.editing) {
             if ([object isKindOfClass:[RCNodeEntity class]]) {
                 RCNodeEntity* entity = (RCNodeEntity*)object;
