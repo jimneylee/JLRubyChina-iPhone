@@ -37,14 +37,14 @@ $ pod install
 
 用工程中的`vendor`目录下的`Nimbus_fixbug`和`JSONKit_fixerror`中的文件，替换pod添加的对应文件。
 
-`Nimbus_fixbug`是为了解决`帖子列表高亮名字或链接无法点击`。
+`Nimbus_fixbug`是为了解决帖子列表高亮名字或链接无法点击。
 
 `JSONKit_fixerror`为了解决编译引起的错误和警告。其实这个JSONKit是无用的，但是由于JSONKit是Nimbus的submodule递归依赖引入，
-所以在Nimbus没有发布新的版本，暂时只能这样处理。之前考虑过git submodule依赖nimbus，去掉这个JSONKit库，但是会是工程膨胀，得不偿失。
+所以在Nimbus没有发布新的版本，暂时只能这样处理。之前考虑过'git submodule add'依赖nimbus，去掉这个JSONKit库，但是会是工程膨胀，得不偿失。
 
 有问题，请添加到issue中！
 
-4、通过JLRubyChina.xcworkspace打开项目
+4、通过'JLRubyChina.xcworkspace'打开项目
 
 ![image](https://github.com/jimneylee/JLRubyChina-iPhone/raw/master/Resource/Screenshots/ErrorResolve/open_xcworkspace.jpg)
 
@@ -63,13 +63,21 @@ $ git rm --cached vendor/JLNimbusTimeline
 ``` bash
 $ git rm -r --cached vendor/JLNimbusTimeline
 ```
-4、若出现这个问题：diff: /../Podfile.lock: No such file or directory
+4、如果JLNimbusTimeline里面编译出错，`git submodule update`无法更新时，请删除重新添加，步骤如下：
+    1、vi .git/config 删除JLNimbusTimeline
+    2、cd .git/modules/vendor 删除JLNimbusTimeline
+    3、到工程vendor目录，删除JLNimbusTimeline
+    4、git rm --cached vendor/JLNimbusTimeline
+晋  11:29:44
+    5、git submodule add https://github.com/jimneylee/JLNimbusTimeline.git vendor/JLNimbusTimeline
+
+5、若出现这个问题：diff: /../Podfile.lock: No such file or directory
    diff: /Manifest.lock: No such file or directory 
    error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
 ``` bash
 $ [sudo]pod install
 ```
-5、若出现这个问题：library not found for -lPods
+6、若出现这个问题：library not found for -lPods
 
    解决1、你没有通过打开JLRubyChina.xcworkspace打开工程
 
@@ -102,12 +110,6 @@ oschina:http://git.oschina.net/jimneylee/JLRubyChina-iPhone
 
 使用相同的ssh key，同步还是很方便的，后面考虑进一步精简步骤，自动化发布到各个git server
 
-# 完整项目ZIP发布包
-  完整项目的单独发布仓库，感觉没必要，已删除。建议不熟悉gitmodule依赖和cocoapods依赖的同学，耐心配置好依赖库。过程中有什么问题，请提交到issue，我会一一解答。
-  
-  ~~建议不熟悉gitmodule依赖和cocoapods依赖的同学，耐心配置好依赖库，一定会有问题，但是过程中你一定会学习到很多。
-  [这边是我自己本地完整的工程](https://github.com/jimneylee/JLRubyChina-iPhone-Release)，给大家预留一份，拉到本地可以直接便宜运行。~~
-  
 # DONE
 1、首页热门帖子显示
 
