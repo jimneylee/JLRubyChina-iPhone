@@ -34,14 +34,10 @@ $ pod install
 注：如需要添加其他依赖库，请修改Podfile
 
 3、 替换pod添加的依赖库
-
 用工程中的`vendor`目录下的`Nimbus_fixbug`和`JSONKit_fixerror`中的文件，替换pod添加的对应文件。
-
 `Nimbus_fixbug`是为了解决帖子列表高亮名字或链接无法点击。
-
 `JSONKit_fixerror`为了解决编译引起的错误和警告。其实这个JSONKit是无用的，但是由于JSONKit是Nimbus的submodule递归依赖引入，
 所以在Nimbus没有发布新的版本，暂时只能这样处理。之前考虑过'git submodule add'依赖nimbus，去掉这个JSONKit库，但是会是工程膨胀，得不偿失。
-
 有问题，请添加到issue中！
 
 4、通过'JLRubyChina.xcworkspace'打开项目
@@ -87,7 +83,7 @@ $ [sudo]pod install
    解决方法2、Pods工程中，试着如下修改TARGETS的Pods，今天搞了一上午才解决这个错误问题
 ![image](https://github.com/jimneylee/JLRubyChina-iPhone/raw/master/Resource/Screenshots/ErrorResolve/not_found_pods.png)
 
-6、若`git submodule add https://github.com/jimneylee/JLNimbusTimeline.git vendor/JLNimbusTimeline`出现这个问题：
+7、若`git submodule add https://github.com/jimneylee/JLNimbusTimeline.git vendor/JLNimbusTimeline`出现这个问题：
 
     A git directory for 'vendor/JLNimbusTimeline' is found locally with remote(s):
     origin	https://github.com/jimneylee/JLNimbusTimeline.git
