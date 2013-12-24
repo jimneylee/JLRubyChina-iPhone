@@ -293,9 +293,13 @@
     
     // 回复成功后，直接插入到tablview底部
     NSArray* indexPaths = [self.model addObject:replyEntity];
-    [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
-    // 感觉没必要滑到底部
-    //[self scrollToBottomAnimated:YES];
+    if (indexPaths.count) {
+        NSIndexPath* indexPath = indexPaths[0];
+        replyEntity.floorNumber = indexPath.row+1;
+        [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+        // 感觉没必要滑到底部
+        //[self scrollToBottomAnimated:YES];
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
