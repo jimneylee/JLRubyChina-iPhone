@@ -47,14 +47,14 @@
 - (void)parseAllKeywords
 {
     if (self.body.length) {
+        // parse emotion first
+        self.body = [self.body emojizedString];
         if (!self.atPersonRanges) {
             self.atPersonRanges = [SCRegularParser keywordRangesOfAtPersonInString:self.body];
         }
         if (!self.sharpFloorRanges) {
             self.sharpFloorRanges = [SCRegularParser keywordRangesOfSharpFloorInString:self.body];
         }
-        // TODO: emotion
-        self.body = [self.body emojizedString];
     }
 }
 
