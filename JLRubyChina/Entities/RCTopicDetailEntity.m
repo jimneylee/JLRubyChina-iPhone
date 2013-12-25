@@ -60,13 +60,14 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // idea from MarkdownSyntaxEditor/MarkdownTextView, not perfect but better than before
+#define CONTENT_FONT_SIZE [UIFont fontWithName:@"STHeitiSC-Light" size:17.f]
 - (NSAttributedString*)parseAttributedStringFromMarkdownString:(NSString*)markdownString
 {
     if (markdownString.length) {
         MarkdownSyntaxGenerator* parser = [[MarkdownSyntaxGenerator alloc] init];
-        NSArray *models = [parser syntaxModelsForText:self.body];
+        NSArray *models = [parser syntaxModelsForText:markdownString];
         // set default font
-        NSDictionary* defaultAttributes = @{NSFontAttributeName : [UIFont fontWithName:@"STHeitiSC-Light" size:17.f]};
+        NSDictionary* defaultAttributes = @{NSFontAttributeName : CONTENT_FONT_SIZE};
         NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:self.body
                                                                                              attributes:defaultAttributes];
         // set line height

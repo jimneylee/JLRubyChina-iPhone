@@ -21,8 +21,7 @@
 #define TITLE_FONT_SIZE [UIFont boldSystemFontOfSize:18.f]
 #define NAME_FONT_SIZE [UIFont systemFontOfSize:15.f]
 #define DATE_FONT_SIZE [UIFont systemFontOfSize:12.f]
-// 冬青字体：http://tadaland.com/ios-better-experience-font-hiragino.html
-//#define CONTENT_FONT_SIZE [UIFont fontWithName:@"Hiragino Sans GB" size:17.f]
+#define CONTENT_FONT_SIZE [UIFont fontWithName:@"STHeitiSC-Light" size:17.f]
 #define CONTENT_FONT_SIZE [UIFont systemFontOfSize:17.f]
 #define BUTTON_FONT_SIZE [UIFont boldSystemFontOfSize:15.f]
 
