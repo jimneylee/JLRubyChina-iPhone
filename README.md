@@ -99,6 +99,8 @@ gitcafe:https://gitcafe.com/jimneylee/JLRubyChina-iPhone
 
 oschina:http://git.oschina.net/jimneylee/JLRubyChina-iPhone
 
+csdn:https://code.csdn.net/jimney_ljj/JLRubyChina-iPhone
+
 使用相同的ssh key，同步还是很方便的，后面考虑进一步精简步骤，自动化发布到各个git server
 
 # DONE
