@@ -72,9 +72,6 @@
 		2897EF981856ECBD000BB6B9 /* RCUserEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF971856ECBD000BB6B9 /* RCUserEntity.m */; };
 		2897EF9B1856FB09000BB6B9 /* RCTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF9A1856FB09000BB6B9 /* RCTopicCell.m */; };
 		2897EF9E18571008000BB6B9 /* NSDate+RubyChina.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF9D18571008000BB6B9 /* NSDate+RubyChina.m */; };
-		28AB7457186AA89600EF68D7 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28AB7451186AA89600EF68D7 /* libTestFlight.a */; };
-		28AB7458186AA89600EF68D7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 28AB7452186AA89600EF68D7 /* README.md */; };
-		28AB7459186AA89600EF68D7 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 28AB7453186AA89600EF68D7 /* release_notes.md */; };
 		28AB745B186AA8CB00EF68D7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 28AB745A186AA8CB00EF68D7 /* libz.dylib */; };
 		28B094A5185ED914003F8789 /* RCLoginC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B094A4185ED914003F8789 /* RCLoginC.m */; };
 		28B094A8185ED92D003F8789 /* RCLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B094A7185ED92D003F8789 /* RCLoginModel.m */; };
@@ -171,6 +168,9 @@
 		CE7E319A185D8BDE005F583E /* NSString+stringFromValue.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7E3199185D8BDE005F583E /* NSString+stringFromValue.m */; };
 		CE7E319D185D9346005F583E /* icon_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7E319B185D9346005F583E /* icon_menu.png */; };
 		CE7E319E185D9346005F583E /* icon_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7E319C185D9346005F583E /* icon_menu@2x.png */; };
+		CE8D333A186B06E5001F1CE2 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8D3334186B06E5001F1CE2 /* libTestFlight.a */; };
+		CE8D333B186B06E5001F1CE2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CE8D3335186B06E5001F1CE2 /* README.md */; };
+		CE8D333C186B06E5001F1CE2 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = CE8D3336186B06E5001F1CE2 /* release_notes.md */; };
 		CE96584F18573E98003066A5 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CE96584D18573E98003066A5 /* icon.png */; };
 		CE96585018573E98003066A5 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE96584E18573E98003066A5 /* icon@2x.png */; };
 		CE96585218573ED8003066A5 /* icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = CE96585118573ED8003066A5 /* icon120.png */; };
@@ -314,12 +314,6 @@
 		2897EF9A1856FB09000BB6B9 /* RCTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTopicCell.m; sourceTree = "<group>"; };
 		2897EF9C18571008000BB6B9 /* NSDate+RubyChina.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+RubyChina.h"; sourceTree = "<group>"; };
 		2897EF9D18571008000BB6B9 /* NSDate+RubyChina.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+RubyChina.m"; sourceTree = "<group>"; };
-		28AB7451186AA89600EF68D7 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
-		28AB7452186AA89600EF68D7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		28AB7453186AA89600EF68D7 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
-		28AB7454186AA89600EF68D7 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
-		28AB7455186AA89600EF68D7 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
-		28AB7456186AA89600EF68D7 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		28AB745A186AA8CB00EF68D7 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		28B094A3185ED914003F8789 /* RCLoginC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCLoginC.h; sourceTree = "<group>"; };
 		28B094A4185ED914003F8789 /* RCLoginC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCLoginC.m; sourceTree = "<group>"; };
@@ -447,6 +441,12 @@
 		CE7E3199185D8BDE005F583E /* NSString+stringFromValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+stringFromValue.m"; sourceTree = "<group>"; };
 		CE7E319B185D9346005F583E /* icon_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_menu.png; sourceTree = "<group>"; };
 		CE7E319C185D9346005F583E /* icon_menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_menu@2x.png"; sourceTree = "<group>"; };
+		CE8D3334186B06E5001F1CE2 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		CE8D3335186B06E5001F1CE2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		CE8D3336186B06E5001F1CE2 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		CE8D3337186B06E5001F1CE2 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		CE8D3338186B06E5001F1CE2 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		CE8D3339186B06E5001F1CE2 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		CE96584D18573E98003066A5 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		CE96584E18573E98003066A5 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		CE96585118573ED8003066A5 /* icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon120.png; sourceTree = "<group>"; };
@@ -497,9 +497,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				28AB745B186AA8CB00EF68D7 /* libz.dylib in Frameworks */,
-				28AB7457186AA89600EF68D7 /* libTestFlight.a in Frameworks */,
 				2897EEF71856BE94000BB6B9 /* CoreGraphics.framework in Frameworks */,
 				2897EEF91856BE94000BB6B9 /* UIKit.framework in Frameworks */,
+				CE8D333A186B06E5001F1CE2 /* libTestFlight.a in Frameworks */,
 				2897EEF51856BE94000BB6B9 /* Foundation.framework in Frameworks */,
 				BBD07554FB194577BA42A7E6 /* libPods.a in Frameworks */,
 			);
@@ -618,7 +618,7 @@
 		2897EF291856C40F000BB6B9 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				28AB743D186A8D7000EF68D7 /* TestFlightSDK */,
+				CE8D3333186B06E5001F1CE2 /* TestFlightSDK */,
 				2847BE171867D86500D9CEF0 /* JSONKit_fixerror */,
 				28D4EF86185829FA00C9C858 /* Nimbus_fixbug */,
 				28CBC13A1862C3E9007C68FC /* TSEmojiView */,
@@ -861,20 +861,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		28AB743D186A8D7000EF68D7 /* TestFlightSDK */ = {
-			isa = PBXGroup;
-			children = (
-				28AB7451186AA89600EF68D7 /* libTestFlight.a */,
-				28AB7452186AA89600EF68D7 /* README.md */,
-				28AB7453186AA89600EF68D7 /* release_notes.md */,
-				28AB7454186AA89600EF68D7 /* TestFlight.h */,
-				28AB7455186AA89600EF68D7 /* TestFlight+AsyncLogging.h */,
-				28AB7456186AA89600EF68D7 /* TestFlight+ManualSessions.h */,
-			);
-			name = TestFlightSDK;
-			path = vendor/TestFlightSDK;
-			sourceTree = "<group>";
-		};
 		28CBC0FA18629830007C68FC /* MarkdownSyntaxEditor */ = {
 			isa = PBXGroup;
 			children = (
@@ -1059,6 +1045,20 @@
 			path = img;
 			sourceTree = "<group>";
 		};
+		CE8D3333186B06E5001F1CE2 /* TestFlightSDK */ = {
+			isa = PBXGroup;
+			children = (
+				CE8D3334186B06E5001F1CE2 /* libTestFlight.a */,
+				CE8D3335186B06E5001F1CE2 /* README.md */,
+				CE8D3336186B06E5001F1CE2 /* release_notes.md */,
+				CE8D3337186B06E5001F1CE2 /* TestFlight+AsyncLogging.h */,
+				CE8D3338186B06E5001F1CE2 /* TestFlight+ManualSessions.h */,
+				CE8D3339186B06E5001F1CE2 /* TestFlight.h */,
+			);
+			name = TestFlightSDK;
+			path = vendor/TestFlightSDK;
+			sourceTree = "<group>";
+		};
 		CE96584A18573E98003066A5 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -1219,7 +1219,7 @@
 				CE1325A4185F5A8400208653 /* top_members.png in Resources */,
 				CEEA2BFC1858C561004FDEDF /* MessageEntryInputField@2x.png in Resources */,
 				CE1325A2185F5A8400208653 /* nodes.png in Resources */,
-				28AB7459186AA89600EF68D7 /* release_notes.md in Resources */,
+				CE8D333C186B06E5001F1CE2 /* release_notes.md in Resources */,
 				CE1325A0185F5A8400208653 /* more.png in Resources */,
 				CE3675B2186337A70015756D /* emo_010@2x.png in Resources */,
 				CE3675B7186337A70015756D /* emo_015@2x.png in Resources */,
@@ -1228,7 +1228,7 @@
 				CE132590185F4F5800208653 /* CHANGES in Resources */,
 				CE9DFABE185C53BB007BAE75 /* head_b.png in Resources */,
 				CEB23052185C8F2C004F54C7 /* RCAboutAppC.xib in Resources */,
-				28AB7458186AA89600EF68D7 /* README.md in Resources */,
+				CE8D333B186B06E5001F1CE2 /* README.md in Resources */,
 				CE13259F185F5A8400208653 /* left_menu_side.png in Resources */,
 				CE3675AA186337A70015756D /* emo_002@2x.png in Resources */,
 				28CBC12F18629839007C68FC /* trackpoint-white@2x.png in Resources */,
@@ -1556,6 +1556,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"/Users/jimneylee/Desktop/Source/OpenSource/RubyChina/JLRubyChina-iPhone/vendor/TestFlightSDK/TestFlightSDK2.1.3",
 					"/Users/jimneylee/Desktop/Source/OpenSource/RubyChina/JLRubyChina-iPhone/vendor/TestFlightSDK",
+					"/Users/jimney/Desktop/Source/Github_jimney/RubyChina/JLRubyChina-iPhone/vendor/TestFlightSDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -1574,6 +1575,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"/Users/jimneylee/Desktop/Source/OpenSource/RubyChina/JLRubyChina-iPhone/vendor/TestFlightSDK/TestFlightSDK2.1.3",
 					"/Users/jimneylee/Desktop/Source/OpenSource/RubyChina/JLRubyChina-iPhone/vendor/TestFlightSDK",
+					"/Users/jimney/Desktop/Source/Github_jimney/RubyChina/JLRubyChina-iPhone/vendor/TestFlightSDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
