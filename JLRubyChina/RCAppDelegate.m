@@ -48,8 +48,8 @@
         [RCGlobalConfig setMyToken:account.privateToken];
     }
     
-    // Setup testflight
-    [TestFlight takeOff:@"e2bd049b-2ccb-4f61-8189-636db135d001"];
+    // Setup testflight token, TODO: use testflight
+    //[TestFlight takeOff:@"e2bd049b-2ccb-4f61-8189-636db135d001"];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
