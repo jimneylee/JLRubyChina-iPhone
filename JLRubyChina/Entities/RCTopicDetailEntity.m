@@ -9,6 +9,8 @@
 #import "RCTopicDetailEntity.h"
 #import "SCRegularParser.h"
 #import "NSString+Emojize.h"
+#import "NSAttributedStringMarkdownParser.h"
+#import "MarkdownSyntaxGenerator.h"
 
 @implementation RCTopicDetailEntity
 
@@ -24,6 +26,7 @@
         self.body = dic[JSON_BODY];
         self.hitsCount = [dic[JSON_HITS_COUNT] unsignedLongValue];
         [self parseAllKeywords];
+        self.attributedBody = [self parseAttributedStringFromMarkdownString:self.body];
     }
     return self;
 }
@@ -53,6 +56,43 @@
         // TODO: emotion
         self.body = [self.body emojizedString];
     }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// idea from MarkdownSyntaxEditor/MarkdownTextView, not perfect but better than before
+- (NSAttributedString*)parseAttributedStringFromMarkdownString:(NSString*)markdownString
+{
+    if (markdownString.length) {
+        MarkdownSyntaxGenerator* parser = [[MarkdownSyntaxGenerator alloc] init];
+        NSArray *models = [parser syntaxModelsForText:self.body];
+        // set default font
+        NSDictionary* defaultAttributes = @{NSFontAttributeName : [UIFont fontWithName:@"STHeitiSC-Light" size:17.f]};
+        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:self.body
+                                                                                             attributes:defaultAttributes];
+        // set line height
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
+        paragraphStyle.minimumLineHeight = 21.f;
+        [attributedString addAttribute:NSParagraphStyleAttributeName
+                                 value:paragraphStyle
+                                 range:NSMakeRange(0, attributedString.length)];
+        for (MarkdownSyntaxModel *model in models) {
+            [attributedString addAttributes:AttributesFromMarkdownSyntaxType(model.type) range:model.range];
+        }
+        return attributedString;
+    }
+    return nil;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// perform not well
+- (NSAttributedString*)parseAttributedStringFromMarkdownString_:(NSString*)markdownString
+{
+    if (markdownString.length) {
+        NSAttributedStringMarkdownParser* parser = [[NSAttributedStringMarkdownParser alloc] init];
+        parser.paragraphFont = [UIFont systemFontOfSize:17.f];
+        return [parser attributedStringFromMarkdownString:self.body];
+    }
+    return nil;
 }
 
 @end

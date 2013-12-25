@@ -11,7 +11,7 @@
 @interface RCTopicDetailEntity : RCTopicEntity
 @property (nonatomic, assign) unsigned long hitsCount;
 @property (nonatomic, copy) NSString* body;
-
+@property (nonatomic, copy) NSAttributedString* attributedBody;
 @property (nonatomic, strong) NSArray* atPersonRanges;
 @property (nonatomic, strong) NSArray* sharpFloorRanges;
 @property (nonatomic, strong) NSArray* emotionRanges;
