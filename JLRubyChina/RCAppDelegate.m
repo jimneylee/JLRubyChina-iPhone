@@ -7,6 +7,7 @@
 //
 
 #import "RCAppDelegate.h"
+#import "TestFlight.h"
 #import "AFNetworking.h"
 #import "PPRevealSideViewController.h"
 #import "MTStatusBarOverlay.h"
@@ -40,12 +41,15 @@
                                                        @"text/html",
                                                        @"text/plain", nil]];
     
-    // 导入上次登录成功的loginId和token
+    // Load logined account
     RCAccountEntity* account = [RCAccountEntity loadStoredUserAccount];
     if (account) {
         [RCGlobalConfig setMyLoginId:account.loginId];
         [RCGlobalConfig setMyToken:account.privateToken];
     }
+    
+    // Setup testflight
+    [TestFlight takeOff:@"e2bd049b-2ccb-4f61-8189-636db135d001"];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
