@@ -72,6 +72,10 @@
 		2897EF981856ECBD000BB6B9 /* RCUserEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF971856ECBD000BB6B9 /* RCUserEntity.m */; };
 		2897EF9B1856FB09000BB6B9 /* RCTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF9A1856FB09000BB6B9 /* RCTopicCell.m */; };
 		2897EF9E18571008000BB6B9 /* NSDate+RubyChina.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF9D18571008000BB6B9 /* NSDate+RubyChina.m */; };
+		28AB7457186AA89600EF68D7 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28AB7451186AA89600EF68D7 /* libTestFlight.a */; };
+		28AB7458186AA89600EF68D7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 28AB7452186AA89600EF68D7 /* README.md */; };
+		28AB7459186AA89600EF68D7 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 28AB7453186AA89600EF68D7 /* release_notes.md */; };
+		28AB745B186AA8CB00EF68D7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 28AB745A186AA8CB00EF68D7 /* libz.dylib */; };
 		28B094A5185ED914003F8789 /* RCLoginC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B094A4185ED914003F8789 /* RCLoginC.m */; };
 		28B094A8185ED92D003F8789 /* RCLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B094A7185ED92D003F8789 /* RCLoginModel.m */; };
 		28B094AB185EDD73003F8789 /* RCAccountEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B094AA185EDD73003F8789 /* RCAccountEntity.m */; };
@@ -115,7 +119,7 @@
 		BBD07554FB194577BA42A7E6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DAEFF79992F4B9FB48FFA19 /* libPods.a */; };
 		CE13258D185F340200208653 /* RCMoreC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE13258C185F340200208653 /* RCMoreC.m */; };
 		CE132590185F4F5800208653 /* CHANGES in Resources */ = {isa = PBXBuildFile; fileRef = CE13258F185F4F5800208653 /* CHANGES */; };
-		CE132592185F537600208653 /* API Problem in Resources */ = {isa = PBXBuildFile; fileRef = CE132591185F537600208653 /* API Problem */; };
+		CE132592185F537600208653 /* API Problem.md in Resources */ = {isa = PBXBuildFile; fileRef = CE132591185F537600208653 /* API Problem.md */; };
 		CE13259D185F5A8400208653 /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = CE132594185F5A8400208653 /* default.png */; };
 		CE13259E185F5A8400208653 /* home_activity_topics.png in Resources */ = {isa = PBXBuildFile; fileRef = CE132595185F5A8400208653 /* home_activity_topics.png */; };
 		CE13259F185F5A8400208653 /* left_menu_side.png in Resources */ = {isa = PBXBuildFile; fileRef = CE132596185F5A8400208653 /* left_menu_side.png */; };
@@ -310,6 +314,13 @@
 		2897EF9A1856FB09000BB6B9 /* RCTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTopicCell.m; sourceTree = "<group>"; };
 		2897EF9C18571008000BB6B9 /* NSDate+RubyChina.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+RubyChina.h"; sourceTree = "<group>"; };
 		2897EF9D18571008000BB6B9 /* NSDate+RubyChina.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+RubyChina.m"; sourceTree = "<group>"; };
+		28AB7451186AA89600EF68D7 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		28AB7452186AA89600EF68D7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		28AB7453186AA89600EF68D7 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		28AB7454186AA89600EF68D7 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		28AB7455186AA89600EF68D7 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		28AB7456186AA89600EF68D7 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		28AB745A186AA8CB00EF68D7 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		28B094A3185ED914003F8789 /* RCLoginC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCLoginC.h; sourceTree = "<group>"; };
 		28B094A4185ED914003F8789 /* RCLoginC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCLoginC.m; sourceTree = "<group>"; };
 		28B094A6185ED92D003F8789 /* RCLoginModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCLoginModel.h; sourceTree = "<group>"; };
@@ -374,7 +385,7 @@
 		CE13258C185F340200208653 /* RCMoreC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCMoreC.m; sourceTree = "<group>"; };
 		CE13258E185F3A0200208653 /* MacroDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDefines.h; sourceTree = "<group>"; };
 		CE13258F185F4F5800208653 /* CHANGES */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGES; sourceTree = "<group>"; };
-		CE132591185F537600208653 /* API Problem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "API Problem"; sourceTree = "<group>"; };
+		CE132591185F537600208653 /* API Problem.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "API Problem.md"; sourceTree = "<group>"; };
 		CE132594185F5A8400208653 /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
 		CE132595185F5A8400208653 /* home_activity_topics.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_activity_topics.png; sourceTree = "<group>"; };
 		CE132596185F5A8400208653 /* left_menu_side.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left_menu_side.png; sourceTree = "<group>"; };
@@ -485,6 +496,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28AB745B186AA8CB00EF68D7 /* libz.dylib in Frameworks */,
+				28AB7457186AA89600EF68D7 /* libTestFlight.a in Frameworks */,
 				2897EEF71856BE94000BB6B9 /* CoreGraphics.framework in Frameworks */,
 				2897EEF91856BE94000BB6B9 /* UIKit.framework in Frameworks */,
 				2897EEF51856BE94000BB6B9 /* Foundation.framework in Frameworks */,
@@ -520,7 +533,7 @@
 				2897EF751856C616000BB6B9 /* TODO */,
 				2897EF731856C60A000BB6B9 /* README.md */,
 				CE13258F185F4F5800208653 /* CHANGES */,
-				CE132591185F537600208653 /* API Problem */,
+				CE132591185F537600208653 /* API Problem.md */,
 				2897EF291856C40F000BB6B9 /* Vendor */,
 				2897EEFA1856BE94000BB6B9 /* JLRubyChina */,
 				2897EF191856BE94000BB6B9 /* JLRubyChinaTests */,
@@ -542,6 +555,7 @@
 		2897EEF31856BE94000BB6B9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				28AB745A186AA8CB00EF68D7 /* libz.dylib */,
 				2897EEF41856BE94000BB6B9 /* Foundation.framework */,
 				2897EEF61856BE94000BB6B9 /* CoreGraphics.framework */,
 				2897EEF81856BE94000BB6B9 /* UIKit.framework */,
@@ -604,6 +618,7 @@
 		2897EF291856C40F000BB6B9 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				28AB743D186A8D7000EF68D7 /* TestFlightSDK */,
 				2847BE171867D86500D9CEF0 /* JSONKit_fixerror */,
 				28D4EF86185829FA00C9C858 /* Nimbus_fixbug */,
 				28CBC13A1862C3E9007C68FC /* TSEmojiView */,
@@ -844,6 +859,20 @@
 				CE3A1B5C185C3A810081C3E9 /* RCUserHomepageModel.m */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		28AB743D186A8D7000EF68D7 /* TestFlightSDK */ = {
+			isa = PBXGroup;
+			children = (
+				28AB7451186AA89600EF68D7 /* libTestFlight.a */,
+				28AB7452186AA89600EF68D7 /* README.md */,
+				28AB7453186AA89600EF68D7 /* release_notes.md */,
+				28AB7454186AA89600EF68D7 /* TestFlight.h */,
+				28AB7455186AA89600EF68D7 /* TestFlight+AsyncLogging.h */,
+				28AB7456186AA89600EF68D7 /* TestFlight+ManualSessions.h */,
+			);
+			name = TestFlightSDK;
+			path = vendor/TestFlightSDK;
 			sourceTree = "<group>";
 		};
 		28CBC0FA18629830007C68FC /* MarkdownSyntaxEditor */ = {
@@ -1190,6 +1219,7 @@
 				CE1325A4185F5A8400208653 /* top_members.png in Resources */,
 				CEEA2BFC1858C561004FDEDF /* MessageEntryInputField@2x.png in Resources */,
 				CE1325A2185F5A8400208653 /* nodes.png in Resources */,
+				28AB7459186AA89600EF68D7 /* release_notes.md in Resources */,
 				CE1325A0185F5A8400208653 /* more.png in Resources */,
 				CE3675B2186337A70015756D /* emo_010@2x.png in Resources */,
 				CE3675B7186337A70015756D /* emo_015@2x.png in Resources */,
@@ -1198,6 +1228,7 @@
 				CE132590185F4F5800208653 /* CHANGES in Resources */,
 				CE9DFABE185C53BB007BAE75 /* head_b.png in Resources */,
 				CEB23052185C8F2C004F54C7 /* RCAboutAppC.xib in Resources */,
+				28AB7458186AA89600EF68D7 /* README.md in Resources */,
 				CE13259F185F5A8400208653 /* left_menu_side.png in Resources */,
 				CE3675AA186337A70015756D /* emo_002@2x.png in Resources */,
 				28CBC12F18629839007C68FC /* trackpoint-white@2x.png in Resources */,
@@ -1257,7 +1288,7 @@
 				CE3675BD186337A70015756D /* emo_021@2x.png in Resources */,
 				CE13259D185F5A8400208653 /* default.png in Resources */,
 				28CBC12B18629839007C68FC /* trackpoint-black@2x.png in Resources */,
-				CE132592185F537600208653 /* API Problem in Resources */,
+				CE132592185F537600208653 /* API Problem.md in Resources */,
 				28CBC13318629839007C68FC /* undo-blue@2x.png in Resources */,
 				CEEA2BF91858C561004FDEDF /* MessageEntryBackground.png in Resources */,
 			);
@@ -1522,7 +1553,10 @@
 				GCC_PREFIX_HEADER = "JLRubyChina/JLRubyChina-Prefix.pch";
 				INFOPLIST_FILE = "JLRubyChina/JLRubyChina-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = (
+					"/Users/jimneylee/Desktop/Source/OpenSource/RubyChina/JLRubyChina-iPhone/vendor/TestFlightSDK/TestFlightSDK2.1.3",
+					"/Users/jimneylee/Desktop/Source/OpenSource/RubyChina/JLRubyChina-iPhone/vendor/TestFlightSDK",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1537,7 +1571,10 @@
 				GCC_PREFIX_HEADER = "JLRubyChina/JLRubyChina-Prefix.pch";
 				INFOPLIST_FILE = "JLRubyChina/JLRubyChina-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = (
+					"/Users/jimneylee/Desktop/Source/OpenSource/RubyChina/JLRubyChina-iPhone/vendor/TestFlightSDK/TestFlightSDK2.1.3",
+					"/Users/jimneylee/Desktop/Source/OpenSource/RubyChina/JLRubyChina-iPhone/vendor/TestFlightSDK",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
