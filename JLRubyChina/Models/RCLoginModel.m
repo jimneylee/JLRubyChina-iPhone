@@ -48,9 +48,9 @@
                                          }
                                      }
                                  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                     NSDictionary* info = [error.userInfo objectForKey:@"NSLocalizedRecoverySuggestion"];
-                                     NSLog(@"error: %@", info[@"error"]);
-                                     NSLog(@"error: %@", error);
+                                     //NSDictionary* info = [error.userInfo objectForKey:@"NSLocalizedRecoverySuggestion"];
+                                     //NSLog(@"error: %@", [info objectForKey:@"error"]);
+                                     //NSLog(@"error: %@", error);
                                      if (block) {
                                          block(nil, error);
                                      }
