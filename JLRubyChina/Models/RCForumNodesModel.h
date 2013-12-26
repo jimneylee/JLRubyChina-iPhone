@@ -8,6 +8,13 @@
 
 #import "RCBaseTableModel.h"
 
-@interface RCForumNodesModel : RCBaseTableModel
+@interface RCForumNodesModel : NIMutableTableViewModel
+
+@property (nonatomic, assign) BOOL isLoading;
 @property (nonatomic, strong) NSArray* nodesArray;
+@property (nonatomic, strong) NSMutableArray* nodeSectionsArray;
+- (Class)objectClass;
+- (Class)cellClass;
+- (void)loadNodesWithBlock:(void(^)(NSArray* nodeSectionsArray, NSError *error))block;
+- (void)cancelRequstOperation;
 @end
