@@ -74,10 +74,14 @@ static NSString* myLoginId = nil;
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 + (UIBarButtonItem*)createMenuBarButtonItemWithTarget:(id)target action:(SEL)action
 {
-    //return [RCGlobalConfig createBarButtonItemWithTitle:@"菜单" Target:target action:action];
-    return [[UIBarButtonItem alloc] initWithImage:[UIImage nimbusImageNamed:@"icon_menu.png"]
-                                            style:UIBarButtonItemStylePlain
-                                           target:target action:action];
+    if (IOS_IS_AT_LEAST_7) {
+        return [[UIBarButtonItem alloc] initWithImage:[UIImage nimbusImageNamed:@"icon_menu.png"]
+                                                style:UIBarButtonItemStylePlain
+                                               target:target action:action];
+    }
+    else {
+        return [RCGlobalConfig createBarButtonItemWithTitle:@"菜单" Target:target action:action];
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
