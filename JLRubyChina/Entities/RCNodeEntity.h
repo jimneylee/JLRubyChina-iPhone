@@ -23,4 +23,5 @@
 @property (nonatomic, assign) unsigned long topicsCount;
 @property (nonatomic, assign) NSUInteger sectionId;
 @property (nonatomic, copy) NSString* sectionName;
+
 @end

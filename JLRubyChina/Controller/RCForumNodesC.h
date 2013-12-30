@@ -8,6 +8,6 @@
 
 #import "JLNimbusTableViewController.h"
 
-@interface RCForumNodesC : JLNimbusTableViewController
+@interface RCForumNodesC : UITableViewController
 
 @end
