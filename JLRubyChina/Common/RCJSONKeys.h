@@ -9,10 +9,6 @@
 #ifndef JLRubyChina_SMJSONKeys_h
 #define JLRubyChina_SMJSONKeys_h
 
-// 分页获取宏
-#define INVALID_INDEX -1
-#define PERPAGE_COUNT 20
-
 //==========================================================================
 // common
 #define JSON_ID @"id"
