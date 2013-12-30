@@ -114,6 +114,8 @@
     self.sendBtn.frame = CGRectMake(self.textView.right + kBtnSideMargin, kBtnTopMargin, kBtnWidth, KBtnHeight);
     
     //self.textView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    self.sendBtn.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin;
+    self.emojiBtn.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin;
     self.containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
 }
 
