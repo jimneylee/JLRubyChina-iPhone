@@ -9,12 +9,6 @@
 #ifndef JLRubyChina_MacroDefines_h
 #define JLRubyChina_MacroDefines_h
 
-// 测试access_token: @jimneylee
-#if DEBUG
-#define MY_ACCESS_TOKEN_TEST @"8a67b1e1042c8093f709:4988"
-#define MY_LOGIN_ID_TEST @"jimneylee"
-#endif
-
 #define APP_NAME [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"]
 #define APP_VERSION [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]
 #define APP_ID [[[NSBundle mainBundle] objectForInfoDictionaryKey:@"APP_STORE_ID"] longValue]
@@ -25,18 +19,18 @@
 #define IOS_IS_AT_LEAST_7 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
 
 // 是否是iphone5的判断
-#define IS_WIDESCREEN ([[UIScreen mainScreen] bounds].size.height > 500 )
-#define IS_IPHONE ( [[[UIDevice currentDevice] model] isEqualToString:@"iPhone"] \
-|| [[[UIDevice currentDevice] model] isEqualToString:@"iPhone Simulator"])
+#define IS_WIDESCREEN ([[UIScreen mainScreen] bounds].size.height > 500)
+#define IS_IPHONE ([[[UIDevice currentDevice] model] isEqualToString:@"iPhone"] \
+                  ||[[[UIDevice currentDevice] model] isEqualToString:@"iPhone Simulator"])
 #define IS_IPHONE5 (IS_IPHONE && IS_WIDESCREEN)
 
-#define INVALID_INDEX -1
+// Cell布局
 #define CELL_PADDING_10 10
 #define CELL_PADDING_8 8
 #define CELL_PADDING_6 6
 #define CELL_PADDING_4 4
 #define CELL_PADDING_2 2
-#define PHONE_SCREEN_WIDTH 320
+
 
 #define APP_THEME_COLOR RGBCOLOR(41, 41, 41)
 #define RUBY_RED_COLOR RGBCOLOR(177, 9, 0)
@@ -52,7 +46,7 @@
 #define PROTOCOL_SHARP_FLOOR @"sharpfloor://"
 #define PROTOCOL_NODE @"node://"
 
-// notification
+// Notification通知
 #define DID_LOGIN_NOTIFICATION @"DID_LOGIN_NOTIFICATION"
 #define DID_LOGOUT_NOTIFICATION @"DID_LOGOUT_NOTIFICATION"
 
