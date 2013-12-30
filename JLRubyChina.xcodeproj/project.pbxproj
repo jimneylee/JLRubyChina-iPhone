@@ -112,6 +112,7 @@
 		28D4EF93185846CA00C9C858 /* RCNodeEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4EF92185846CA00C9C858 /* RCNodeEntity.m */; };
 		28D4F06E18584E7C00C9C858 /* RCForumNodesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4F06D18584E7C00C9C858 /* RCForumNodesModel.m */; };
 		28D4F07118584EA500C9C858 /* RCNodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4F07018584EA500C9C858 /* RCNodeCell.m */; };
+		A9710D2C186BC00B0073AC39 /* RCNodeSectionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = A9710D2B186BC00B0073AC39 /* RCNodeSectionEntity.m */; };
 		BBD07554FB194577BA42A7E6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DAEFF79992F4B9FB48FFA19 /* libPods.a */; };
 		CE13258D185F340200208653 /* RCMoreC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE13258C185F340200208653 /* RCMoreC.m */; };
 		CE132590185F4F5800208653 /* CHANGES in Resources */ = {isa = PBXBuildFile; fileRef = CE13258F185F4F5800208653 /* CHANGES */; };
@@ -369,6 +370,8 @@
 		28D4F06F18584EA500C9C858 /* RCNodeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCNodeCell.h; sourceTree = "<group>"; };
 		28D4F07018584EA500C9C858 /* RCNodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCNodeCell.m; sourceTree = "<group>"; };
 		2DAEFF79992F4B9FB48FFA19 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9710D2A186BC00B0073AC39 /* RCNodeSectionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCNodeSectionEntity.h; sourceTree = "<group>"; };
+		A9710D2B186BC00B0073AC39 /* RCNodeSectionEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCNodeSectionEntity.m; sourceTree = "<group>"; };
 		BECB55DCFAF84993AE6D89A6 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		CE13258B185F340200208653 /* RCMoreC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCMoreC.h; sourceTree = "<group>"; };
 		CE13258C185F340200208653 /* RCMoreC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCMoreC.m; sourceTree = "<group>"; };
@@ -779,6 +782,8 @@
 				281AED631859764700DEC6E2 /* RCSiteEntity.m */,
 				281AED651859769100DEC6E2 /* RCSiteSectionEntity.h */,
 				281AED661859769100DEC6E2 /* RCSiteSectionEntity.m */,
+				A9710D2A186BC00B0073AC39 /* RCNodeSectionEntity.h */,
+				A9710D2B186BC00B0073AC39 /* RCNodeSectionEntity.m */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1317,6 +1322,7 @@
 				281AED641859764700DEC6E2 /* RCSiteEntity.m in Sources */,
 				28D4F06E18584E7C00C9C858 /* RCForumNodesModel.m in Sources */,
 				2897EF591856C422000BB6B9 /* UIFontAdditions.m in Sources */,
+				A9710D2C186BC00B0073AC39 /* RCNodeSectionEntity.m in Sources */,
 				CE9658801857681C003066A5 /* RCReplyEntity.m in Sources */,
 				CEEA2BEF1858C41D004FDEDF /* RCQuickReplyC.m in Sources */,
 				2897EF891856E327000BB6B9 /* RCTopicEntity.m in Sources */,
@@ -1521,7 +1527,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JLRubyChina/JLRubyChina-Prefix.pch";
 				INFOPLIST_FILE = "JLRubyChina/JLRubyChina-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -1536,7 +1542,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JLRubyChina/JLRubyChina-Prefix.pch";
 				INFOPLIST_FILE = "JLRubyChina/JLRubyChina-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
