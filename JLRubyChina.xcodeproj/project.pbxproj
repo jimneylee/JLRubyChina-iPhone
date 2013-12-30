@@ -1558,7 +1558,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JLRubyChina/JLRubyChina-Prefix.pch";
 				INFOPLIST_FILE = "JLRubyChina/JLRubyChina-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"/Users/jimneylee/Desktop/Source/OpenSource/RubyChina/JLRubyChina-iPhone/vendor/TestFlightSDK/TestFlightSDK2.1.3",
 					"/Users/jimneylee/Desktop/Source/OpenSource/RubyChina/JLRubyChina-iPhone/vendor/TestFlightSDK",
@@ -1577,7 +1577,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JLRubyChina/JLRubyChina-Prefix.pch";
 				INFOPLIST_FILE = "JLRubyChina/JLRubyChina-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"/Users/jimneylee/Desktop/Source/OpenSource/RubyChina/JLRubyChina-iPhone/vendor/TestFlightSDK/TestFlightSDK2.1.3",
 					"/Users/jimneylee/Desktop/Source/OpenSource/RubyChina/JLRubyChina-iPhone/vendor/TestFlightSDK",
