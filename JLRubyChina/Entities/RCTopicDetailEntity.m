@@ -60,7 +60,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // idea from MarkdownSyntaxEditor/MarkdownTextView, not perfect but better than before
-#define CONTENT_FONT_SIZE [UIFont fontWithName:@"STHeitiSC-Light" size:17.f]
+#define CONTENT_FONT_SIZE [UIFont fontWithName:@"STHeitiSC-Light" size:18.f]
 - (NSAttributedString*)parseAttributedStringFromMarkdownString:(NSString*)markdownString
 {
     if (markdownString.length) {

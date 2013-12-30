@@ -19,7 +19,7 @@
 
 #define NAME_FONT_SIZE [UIFont systemFontOfSize:15.f]
 #define DATE_FONT_SIZE [UIFont systemFontOfSize:12.f]
-#define CONTENT_FONT_SIZE [UIFont fontWithName:@"STHeitiSC-Light" size:17.f]
+#define CONTENT_FONT_SIZE [UIFont fontWithName:@"STHeitiSC-Light" size:18.f]
 #define BUTTON_FONT_SIZE [UIFont boldSystemFontOfSize:13.f]
 
 #define CONTENT_LINE_HEIGHT 21.f
