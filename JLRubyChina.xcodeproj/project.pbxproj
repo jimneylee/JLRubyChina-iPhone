@@ -113,6 +113,7 @@
 		28D4EF93185846CA00C9C858 /* RCNodeEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4EF92185846CA00C9C858 /* RCNodeEntity.m */; };
 		28D4F06E18584E7C00C9C858 /* RCForumNodesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4F06D18584E7C00C9C858 /* RCForumNodesModel.m */; };
 		28D4F07118584EA500C9C858 /* RCNodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4F07018584EA500C9C858 /* RCNodeCell.m */; };
+		28F671E41871187B00DD0A93 /* RCNodeSectionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F671E31871187B00DD0A93 /* RCNodeSectionEntity.m */; };
 		BBD07554FB194577BA42A7E6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DAEFF79992F4B9FB48FFA19 /* libPods.a */; };
 		CE13258D185F340200208653 /* RCMoreC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE13258C185F340200208653 /* RCMoreC.m */; };
 		CE132590185F4F5800208653 /* CHANGES.md in Resources */ = {isa = PBXBuildFile; fileRef = CE13258F185F4F5800208653 /* CHANGES.md */; };
@@ -373,6 +374,8 @@
 		28D4F06D18584E7C00C9C858 /* RCForumNodesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCForumNodesModel.m; sourceTree = "<group>"; };
 		28D4F06F18584EA500C9C858 /* RCNodeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCNodeCell.h; sourceTree = "<group>"; };
 		28D4F07018584EA500C9C858 /* RCNodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCNodeCell.m; sourceTree = "<group>"; };
+		28F671E21871187B00DD0A93 /* RCNodeSectionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCNodeSectionEntity.h; sourceTree = "<group>"; };
+		28F671E31871187B00DD0A93 /* RCNodeSectionEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCNodeSectionEntity.m; sourceTree = "<group>"; };
 		2DAEFF79992F4B9FB48FFA19 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BECB55DCFAF84993AE6D89A6 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		CE13258B185F340200208653 /* RCMoreC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCMoreC.h; sourceTree = "<group>"; };
@@ -790,6 +793,8 @@
 				28D4EF80185826BF00C9C858 /* RCKeywordEntity.m */,
 				28D4EF91185846CA00C9C858 /* RCNodeEntity.h */,
 				28D4EF92185846CA00C9C858 /* RCNodeEntity.m */,
+				28F671E21871187B00DD0A93 /* RCNodeSectionEntity.h */,
+				28F671E31871187B00DD0A93 /* RCNodeSectionEntity.m */,
 				281AED621859764700DEC6E2 /* RCSiteEntity.h */,
 				281AED631859764700DEC6E2 /* RCSiteEntity.m */,
 				281AED651859769100DEC6E2 /* RCSiteSectionEntity.h */,
@@ -1348,6 +1353,7 @@
 				281AED641859764700DEC6E2 /* RCSiteEntity.m in Sources */,
 				28D4F06E18584E7C00C9C858 /* RCForumNodesModel.m in Sources */,
 				2897EF591856C422000BB6B9 /* UIFontAdditions.m in Sources */,
+				28F671E41871187B00DD0A93 /* RCNodeSectionEntity.m in Sources */,
 				CE9658801857681C003066A5 /* RCReplyEntity.m in Sources */,
 				CEEA2BEF1858C41D004FDEDF /* RCQuickReplyC.m in Sources */,
 				2897EF891856E327000BB6B9 /* RCTopicEntity.m in Sources */,
