@@ -304,13 +304,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)textViewDidEndEditing:(UITextView *) textView {
-    [self.navigationController setNavigationBarHidden:NO];
+    //[self.navigationController setNavigationBarHidden:NO];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)textViewDidBeginEditing:(UITextView *) textView {
-    [self.navigationController setNavigationBarHidden:YES];
-    
+    //[self.navigationController setNavigationBarHidden:YES];
 }
 
 @end
