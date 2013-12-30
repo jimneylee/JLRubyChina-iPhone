@@ -161,6 +161,14 @@
 {
     [super layoutSubviews];
     
+    if (IOS_IS_AT_LEAST_7) {
+    }
+    else {
+        // set here compatible with ios6.x
+        self.textLabel.backgroundColor = [UIColor clearColor];
+        self.detailTextLabel.backgroundColor = [UIColor clearColor];
+    }
+    
     // layout
     CGFloat cellMargin = CELL_PADDING_4;
     CGFloat contentViewMarin = CELL_PADDING_6;

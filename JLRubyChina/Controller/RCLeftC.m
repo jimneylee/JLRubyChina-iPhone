@@ -58,7 +58,6 @@
 {
     self = [super init];
     if (self) {
-        // Custom initialization
         self.tableView = [[UITableView alloc] initWithFrame:CGRectZero
                                                       style:UITableViewStylePlain];
         self.tableView.dataSource = self;
@@ -72,14 +71,13 @@
 {
     [super viewDidLoad];
     
-    UIColor* bgColor = APP_THEME_COLOR;
-    self.view.backgroundColor = bgColor;
-    [self.tableView setFrame:CGRectMake(0.f, 0.f,
-                                        self.view.width - SIDE_DIRECTION_LEFT_OFFSET,
-                                        self.view.height)];
-    [self.tableView setBackgroundView:nil];
-    [self.tableView setBackgroundColor:[UIColor clearColor]];
-    self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
+    self.view.backgroundColor = APP_THEME_COLOR;
+    self.tableView.frame = CGRectMake(0.f, 0.f,
+                                      self.view.width - SIDE_DIRECTION_LEFT_OFFSET,
+                                      self.view.height);
+    self.tableView.separatorColor = [UIColor clearColor];
+    self.tableView.backgroundView = nil;
+    self.tableView.backgroundColor = APP_THEME_COLOR;
     [self.view addSubview:self.tableView];
     
     self.tableView.tableHeaderView = [self createTableHeaderView];
@@ -126,11 +124,17 @@
     label.lineBreakMode = NSLineBreakByWordWrapping;
     label.autoresizingMask = UIViewAutoresizingFlexibleDimensions;
     label.textAlignment = NSTextAlignmentCenter;
-    label.frame = CGRectInset(self.view.bounds, 10, 25);
     label.attributedText = text;
     label.shadowOffset = CGSizeMake(0.0f, 1.0f);
     label.shadowColor = RUBY_RED_COLOR;
-    
+    label.backgroundColor = [UIColor clearColor];
+    if (IOS_IS_AT_LEAST_7) {
+        label.frame = CGRectInset(self.view.bounds, 10.f, 5.f + NIStatusBarHeight());
+    }
+    else {
+        label.frame = CGRectInset(self.view.bounds, 10.f, 5.f);
+    }
+
     [view addSubview:label];
     
     return view;
@@ -138,7 +142,7 @@
 
 - (UIView*)createTableFooterView
 {
-    CGFloat tableHeaderHeight = 60.f;
+    CGFloat tableHeaderHeight = 66.f;
     
     UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.width, tableHeaderHeight)];
     view.backgroundColor = [UIColor clearColor];
@@ -176,6 +180,7 @@
     if (!cell) {
         cell = [[FELeftCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.backgroundColor = [UIColor clearColor];
+        cell.contentView.backgroundColor = [UIColor clearColor];
     }
     
     NSString* title = nil;
@@ -220,7 +225,7 @@
     UIColor* bgColor = RGBACOLOR(71.f, 139.f, 201.f, 0.2f);
     UIView* bgView = [[UIView alloc] init];
     bgView.backgroundColor = bgColor;
-    [cell setSelectedBackgroundView:bgView];
+    cell.selectedBackgroundView = bgView;
     
     return cell;
 }

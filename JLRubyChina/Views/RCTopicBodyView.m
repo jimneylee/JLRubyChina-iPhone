@@ -171,17 +171,10 @@
                                             topWidth, self.dateLabel.font.lineHeight);
     
     // status content
-    CGFloat kContentLength = self.contentView.width - contentViewMarin * 2;
-
-#if 0// sizeWithFont
-    CGSize contentSize = [o.body sizeWithFont:CONTENT_FONT_SIZE constrainedToSize:CGSizeMake(kContentLength, FLT_MAX)];
-    self.bodyLabel.frame = CGRectMake(self.headView.left, self.headView.bottom + CELL_PADDING_4,
-                                      kContentLength, contentSize.height);
-#else// sizeToFit
+    CGFloat kContentLength = self.width - sideMargin * 2;
     self.bodyLabel.frame = CGRectMake(self.headView.left, self.headView.bottom + CELL_PADDING_4,
                                       kContentLength, 0.f);
     [self.bodyLabel sizeToFit];
-#endif
     
     // body height
     height = height + self.bodyLabel.height;
