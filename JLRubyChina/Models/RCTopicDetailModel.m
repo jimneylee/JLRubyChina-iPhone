@@ -65,6 +65,10 @@
         o = entities[i];
         o.floorNumber = i+1;
     }
+    
+    // 3、call inline sort
+    entities = [entities sortedArrayUsingSelector:@selector(compare:)];
+    
     return entities;
 }
 

@@ -82,4 +82,11 @@
     return _floorNumberString;
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// inline sort by reply id, remove it when api return sorted array
+- (NSComparisonResult)compare:(RCReplyEntity*)other
+{
+    return [self.replyId compare:other.replyId];
+}
+
 @end
