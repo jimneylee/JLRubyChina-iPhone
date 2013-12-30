@@ -183,11 +183,13 @@
     self.detailTextLabel.frame = CGRectMake(self.textLabel.left, self.textLabel.bottom + CELL_PADDING_2,
                                             kTextLength, self.detailTextLabel.font.lineHeight);
     // replies count
-#if 1
-    CGSize repliesCountSize = [self.repliesCountLabel.text sizeWithAttributes:@{NSFontAttributeName:TITLE_FONT_SIZE}];
-#else
-    CGSize repliesCountSize = [self.repliesCountLabel.text sizeWithFont:TITLE_FONT_SIZE];
-#endif
+    CGSize repliesCountSize = CGSizeZero;
+    if (IOS_IS_AT_LEAST_7) {
+        repliesCountSize = [self.repliesCountLabel.text sizeWithAttributes:@{NSFontAttributeName:TITLE_FONT_SIZE}];
+    }
+    else {
+        repliesCountSize = [self.repliesCountLabel.text sizeWithFont:TITLE_FONT_SIZE];
+    }
     self.repliesCountLabel.frame = CGRectMake(0.f, self.textLabel.top,
                                               repliesCountSize.width + CELL_PADDING_6,
                                               self.repliesCountLabel.font.lineHeight);

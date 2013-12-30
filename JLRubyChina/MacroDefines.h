@@ -12,11 +12,15 @@
 #define APP_NAME [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"]
 #define APP_VERSION [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]
 #define APP_ID [[[NSBundle mainBundle] objectForInfoDictionaryKey:@"APP_STORE_ID"] longValue]
-#define IOS_7_X (([[UIDevice currentDevice].systemVersion floatValue] > 6.99))
 
 // iOS 系统版本
 #define IOS_IS_AT_LEAST_6 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0)
 #define IOS_IS_AT_LEAST_7 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
+
+// 兼容ios6.0
+#ifndef NSFoundationVersionNumber_iOS_6_1
+#define NSFoundationVersionNumber_iOS_6_1  993.00
+#endif
 
 // 是否是iphone5的判断
 #define IS_WIDESCREEN ([[UIScreen mainScreen] bounds].size.height > 500)

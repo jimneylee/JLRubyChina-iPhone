@@ -91,10 +91,14 @@
         // body
         NIAttributedLabel* bodyLabel = [[NIAttributedLabel alloc] initWithFrame:CGRectZero];
         bodyLabel.numberOfLines = 0;
-        
-        // define font and line height in entity method: parseAttributedStringFromMarkdownString
-        //bodyLabel.font = CONTENT_FONT_SIZE;
-        //bodyLabel.lineHeight = CONTENT_LINE_HEIGHT;
+        if (IOS_IS_AT_LEAST_7) {
+            // define font and line height in entity method: parseAttributedStringFromMarkdownString
+        }
+        else {
+            bodyLabel.font = CONTENT_FONT_SIZE;
+            bodyLabel.lineHeight = CONTENT_LINE_HEIGHT;
+        }
+
         bodyLabel.textColor = [UIColor blackColor];
         bodyLabel.lineBreakMode = NSLineBreakByWordWrapping;
         bodyLabel.autoDetectLinks = YES;
@@ -217,9 +221,13 @@
     self.nameLabel.text = topicDetailEntity.user.loginId;
     self.dateLabel.text = [NSString stringWithFormat:@"%@发布", [topicDetailEntity.createdAtDate formatRelativeTime]];
     
-    // attributed body show markdown syntax
-    //self.bodyLabel.text = topicDetailEntity.body;
-    self.bodyLabel.attributedString = topicDetailEntity.attributedBody;
+    if (IOS_IS_AT_LEAST_7) {
+        // attributed body show markdown syntax
+        self.bodyLabel.attributedString = topicDetailEntity.attributedBody;
+    }
+    else {
+        self.bodyLabel.text = topicDetailEntity.body;
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

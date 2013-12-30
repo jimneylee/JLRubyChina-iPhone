@@ -26,7 +26,9 @@
         self.body = dic[JSON_BODY];
         self.hitsCount = [dic[JSON_HITS_COUNT] unsignedLongValue];
         [self parseAllKeywords];
-        self.attributedBody = [self parseAttributedStringFromMarkdownString:self.body];
+        if (IOS_IS_AT_LEAST_7) {
+            self.attributedBody = [self parseAttributedStringFromMarkdownString:self.body];
+        }
     }
     return self;
 }
