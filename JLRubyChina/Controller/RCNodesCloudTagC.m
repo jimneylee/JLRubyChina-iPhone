@@ -39,11 +39,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    [self.model loadDataWithBlock:^(NSArray *items, NSError *error) {
+    
+    [self.model loadNodesWithBlock:^(NSArray *nodeSectionsArray, NSError *error) {
         self.nodesArray = self.model.nodesArray;
         self.tagCloudView = self.tagCloudView;
-    } more:NO refresh:YES];
+    }];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
