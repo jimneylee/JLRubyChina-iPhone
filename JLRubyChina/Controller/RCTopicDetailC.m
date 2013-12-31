@@ -60,6 +60,7 @@
          nil];
         // cell not selectable, also cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [self.actions attachToClass:[self.model objectClass] tapBlock:nil/*self.tapAction*/];
+        self.isCacheFirstLoad = NO;
     }
     return self;
 }
