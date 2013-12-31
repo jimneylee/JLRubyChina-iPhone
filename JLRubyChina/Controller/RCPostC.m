@@ -1,6 +1,6 @@
 //
 //  SNPostC.h
-//  SkyNet
+//  JLRubyChina
 //
 //  Created by jimneylee on 13-9-9.
 //  Copyright (c) 2013年 jimneylee. All rights reserved.

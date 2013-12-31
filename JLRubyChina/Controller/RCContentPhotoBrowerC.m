@@ -1,6 +1,6 @@
 //
 //  SNPhotoBrowerC.m
-//  SkyNet
+//  JLRubyChina
 //
 //  Created by jimneylee on 13-10-21.
 //  Copyright (c) 2013年 jimneylee. All rights reserved.
