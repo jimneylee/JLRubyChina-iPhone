@@ -2,13 +2,13 @@
 //  SMRegularParser.h
 //  SinaMBlog
 //
-//  Created by Jiang Yu on 13-2-18.
-//  Copyright (c) 2013年 SuperMaxDev. All rights reserved.
+//  Created by jimneylee on 13-2-18.
+//  Copyright (c) 2013年 jimneylee. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface SCRegularParser : NSObject
+@interface RCRegularParser : NSObject
 
 // 返回所有at某人的range数组
 + (NSArray *)keywordRangesOfAtPersonInString:(NSString *)string;

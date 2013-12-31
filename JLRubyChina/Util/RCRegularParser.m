@@ -2,11 +2,11 @@
 //  SMRegularParser.m
 //  SinaMBlog
 //
-//  Created by Jiang Yu on 13-2-18.
-//  Copyright (c) 2013年 SuperMaxDev. All rights reserved.
+//  Created by jimneylee on 13-2-18.
+//  Copyright (c) 2013年 jimneylee. All rights reserved.
 //
 
-#import "SCRegularParser.h"
+#import "RCRegularParser.h"
 #import "NSStringAdditions.h"
 #import "RCKeywordEntity.h"
 
@@ -16,7 +16,7 @@ static NSString* emojiRegular = @"\\[([\u4e00-\u9fa5]+)\\]";
 //http://stackoverflow.com/questions/16710554/c-sharp-regex-parse-to-pull-photos-from-markdown
 static NSString* imageRegular = @"!\\[.*?\\]\()\\(.*?\\)";
 
-@implementation SCRegularParser
+@implementation RCRegularParser
 
 + (NSArray *)keywordRangesOfAtPersonInString:(NSString *)string {
     NSError *error;
