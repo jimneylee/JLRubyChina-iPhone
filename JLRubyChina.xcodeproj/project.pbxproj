@@ -114,6 +114,10 @@
 		28D4F06E18584E7C00C9C858 /* RCForumNodesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4F06D18584E7C00C9C858 /* RCForumNodesModel.m */; };
 		28D4F07118584EA500C9C858 /* RCNodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4F07018584EA500C9C858 /* RCNodeCell.m */; };
 		28F671E41871187B00DD0A93 /* RCNodeSectionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F671E31871187B00DD0A93 /* RCNodeSectionEntity.m */; };
+		28F671E7187288D100DD0A93 /* RCContentPhotoBrowerC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F671E6187288D100DD0A93 /* RCContentPhotoBrowerC.m */; };
+		28F671ED18728D5E00DD0A93 /* more_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 28F671EB18728D5E00DD0A93 /* more_photo.png */; };
+		28F671EE18728D5E00DD0A93 /* more_photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28F671EC18728D5E00DD0A93 /* more_photo@2x.png */; };
+		28F671F018728D8400DD0A93 /* ruby-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 28F671EF18728D8400DD0A93 /* ruby-logo.png */; };
 		BBD07554FB194577BA42A7E6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DAEFF79992F4B9FB48FFA19 /* libPods.a */; };
 		CE13258D185F340200208653 /* RCMoreC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE13258C185F340200208653 /* RCMoreC.m */; };
 		CE132590185F4F5800208653 /* CHANGES.md in Resources */ = {isa = PBXBuildFile; fileRef = CE13258F185F4F5800208653 /* CHANGES.md */; };
@@ -376,6 +380,11 @@
 		28D4F07018584EA500C9C858 /* RCNodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCNodeCell.m; sourceTree = "<group>"; };
 		28F671E21871187B00DD0A93 /* RCNodeSectionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCNodeSectionEntity.h; sourceTree = "<group>"; };
 		28F671E31871187B00DD0A93 /* RCNodeSectionEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCNodeSectionEntity.m; sourceTree = "<group>"; };
+		28F671E5187288D100DD0A93 /* RCContentPhotoBrowerC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCContentPhotoBrowerC.h; sourceTree = "<group>"; };
+		28F671E6187288D100DD0A93 /* RCContentPhotoBrowerC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCContentPhotoBrowerC.m; sourceTree = "<group>"; };
+		28F671EB18728D5E00DD0A93 /* more_photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more_photo.png; sourceTree = "<group>"; };
+		28F671EC18728D5E00DD0A93 /* more_photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more_photo@2x.png"; sourceTree = "<group>"; };
+		28F671EF18728D8400DD0A93 /* ruby-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ruby-logo.png"; path = "IconDefault/ruby-logo.png"; sourceTree = "<group>"; };
 		2DAEFF79992F4B9FB48FFA19 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BECB55DCFAF84993AE6D89A6 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		CE13258B185F340200208653 /* RCMoreC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCMoreC.h; sourceTree = "<group>"; };
@@ -757,6 +766,8 @@
 				CE3A1B59185C3A170081C3E9 /* RCUserHomepageC.m */,
 				CE96587818576791003066A5 /* RCTopicDetailC.h */,
 				CE96587918576791003066A5 /* RCTopicDetailC.m */,
+				28F671E5187288D100DD0A93 /* RCContentPhotoBrowerC.h */,
+				28F671E6187288D100DD0A93 /* RCContentPhotoBrowerC.m */,
 				CEEA2BED1858C41D004FDEDF /* RCQuickReplyC.h */,
 				CEEA2BEE1858C41D004FDEDF /* RCQuickReplyC.m */,
 				28386D9D185A97FB00D7B5C9 /* RCPostC.h */,
@@ -819,10 +830,10 @@
 			children = (
 				2897EF991856FB09000BB6B9 /* RCTopicCell.h */,
 				2897EF9A1856FB09000BB6B9 /* RCTopicCell.m */,
-				CE9658811857683A003066A5 /* RCReplyCell.h */,
-				CE9658821857683A003066A5 /* RCReplyCell.m */,
 				28D4EF731857F78500C9C858 /* RCTopicBodyView.h */,
 				28D4EF741857F78500C9C858 /* RCTopicBodyView.m */,
+				CE9658811857683A003066A5 /* RCReplyCell.h */,
+				CE9658821857683A003066A5 /* RCReplyCell.m */,
 				28D4F06F18584EA500C9C858 /* RCNodeCell.h */,
 				28D4F07018584EA500C9C858 /* RCNodeCell.m */,
 				281AED68185982E500DEC6E2 /* RCSiteCell.h */,
@@ -1076,7 +1087,10 @@
 		CE96584B18573E98003066A5 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				28F671EF18728D8400DD0A93 /* ruby-logo.png */,
 				CEB2304C185C83F3004F54C7 /* ruby-logo@2x.png */,
+				28F671EB18728D5E00DD0A93 /* more_photo.png */,
+				28F671EC18728D5E00DD0A93 /* more_photo@2x.png */,
 				281AED5718594ED600DEC6E2 /* 37x-Checkmark.png */,
 				281AED5818594ED600DEC6E2 /* 37x-Checkmark@2x.png */,
 				CE9DFABA185C53BB007BAE75 /* head_b.png */,
@@ -1223,11 +1237,13 @@
 				CE96585218573ED8003066A5 /* icon120.png in Resources */,
 				CE1325A4185F5A8400208653 /* top_members.png in Resources */,
 				CEEA2BFC1858C561004FDEDF /* MessageEntryInputField@2x.png in Resources */,
+				28F671F018728D8400DD0A93 /* ruby-logo.png in Resources */,
 				CE1325A2185F5A8400208653 /* nodes.png in Resources */,
 				CE8D333C186B06E5001F1CE2 /* release_notes.md in Resources */,
 				CE1325A0185F5A8400208653 /* more.png in Resources */,
 				CE3675B2186337A70015756D /* emo_010@2x.png in Resources */,
 				CE3675B7186337A70015756D /* emo_015@2x.png in Resources */,
+				28F671ED18728D5E00DD0A93 /* more_photo.png in Resources */,
 				CEB23055185CA64E004F54C7 /* Default-568h@2x.png in Resources */,
 				CE3675BE186337A70015756D /* emo_022@2x.png in Resources */,
 				CE132590185F4F5800208653 /* CHANGES.md in Resources */,
@@ -1239,6 +1255,7 @@
 				28CBC12F18629839007C68FC /* trackpoint-white@2x.png in Resources */,
 				CEB23056185CA64E004F54C7 /* Default@2x.png in Resources */,
 				2897EF531856C422000BB6B9 /* Three20.bundle in Resources */,
+				28F671EE18728D5E00DD0A93 /* more_photo@2x.png in Resources */,
 				CE3675A9186337A70015756D /* emo_001@2x.png in Resources */,
 				28CBC12C18629839007C68FC /* trackpoint-blue.png in Resources */,
 				CE3675BB186337A70015756D /* emo_019@2x.png in Resources */,
@@ -1362,6 +1379,7 @@
 				28386DE6185AE59600D7B5C9 /* RCNodesCloudTagC.m in Sources */,
 				2897EF631856C422000BB6B9 /* JLAFHTTPClient.m in Sources */,
 				CE3A1B48185C05940081C3E9 /* RCTopMembersC.m in Sources */,
+				28F671E7187288D100DD0A93 /* RCContentPhotoBrowerC.m in Sources */,
 				CE3A1B5A185C3A170081C3E9 /* RCUserHomepageC.m in Sources */,
 				28D4EF7D1858266700C9C858 /* SMNetworkSpy.m in Sources */,
 				28D4F07118584EA500C9C858 /* RCNodeCell.m in Sources */,
