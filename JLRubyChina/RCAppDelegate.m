@@ -7,7 +7,7 @@
 //
 
 #import "RCAppDelegate.h"
-#import "TestFlight.h"
+//#import "TestFlight.h"
 #import "AFNetworking.h"
 #import "PPRevealSideViewController.h"
 #import "MTStatusBarOverlay.h"
@@ -70,9 +70,9 @@
 //        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 //    }
     
-    // MTStatusBarOverlay change to black, maybe better
+    // MTStatusBarOverlay change to white, maybe better
     UIView* bgView = [[UIView alloc] initWithFrame:[UIApplication sharedApplication].statusBarFrame];
-    bgView.backgroundColor = [UIColor blackColor];
+    bgView.backgroundColor = [UIColor whiteColor];
     [[MTStatusBarOverlay sharedOverlay] addSubviewToBackgroundView:bgView atIndex:1];// above statusBarBackgroundImageView
 }
 
