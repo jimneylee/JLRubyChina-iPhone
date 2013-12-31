@@ -16,6 +16,10 @@
 #endif
 
 #import "JLNimbusTimeline.h"
+
+// Nimbus addtional header
+#import "NimbusPagingScrollView.h"
+
 #import "PPRevealSideViewController.h"
 #import "MBProgressHUD.h"
 
