@@ -6,7 +6,7 @@
 希望能给社区的同学带来一点帮助，节省一点时间。欢迎大家在使用过程中，提出改进建议和意见。同时期望更多的同学参与学习交流，维护和优化APP。
 
 # 开发环境
-XCode5 iOS7.0
+XCode5 iOS7.x & iOS6.x
 
 # 更新依赖库
 1、submodule更新
@@ -126,18 +126,28 @@ csdn:https://code.csdn.net/jimney_ljj/JLRubyChina-iPhone
 
 11、更多功能包含：清空缓存、更新检测、给我评分、关于APP
 
+12、帖子列表支持markdown语法解析显示(仅使用于7.x)
+
+13、网络2G/3G/WIFI切换提示
+
+
+# DOING
+1、经公测稳定，提交AppStore审核，方便大家下载使用
+2、与后台API接口修改确认，参见API Problem文档说明
+
+
 # TODO
 1、与后台API接口修改确认，参见API Problem文档说明
 
 2、发帖添加表情选择
 
-3、帖子列表支持markdown语法解析显示
+~~3、帖子列表支持markdown语法解析显示~~
 
-4、分类节点做分组与排序
+~~4、分类节点做分组与排序~~
 
 5、个人主页详细资料
 
-6、网络2G/3G/WIFI切换提示
+~~6、网络2G/3G/WIFI切换提示~~
 
 7、发布模式下需屏蔽No Point分类
 
