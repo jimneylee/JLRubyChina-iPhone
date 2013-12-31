@@ -13,6 +13,7 @@
 #import "UIView+findViewController.h"
 #import "UIImage+nimbusImageNamed.h"
 #import "RCUserHomepageC.h"
+#import "RCContentPhotoBrowerC.h"
 #import "RCTopicDetailC.h"
 #import "RCReplyEntity.h"
 #import "RCKeywordEntity.h"
@@ -25,12 +26,15 @@
 #define CONTENT_LINE_HEIGHT 21.f
 #define HEAD_IAMGE_HEIGHT 34
 #define BUTTON_SIZE CGSizeMake(40.f, 22.f)
+#define CONTENT_IMAGE_HEIGHT 160
 
 @interface RCReplyCell()<NIAttributedLabelDelegate>
 @property (nonatomic, strong) NIAttributedLabel* contentLabel;
 @property (nonatomic, strong) UILabel* floorLabel;
 @property (nonatomic, strong) NINetworkImageView* headView;
 @property (nonatomic, strong) UIButton* replyBtn;
+@property (nonatomic, strong) NINetworkImageView* contentImageView;
+@property (nonatomic, strong) UIImageView* moreImageView;
 @property (nonatomic, strong) RCReplyEntity* replyEntity;
 @end
 @implementation RCReplyCell
@@ -85,7 +89,11 @@
 #else// sizeToFit
         height = height + [self attributeHeightForString:o.body withWidth:kContentLength];
 #endif
-        
+        // content image
+        if (o.imageUrlsArray.count) {
+            height = height + CELL_PADDING_10;
+            height = height + CONTENT_IMAGE_HEIGHT;
+        }
         height = height + sideMargin;
         
         return height;
@@ -152,9 +160,26 @@
         self.contentLabel.highlightedLinkBackgroundColor = RGBCOLOR(26, 162, 233);
         [self.contentView addSubview:self.contentLabel];
         
+        // content image
+        self.contentImageView = [[NINetworkImageView alloc] initWithFrame:CGRectMake(0, 0,
+                                                                                     CONTENT_IMAGE_HEIGHT,
+                                                                                     CONTENT_IMAGE_HEIGHT)];
+        [self.contentView addSubview:self.contentImageView];
+        self.contentImageView.userInteractionEnabled = YES;
+        UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showMoreImages)];
+        [self.contentImageView addGestureRecognizer:tapGesture];
+        
+        // more image
+        self.moreImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 56.f, 34.f)];
+        self.moreImageView.image = [UIImage nimbusImageNamed:@"more_photo.png"];
+        self.moreImageView.bottom = self.contentImageView.height;
+        [self.contentImageView addSubview:self.moreImageView];
+        
+        // content view border
         self.contentView.layer.borderColor = CELL_CONTENT_VIEW_BORDER_COLOR.CGColor;
         self.contentView.layer.borderWidth = 1.0f;
         
+        // background color
         self.backgroundColor = [UIColor clearColor];
         self.contentView.backgroundColor = CELL_CONTENT_VIEW_BG_COLOR;
         self.textLabel.backgroundColor = [UIColor clearColor];
@@ -222,6 +247,10 @@
     self.contentLabel.frame = CGRectMake(self.headView.left, self.headView.bottom + CELL_PADDING_4,
                                          kContentLength, 0.f);
     [self.contentLabel sizeToFit];
+    
+    // content image
+    self.contentImageView.left = self.contentLabel.left;
+    self.contentImageView.top = self.contentLabel.bottom + CELL_PADDING_10;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -243,6 +272,24 @@
         self.contentLabel.text = o.body;
         [self showAllKeywordsInContentLabel:self.contentLabel
                                  withStatus:o fromLocation:0];
+        
+        if (o.imageUrlsArray.count) {
+            NSString* firstImageUrl = o.imageUrlsArray[0];
+            if (firstImageUrl.length) {
+                [self.contentImageView setPathToNetworkImage:firstImageUrl contentMode:UIViewContentModeScaleAspectFill];
+            }
+            else {
+                [self.contentImageView setPathToNetworkImage:nil];
+            }
+        }
+        
+        // if more than one
+        if (o.imageUrlsArray.count > 1) {
+            self.moreImageView.hidden = NO;
+        }
+        else {
+            self.moreImageView.hidden = YES;
+        }
     }
     return YES;
 }
@@ -301,6 +348,16 @@
                        addedToView:[UIApplication sharedApplication].keyWindow];
     if (superviewC) {
         RCUserHomepageC* c = [[RCUserHomepageC alloc] initWithUserLoginId:self.replyEntity.user.loginId];
+        [superviewC.navigationController pushViewController:c animated:YES];
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)showMoreImages
+{
+    UIViewController* superviewC = self.viewController;
+    if (superviewC) {
+        RCContentPhotoBrowerC* c = [[RCContentPhotoBrowerC alloc] initWithPhotoUrls:self.replyEntity.imageUrlsArray];
         [superviewC.navigationController pushViewController:c animated:YES];
     }
 }

@@ -10,10 +10,11 @@
 #import "NSStringAdditions.h"
 #import "RCKeywordEntity.h"
 
-static NSString *atRegular = @"@[^.,:;!?\\s#@。，；！？]+";
-//static NSString *sharpRegular = @"#(.*?)#";
-static NSString *sharpRegular = @"#(.*?)楼";//TODO:digit regular
-static NSString *iconRegular = @"\\[([\u4e00-\u9fa5]+)\\]";
+static NSString* atRegular = @"@[^.,:;!?\\s#@。，；！？]+";
+static NSString* sharpRegular = @"#(.*?)楼";//TODO:digit regular
+static NSString* emojiRegular = @"\\[([\u4e00-\u9fa5]+)\\]";
+//http://stackoverflow.com/questions/16710554/c-sharp-regex-parse-to-pull-photos-from-markdown
+static NSString* imageRegular = @"!\\[.*?\\]\()\\(.*?\\)";
 
 @implementation SCRegularParser
 
@@ -82,7 +83,7 @@ static NSString *iconRegular = @"\\[([\u4e00-\u9fa5]+)\\]";
 + (NSArray *)keywordRangesOfEmotionInString:(NSString *)string {
     NSError *error;
     
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:iconRegular
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:emojiRegular
                                                                            options:NSRegularExpressionCaseInsensitive
                                                                              error:&error];
     __block NSMutableArray *rangesArray = [NSMutableArray array];
@@ -109,8 +110,45 @@ static NSString *iconRegular = @"\\[([\u4e00-\u9fa5]+)\\]";
                              [mutableString replaceCharactersInRange:resultRange withString:@""];
                              offset -= resultRange.length;
                          }];
-      // 考虑去掉表情标签的字串如何返回
     return rangesArray;
+}
+
++ (NSArray *)imageUrlsInString:(NSString *)string trimedString:(NSString **)trimedString {
+    NSError *error;
+    
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:imageRegular
+                                                                           options:NSRegularExpressionCaseInsensitive
+                                                                             error:&error];
+    __block NSMutableArray *imagesArray = [NSMutableArray array];
+    __block NSMutableString *mutableString = [string mutableCopy];
+    __block NSInteger offset = 0;
+    __block NSString *keyword = nil;
+    __block NSString *imageUrl = nil;
+    [regex enumerateMatchesInString:string
+                            options:0
+                              range:NSMakeRange(0, string.length)
+                         usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
+                             NSRange resultRange = [result range];
+                             resultRange.location += offset;
+                             // image
+                             keyword = [regex replacementStringForResult:result
+                                                                inString:mutableString
+                                                                  offset:offset
+                                                                template:@"$0"];
+                             NSRange startRange = [keyword rangeOfString:@"]("];
+                             if (startRange.length > 0) {
+                                 NSRange range = NSMakeRange(startRange.location + startRange.length,
+                                                             keyword.length - (startRange.location + startRange.length + 1));
+                                 imageUrl = [keyword substringWithRange:range];
+                                 [imagesArray addObject:imageUrl];
+                             }
+                             
+                             [mutableString replaceCharactersInRange:resultRange withString:@""];
+                             offset -= resultRange.length;
+                             
+                             *trimedString = mutableString;
+                         }];
+    return imagesArray;
 }
 
 @end

@@ -14,6 +14,7 @@
 #import "UIView+findViewController.h"
 #import "MTStatusBarOverlay.h"
 #import "RCUserHomepageC.h"
+#import "RCContentPhotoBrowerC.h"
 #import "RCKeywordEntity.h"
 #import "RCTopicActionModel.h"
 
@@ -27,6 +28,7 @@
 #define CONTENT_LINE_HEIGHT 21.f
 #define HEAD_IAMGE_HEIGHT 34
 #define BUTTON_SIZE CGSizeMake(104.f, 30.f)
+#define CONTENT_IMAGE_HEIGHT 160
 
 @interface RCTopicBodyView()<NIAttributedLabelDelegate>
 @property (nonatomic, strong) RCTopicDetailEntity* topicDetailEntity;
@@ -41,6 +43,8 @@
 @property (nonatomic, strong) UIButton* followBtn;
 @property (nonatomic, strong) UIButton* unfollowBtn;
 @property (nonatomic, strong) UIButton* favoriteBtn;
+@property (nonatomic, strong) NINetworkImageView* contentImageView;
+@property (nonatomic, strong) UIImageView* moreImageView;
 @end
 
 @implementation RCTopicBodyView
@@ -62,12 +66,12 @@
         titleLabel.numberOfLines = 0;
         titleLabel.font = TITLE_FONT_SIZE;
         titleLabel.textColor = [UIColor blackColor];
-        [contentView addSubview:titleLabel];
+        [self.contentView addSubview:titleLabel];
         self.titleLabel = titleLabel;
         
         // head
         NINetworkImageView* headView = [[NINetworkImageView alloc] initWithFrame:CGRectMake(0, 0, HEAD_IAMGE_HEIGHT, HEAD_IAMGE_HEIGHT)];
-        [contentView addSubview:headView];
+        [self.contentView addSubview:headView];
         self.headView = headView;
         UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                               action:@selector(visitUserHomepage)];
@@ -78,7 +82,7 @@
         UILabel* nameLabel = [[UILabel alloc] init];
         nameLabel.font = NAME_FONT_SIZE;
         nameLabel.textColor = [UIColor blackColor];
-        [contentView addSubview:nameLabel];
+        [self.contentView addSubview:nameLabel];
         self.nameLabel = nameLabel;
         
         // date
@@ -87,6 +91,21 @@
         dateLabel.textColor = [UIColor grayColor];
         [contentView addSubview:dateLabel];
         self.dateLabel = dateLabel;
+        
+        // content image
+        self.contentImageView = [[NINetworkImageView alloc] initWithFrame:CGRectMake(0.f, 0.f,
+                                                                                     CONTENT_IMAGE_HEIGHT,
+                                                                                     CONTENT_IMAGE_HEIGHT)];
+        [self.contentView addSubview:self.contentImageView];
+        self.contentImageView.userInteractionEnabled = YES;
+        UITapGestureRecognizer* tapMoreGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showMoreImages)];
+        [self.contentImageView addGestureRecognizer:tapMoreGesture];
+        
+        // more images
+        self.moreImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.f, 0.f, 56.f, 34.f)];
+        self.moreImageView.image = [UIImage nimbusImageNamed:@"more_photo.png"];
+        self.moreImageView.bottom = self.contentImageView.height;
+        [self.contentImageView addSubview:self.moreImageView];
         
         // body
         NIAttributedLabel* bodyLabel = [[NIAttributedLabel alloc] initWithFrame:CGRectZero];
@@ -98,7 +117,6 @@
             bodyLabel.font = CONTENT_FONT_SIZE;
             bodyLabel.lineHeight = CONTENT_LINE_HEIGHT;
         }
-
         bodyLabel.textColor = [UIColor blackColor];
         bodyLabel.lineBreakMode = NSLineBreakByWordWrapping;
         bodyLabel.autoDetectLinks = YES;
@@ -170,15 +188,24 @@
     self.dateLabel.frame = CGRectMake(self.nameLabel.left, self.nameLabel.bottom,
                                             topWidth, self.dateLabel.font.lineHeight);
     
+    // content image
+    if (self.topicDetailEntity.imageUrlsArray.count) {
+        self.contentImageView.left = (self.width - cellMargin * 2 - self.contentImageView.width) / 2;//self.headView.left;
+        self.contentImageView.top = self.headView.bottom + CELL_PADDING_4;
+        height = height + self.contentImageView.height;
+        height = height + CELL_PADDING_4;
+    }
+
     // status content
     CGFloat kContentLength = self.width - sideMargin * 2;
-    self.bodyLabel.frame = CGRectMake(self.headView.left, self.headView.bottom + CELL_PADDING_4,
+    self.bodyLabel.frame = CGRectMake(self.headView.left, height,//self.contentImageView.bottom + CELL_PADDING_4
                                       kContentLength, 0.f);
     [self.bodyLabel sizeToFit];
     
     // body height
     height = height + self.bodyLabel.height;
-    
+    height = height + CELL_PADDING_4;
+
     // botton height
     height = height + BUTTON_SIZE.height;
     
@@ -220,6 +247,23 @@
     }
     else {
         self.bodyLabel.text = topicDetailEntity.body;
+    }
+    
+    if (self.topicDetailEntity.imageUrlsArray.count) {
+        NSString* firstImageUrl = self.topicDetailEntity.imageUrlsArray[0];
+        if (firstImageUrl.length) {
+            [self.contentImageView setPathToNetworkImage:firstImageUrl contentMode:UIViewContentModeScaleAspectFill];
+        }
+        else {
+            [self.contentImageView setPathToNetworkImage:nil];
+        }
+    }
+    // if more than one image, show more image
+    if (self.topicDetailEntity.imageUrlsArray.count > 1) {
+        self.moreImageView.hidden = NO;
+    }
+    else {
+        self.moreImageView.hidden = YES;
     }
 }
 
@@ -320,6 +364,16 @@
         if (superviewC) {
             [RCGlobalConfig showLoginControllerFromNavigationController:superviewC.navigationController];
         }
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)showMoreImages
+{
+    UIViewController* superviewC = self.viewController;
+    if (superviewC) {
+        RCContentPhotoBrowerC* c = [[RCContentPhotoBrowerC alloc] initWithPhotoUrls:self.topicDetailEntity.imageUrlsArray];
+        [superviewC.navigationController pushViewController:c animated:YES];
     }
 }
 

@@ -10,6 +10,7 @@
 #import "RCUserEntity.h"
 
 @interface RCReplyEntity : JLNimbusEntity
+
 @property (nonatomic, strong) RCUserEntity* user;
 @property (nonatomic, copy) NSString* replyId;
 @property (nonatomic, copy) NSString* body;
@@ -17,8 +18,9 @@
 @property (nonatomic, strong) NSDate* updatedAtDate;
 @property (nonatomic, assign) NSUInteger floorNumber;
 @property (nonatomic, copy) NSString* floorNumberString;
-
 @property (nonatomic, strong) NSArray* atPersonRanges;
 @property (nonatomic, strong) NSArray* sharpFloorRanges;
 @property (nonatomic, strong) NSArray* emotionRanges;
+@property (nonatomic, strong) NSArray* imageUrlsArray;
+
 @end

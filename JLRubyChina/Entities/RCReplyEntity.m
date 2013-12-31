@@ -50,6 +50,11 @@
     if (self.body.length) {
         // parse emotion first
         self.body = [self.body emojizedString];
+        
+        NSString* trimedString = self.body;
+        self.imageUrlsArray = [SCRegularParser imageUrlsInString:self.body trimedString:&trimedString];
+        self.body = trimedString;
+        
         if (!self.atPersonRanges) {
             self.atPersonRanges = [SCRegularParser keywordRangesOfAtPersonInString:self.body];
         }
