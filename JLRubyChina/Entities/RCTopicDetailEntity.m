@@ -7,7 +7,7 @@
 //
 
 #import "RCTopicDetailEntity.h"
-#import "SCRegularParser.h"
+#import "RCRegularParser.h"
 #import "NSString+Emojize.h"
 #import "NSAttributedStringMarkdownParser.h"
 #import "MarkdownSyntaxGenerator.h"
@@ -53,14 +53,14 @@
         self.body = [self.body emojizedString];
         
         NSString* trimedString = self.body;
-        self.imageUrlsArray = [SCRegularParser imageUrlsInString:self.body trimedString:&trimedString];
+        self.imageUrlsArray = [RCRegularParser imageUrlsInString:self.body trimedString:&trimedString];
         self.body = trimedString;
         
         if (!self.atPersonRanges) {
-            self.atPersonRanges = [SCRegularParser keywordRangesOfAtPersonInString:self.body];
+            self.atPersonRanges = [RCRegularParser keywordRangesOfAtPersonInString:self.body];
         }
         if (!self.sharpFloorRanges) {
-            self.sharpFloorRanges = [SCRegularParser keywordRangesOfSharpFloorInString:self.body];
+            self.sharpFloorRanges = [RCRegularParser keywordRangesOfSharpFloorInString:self.body];
         }
     }
 }
