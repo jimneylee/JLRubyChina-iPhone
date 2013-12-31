@@ -12,10 +12,14 @@
 #import "PPRevealSideViewController.h"
 #import "MTStatusBarOverlay.h"
 #import "LTUpdate.h"
+#import "RCNetworkSpy.h"
 #import "RCRootC.h"
 #import "RCAccountEntity.h"
 #import "RCUserHomepageC.h"
 #import "RCAboutAppC.h"
+
+@interface RCAppDelegate()<RCNetworkSpyDelegate>
+@end
 
 @implementation RCAppDelegate
 
@@ -41,6 +45,10 @@
                                                        @"text/html",
                                                        @"text/plain", nil]];
     
+    // Spy network
+    [[RCNetworkSpy sharedNetworkSpy] spyNetwork];
+    [RCNetworkSpy sharedNetworkSpy].spyDelegate = self;
+    
     // Load logined account
     RCAccountEntity* account = [RCAccountEntity loadStoredUserAccount];
     if (account) {
@@ -62,21 +70,50 @@
 //        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 //    }
     
-    // MTStatusBarOverlay 修改背景色为白色
+    // MTStatusBarOverlay change to black, maybe better
     UIView* bgView = [[UIView alloc] initWithFrame:[UIApplication sharedApplication].statusBarFrame];
-    bgView.backgroundColor = [UIColor whiteColor];
+    bgView.backgroundColor = [UIColor blackColor];
     [[MTStatusBarOverlay sharedOverlay] addSubviewToBackgroundView:bgView atIndex:1];// above statusBarBackgroundImageView
 }
 
-- (BOOL)prefersStatusBarHidden {
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (BOOL)prefersStatusBarHidden
+{
     return YES;
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - RCNetworkSpyDelegate
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)didNetworkChangedReachable:(BOOL)reachable viaWifi:(BOOL)viaWifi
+{
+    NSString* title = @"网络未连接";
+    
+    if (!reachable) {
+        title = @"网络未连接";
+    }
+    else if (viaWifi) {
+        title = @"当前wifi已连接";
+    }
+    else {
+        title = @"当前2g/3g已连接";
+    }
+    // TODO: 4g is long long after
+    [RCGlobalConfig HUDShowMessage:title addedToView:[UIApplication sharedApplication].keyWindow];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - UIApplicationDelegate
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self prepareForLaunching];
-    // Override point for customization after application launch.
     
+    // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 #if 1
     RCRootC *main = [[RCRootC alloc] init];
