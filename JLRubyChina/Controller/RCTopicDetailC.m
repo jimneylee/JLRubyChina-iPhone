@@ -184,13 +184,6 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)scrollToBottomNotAnimated
-{
-    [self.tableView scrollRectToVisible:CGRectMake(0.f, self.tableView.contentSize.height - self.view.height,
-                                                   self.tableView.width, self.tableView.height) animated:NO];
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)scrollToBottomAnimated:(BOOL)animated
 {
     [self.tableView scrollRectToVisible:CGRectMake(0.f, self.tableView.contentSize.height - self.view.height,
