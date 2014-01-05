@@ -10,7 +10,7 @@
 #import "NSStringAdditions.h"
 #import "RCKeywordEntity.h"
 
-static NSString* atRegular = @"@[^.,:;!?\\s#@。，；！？]+";
+static NSString* atRegular = @"@[^.,:;!?()\\s#@。，：；！？（）]+";
 static NSString* sharpRegular = @"#(.*?)楼";//TODO:digit regular
 static NSString* emojiRegular = @"\\[([\u4e00-\u9fa5]+)\\]";
 //http://stackoverflow.com/questions/16710554/c-sharp-regex-parse-to-pull-photos-from-markdown
