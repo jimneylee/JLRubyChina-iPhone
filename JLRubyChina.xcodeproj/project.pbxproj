@@ -403,6 +403,12 @@
 		CE3A1B57185C35E00081C3E9 /* RCUserLauncherButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3A1B56185C35E00081C3E9 /* RCUserLauncherButtonView.m */; };
 		CE3A1B5A185C3A170081C3E9 /* RCUserHomepageC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3A1B59185C3A170081C3E9 /* RCUserHomepageC.m */; };
 		CE3A1B5D185C3A810081C3E9 /* RCUserHomepageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3A1B5C185C3A810081C3E9 /* RCUserHomepageModel.m */; };
+		CE5936FF187D7F4100DC3A55 /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5936FC187D7F4100DC3A55 /* JASidePanelController.m */; };
+		CE593700187D7F4100DC3A55 /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5936FC187D7F4100DC3A55 /* JASidePanelController.m */; };
+		CE593701187D7F4100DC3A55 /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5936FC187D7F4100DC3A55 /* JASidePanelController.m */; };
+		CE593702187D7F4100DC3A55 /* UIViewController+JASidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5936FE187D7F4100DC3A55 /* UIViewController+JASidePanel.m */; };
+		CE593703187D7F4100DC3A55 /* UIViewController+JASidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5936FE187D7F4100DC3A55 /* UIViewController+JASidePanel.m */; };
+		CE593704187D7F4100DC3A55 /* UIViewController+JASidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5936FE187D7F4100DC3A55 /* UIViewController+JASidePanel.m */; };
 		CE7E319A185D8BDE005F583E /* NSString+stringFromValue.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7E3199185D8BDE005F583E /* NSString+stringFromValue.m */; };
 		CE90A04A1872E6910030DB1E /* RCCoolSitesC.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AED5D185975D900DEC6E2 /* RCCoolSitesC.m */; };
 		CE90A04B1872E6910030DB1E /* RCPostModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28386D9B185A946E00D7B5C9 /* RCPostModel.m */; };
@@ -842,6 +848,10 @@
 		CE3A1B59185C3A170081C3E9 /* RCUserHomepageC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCUserHomepageC.m; sourceTree = "<group>"; };
 		CE3A1B5B185C3A810081C3E9 /* RCUserHomepageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCUserHomepageModel.h; sourceTree = "<group>"; };
 		CE3A1B5C185C3A810081C3E9 /* RCUserHomepageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCUserHomepageModel.m; sourceTree = "<group>"; };
+		CE5936FB187D7F4100DC3A55 /* JASidePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JASidePanelController.h; sourceTree = "<group>"; };
+		CE5936FC187D7F4100DC3A55 /* JASidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JASidePanelController.m; sourceTree = "<group>"; };
+		CE5936FD187D7F4100DC3A55 /* UIViewController+JASidePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JASidePanel.h"; sourceTree = "<group>"; };
+		CE5936FE187D7F4100DC3A55 /* UIViewController+JASidePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JASidePanel.m"; sourceTree = "<group>"; };
 		CE7E3198185D8BDE005F583E /* NSString+stringFromValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+stringFromValue.h"; sourceTree = "<group>"; };
 		CE7E3199185D8BDE005F583E /* NSString+stringFromValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+stringFromValue.m"; sourceTree = "<group>"; };
 		CE90A1061872E6910030DB1E /* JLRubyChina Dis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JLRubyChina Dis.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1107,6 +1117,7 @@
 		2897EF291856C40F000BB6B9 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				CE5936F9187D7F3700DC3A55 /* JASidePanels */,
 				2847BE171867D86500D9CEF0 /* JSONKit_fixerror */,
 				28D4EF86185829FA00C9C858 /* Nimbus_fixbug */,
 				28CBC13A1862C3E9007C68FC /* TSEmojiView */,
@@ -1552,6 +1563,26 @@
 				CE3675A6186337A70015756D /* emoji_touch@2x.png */,
 			);
 			path = img;
+			sourceTree = "<group>";
+		};
+		CE5936F9187D7F3700DC3A55 /* JASidePanels */ = {
+			isa = PBXGroup;
+			children = (
+				CE5936FA187D7F4100DC3A55 /* Source */,
+			);
+			name = JASidePanels;
+			sourceTree = "<group>";
+		};
+		CE5936FA187D7F4100DC3A55 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				CE5936FB187D7F4100DC3A55 /* JASidePanelController.h */,
+				CE5936FC187D7F4100DC3A55 /* JASidePanelController.m */,
+				CE5936FD187D7F4100DC3A55 /* UIViewController+JASidePanel.h */,
+				CE5936FE187D7F4100DC3A55 /* UIViewController+JASidePanel.m */,
+			);
+			name = Source;
+			path = vendor/JASidePanels/JASidePanels/Source;
 			sourceTree = "<group>";
 		};
 		CE96584A18573E98003066A5 /* Resource */ = {
@@ -2122,6 +2153,7 @@
 				281ACD5F187CF26900067D9C /* RCNodeCell.m in Sources */,
 				281ACD60187CF26900067D9C /* RCMoreC.m in Sources */,
 				281ACD61187CF26900067D9C /* RCTopicBodyView.m in Sources */,
+				CE593701187D7F4100DC3A55 /* JASidePanelController.m in Sources */,
 				281ACD62187CF26900067D9C /* JLNimbusTableViewController.m in Sources */,
 				281ACD63187CF26900067D9C /* RCNodeEntity.m in Sources */,
 				281ACD64187CF26900067D9C /* RCKeywordEntity.m in Sources */,
@@ -2171,6 +2203,7 @@
 				281ACD90187CF26900067D9C /* RCAPIClient.m in Sources */,
 				281ACD91187CF26900067D9C /* RCUserEntity.m in Sources */,
 				281ACD92187CF26900067D9C /* UIViewAdditions.m in Sources */,
+				CE593704187D7F4100DC3A55 /* UIViewController+JASidePanel.m in Sources */,
 				281ACD93187CF26900067D9C /* TTGlobalUICommon.m in Sources */,
 				281ACD94187CF26900067D9C /* KOSwipeButton.m in Sources */,
 				281ACD95187CF26900067D9C /* RCWikiC.m in Sources */,
@@ -2206,6 +2239,7 @@
 				28D4F07118584EA500C9C858 /* RCNodeCell.m in Sources */,
 				CE13258D185F340200208653 /* RCMoreC.m in Sources */,
 				28D4EF751857F78500C9C858 /* RCTopicBodyView.m in Sources */,
+				CE5936FF187D7F4100DC3A55 /* JASidePanelController.m in Sources */,
 				2897EF5F1856C422000BB6B9 /* JLNimbusTableViewController.m in Sources */,
 				28D4EF93185846CA00C9C858 /* RCNodeEntity.m in Sources */,
 				28D4EF81185826BF00C9C858 /* RCKeywordEntity.m in Sources */,
@@ -2255,6 +2289,7 @@
 				2897EF721856C54B000BB6B9 /* RCAPIClient.m in Sources */,
 				2897EF981856ECBD000BB6B9 /* RCUserEntity.m in Sources */,
 				2897EF5B1856C422000BB6B9 /* UIViewAdditions.m in Sources */,
+				CE593702187D7F4100DC3A55 /* UIViewController+JASidePanel.m in Sources */,
 				2897EF571856C422000BB6B9 /* TTGlobalUICommon.m in Sources */,
 				28CBC11F18629839007C68FC /* KOSwipeButton.m in Sources */,
 				CE3A1B54185C28540081C3E9 /* RCWikiC.m in Sources */,
@@ -2311,6 +2346,7 @@
 				CE90A05B1872E6910030DB1E /* RCNodeCell.m in Sources */,
 				CE90A05C1872E6910030DB1E /* RCMoreC.m in Sources */,
 				CE90A05D1872E6910030DB1E /* RCTopicBodyView.m in Sources */,
+				CE593700187D7F4100DC3A55 /* JASidePanelController.m in Sources */,
 				CE90A05E1872E6910030DB1E /* JLNimbusTableViewController.m in Sources */,
 				CE90A05F1872E6910030DB1E /* RCNodeEntity.m in Sources */,
 				CE90A0601872E6910030DB1E /* RCKeywordEntity.m in Sources */,
@@ -2360,6 +2396,7 @@
 				CE90A08C1872E6910030DB1E /* RCAPIClient.m in Sources */,
 				CE90A08D1872E6910030DB1E /* RCUserEntity.m in Sources */,
 				CE90A08E1872E6910030DB1E /* UIViewAdditions.m in Sources */,
+				CE593703187D7F4100DC3A55 /* UIViewController+JASidePanel.m in Sources */,
 				CE90A08F1872E6910030DB1E /* TTGlobalUICommon.m in Sources */,
 				CE90A0901872E6910030DB1E /* KOSwipeButton.m in Sources */,
 				CE90A0911872E6910030DB1E /* RCWikiC.m in Sources */,

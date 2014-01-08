@@ -7,3 +7,6 @@
 [submodule "vendor/JLNimbusTimeline"]
 	path = vendor/JLNimbusTimeline
 	url = https://github.com/jimneylee/JLNimbusTimeline.git
+[submodule "vendor/JASidePanels"]
+	path = vendor/JASidePanels
+	url = https://github.com/gotosleep/JASidePanels.git
