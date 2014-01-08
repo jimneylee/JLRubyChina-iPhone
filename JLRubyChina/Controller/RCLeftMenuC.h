@@ -16,8 +16,7 @@ typedef enum
     LeftMenuType_TopMembers,
     LeftMenuType_MyHomePage,
     LeftMenuType_Wiki,
-    LeftMenuType_More,
-    LeftMenuType_End
+    LeftMenuType_More
 }LeftMenuType;
 
 @protocol RCLeftMenuDelegate;
