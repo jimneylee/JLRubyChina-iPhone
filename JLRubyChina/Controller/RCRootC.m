@@ -119,7 +119,7 @@
 - (void)showWikiView
 {
     [self.navigationController popToRootViewControllerAnimated:NO];
-    RCWikiC* c = [[RCWikiC alloc] initWithURL:[NSURL URLWithString:RC_WIKI_URL]];
+    RCWikiC* c = [[RCWikiC alloc] initWithURL:[NSURL URLWithString:HOST_WIKI_URL]];
     [self.navigationController pushViewController:c animated:YES];
 }
 
