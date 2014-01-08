@@ -83,7 +83,7 @@
     
     self.view.backgroundColor = APP_THEME_COLOR;
     self.tableView.frame = CGRectMake(0.f, 0.f,
-                                      self.view.width - SIDE_DIRECTION_LEFT_OFFSET,
+                                      self.view.width * LEFT_GAP_PERCENTAGE,
                                       self.view.height);
     self.tableView.separatorColor = [UIColor clearColor];
     self.tableView.backgroundView = nil;
@@ -133,15 +133,15 @@
     UIFont* font = [UIFont fontWithName:@"HelveticaNeue-BoldItalic" size:26];
     [text setFont:font range:rangeOfRuby];
     [text setFont:font range:rangeOfChina];
-    [text setTextColor:RUBY_RED_COLOR range:rangeOfRuby];
-    [text setTextColor:RGBCOLOR(200, 200, 200) range:rangeOfChina];
+    [text setTextColor:APP_NAME_RED_COLOR range:rangeOfRuby];
+    [text setTextColor:APP_NAME_WHITE_COLOR range:rangeOfChina];
     NIAttributedLabel* label = [[NIAttributedLabel alloc] initWithFrame:CGRectZero];
     label.lineBreakMode = NSLineBreakByWordWrapping;
     label.autoresizingMask = UIViewAutoresizingFlexibleDimensions;
     label.textAlignment = NSTextAlignmentCenter;
     label.attributedText = text;
     label.shadowOffset = CGSizeMake(0.0f, 1.0f);
-    label.shadowColor = RUBY_RED_COLOR;
+    label.shadowColor = APP_NAME_RED_COLOR;
     label.backgroundColor = [UIColor clearColor];
     if (IOS_IS_AT_LEAST_7) {
         label.frame = CGRectInset(self.view.bounds, 10.f, 5.f + NIStatusBarHeight());
@@ -253,10 +253,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row != self.currentMenuType) {
-//        if ([self.delegate respondsToSelector:@selector(didSelectLeftMenuType:)]) {
-//            [self.delegate didSelectLeftMenuType:indexPath.row];
-//            self.currentMenuType = indexPath.row;
-//        }
         switch (indexPath.row) {
             case LeftMenuType_Home:
             {

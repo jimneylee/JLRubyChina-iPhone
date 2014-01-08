@@ -72,7 +72,6 @@
 		281ACD8C187CF26900067D9C /* RCReplyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3889D31858AA790052566C /* RCReplyModel.m */; };
 		281ACD8D187CF26900067D9C /* RCLoginC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B094A4185ED914003F8789 /* RCLoginC.m */; };
 		281ACD8E187CF26900067D9C /* RCHomepageHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9DFAC3185C57BD007BAE75 /* RCHomepageHeaderView.m */; };
-		281ACD8F187CF26900067D9C /* RCRootC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF7D1856E11A000BB6B9 /* RCRootC.m */; };
 		281ACD90187CF26900067D9C /* RCAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF6C1856C54B000BB6B9 /* RCAPIClient.m */; };
 		281ACD91187CF26900067D9C /* RCUserEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF971856ECBD000BB6B9 /* RCUserEntity.m */; };
 		281ACD92187CF26900067D9C /* UIViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF3B1856C422000BB6B9 /* UIViewAdditions.m */; };
@@ -290,7 +289,6 @@
 		2897EF761856C616000BB6B9 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 2897EF751856C616000BB6B9 /* TODO */; };
 		2897EF791856E073000BB6B9 /* RCGlobalConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF781856E073000BB6B9 /* RCGlobalConfig.m */; };
 		2897EF7E1856E11A000BB6B9 /* RCLeftC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF7B1856E11A000BB6B9 /* RCLeftC.m */; };
-		2897EF7F1856E11A000BB6B9 /* RCRootC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF7D1856E11A000BB6B9 /* RCRootC.m */; };
 		2897EF821856E2BE000BB6B9 /* RCForumTopicsC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF811856E2BE000BB6B9 /* RCForumTopicsC.m */; };
 		2897EF861856E2EA000BB6B9 /* RCForumTopicsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF851856E2EA000BB6B9 /* RCForumTopicsModel.m */; };
 		2897EF891856E327000BB6B9 /* RCTopicEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF881856E327000BB6B9 /* RCTopicEntity.m */; };
@@ -475,7 +473,6 @@
 		CE90A0881872E6910030DB1E /* RCReplyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3889D31858AA790052566C /* RCReplyModel.m */; };
 		CE90A0891872E6910030DB1E /* RCLoginC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B094A4185ED914003F8789 /* RCLoginC.m */; };
 		CE90A08A1872E6910030DB1E /* RCHomepageHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9DFAC3185C57BD007BAE75 /* RCHomepageHeaderView.m */; };
-		CE90A08B1872E6910030DB1E /* RCRootC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF7D1856E11A000BB6B9 /* RCRootC.m */; };
 		CE90A08C1872E6910030DB1E /* RCAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF6C1856C54B000BB6B9 /* RCAPIClient.m */; };
 		CE90A08D1872E6910030DB1E /* RCUserEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF971856ECBD000BB6B9 /* RCUserEntity.m */; };
 		CE90A08E1872E6910030DB1E /* UIViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF3B1856C422000BB6B9 /* UIViewAdditions.m */; };
@@ -695,8 +692,6 @@
 		2897EF781856E073000BB6B9 /* RCGlobalConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCGlobalConfig.m; sourceTree = "<group>"; };
 		2897EF7A1856E11A000BB6B9 /* RCLeftC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCLeftC.h; sourceTree = "<group>"; };
 		2897EF7B1856E11A000BB6B9 /* RCLeftC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCLeftC.m; sourceTree = "<group>"; };
-		2897EF7C1856E11A000BB6B9 /* RCRootC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCRootC.h; sourceTree = "<group>"; };
-		2897EF7D1856E11A000BB6B9 /* RCRootC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCRootC.m; sourceTree = "<group>"; };
 		2897EF801856E2BE000BB6B9 /* RCForumTopicsC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCForumTopicsC.h; sourceTree = "<group>"; };
 		2897EF811856E2BE000BB6B9 /* RCForumTopicsC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCForumTopicsC.m; sourceTree = "<group>"; };
 		2897EF841856E2EA000BB6B9 /* RCForumTopicsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCForumTopicsModel.h; sourceTree = "<group>"; };
@@ -1237,8 +1232,6 @@
 			children = (
 				2897EF7A1856E11A000BB6B9 /* RCLeftC.h */,
 				2897EF7B1856E11A000BB6B9 /* RCLeftC.m */,
-				2897EF7C1856E11A000BB6B9 /* RCRootC.h */,
-				2897EF7D1856E11A000BB6B9 /* RCRootC.m */,
 				2897EF801856E2BE000BB6B9 /* RCForumTopicsC.h */,
 				2897EF811856E2BE000BB6B9 /* RCForumTopicsC.m */,
 				28D4EF8E1858463E00C9C858 /* RCForumNodesC.h */,
@@ -2199,7 +2192,6 @@
 				281ACD8C187CF26900067D9C /* RCReplyModel.m in Sources */,
 				281ACD8D187CF26900067D9C /* RCLoginC.m in Sources */,
 				281ACD8E187CF26900067D9C /* RCHomepageHeaderView.m in Sources */,
-				281ACD8F187CF26900067D9C /* RCRootC.m in Sources */,
 				281ACD90187CF26900067D9C /* RCAPIClient.m in Sources */,
 				281ACD91187CF26900067D9C /* RCUserEntity.m in Sources */,
 				281ACD92187CF26900067D9C /* UIViewAdditions.m in Sources */,
@@ -2285,7 +2277,6 @@
 				CE3889D41858AA790052566C /* RCReplyModel.m in Sources */,
 				28B094A5185ED914003F8789 /* RCLoginC.m in Sources */,
 				CE9DFAC4185C57BD007BAE75 /* RCHomepageHeaderView.m in Sources */,
-				2897EF7F1856E11A000BB6B9 /* RCRootC.m in Sources */,
 				2897EF721856C54B000BB6B9 /* RCAPIClient.m in Sources */,
 				2897EF981856ECBD000BB6B9 /* RCUserEntity.m in Sources */,
 				2897EF5B1856C422000BB6B9 /* UIViewAdditions.m in Sources */,
@@ -2392,7 +2383,6 @@
 				CE90A0881872E6910030DB1E /* RCReplyModel.m in Sources */,
 				CE90A0891872E6910030DB1E /* RCLoginC.m in Sources */,
 				CE90A08A1872E6910030DB1E /* RCHomepageHeaderView.m in Sources */,
-				CE90A08B1872E6910030DB1E /* RCRootC.m in Sources */,
 				CE90A08C1872E6910030DB1E /* RCAPIClient.m in Sources */,
 				CE90A08D1872E6910030DB1E /* RCUserEntity.m in Sources */,
 				CE90A08E1872E6910030DB1E /* UIViewAdditions.m in Sources */,

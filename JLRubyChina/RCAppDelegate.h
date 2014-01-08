@@ -12,6 +12,5 @@
 @interface RCAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-//@property (strong, nonatomic) PPRevealSideViewController *revealSideViewController;
 @property (strong, nonatomic) JASidePanelController *sidePanelController;
 @end

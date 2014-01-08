@@ -24,14 +24,17 @@
 
 @implementation RCTopMembersC
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - UIViewController
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
         self.title = @"TOP 活跃会员";
-//        self.navigationItem.leftBarButtonItem = [RCGlobalConfig createMenuBarButtonItemWithTarget:self
-//                                                                                           action:@selector(showLeft:)];
         self.navigationItem.rightBarButtonItem = [RCGlobalConfig createRefreshBarButtonItemWithTarget:self
                                                                                                action:@selector(refreshTopMembers)];
         
@@ -40,6 +43,7 @@
     return self;
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -48,16 +52,17 @@
     [self refreshTopMembers];
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.revealSideViewController updateViewWhichHandleGestures];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -73,6 +78,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Private
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)refreshTopMembers
 {
     [self.requestModel loadTopMembersWithBlock:^(NSArray *topMembersArray, NSError *error) {
@@ -183,19 +189,6 @@
     if (object.title.length) {
         [self visitUserHomepageWithLoginId:object.title];
     }
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
-#pragma mark Side View Controller
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)showLeft:(id)sender
-{
-    // used to push a new controller, but we preloaded it !
-    [self.revealSideViewController pushOldViewControllerOnDirection:PPRevealSideDirectionLeft
-                                                         withOffset:SIDE_DIRECTION_LEFT_OFFSET
-                                                           animated:YES];
 }
 
 @end

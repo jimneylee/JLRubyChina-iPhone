@@ -112,9 +112,6 @@
     self.tableView.separatorColor = [UIColor lightGrayColor];
     self.tableView.backgroundColor = TABLE_VIEW_BG_COLOR;
     self.tableView.backgroundView = nil;
-    
-//    self.navigationItem.leftBarButtonItem = [RCGlobalConfig createMenuBarButtonItemWithTarget:self
-//                                                                                       action:@selector(showLeft:)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -203,26 +200,13 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-#pragma mark Side View Controller
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)showLeft:(id)sender
-{
-    // used to push a new controller, but we preloaded it !
-    [self.revealSideViewController pushOldViewControllerOnDirection:PPRevealSideDirectionLeft
-                                                         withOffset:SIDE_DIRECTION_LEFT_OFFSET
-                                                           animated:YES];
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - DID_LOGIN_NOTIFICATION
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)didLoginNotification
 {
     self.logoutLoginCell.textLabel.text = LOGOUT_TITLE;
-    self.logoutLoginCell.backgroundColor = RUBY_RED_COLOR;
+    self.logoutLoginCell.backgroundColor = APP_NAME_RED_COLOR;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -272,7 +256,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
             self.logoutLoginCell = textCell;
             
             if ([textCell.textLabel.text isEqualToString:LOGOUT_TITLE]) {
-                textCell.backgroundColor = RUBY_RED_COLOR;
+                textCell.backgroundColor = APP_NAME_RED_COLOR;
             }
             else if ([textCell.textLabel.text isEqualToString:LOGIN_TITLE]) {
                 textCell.backgroundColor = APP_THEME_COLOR;

@@ -24,6 +24,10 @@
 @implementation RCUserHomepageC
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - UIViewController
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithMyLoginId:(NSString*)loginId
 {
     self = [self initWithStyle:UITableViewStylePlain];
@@ -34,8 +38,6 @@
             ((RCUserHomepageModel*)self.model).loginId = self.title;
         }
         //else didFinishLoadData 中跳转到登录页面
-//        self.navigationItem.leftBarButtonItem = [RCGlobalConfig createMenuBarButtonItemWithTarget:self
-//                                                                                           action:@selector(showLeft:)];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLoginNotification)
                                                      name:DID_LOGIN_NOTIFICATION object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLogoutNotification)
@@ -228,20 +230,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-#pragma mark Side View Controller
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)showLeft:(id)sender
-{
-    // used to push a new controller, but we preloaded it !
-    [self.revealSideViewController pushOldViewControllerOnDirection:PPRevealSideDirectionLeft
-                                                         withOffset:SIDE_DIRECTION_LEFT_OFFSET
-                                                           animated:YES];
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
-#pragma mark - RCD
+#pragma mark - Login/Logout Notification
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)didLoginNotification

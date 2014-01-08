@@ -105,12 +105,12 @@
     UIFont* font = [UIFont fontWithName:@"HelveticaNeue-BoldItalic" size:26];
     [text setFont:font range:rangeOfRuby];
     [text setFont:font range:rangeOfChina];
-    [text setTextColor:RUBY_RED_COLOR range:rangeOfRuby];
-    [text setTextColor:RGBCOLOR(200, 200, 200) range:rangeOfChina];
+    [text setTextColor:APP_NAME_RED_COLOR range:rangeOfRuby];
+    [text setTextColor:APP_NAME_WHITE_COLOR range:rangeOfChina];
 
     self.nameLabel.attributedText = text;
     self.nameLabel.shadowOffset = CGSizeMake(0.0f, 1.0f);
-    self.nameLabel.shadowColor = RUBY_RED_COLOR;
+    self.nameLabel.shadowColor = APP_NAME_RED_COLOR;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

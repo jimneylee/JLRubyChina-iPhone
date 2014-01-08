@@ -30,8 +30,6 @@
         self.title = [self stringForTopicsType:topicsType];
         ((RCForumTopicsModel*)self.model).topicsType = topicsType;
         self.topicsType = topicsType;
-//        self.navigationItem.leftBarButtonItem = [RCGlobalConfig createMenuBarButtonItemWithTarget:self
-//                                                                                           action:@selector(showLeft:)];
         self.navigationItem.rightBarButtonItems =
         [NSArray arrayWithObjects:
          [RCGlobalConfig createRefreshBarButtonItemWithTarget:self
@@ -118,10 +116,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    // 添加手势 TODO:这边还需要斟酌，暂时只考虑热门帖子，如果首页顶部有下拉选择其他如精华贴，这边同步要修改
-    if (RCForumTopicsType_NodeList != ((RCForumTopicsModel*)self.model).topicsType) {
-        [self.revealSideViewController updateViewWhichHandleGestures];
-    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -163,19 +157,6 @@
     else {
         [RCGlobalConfig showLoginControllerFromNavigationController:self.navigationController];
     }
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
-#pragma mark Side View Controller
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)showLeft:(id)sender
-{
-    // used to push a new controller, but we preloaded it !
-    [self.revealSideViewController pushOldViewControllerOnDirection:PPRevealSideDirectionLeft
-                                                         withOffset:SIDE_DIRECTION_LEFT_OFFSET
-                                                           animated:YES];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

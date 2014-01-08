@@ -34,8 +34,6 @@
     if (self) {
         // Custom initialization
         self.title = @"外链酷站";
-//        self.navigationItem.leftBarButtonItem = [RCGlobalConfig createMenuBarButtonItemWithTarget:self
-//                                                                                           action:@selector(showLeft:)];
         self.navigationItem.rightBarButtonItem = [RCGlobalConfig createRefreshBarButtonItemWithTarget:self
                                                                                                action:@selector(refreshCoolSites)];
     }
@@ -81,7 +79,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.revealSideViewController updateViewWhichHandleGestures];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -97,6 +94,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Private
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)refreshCoolSites
 {
     [self.model loadCoolSitesWithBlock:^(NSArray *siteSectionsArray, NSError *error) {
@@ -155,19 +153,6 @@
 - (void)segmentedDidChange
 {
     [self reloadTableViewDataWithIndex:self.segmentedControl.selectedSegmentIndex];
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
-#pragma mark Side View Controller
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)showLeft:(id)sender
-{
-    // used to push a new controller, but we preloaded it !
-    [self.revealSideViewController pushOldViewControllerOnDirection:PPRevealSideDirectionLeft
-                                                         withOffset:SIDE_DIRECTION_LEFT_OFFSET
-                                                           animated:YES];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
