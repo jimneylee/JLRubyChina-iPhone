@@ -18,7 +18,7 @@
 
 #import "JASidePanelController.h"
 #import "RCForumTopicsC.h"
-#import "RCLeftC.h"
+#import "RCLeftMenuC.h"
 
 @interface RCAppDelegate()<RCNetworkSpyDelegate>
 @end
@@ -117,7 +117,7 @@
     RCForumTopicsC *forumTopics = [[RCForumTopicsC alloc] initWithTopicsType:RCForumTopicsType_LatestActivity];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:forumTopics];
     nav.navigationBar.translucent = NO;
-    RCLeftC *leftSideC = [[RCLeftC alloc] initWithStyle:UITableViewStylePlain];
+    RCLeftMenuC *leftSideC = [[RCLeftMenuC alloc] initWithStyle:UITableViewStylePlain];
     self.sidePanelController = [[JASidePanelController alloc] init];
     self.sidePanelController.leftGapPercentage = LEFT_GAP_PERCENTAGE;
     self.sidePanelController.centerPanel = nav;
