@@ -85,10 +85,6 @@
                 [self.model addObjectsFromArray:indexPaths];
             }
         }
-        else {
-            // just set empty array, show empty data but no error
-            indexPaths = [NSArray array];
-        }
         [self.tableView reloadData];
     }
 }
