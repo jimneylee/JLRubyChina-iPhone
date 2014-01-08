@@ -40,8 +40,8 @@
 {
     [super viewWillAppear:animated];
     // must be setted here, NOT init, I donnot konw why, so sad!
-    self.navigationItem.leftBarButtonItem = [RCGlobalConfig createMenuBarButtonItemWithTarget:self
-                                                                                       action:@selector(showLeft:)];
+//    self.navigationItem.leftBarButtonItem = [RCGlobalConfig createMenuBarButtonItemWithTarget:self
+//                                                                                       action:@selector(showLeft:)];
 
     [self.revealSideViewController updateViewWhichHandleGestures];
 }

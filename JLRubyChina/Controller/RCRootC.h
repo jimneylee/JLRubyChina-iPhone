@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "RCLeftC.h"
 
-@interface RCRootC : UIViewController<LeftMenuDelegate>
+@interface RCRootC : UIViewController
 
 @end

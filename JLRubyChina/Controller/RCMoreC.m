@@ -113,8 +113,8 @@
     self.tableView.backgroundColor = TABLE_VIEW_BG_COLOR;
     self.tableView.backgroundView = nil;
     
-    self.navigationItem.leftBarButtonItem = [RCGlobalConfig createMenuBarButtonItemWithTarget:self
-                                                                                       action:@selector(showLeft:)];
+//    self.navigationItem.leftBarButtonItem = [RCGlobalConfig createMenuBarButtonItemWithTarget:self
+//                                                                                       action:@selector(showLeft:)];
 }
 
 - (void)didReceiveMemoryWarning

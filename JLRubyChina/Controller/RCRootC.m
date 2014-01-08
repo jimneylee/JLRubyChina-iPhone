@@ -45,12 +45,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.LeftSideC = [[RCLeftC alloc] initWithStyle:UITableViewStylePlain];
-    self.LeftSideC.delegate = self;
+//    self.LeftSideC = [[RCLeftC alloc] initWithStyle:UITableViewStylePlain];
+//    self.LeftSideC.delegate = self;
     
-    [self.revealSideViewController preloadViewController:self.LeftSideC
-                                                 forSide:PPRevealSideDirectionLeft
-                                              withOffset:SIDE_DIRECTION_LEFT_OFFSET];
+//    [self.revealSideViewController preloadViewController:self.LeftSideC
+//                                                 forSide:PPRevealSideDirectionLeft
+//                                              withOffset:SIDE_DIRECTION_LEFT_OFFSET];
+    
     [self showHomeView];
 }
 
@@ -69,13 +70,13 @@
 #pragma mark Side View Controller
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)showLeft:(id)sender
-{
-    // used to push a new controller, but we preloaded it !
-    [self.revealSideViewController pushOldViewControllerOnDirection:PPRevealSideDirectionLeft
-                                                         withOffset:SIDE_DIRECTION_LEFT_OFFSET
-                                                           animated:YES];
-}
+//- (void)showLeft:(id)sender
+//{
+//    // used to push a new controller, but we preloaded it !
+//    [self.revealSideViewController pushOldViewControllerOnDirection:PPRevealSideDirectionLeft
+//                                                         withOffset:SIDE_DIRECTION_LEFT_OFFSET
+//                                                           animated:YES];
+//}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -143,50 +144,50 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-#pragma mark LeftMenuDelegate
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)didSelectLeftMenuType:(LeftMenuType)type
-{
-    switch (type) {
-        case LeftMenuType_Home:
-            [self showLeft:nil];
-            [self showHomeView];
-            break;
-            
-        case LeftMenuType_ForumNodes:
-            [self showLeft:nil];
-            [self showForumNodesView];
-            break;
-            
-        case LeftMenuType_CoolSites:
-            [self showLeft:nil];
-            [self showCoolSitesView];
-            break;
-            
-        case LeftMenuType_TopMembers:
-            [self showLeft:nil];
-            [self showTopMembersView];
-            break;
-            
-        case LeftMenuType_Wiki:
-            [self showLeft:nil];
-            [self showWikiView];
-            break;
-            
-        case LeftMenuType_MyHomePage:
-            [self showLeft:nil];
-            [self showMyHomepageView];
-            break;
-            
-        case LeftMenuType_More:
-            [self showLeft:nil];
-            [self showMoreView];
-            break;
-            
-        default:
-            break;
-    }
-}
+//#pragma mark LeftMenuDelegate
+//
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//- (void)didSelectLeftMenuType:(LeftMenuType)type
+//{
+//    switch (type) {
+//        case LeftMenuType_Home:
+//            [self showLeft:nil];
+//            [self showHomeView];
+//            break;
+//            
+//        case LeftMenuType_ForumNodes:
+//            [self showLeft:nil];
+//            [self showForumNodesView];
+//            break;
+//            
+//        case LeftMenuType_CoolSites:
+//            [self showLeft:nil];
+//            [self showCoolSitesView];
+//            break;
+//            
+//        case LeftMenuType_TopMembers:
+//            [self showLeft:nil];
+//            [self showTopMembersView];
+//            break;
+//            
+//        case LeftMenuType_Wiki:
+//            [self showLeft:nil];
+//            [self showWikiView];
+//            break;
+//            
+//        case LeftMenuType_MyHomePage:
+//            [self showLeft:nil];
+//            [self showMyHomepageView];
+//            break;
+//            
+//        case LeftMenuType_More:
+//            [self showLeft:nil];
+//            [self showMoreView];
+//            break;
+//            
+//        default:
+//            break;
+//    }
+//}
 
 @end

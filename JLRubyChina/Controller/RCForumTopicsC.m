@@ -30,8 +30,8 @@
         self.title = [self stringForTopicsType:topicsType];
         ((RCForumTopicsModel*)self.model).topicsType = topicsType;
         self.topicsType = topicsType;
-        self.navigationItem.leftBarButtonItem = [RCGlobalConfig createMenuBarButtonItemWithTarget:self
-                                                                                           action:@selector(showLeft:)];
+//        self.navigationItem.leftBarButtonItem = [RCGlobalConfig createMenuBarButtonItemWithTarget:self
+//                                                                                           action:@selector(showLeft:)];
         self.navigationItem.rightBarButtonItems =
         [NSArray arrayWithObjects:
          [RCGlobalConfig createRefreshBarButtonItemWithTarget:self
