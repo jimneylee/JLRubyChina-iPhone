@@ -20,17 +20,17 @@ typedef enum
     LeftMenuType_End
 }LeftMenuType;
 
-@protocol LeftMenuDelegate;
-@interface RCLeftC : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@protocol RCLeftMenuDelegate;
+@interface RCLeftMenuC : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
-@property (assign, nonatomic) id<LeftMenuDelegate> delegate;
+@property (assign, nonatomic) id<RCLeftMenuDelegate> delegate;
 
 - (id)initWithStyle:(UITableViewStyle)style;
 - (void)setSelectedMenuType:(LeftMenuType)type;
 
 @end
 
-@protocol LeftMenuDelegate <NSObject>
+@protocol RCLeftMenuDelegate <NSObject>
 
 - (void)didSelectLeftMenuType:(LeftMenuType)type;
 

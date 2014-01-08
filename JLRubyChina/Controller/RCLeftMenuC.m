@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Marian PAUL aka ipodishima — iPuP SARL. All rights reserved.
 //
 
-#import "RCLeftC.h"
+#import "RCLeftMenuC.h"
 #import "NIAttributedLabel.h"
 #import "NSMutableAttributedString+NimbusAttributedLabel.h"
 
@@ -23,14 +23,14 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-@interface FELeftCell : UITableViewCell
+@interface FELeftMenuCell : UITableViewCell
 @property (nonatomic, retain) UIImageView* lineImageView;
 @end
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-@implementation FELeftCell
+@implementation FELeftMenuCell
 
 - (void)layoutSubviews
 {
@@ -53,15 +53,15 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-@interface RCLeftC ()
+@interface RCLeftMenuC ()
 @property (strong, nonatomic) UITableView* tableView;
-@property (nonatomic) LeftMenuType currentMenuType;
+@property (nonatomic, assign) LeftMenuType currentMenuType;
 @end
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-@implementation RCLeftC
+@implementation RCLeftMenuC
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithStyle:(UITableViewStyle)style
@@ -100,7 +100,6 @@
 - (void)setSelectedMenuType:(LeftMenuType)type
 {
     self.currentMenuType = type;
-    // 默认刚开始选中
     [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:self.currentMenuType
                                                             inSection:0]
                                 animated:NO
@@ -190,16 +189,17 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"LeftViewCell";
-    FELeftCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    FELeftMenuCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (!cell) {
-        cell = [[FELeftCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[FELeftMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.backgroundColor = [UIColor clearColor];
         cell.contentView.backgroundColor = [UIColor clearColor];
     }
     
     NSString* title = nil;
-    switch (indexPath.row) {
+    LeftMenuType type = indexPath.row;
+    switch (type) {
         case LeftMenuType_Home:
             title = @"热门讨论";
             break;
@@ -253,7 +253,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row != self.currentMenuType) {
-        switch (indexPath.row) {
+        self.currentMenuType = indexPath.row;
+        
+        switch (self.currentMenuType ) {
             case LeftMenuType_Home:
             {
                 RCForumTopicsC *c = [[RCForumTopicsC alloc] initWithTopicsType:RCForumTopicsType_LatestActivity];
@@ -317,7 +319,6 @@
             }
                 break;
         }
-        self.currentMenuType = indexPath.row;
     }
 }
 
