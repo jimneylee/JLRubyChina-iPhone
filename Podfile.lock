@@ -1,7 +1,7 @@
 PODS:
   - AFNetworking (1.3.3)
   - fmemopen (0.0.1)
-  - HPGrowingTextView (1.0.1)
+  - HPGrowingTextView (1.1)
   - JSONKit (1.5pre)
   - LTUpdate (0.0.2)
   - MBProgressHUD (0.8)
@@ -82,7 +82,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 61fdd49e2ffe6380378df37b3b6e70630bb9dd66
   fmemopen: 9985c0b5696288ac034514edc2eeaea6e5ae77ca
-  HPGrowingTextView: fd77b93b9096dd1493a312c8856810b652b04dcc
+  HPGrowingTextView: 4318f557b33c19def1c53ec275d6e2a2d6589cd0
   JSONKit: 409734ab3407fce90ef7eaa95d7168f38d9a6601
   LTUpdate: ee58a30f73e6dcbc47ce1e5c617b024212a2dd98
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
@@ -95,4 +95,4 @@ SPEC CHECKSUMS:
   SDSegmentedControl: 165956a426f1fd7ff1eb486c4931241f12e0867e
   SSKeychain: d18926838c2e7cd342e2a49e9f869858e49f035a
 
-COCOAPODS: 0.23.0
+COCOAPODS: 0.29.0
