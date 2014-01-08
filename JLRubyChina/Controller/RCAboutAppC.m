@@ -11,12 +11,19 @@
 #import "NSMutableAttributedString+NimbusAttributedLabel.h"
 #import "NIWebController.h"
 
+#define CREATE_DEFAULT_IMAGE 0
+
 @interface RCAboutAppC ()<NIAttributedLabelDelegate>
 
 @end
 
 @implementation RCAboutAppC
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - UIViewController
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -27,6 +34,7 @@
     return self;
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -34,38 +42,61 @@
     
     [self setupNameLabel];
     [self setupSiteUrlLabel];
+    [self setupSiteIntroduceTextView];
     [self setupDevIntroduceLabel];
     self.versionLabel.text = [NSString stringWithFormat:@"version: %@", APP_VERSION];
-
-// for screenshot create default images, donot laught at me! :)
-//    if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)])
-//    {
-//        [self prefersStatusBarHidden];
-//        [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
-//    }
-//    else
-//    {
-//        // iOS 6
-//        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
-//    }
 }
 
-//- (BOOL)prefersStatusBarHidden {
-//    return YES;
-//}
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (BOOL)prefersStatusBarHidden {
+#if CREATE_DEFAULT_IMAGE
+    return YES;
+#else
+    return NO; 
+#endif
+}
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+#if CREATE_DEFAULT_IMAGE
+    // for screenshot create default image, donot laught at me! :)
+    if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]) {
+        [self prefersStatusBarHidden];
+        [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
+    }
+    else {
+        // iOS 6
+        [[UIApplication sharedApplication] setStatusBarHidden:YES
+                                                withAnimation:UIStatusBarAnimationSlide];
+    }
+#endif
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Private
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)setupNameLabel
 {
     // copy from nimbus CustomTextAttributedLabelViewController
-    NSString* string = self.nameLabel.text;
-    NSRange rangeOfRuby = [string rangeOfString:@"Ruby"];
-    NSRange rangeOfChina = [string rangeOfString:@"China"];
+    self.nameLabel.text = APP_NAME;
+    NSString* string = APP_NAME;//@"Ruby China"
+    NSArray* words = [APP_NAME componentsSeparatedByString:@" "];
+    NSRange rangeOfRuby = NSMakeRange(0, 0);
+    NSRange rangeOfChina = NSMakeRange(0, 0);
+    if (words.count >= 2) {
+        rangeOfRuby = [string rangeOfString:words[0]];//@"Ruby"
+        rangeOfChina = [string rangeOfString:words[1]];//@"China"
+    }
     
     // We must create a mutable attributed string in order to set the CoreText properties.
     NSMutableAttributedString* text = [[NSMutableAttributedString alloc] initWithString:string];
@@ -82,14 +113,24 @@
     self.nameLabel.shadowColor = RUBY_RED_COLOR;
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)setupSiteUrlLabel
 {
+    self.siteUrlLabel.text = HOST_URL;
     self.siteUrlLabel.delegate = self;
     self.siteUrlLabel.autoDetectLinks = YES;
     self.siteUrlLabel.linksHaveUnderlines = YES;
     self.siteUrlLabel.attributesForLinks =@{(NSString *)kCTForegroundColorAttributeName:(id)RGBCOLOR(6, 89, 155).CGColor};
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)setupSiteIntroduceTextView
+{
+    self.siteIntroduceTextView.text = HOST_INTRO;
+    self.siteIntroduceTextView.scrollEnabled = NO;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)setupDevIntroduceLabel
 {
     self.devIntroduceLabel.delegate = self;
@@ -98,6 +139,8 @@
     self.devIntroduceLabel.attributesForLinks =@{(NSString *)kCTForegroundColorAttributeName:(id)RGBCOLOR(6, 89, 155).CGColor};
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - NIAttributedLabelDelegate
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

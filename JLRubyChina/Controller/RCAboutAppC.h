@@ -12,6 +12,7 @@
 @interface RCAboutAppC : UIViewController
 @property (nonatomic, strong) IBOutlet NIAttributedLabel* nameLabel;
 @property (nonatomic, strong) IBOutlet NIAttributedLabel* siteUrlLabel;
+@property (nonatomic, strong) IBOutlet UITextView* siteIntroduceTextView;
 @property (nonatomic, strong) IBOutlet NIAttributedLabel* devIntroduceLabel;
 @property (nonatomic, strong) IBOutlet NIAttributedLabel* versionLabel;
 @end
