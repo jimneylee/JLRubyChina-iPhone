@@ -34,8 +34,8 @@
             ((RCUserHomepageModel*)self.model).loginId = self.title;
         }
         //else didFinishLoadData 中跳转到登录页面
-        self.navigationItem.leftBarButtonItem = [RCGlobalConfig createMenuBarButtonItemWithTarget:self
-                                                                                           action:@selector(showLeft:)];
+//        self.navigationItem.leftBarButtonItem = [RCGlobalConfig createMenuBarButtonItemWithTarget:self
+//                                                                                           action:@selector(showLeft:)];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLoginNotification)
                                                      name:DID_LOGIN_NOTIFICATION object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLogoutNotification)

@@ -18,6 +18,10 @@
 #import "RCUserHomepageC.h"
 #import "RCAboutAppC.h"
 
+#import "JASidePanelController.h"
+#import "RCForumTopicsC.h"
+#import "RCLeftC.h"
+
 @interface RCAppDelegate()<RCNetworkSpyDelegate>
 @end
 
@@ -116,14 +120,18 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 #if 1
-    RCRootC *main = [[RCRootC alloc] init];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:main];
+    //RCRootC *main = [[RCRootC alloc] init];
+    RCForumTopicsC *forumTopics = [[RCForumTopicsC alloc] initWithTopicsType:RCForumTopicsType_LatestActivity];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:forumTopics];
     nav.navigationBar.translucent = NO;
-    self.revealSideViewController = [[PPRevealSideViewController alloc] initWithRootViewController:nav];
-    [self.revealSideViewController setDirectionsToShowBounce:PPRevealSideDirectionNone];
-    [self.revealSideViewController setPanInteractionsWhenClosed:/*PPRevealSideInteractionContentView | */PPRevealSideInteractionNavigationBar];
-    
-    self.window.rootViewController = self.revealSideViewController;
+    RCLeftC *leftSideC = [[RCLeftC alloc] initWithStyle:UITableViewStylePlain];
+//    self.revealSideViewController = [[PPRevealSideViewController alloc] initWithRootViewController:nav];
+//    [self.revealSideViewController setDirectionsToShowBounce:PPRevealSideDirectionNone];
+//    [self.revealSideViewController setPanInteractionsWhenClosed:/*PPRevealSideInteractionContentView | */PPRevealSideInteractionNavigationBar];
+    self.sidePanelController = [[JASidePanelController alloc] init];
+    self.sidePanelController.centerPanel = nav;
+    self.sidePanelController.leftPanel = leftSideC;
+    self.window.rootViewController = self.sidePanelController;
     [self.window makeKeyAndVisible];
     [[LTUpdate shared] update];
     [self appearanceChange];

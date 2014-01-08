@@ -34,8 +34,8 @@
     if (self) {
         // Custom initialization
         self.title = @"外链酷站";
-        self.navigationItem.leftBarButtonItem = [RCGlobalConfig createMenuBarButtonItemWithTarget:self
-                                                                                           action:@selector(showLeft:)];
+//        self.navigationItem.leftBarButtonItem = [RCGlobalConfig createMenuBarButtonItemWithTarget:self
+//                                                                                           action:@selector(showLeft:)];
         self.navigationItem.rightBarButtonItem = [RCGlobalConfig createRefreshBarButtonItemWithTarget:self
                                                                                                action:@selector(refreshCoolSites)];
     }

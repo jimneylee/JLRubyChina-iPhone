@@ -30,8 +30,8 @@
     if (self) {
         // Custom initialization
         self.title = @"TOP 活跃会员";
-        self.navigationItem.leftBarButtonItem = [RCGlobalConfig createMenuBarButtonItemWithTarget:self
-                                                                                           action:@selector(showLeft:)];
+//        self.navigationItem.leftBarButtonItem = [RCGlobalConfig createMenuBarButtonItemWithTarget:self
+//                                                                                           action:@selector(showLeft:)];
         self.navigationItem.rightBarButtonItem = [RCGlobalConfig createRefreshBarButtonItemWithTarget:self
                                                                                                action:@selector(refreshTopMembers)];
         
