@@ -10,6 +10,16 @@
 #import "NIAttributedLabel.h"
 #import "NSMutableAttributedString+NimbusAttributedLabel.h"
 
+#import "JASidePanelController.h"
+#import "UIViewController+JASidePanel.h"
+#import "RCForumTopicsC.h"
+#import "RCForumNodesC.h"
+#import "RCCoolSitesC.h"
+#import "RCTopMembersC.h"
+#import "RCWikiC.h"
+#import "RCUserHomepageC.h"
+#import "RCMoreC.h"
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -243,10 +253,75 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row != self.currentMenuType) {
-        if ([self.delegate respondsToSelector:@selector(didSelectLeftMenuType:)]) {
-            [self.delegate didSelectLeftMenuType:indexPath.row];
-            self.currentMenuType = indexPath.row;
+//        if ([self.delegate respondsToSelector:@selector(didSelectLeftMenuType:)]) {
+//            [self.delegate didSelectLeftMenuType:indexPath.row];
+//            self.currentMenuType = indexPath.row;
+//        }
+        switch (indexPath.row) {
+            case LeftMenuType_Home:
+            {
+                RCForumTopicsC *c = [[RCForumTopicsC alloc] initWithTopicsType:RCForumTopicsType_LatestActivity];
+                UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:c];
+                nav.navigationBar.translucent = NO;
+                self.sidePanelController.centerPanel = nav;
+            }
+                break;
+                
+            case LeftMenuType_ForumNodes:
+            {
+                RCForumNodesC* c = [[RCForumNodesC alloc] init];
+                UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:c];
+                nav.navigationBar.translucent = NO;
+                self.sidePanelController.centerPanel = nav;
+            }
+                break;
+                
+            case LeftMenuType_CoolSites:
+            {
+                RCCoolSitesC* c = [[RCCoolSitesC alloc] init];
+                UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:c];
+                nav.navigationBar.translucent = NO;
+                self.sidePanelController.centerPanel = nav;
+            }
+                break;
+                
+            case LeftMenuType_TopMembers:
+            {
+                RCTopMembersC* c = [[RCTopMembersC alloc] init];
+                UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:c];
+                nav.navigationBar.translucent = NO;
+                self.sidePanelController.centerPanel = nav;
+            }
+                break;
+                
+            case LeftMenuType_MyHomePage:
+            {
+                RCUserHomepageC *c = [[RCUserHomepageC alloc] initWithMyLoginId:[RCGlobalConfig myLoginId]];
+                UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:c];
+                nav.navigationBar.translucent = NO;
+                self.sidePanelController.centerPanel = nav;
+            }
+                break;
+                
+            case LeftMenuType_Wiki:
+            {
+                RCWikiC* c = [[RCWikiC alloc] initWithURL:[NSURL URLWithString:HOST_WIKI_URL]];
+                UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:c];
+                nav.navigationBar.translucent = NO;
+                self.sidePanelController.centerPanel = nav;
+            }
+                break;
+                
+            case LeftMenuType_More:
+            {
+                RCMoreC* c = [[RCMoreC alloc] initWithStyle:UITableViewStyleGrouped];
+                UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:c];
+                nav.navigationBar.translucent = NO;
+                self.sidePanelController.centerPanel = nav;
+            }
+                break;
         }
+        self.currentMenuType = indexPath.row;
     }
 }
 

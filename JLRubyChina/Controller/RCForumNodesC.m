@@ -31,8 +31,8 @@
     if (self) {
         // Custom initialization
         self.title = @"分类导航";
-        self.navigationItem.leftBarButtonItem = [RCGlobalConfig createMenuBarButtonItemWithTarget:self
-                                                                                           action:@selector(showLeft:)];
+//        self.navigationItem.leftBarButtonItem = [RCGlobalConfig createMenuBarButtonItemWithTarget:self
+//                                                                                           action:@selector(showLeft:)];
     }
     return self;
 }
