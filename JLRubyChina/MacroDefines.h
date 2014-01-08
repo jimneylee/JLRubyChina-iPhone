@@ -9,10 +9,14 @@
 #ifndef JLRubyChina_MacroDefines_h
 #define JLRubyChina_MacroDefines_h
 
+// APP 基本信息
 #define APP_NAME [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"]
 #define APP_VERSION [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]
 #define APP_ID [[[NSBundle mainBundle] objectForInfoDictionaryKey:@"APP_STORE_ID"] longValue]
-#define HOST_API_URL [[NSBundle mainBundle] objectForInfoDictionaryKey:@"HOST_API_URL"]
+#define HOST_URL [[NSBundle mainBundle] objectForInfoDictionaryKey:@"HOST_URL"]
+#define HOST_API_URL [NSString stringWithFormat:@"%@/api/v2", HOST_URL]
+#define HOST_WIKI_URL [NSString stringWithFormat:@"%@/wiki", HOST_URL]
+#define HOST_INTRO [[NSBundle mainBundle] objectForInfoDictionaryKey:@"HOST_INTRO"]
 
 // iOS 系统版本
 #define IOS_IS_AT_LEAST_6 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0)
@@ -42,9 +46,7 @@
 #define TABLE_VIEW_BG_COLOR RGBCOLOR(230, 230, 230)
 #define CELL_CONTENT_VIEW_BG_COLOR RGBCOLOR(247, 247, 247)
 #define CELL_CONTENT_VIEW_BORDER_COLOR RGBCOLOR(234, 234, 234)
-#define SIDE_DIRECTION_LEFT_OFFSET 160//左边栏tableview离右边距离，理解有点别扭，后面简洁化
-
-#define RC_WIKI_URL @"http://ruby-china.org/wiki"
+#define SIDE_DIRECTION_LEFT_OFFSET 150//左边栏tableview离右边距离，理解有点别扭，后面简洁化
 
 // 自定义链接协议
 #define PROTOCOL_AT_SOMEONE @"atsomeone://"
