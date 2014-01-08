@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>Ruby China</string>
+	<string>Tester Home</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIcons</key>
@@ -24,7 +24,7 @@
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>cn.rafood.rubychina</string>
+	<string>cn.rafood.testerhome</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -111,6 +111,6 @@
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>HOST_API_URL</key>
-	<string>http://ruby-china.org/api/v2</string>
+	<string>http://testerhome.com/api/v2</string>
 </dict>
 </plist>

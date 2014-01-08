@@ -12,6 +12,7 @@
 #define APP_NAME [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"]
 #define APP_VERSION [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]
 #define APP_ID [[[NSBundle mainBundle] objectForInfoDictionaryKey:@"APP_STORE_ID"] longValue]
+#define HOST_API_URL [[NSBundle mainBundle] objectForInfoDictionaryKey:@"HOST_API_URL"]
 
 // iOS 系统版本
 #define IOS_IS_AT_LEAST_6 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0)

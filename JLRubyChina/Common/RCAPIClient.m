@@ -22,7 +22,7 @@ NSString *const kAPIBaseURLString = @"http://ruby-china.org/api/v2";
     static RCAPIClient* _sharedClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _sharedClient = [[RCAPIClient alloc] initWithBaseURL:[NSURL URLWithString:kAPIBaseURLString]];
+        _sharedClient = [[RCAPIClient alloc] initWithBaseURL:[NSURL URLWithString:HOST_API_URL]];
     });
     
     return _sharedClient;

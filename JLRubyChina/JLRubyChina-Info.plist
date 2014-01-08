@@ -110,5 +110,7 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>HOST_API_URL</key>
+	<string>http://ruby-china.org/api/v2</string>
 </dict>
 </plist>
