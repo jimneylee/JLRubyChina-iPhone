@@ -110,7 +110,11 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>HOST_API_URL</key>
-	<string>http://testerhome.com/api/v2</string>
+	<key>HOST_URL</key>
+	<string>http://testerhome.com</string>
+	<key>HOST_INTRO</key>
+	<string>国内首个移动测试交流社区，专注于Web测试，移动测试，测试产品与云测服务，一个技术驱动的组织，一个活跃而温馨的测试大家庭。</string>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<true/>
 </dict>
 </plist>
