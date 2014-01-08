@@ -65,7 +65,7 @@
 		281ACD85187CF26900067D9C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF001856BE94000BB6B9 /* main.m */; };
 		281ACD86187CF26900067D9C /* UIWindowAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF3D1856C422000BB6B9 /* UIWindowAdditions.m */; };
 		281ACD87187CF26900067D9C /* RCBaseTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF8E1856E3D2000BB6B9 /* RCBaseTableModel.m */; };
-		281ACD88187CF26900067D9C /* RCLeftC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF7B1856E11A000BB6B9 /* RCLeftC.m */; };
+		281ACD88187CF26900067D9C /* RCLeftMenuC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF7B1856E11A000BB6B9 /* RCLeftMenuC.m */; };
 		281ACD89187CF26900067D9C /* RCUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3A1B44185BFC670081C3E9 /* RCUserCell.m */; };
 		281ACD8A187CF26900067D9C /* TSEmojiView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3675A8186337A70015756D /* TSEmojiView.m */; };
 		281ACD8B187CF26900067D9C /* RCRegularParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4EF7C1858266700C9C858 /* RCRegularParser.m */; };
@@ -288,7 +288,7 @@
 		2897EF741856C60A000BB6B9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2897EF731856C60A000BB6B9 /* README.md */; };
 		2897EF761856C616000BB6B9 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 2897EF751856C616000BB6B9 /* TODO */; };
 		2897EF791856E073000BB6B9 /* RCGlobalConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF781856E073000BB6B9 /* RCGlobalConfig.m */; };
-		2897EF7E1856E11A000BB6B9 /* RCLeftC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF7B1856E11A000BB6B9 /* RCLeftC.m */; };
+		2897EF7E1856E11A000BB6B9 /* RCLeftMenuC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF7B1856E11A000BB6B9 /* RCLeftMenuC.m */; };
 		2897EF821856E2BE000BB6B9 /* RCForumTopicsC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF811856E2BE000BB6B9 /* RCForumTopicsC.m */; };
 		2897EF861856E2EA000BB6B9 /* RCForumTopicsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF851856E2EA000BB6B9 /* RCForumTopicsModel.m */; };
 		2897EF891856E327000BB6B9 /* RCTopicEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF881856E327000BB6B9 /* RCTopicEntity.m */; };
@@ -466,7 +466,7 @@
 		CE90A0811872E6910030DB1E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF001856BE94000BB6B9 /* main.m */; };
 		CE90A0821872E6910030DB1E /* UIWindowAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF3D1856C422000BB6B9 /* UIWindowAdditions.m */; };
 		CE90A0831872E6910030DB1E /* RCBaseTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF8E1856E3D2000BB6B9 /* RCBaseTableModel.m */; };
-		CE90A0841872E6910030DB1E /* RCLeftC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF7B1856E11A000BB6B9 /* RCLeftC.m */; };
+		CE90A0841872E6910030DB1E /* RCLeftMenuC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF7B1856E11A000BB6B9 /* RCLeftMenuC.m */; };
 		CE90A0851872E6910030DB1E /* RCUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3A1B44185BFC670081C3E9 /* RCUserCell.m */; };
 		CE90A0861872E6910030DB1E /* TSEmojiView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3675A8186337A70015756D /* TSEmojiView.m */; };
 		CE90A0871872E6910030DB1E /* RCRegularParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4EF7C1858266700C9C858 /* RCRegularParser.m */; };
@@ -690,8 +690,8 @@
 		2897EF751856C616000BB6B9 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		2897EF771856E073000BB6B9 /* RCGlobalConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCGlobalConfig.h; sourceTree = "<group>"; };
 		2897EF781856E073000BB6B9 /* RCGlobalConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCGlobalConfig.m; sourceTree = "<group>"; };
-		2897EF7A1856E11A000BB6B9 /* RCLeftC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCLeftC.h; sourceTree = "<group>"; };
-		2897EF7B1856E11A000BB6B9 /* RCLeftC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCLeftC.m; sourceTree = "<group>"; };
+		2897EF7A1856E11A000BB6B9 /* RCLeftMenuC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCLeftMenuC.h; sourceTree = "<group>"; };
+		2897EF7B1856E11A000BB6B9 /* RCLeftMenuC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCLeftMenuC.m; sourceTree = "<group>"; };
 		2897EF801856E2BE000BB6B9 /* RCForumTopicsC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCForumTopicsC.h; sourceTree = "<group>"; };
 		2897EF811856E2BE000BB6B9 /* RCForumTopicsC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCForumTopicsC.m; sourceTree = "<group>"; };
 		2897EF841856E2EA000BB6B9 /* RCForumTopicsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCForumTopicsModel.h; sourceTree = "<group>"; };
@@ -1230,8 +1230,8 @@
 		2897EF6E1856C54B000BB6B9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2897EF7A1856E11A000BB6B9 /* RCLeftC.h */,
-				2897EF7B1856E11A000BB6B9 /* RCLeftC.m */,
+				2897EF7A1856E11A000BB6B9 /* RCLeftMenuC.h */,
+				2897EF7B1856E11A000BB6B9 /* RCLeftMenuC.m */,
 				2897EF801856E2BE000BB6B9 /* RCForumTopicsC.h */,
 				2897EF811856E2BE000BB6B9 /* RCForumTopicsC.m */,
 				28D4EF8E1858463E00C9C858 /* RCForumNodesC.h */,
@@ -2185,7 +2185,7 @@
 				281ACD85187CF26900067D9C /* main.m in Sources */,
 				281ACD86187CF26900067D9C /* UIWindowAdditions.m in Sources */,
 				281ACD87187CF26900067D9C /* RCBaseTableModel.m in Sources */,
-				281ACD88187CF26900067D9C /* RCLeftC.m in Sources */,
+				281ACD88187CF26900067D9C /* RCLeftMenuC.m in Sources */,
 				281ACD89187CF26900067D9C /* RCUserCell.m in Sources */,
 				281ACD8A187CF26900067D9C /* TSEmojiView.m in Sources */,
 				281ACD8B187CF26900067D9C /* RCRegularParser.m in Sources */,
@@ -2270,7 +2270,7 @@
 				2897EF011856BE94000BB6B9 /* main.m in Sources */,
 				2897EF5D1856C422000BB6B9 /* UIWindowAdditions.m in Sources */,
 				2897EF8F1856E3D2000BB6B9 /* RCBaseTableModel.m in Sources */,
-				2897EF7E1856E11A000BB6B9 /* RCLeftC.m in Sources */,
+				2897EF7E1856E11A000BB6B9 /* RCLeftMenuC.m in Sources */,
 				CE3A1B45185BFC670081C3E9 /* RCUserCell.m in Sources */,
 				CE3675C7186337A70015756D /* TSEmojiView.m in Sources */,
 				28D4EF7E1858266700C9C858 /* RCRegularParser.m in Sources */,
@@ -2376,7 +2376,7 @@
 				CE90A0811872E6910030DB1E /* main.m in Sources */,
 				CE90A0821872E6910030DB1E /* UIWindowAdditions.m in Sources */,
 				CE90A0831872E6910030DB1E /* RCBaseTableModel.m in Sources */,
-				CE90A0841872E6910030DB1E /* RCLeftC.m in Sources */,
+				CE90A0841872E6910030DB1E /* RCLeftMenuC.m in Sources */,
 				CE90A0851872E6910030DB1E /* RCUserCell.m in Sources */,
 				CE90A0861872E6910030DB1E /* TSEmojiView.m in Sources */,
 				CE90A0871872E6910030DB1E /* RCRegularParser.m in Sources */,
