@@ -107,10 +107,15 @@
     UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.width, tableHeaderHeight)];
     view.backgroundColor = [UIColor clearColor];
     
-    NSString* string = @"Ruby China";
-    NSRange rangeOfRuby = [string rangeOfString:@"Ruby"];
-    NSRange rangeOfChina = [string rangeOfString:@"China"];
-    
+    NSString* string = APP_NAME;//@"Ruby China"
+    NSArray* words = [APP_NAME componentsSeparatedByString:@" "];
+    NSRange rangeOfRuby = NSMakeRange(0, 0);
+    NSRange rangeOfChina = NSMakeRange(0, 0);
+    if (words.count >= 2) {
+        rangeOfRuby = [string rangeOfString:words[0]];//@"Ruby"
+        rangeOfChina = [string rangeOfString:words[1]];//@"China"
+    }
+
     // We must create a mutable attributed string in order to set the CoreText properties.
     NSMutableAttributedString* text = [[NSMutableAttributedString alloc] initWithString:string];
     
