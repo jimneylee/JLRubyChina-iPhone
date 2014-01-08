@@ -125,13 +125,13 @@
     
     self.window.rootViewController = self.revealSideViewController;
     [self.window makeKeyAndVisible];
+    [[LTUpdate shared] update];
+    [self appearanceChange];
 #else
     RCAboutAppC* c = [[RCAboutAppC alloc] initWithNibName:@"RCAboutAppC" bundle:nil];
     self.window.rootViewController = c;
     [self.window makeKeyAndVisible];
 #endif
-    [[LTUpdate shared] update];
-    [self appearanceChange];
     return YES;
 }
 							
