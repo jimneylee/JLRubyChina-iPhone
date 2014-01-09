@@ -34,7 +34,7 @@ $ pod install
 所以在Nimbus没有发布新的版本，暂时只能这样处理。之前考虑过'git submodule add'依赖nimbus，去掉这个JSONKit库，但是会是工程膨胀，得不偿失。
 有问题，请添加到issue中！
 
-4、通过'JLRubyChina.xcworkspace'打开项目
+4、通过'JLRubyChina.xcworkspace'打开项目，也可以[自定义xopen命令](http://jimneylee.github.io/2014/01/09/add-xopen-command-to-open-xcode-workspace/)便捷打开
 
 ![image](https://github.com/jimneylee/JLRubyChina-iPhone/raw/master/Resource/Screenshots/ErrorResolve/open_xcworkspace.jpg)
 
