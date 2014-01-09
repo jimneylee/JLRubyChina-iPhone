@@ -94,7 +94,7 @@ $ rm -rf JLNimbusTimeline
 ```
 
 # 多个git server仓库同步
-今天研究了多个git server仓库同步，把项目同步到[osc](http://git.oschina.net)和[gitcafe](https://gitcafe.com)，不熟悉如何同步到多个git server，可以参考我的[这篇blog](http://blog.sina.com.cn/s/blog_6d2b48100101i8i4.html)，仓库地址分别如下
+今天研究了多个git server仓库同步，把项目同步到[osc](http://git.oschina.net)和[gitcafe](https://gitcafe.com)，不熟悉如何同步到多个git server，可以参考我的[这篇blog](http://jimneylee.github.io/2013/12/20/git-push-multi-server/)，仓库地址分别如下
 
 github:https://github.com/jimneylee/JLRubyChina-iPhone
 
