@@ -1,6 +1,9 @@
 # 强烈提醒，勿随意发帖测试
 请把玩这个客户端源码的同学，不要在[Ruby China](http://ruby-china.org/)社区上随意发帖测试，谢谢配合。
 
+# THKS To Contributors
+[**luzhiyongGit**](https://github.com/luzhiyongGit)
+
 #JLRubyChina-iPhone
 [Ruby China](http://ruby-china.org/)社区的iPhone客户端。
 希望能给社区的同学带来一点帮助，节省一点时间。欢迎大家在使用过程中，提出改进建议和意见。同时期望更多的同学参与学习交流，维护和优化APP。
