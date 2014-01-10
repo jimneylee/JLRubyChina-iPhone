@@ -16,6 +16,7 @@ XCode5 iOS7.x & iOS6.x
 
 2、fork后clone到本地，手工添加依赖库安装方法
 * 1、submodule更新
+
 ``` bash
 $ git submodule init 
 $ git submodule update
@@ -27,6 +28,7 @@ $ git submodule add https://github.com/jimneylee/MarkdownSyntaxEditor.git vendor
 $ git submodule add https://github.com/jimneylee/TSEmojiView.git vendor/TSEmojiView
 ```
 * 2、[CocoaPods](http://cocoapods.org)更新
+
 ``` bash   
 $ pod install
 ```   
