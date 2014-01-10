@@ -182,7 +182,12 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return LeftMenuType_More + 1;
+    if (ForumBaseAPIType_RubyChina == FORUM_BASE_API_TYPE) {
+        return LeftMenuType_More + 1;
+    }
+    else {
+        return LeftMenuType_ForumNodes + 1;
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

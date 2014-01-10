@@ -58,6 +58,9 @@
         [RCGlobalConfig setMyToken:account.privateToken];
     }
     
+    // Parse App Config
+    [RCGlobalConfig parseAppConfig];
+    
     // Setup testflight token, TODO: use testflight
     //[TestFlight takeOff:@"e2bd049b-2ccb-4f61-8189-636db135d001"];
 }
@@ -144,7 +147,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 

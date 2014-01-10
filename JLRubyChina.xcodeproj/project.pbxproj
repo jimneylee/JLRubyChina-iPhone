@@ -244,6 +244,189 @@
 		28386D9F185A97FB00D7B5C9 /* RCPostC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28386D9E185A97FB00D7B5C9 /* RCPostC.m */; };
 		28386DA5185AA4C900D7B5C9 /* RCUIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 28386DA4185AA4C900D7B5C9 /* RCUIHelper.m */; };
 		28386DE6185AE59600D7B5C9 /* RCNodesCloudTagC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28386DE5185AE59600D7B5C9 /* RCNodesCloudTagC.m */; };
+		283F5D5B187FE883008ECE0E /* RCCoolSitesC.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AED5D185975D900DEC6E2 /* RCCoolSitesC.m */; };
+		283F5D5C187FE883008ECE0E /* RCPostModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28386D9B185A946E00D7B5C9 /* RCPostModel.m */; };
+		283F5D5D187FE883008ECE0E /* RCSiteEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AED631859764700DEC6E2 /* RCSiteEntity.m */; };
+		283F5D5E187FE883008ECE0E /* RCForumNodesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4F06D18584E7C00C9C858 /* RCForumNodesModel.m */; };
+		283F5D5F187FE883008ECE0E /* UIFontAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF391856C422000BB6B9 /* UIFontAdditions.m */; };
+		283F5D60187FE883008ECE0E /* RCNodeSectionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F671E31871187B00DD0A93 /* RCNodeSectionEntity.m */; };
+		283F5D61187FE883008ECE0E /* RCReplyEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = CE96587F1857681C003066A5 /* RCReplyEntity.m */; };
+		283F5D62187FE883008ECE0E /* RCQuickReplyC.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEA2BEE1858C41D004FDEDF /* RCQuickReplyC.m */; };
+		283F5D63187FE883008ECE0E /* RCTopicEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF881856E327000BB6B9 /* RCTopicEntity.m */; };
+		283F5D64187FE883008ECE0E /* RCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF041856BE94000BB6B9 /* RCAppDelegate.m */; };
+		283F5D65187FE883008ECE0E /* JLNimbusMoreButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF4C1856C422000BB6B9 /* JLNimbusMoreButton.m */; };
+		283F5D66187FE883008ECE0E /* RCNodesCloudTagC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28386DE5185AE59600D7B5C9 /* RCNodesCloudTagC.m */; };
+		283F5D67187FE883008ECE0E /* JLAFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF471856C422000BB6B9 /* JLAFHTTPClient.m */; };
+		283F5D68187FE883008ECE0E /* RCTopMembersC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3A1B47185C05940081C3E9 /* RCTopMembersC.m */; };
+		283F5D69187FE883008ECE0E /* RCContentPhotoBrowerC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F671E6187288D100DD0A93 /* RCContentPhotoBrowerC.m */; };
+		283F5D6A187FE883008ECE0E /* RCUserHomepageC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3A1B59185C3A170081C3E9 /* RCUserHomepageC.m */; };
+		283F5D6B187FE883008ECE0E /* RCNetworkSpy.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4EF7A1858266700C9C858 /* RCNetworkSpy.m */; };
+		283F5D6C187FE883008ECE0E /* RCNodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4F07018584EA500C9C858 /* RCNodeCell.m */; };
+		283F5D6D187FE883008ECE0E /* RCMoreC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE13258C185F340200208653 /* RCMoreC.m */; };
+		283F5D6E187FE883008ECE0E /* RCTopicBodyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4EF741857F78500C9C858 /* RCTopicBodyView.m */; };
+		283F5D6F187FE883008ECE0E /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5936FC187D7F4100DC3A55 /* JASidePanelController.m */; };
+		283F5D70187FE883008ECE0E /* JLNimbusTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF401856C422000BB6B9 /* JLNimbusTableViewController.m */; };
+		283F5D71187FE883008ECE0E /* RCNodeEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4EF92185846CA00C9C858 /* RCNodeEntity.m */; };
+		283F5D72187FE883008ECE0E /* RCKeywordEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4EF80185826BF00C9C858 /* RCKeywordEntity.m */; };
+		283F5D73187FE883008ECE0E /* MarkdownSyntaxGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CBC11818629839007C68FC /* MarkdownSyntaxGenerator.m */; };
+		283F5D74187FE883008ECE0E /* RCUserHomepageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3A1B5C185C3A810081C3E9 /* RCUserHomepageModel.m */; };
+		283F5D75187FE883008ECE0E /* RCUIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 28386DA4185AA4C900D7B5C9 /* RCUIHelper.m */; };
+		283F5D76187FE883008ECE0E /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4EF841858276A00C9C858 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		283F5D77187FE883008ECE0E /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF2D1856C422000BB6B9 /* NSDataAdditions.m */; };
+		283F5D78187FE883008ECE0E /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF311856C422000BB6B9 /* NSStringAdditions.m */; };
+		283F5D79187FE883008ECE0E /* UIView+findViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4EF771858061E00C9C858 /* UIView+findViewController.m */; };
+		283F5D7A187FE883008ECE0E /* RCReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9658821857683A003066A5 /* RCReplyCell.m */; };
+		283F5D7B187FE883008ECE0E /* NSDate+RubyChina.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF9D18571008000BB6B9 /* NSDate+RubyChina.m */; };
+		283F5D7C187FE883008ECE0E /* RCAboutAppC.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB2304F185C8F2C004F54C7 /* RCAboutAppC.m */; };
+		283F5D7D187FE883008ECE0E /* RCUserFullEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9DFAC6185C5BB1007BAE75 /* RCUserFullEntity.m */; };
+		283F5D7E187FE883008ECE0E /* RCForumNodesC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4EF8F1858463E00C9C858 /* RCForumNodesC.m */; };
+		283F5D7F187FE883008ECE0E /* JLNimbusEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF431856C422000BB6B9 /* JLNimbusEntity.m */; };
+		283F5D80187FE883008ECE0E /* NSString+stringFromValue.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7E3199185D8BDE005F583E /* NSString+stringFromValue.m */; };
+		283F5D81187FE883008ECE0E /* MarkdownSyntaxModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CBC11A18629839007C68FC /* MarkdownSyntaxModel.m */; };
+		283F5D82187FE883008ECE0E /* RCGlobalConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF781856E073000BB6B9 /* RCGlobalConfig.m */; };
+		283F5D83187FE883008ECE0E /* RCCoolSitesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AED601859760F00DEC6E2 /* RCCoolSitesModel.m */; };
+		283F5D84187FE883008ECE0E /* JLNimbusTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF491856C422000BB6B9 /* JLNimbusTableModel.m */; };
+		283F5D85187FE883008ECE0E /* RCTopicDetailEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = CE96587618576748003066A5 /* RCTopicDetailEntity.m */; };
+		283F5D86187FE883008ECE0E /* RCLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B094A7185ED92D003F8789 /* RCLoginModel.m */; };
+		283F5D87187FE883008ECE0E /* RCSiteSectionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AED661859769100DEC6E2 /* RCSiteSectionEntity.m */; };
+		283F5D88187FE883008ECE0E /* RCTopicDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE96587C185767BD003066A5 /* RCTopicDetailModel.m */; };
+		283F5D89187FE883008ECE0E /* RCTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF9A1856FB09000BB6B9 /* RCTopicCell.m */; };
+		283F5D8A187FE883008ECE0E /* RCTopicDetailC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE96587918576791003066A5 /* RCTopicDetailC.m */; };
+		283F5D8B187FE883008ECE0E /* UIImage+nimbusImageNamed.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9DFAB8185C4D17007BAE75 /* UIImage+nimbusImageNamed.m */; };
+		283F5D8C187FE883008ECE0E /* RCAccountEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B094AA185EDD73003F8789 /* RCAccountEntity.m */; };
+		283F5D8D187FE883008ECE0E /* RCForumTopicsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF851856E2EA000BB6B9 /* RCForumTopicsModel.m */; };
+		283F5D8E187FE883008ECE0E /* MarkdownTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CBC11D18629839007C68FC /* MarkdownTextView.m */; };
+		283F5D8F187FE883008ECE0E /* RCUserLauncherButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3A1B56185C35E00081C3E9 /* RCUserLauncherButtonView.m */; };
+		283F5D90187FE883008ECE0E /* RCTopicActionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2837D365185EA1EC00EE013D /* RCTopicActionModel.m */; };
+		283F5D91187FE883008ECE0E /* RCSiteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AED69185982E500DEC6E2 /* RCSiteCell.m */; };
+		283F5D92187FE883008ECE0E /* KOKeyboardRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CBC0FE18629839007C68FC /* KOKeyboardRow.m */; };
+		283F5D93187FE883008ECE0E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF001856BE94000BB6B9 /* main.m */; };
+		283F5D94187FE883008ECE0E /* UIWindowAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF3D1856C422000BB6B9 /* UIWindowAdditions.m */; };
+		283F5D95187FE883008ECE0E /* RCBaseTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF8E1856E3D2000BB6B9 /* RCBaseTableModel.m */; };
+		283F5D96187FE883008ECE0E /* RCLeftMenuC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF7B1856E11A000BB6B9 /* RCLeftMenuC.m */; };
+		283F5D97187FE883008ECE0E /* RCUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3A1B44185BFC670081C3E9 /* RCUserCell.m */; };
+		283F5D98187FE883008ECE0E /* TSEmojiView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3675A8186337A70015756D /* TSEmojiView.m */; };
+		283F5D99187FE883008ECE0E /* RCRegularParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4EF7C1858266700C9C858 /* RCRegularParser.m */; };
+		283F5D9A187FE883008ECE0E /* RCReplyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3889D31858AA790052566C /* RCReplyModel.m */; };
+		283F5D9B187FE883008ECE0E /* RCLoginC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B094A4185ED914003F8789 /* RCLoginC.m */; };
+		283F5D9C187FE883008ECE0E /* RCHomepageHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9DFAC3185C57BD007BAE75 /* RCHomepageHeaderView.m */; };
+		283F5D9D187FE883008ECE0E /* RCAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF6C1856C54B000BB6B9 /* RCAPIClient.m */; };
+		283F5D9E187FE883008ECE0E /* RCUserEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF971856ECBD000BB6B9 /* RCUserEntity.m */; };
+		283F5D9F187FE883008ECE0E /* UIViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF3B1856C422000BB6B9 /* UIViewAdditions.m */; };
+		283F5DA0187FE883008ECE0E /* UIViewController+JASidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5936FE187D7F4100DC3A55 /* UIViewController+JASidePanel.m */; };
+		283F5DA1187FE883008ECE0E /* TTGlobalUICommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF371856C422000BB6B9 /* TTGlobalUICommon.m */; };
+		283F5DA2187FE883008ECE0E /* KOSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CBC10018629839007C68FC /* KOSwipeButton.m */; };
+		283F5DA3187FE883008ECE0E /* RCWikiC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3A1B53185C28540081C3E9 /* RCWikiC.m */; };
+		283F5DA4187FE883008ECE0E /* RCPostC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28386D9E185A97FB00D7B5C9 /* RCPostC.m */; };
+		283F5DA5187FE883008ECE0E /* TTGlobalCoreLocale.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF351856C422000BB6B9 /* TTGlobalCoreLocale.m */; };
+		283F5DA6187FE883008ECE0E /* RCTopMembersModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3A1B4D185C06D20081C3E9 /* RCTopMembersModel.m */; };
+		283F5DA7187FE883008ECE0E /* RCForumTopicsC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF811856E2BE000BB6B9 /* RCForumTopicsC.m */; };
+		283F5DA8187FE883008ECE0E /* NSDateAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF2F1856C422000BB6B9 /* NSDateAdditions.m */; };
+		283F5DAA187FE883008ECE0E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 28AB745A186AA8CB00EF68D7 /* libz.dylib */; };
+		283F5DAB187FE883008ECE0E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2897EEF61856BE94000BB6B9 /* CoreGraphics.framework */; };
+		283F5DAC187FE883008ECE0E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2897EEF81856BE94000BB6B9 /* UIKit.framework */; };
+		283F5DAD187FE883008ECE0E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2897EEF41856BE94000BB6B9 /* Foundation.framework */; };
+		283F5DAE187FE883008ECE0E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DAEFF79992F4B9FB48FFA19 /* libPods.a */; };
+		283F5DB0187FE883008ECE0E /* JLRubyChina-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2897EEFC1856BE94000BB6B9 /* JLRubyChina-Info.plist */; };
+		283F5DB1187FE883008ECE0E /* redo-black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC10918629839007C68FC /* redo-black@2x.png */; };
+		283F5DB2187FE883008ECE0E /* emo_016@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE367598186337A70015756D /* emo_016@2x.png */; };
+		283F5DB3187FE883008ECE0E /* key@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC10718629839007C68FC /* key@2x.png */; };
+		283F5DB4187FE883008ECE0E /* emo_017@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE367599186337A70015756D /* emo_017@2x.png */; };
+		283F5DB5187FE883008ECE0E /* MessageEntryBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE18187CF41100067D9C /* MessageEntryBackground.png */; };
+		283F5DB6187FE883008ECE0E /* redo-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC10818629839007C68FC /* redo-black.png */; };
+		283F5DB7187FE883008ECE0E /* redo-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC10A18629839007C68FC /* redo-blue.png */; };
+		283F5DB8187FE883008ECE0E /* emo_006@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE36758E186337A70015756D /* emo_006@2x.png */; };
+		283F5DB9187FE883008ECE0E /* emo_012@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE367594186337A70015756D /* emo_012@2x.png */; };
+		283F5DBA187FE883008ECE0E /* key-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC10418629839007C68FC /* key-pressed.png */; };
+		283F5DBB187FE883008ECE0E /* home_activity_topics.png in Resources */ = {isa = PBXBuildFile; fileRef = CE132595185F5A8400208653 /* home_activity_topics.png */; };
+		283F5DBC187FE883008ECE0E /* MessageEntrySendButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE1E187CF41100067D9C /* MessageEntrySendButtonPressed.png */; };
+		283F5DBE187FE883008ECE0E /* MessageEntryBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE19187CF41100067D9C /* MessageEntryBackground@2x.png */; };
+		283F5DBF187FE883008ECE0E /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 2897EF751856C616000BB6B9 /* TODO */; };
+		283F5DC0187FE883008ECE0E /* emo_023@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE36759F186337A70015756D /* emo_023@2x.png */; };
+		283F5DC1187FE883008ECE0E /* top_members.png in Resources */ = {isa = PBXBuildFile; fileRef = CE13259B185F5A8400208653 /* top_members.png */; };
+		283F5DC2187FE883008ECE0E /* nodes.png in Resources */ = {isa = PBXBuildFile; fileRef = CE132599185F5A8400208653 /* nodes.png */; };
+		283F5DC3187FE883008ECE0E /* more.png in Resources */ = {isa = PBXBuildFile; fileRef = CE132597185F5A8400208653 /* more.png */; };
+		283F5DC4187FE883008ECE0E /* emo_010@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE367592186337A70015756D /* emo_010@2x.png */; };
+		283F5DC6187FE883008ECE0E /* emo_015@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE367597186337A70015756D /* emo_015@2x.png */; };
+		283F5DC7187FE883008ECE0E /* emo_022@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE36759E186337A70015756D /* emo_022@2x.png */; };
+		283F5DC8187FE883008ECE0E /* CHANGES.md in Resources */ = {isa = PBXBuildFile; fileRef = CE13258F185F4F5800208653 /* CHANGES.md */; };
+		283F5DCA187FE883008ECE0E /* RCAboutAppC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB23050185C8F2C004F54C7 /* RCAboutAppC.xib */; };
+		283F5DCB187FE883008ECE0E /* left_menu_side.png in Resources */ = {isa = PBXBuildFile; fileRef = CE132596185F5A8400208653 /* left_menu_side.png */; };
+		283F5DCC187FE883008ECE0E /* emo_002@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE36758A186337A70015756D /* emo_002@2x.png */; };
+		283F5DCE187FE883008ECE0E /* MessageEntrySendButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE1D187CF41100067D9C /* MessageEntrySendButton@2x.png */; };
+		283F5DD0187FE883008ECE0E /* trackpoint-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC11118629839007C68FC /* trackpoint-white@2x.png */; };
+		283F5DD1187FE883008ECE0E /* Three20.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2897EF321856C422000BB6B9 /* Three20.bundle */; };
+		283F5DD2187FE883008ECE0E /* emo_001@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE367589186337A70015756D /* emo_001@2x.png */; };
+		283F5DD3187FE883008ECE0E /* trackpoint-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC10E18629839007C68FC /* trackpoint-blue.png */; };
+		283F5DD4187FE883008ECE0E /* 37x-Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE0E187CF41100067D9C /* 37x-Checkmark@2x.png */; };
+		283F5DD5187FE883008ECE0E /* emo_019@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE36759B186337A70015756D /* emo_019@2x.png */; };
+		283F5DD6187FE883008ECE0E /* undo-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC11218629839007C68FC /* undo-black.png */; };
+		283F5DD7187FE883008ECE0E /* emo_027@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3675A3186337A70015756D /* emo_027@2x.png */; };
+		283F5DD8187FE883008ECE0E /* emo_011@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE367593186337A70015756D /* emo_011@2x.png */; };
+		283F5DD9187FE883008ECE0E /* head_s@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE12187CF41100067D9C /* head_s@2x.png */; };
+		283F5DDA187FE883008ECE0E /* node_select.png in Resources */ = {isa = PBXBuildFile; fileRef = CE132598185F5A8400208653 /* node_select.png */; };
+		283F5DDB187FE883008ECE0E /* trackpoint-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC10C18629839007C68FC /* trackpoint-black.png */; };
+		283F5DDC187FE883008ECE0E /* undo-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC11418629839007C68FC /* undo-blue.png */; };
+		283F5DDD187FE883008ECE0E /* trackpoint-blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC10F18629839007C68FC /* trackpoint-blue@2x.png */; };
+		283F5DDE187FE883008ECE0E /* more_photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE16187CF41100067D9C /* more_photo@2x.png */; };
+		283F5DDF187FE883008ECE0E /* emo_003@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE36758B186337A70015756D /* emo_003@2x.png */; };
+		283F5DE0187FE883008ECE0E /* open_xcworkspace.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2847BE221867F45900D9CEF0 /* open_xcworkspace.jpg */; };
+		283F5DE1187FE883008ECE0E /* emo_028@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3675A4186337A70015756D /* emo_028@2x.png */; };
+		283F5DE2187FE883008ECE0E /* key-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC10218629839007C68FC /* key-blue.png */; };
+		283F5DE4187FE883008ECE0E /* emo_005@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE36758D186337A70015756D /* emo_005@2x.png */; };
+		283F5DE5187FE883008ECE0E /* key-blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC10318629839007C68FC /* key-blue@2x.png */; };
+		283F5DE6187FE883008ECE0E /* emo_004@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE36758C186337A70015756D /* emo_004@2x.png */; };
+		283F5DE7187FE883008ECE0E /* emo_009@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE367591186337A70015756D /* emo_009@2x.png */; };
+		283F5DE8187FE883008ECE0E /* key.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC10618629839007C68FC /* key.png */; };
+		283F5DE9187FE883008ECE0E /* emo_008@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE367590186337A70015756D /* emo_008@2x.png */; };
+		283F5DEA187FE883008ECE0E /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE0D187CF41100067D9C /* 37x-Checkmark.png */; };
+		283F5DEB187FE883008ECE0E /* undo-black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC11318629839007C68FC /* undo-black@2x.png */; };
+		283F5DEC187FE883008ECE0E /* not_found_pods.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC1381862A09B007C68FC /* not_found_pods.png */; };
+		283F5DED187FE883008ECE0E /* topic_reply.png in Resources */ = {isa = PBXBuildFile; fileRef = CE13259C185F5A8400208653 /* topic_reply.png */; };
+		283F5DEE187FE883008ECE0E /* emo_007@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE36758F186337A70015756D /* emo_007@2x.png */; };
+		283F5DEF187FE883008ECE0E /* outside_link_sites.png in Resources */ = {isa = PBXBuildFile; fileRef = CE13259A185F5A8400208653 /* outside_link_sites.png */; };
+		283F5DF0187FE883008ECE0E /* key-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC10518629839007C68FC /* key-pressed@2x.png */; };
+		283F5DF1187FE883008ECE0E /* emo_020@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE36759C186337A70015756D /* emo_020@2x.png */; };
+		283F5DF2187FE883008ECE0E /* emoji_touch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3675A6186337A70015756D /* emoji_touch@2x.png */; };
+		283F5DF3187FE883008ECE0E /* MessageEntrySendButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE1C187CF41100067D9C /* MessageEntrySendButton.png */; };
+		283F5DF4187FE883008ECE0E /* more_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE15187CF41100067D9C /* more_photo.png */; };
+		283F5DF5187FE883008ECE0E /* emoji_touch.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3675A5186337A70015756D /* emoji_touch.png */; };
+		283F5DF7187FE883008ECE0E /* emo_024@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3675A0186337A70015756D /* emo_024@2x.png */; };
+		283F5DF8187FE883008ECE0E /* icon_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE13187CF41100067D9C /* icon_menu.png */; };
+		283F5DF9187FE883008ECE0E /* trackpoint-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC11018629839007C68FC /* trackpoint-white.png */; };
+		283F5DFA187FE883008ECE0E /* emo_026@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3675A2186337A70015756D /* emo_026@2x.png */; };
+		283F5DFC187FE883008ECE0E /* Notice in Resources */ = {isa = PBXBuildFile; fileRef = 28D4EF8918582B0A00C9C858 /* Notice */; };
+		283F5DFD187FE883008ECE0E /* icon_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE14187CF41100067D9C /* icon_menu@2x.png */; };
+		283F5DFE187FE883008ECE0E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2897EF731856C60A000BB6B9 /* README.md */; };
+		283F5E00187FE883008ECE0E /* emo_025@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3675A1186337A70015756D /* emo_025@2x.png */; };
+		283F5E01187FE883008ECE0E /* MessageEntryInputField.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE1A187CF41100067D9C /* MessageEntryInputField.png */; };
+		283F5E02187FE883008ECE0E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2897EEFD1856BE94000BB6B9 /* InfoPlist.strings */; };
+		283F5E03187FE883008ECE0E /* head_b@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE10187CF41100067D9C /* head_b@2x.png */; };
+		283F5E04187FE883008ECE0E /* emo_013@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE367595186337A70015756D /* emo_013@2x.png */; };
+		283F5E05187FE883008ECE0E /* emo_018@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE36759A186337A70015756D /* emo_018@2x.png */; };
+		283F5E06187FE883008ECE0E /* head_b.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE0F187CF41100067D9C /* head_b.png */; };
+		283F5E07187FE883008ECE0E /* emo_014@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE367596186337A70015756D /* emo_014@2x.png */; };
+		283F5E08187FE883008ECE0E /* redo-blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC10B18629839007C68FC /* redo-blue@2x.png */; };
+		283F5E09187FE883008ECE0E /* emo_021@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE36759D186337A70015756D /* emo_021@2x.png */; };
+		283F5E0A187FE883008ECE0E /* MessageEntrySendButtonPressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE1F187CF41100067D9C /* MessageEntrySendButtonPressed@2x.png */; };
+		283F5E0B187FE883008ECE0E /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = CE132594185F5A8400208653 /* default.png */; };
+		283F5E0C187FE883008ECE0E /* trackpoint-black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC10D18629839007C68FC /* trackpoint-black@2x.png */; };
+		283F5E0D187FE883008ECE0E /* head_s.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE11187CF41100067D9C /* head_s.png */; };
+		283F5E0E187FE883008ECE0E /* API Problem.md in Resources */ = {isa = PBXBuildFile; fileRef = CE132591185F537600208653 /* API Problem.md */; };
+		283F5E0F187FE883008ECE0E /* MessageEntryInputField@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE1B187CF41100067D9C /* MessageEntryInputField@2x.png */; };
+		283F5E10187FE883008ECE0E /* undo-blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC11518629839007C68FC /* undo-blue@2x.png */; };
+		283F5E19187FE8AC008ECE0E /* JLV2EX-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 283F5E18187FE8AC008ECE0E /* JLV2EX-Info.plist */; };
+		283F5E27187FEF95008ECE0E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 283F5E1C187FEF95008ECE0E /* Default-568h@2x.png */; };
+		283F5E28187FEF95008ECE0E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 283F5E1D187FEF95008ECE0E /* Default.png */; };
+		283F5E29187FEF95008ECE0E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 283F5E1E187FEF95008ECE0E /* Default@2x.png */; };
+		283F5E2A187FEF95008ECE0E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 283F5E1F187FEF95008ECE0E /* icon.png */; };
+		283F5E2B187FEF95008ECE0E /* icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = 283F5E20187FEF95008ECE0E /* icon120.png */; };
+		283F5E2C187FEF95008ECE0E /* icon58.png in Resources */ = {isa = PBXBuildFile; fileRef = 283F5E21187FEF95008ECE0E /* icon58.png */; };
+		283F5E2D187FEF95008ECE0E /* icon80.png in Resources */ = {isa = PBXBuildFile; fileRef = 283F5E22187FEF95008ECE0E /* icon80.png */; };
+		283F5E2E187FEF95008ECE0E /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 283F5E23187FEF95008ECE0E /* icon@2x.png */; };
+		283F5E2F187FEF95008ECE0E /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 283F5E24187FEF95008ECE0E /* logo.png */; };
+		283F5E30187FEF95008ECE0E /* ruby-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 283F5E25187FEF95008ECE0E /* ruby-logo.png */; };
+		283F5E31187FEF95008ECE0E /* ruby-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 283F5E26187FEF95008ECE0E /* ruby-logo@2x.png */; };
 		2847BE231867F45900D9CEF0 /* open_xcworkspace.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2847BE221867F45900D9CEF0 /* open_xcworkspace.jpg */; };
 		2897EEF51856BE94000BB6B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2897EEF41856BE94000BB6B9 /* Foundation.framework */; };
 		2897EEF71856BE94000BB6B9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2897EEF61856BE94000BB6B9 /* CoreGraphics.framework */; };
@@ -632,6 +815,19 @@
 		28386DA4185AA4C900D7B5C9 /* RCUIHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCUIHelper.m; sourceTree = "<group>"; };
 		28386DE4185AE59600D7B5C9 /* RCNodesCloudTagC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCNodesCloudTagC.h; sourceTree = "<group>"; };
 		28386DE5185AE59600D7B5C9 /* RCNodesCloudTagC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCNodesCloudTagC.m; sourceTree = "<group>"; };
+		283F5E16187FE883008ECE0E /* JLRubyChina copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JLRubyChina copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		283F5E18187FE8AC008ECE0E /* JLV2EX-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "JLV2EX-Info.plist"; sourceTree = "<group>"; };
+		283F5E1C187FEF95008ECE0E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		283F5E1D187FEF95008ECE0E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		283F5E1E187FEF95008ECE0E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		283F5E1F187FEF95008ECE0E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		283F5E20187FEF95008ECE0E /* icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon120.png; sourceTree = "<group>"; };
+		283F5E21187FEF95008ECE0E /* icon58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon58.png; sourceTree = "<group>"; };
+		283F5E22187FEF95008ECE0E /* icon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon80.png; sourceTree = "<group>"; };
+		283F5E23187FEF95008ECE0E /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		283F5E24187FEF95008ECE0E /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		283F5E25187FEF95008ECE0E /* ruby-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ruby-logo.png"; sourceTree = "<group>"; };
+		283F5E26187FEF95008ECE0E /* ruby-logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ruby-logo@2x.png"; sourceTree = "<group>"; };
 		2847BE181867D86500D9CEF0 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		2847BE1A1867D91D00D9CEF0 /* NIAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIAttributedLabel.h; sourceTree = "<group>"; };
 		2847BE1B1867D91D00D9CEF0 /* NIAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIAttributedLabel.m; sourceTree = "<group>"; };
@@ -887,6 +1083,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		283F5DA9187FE883008ECE0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				283F5DAA187FE883008ECE0E /* libz.dylib in Frameworks */,
+				283F5DAB187FE883008ECE0E /* CoreGraphics.framework in Frameworks */,
+				283F5DAC187FE883008ECE0E /* UIKit.framework in Frameworks */,
+				283F5DAD187FE883008ECE0E /* Foundation.framework in Frameworks */,
+				283F5DAE187FE883008ECE0E /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2897EEEE1856BE94000BB6B9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -969,6 +1177,7 @@
 		281ACE20187CF41100067D9C /* Forums */ = {
 			isa = PBXGroup;
 			children = (
+				283F5E1A187FEF95008ECE0E /* V2EX */,
 				281ACE21187CF41100067D9C /* RubyChina */,
 				281ACE36187CF41100067D9C /* TesterHome */,
 			);
@@ -1008,6 +1217,32 @@
 			path = TesterHome;
 			sourceTree = "<group>";
 		};
+		283F5E1A187FEF95008ECE0E /* V2EX */ = {
+			isa = PBXGroup;
+			children = (
+				283F5E1B187FEF95008ECE0E /* IconDefault */,
+			);
+			path = V2EX;
+			sourceTree = "<group>";
+		};
+		283F5E1B187FEF95008ECE0E /* IconDefault */ = {
+			isa = PBXGroup;
+			children = (
+				283F5E1C187FEF95008ECE0E /* Default-568h@2x.png */,
+				283F5E1D187FEF95008ECE0E /* Default.png */,
+				283F5E1E187FEF95008ECE0E /* Default@2x.png */,
+				283F5E1F187FEF95008ECE0E /* icon.png */,
+				283F5E20187FEF95008ECE0E /* icon120.png */,
+				283F5E21187FEF95008ECE0E /* icon58.png */,
+				283F5E22187FEF95008ECE0E /* icon80.png */,
+				283F5E23187FEF95008ECE0E /* icon@2x.png */,
+				283F5E24187FEF95008ECE0E /* logo.png */,
+				283F5E25187FEF95008ECE0E /* ruby-logo.png */,
+				283F5E26187FEF95008ECE0E /* ruby-logo@2x.png */,
+			);
+			path = IconDefault;
+			sourceTree = "<group>";
+		};
 		2847BE171867D86500D9CEF0 /* JSONKit_fixerror */ = {
 			isa = PBXGroup;
 			children = (
@@ -1040,6 +1275,7 @@
 				2897EF121856BE94000BB6B9 /* JLRubyChinaTests.xctest */,
 				CE90A1061872E6910030DB1E /* JLRubyChina Dis.app */,
 				281ACE07187CF26900067D9C /* JLTesterHome.app */,
+				283F5E16187FE883008ECE0E /* JLRubyChina copy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1084,6 +1320,7 @@
 				2897EEFC1856BE94000BB6B9 /* JLRubyChina-Info.plist */,
 				CE90A1081872E9A90030DB1E /* JLRubyChina-Dis-Info.plist */,
 				281ACEA3187CF45400067D9C /* JLTesterHome-Info.plist */,
+				283F5E18187FE8AC008ECE0E /* JLV2EX-Info.plist */,
 				2897EEFD1856BE94000BB6B9 /* InfoPlist.strings */,
 				2897EF001856BE94000BB6B9 /* main.m */,
 				2897EF021856BE94000BB6B9 /* JLRubyChina-Prefix.pch */,
@@ -1609,6 +1846,25 @@
 			productReference = 281ACE07187CF26900067D9C /* JLTesterHome.app */;
 			productType = "com.apple.product-type.application";
 		};
+		283F5D58187FE883008ECE0E /* JLV2EX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 283F5E13187FE883008ECE0E /* Build configuration list for PBXNativeTarget "JLV2EX" */;
+			buildPhases = (
+				283F5D59187FE883008ECE0E /* Check Pods Manifest.lock */,
+				283F5D5A187FE883008ECE0E /* Sources */,
+				283F5DA9187FE883008ECE0E /* Frameworks */,
+				283F5DAF187FE883008ECE0E /* Resources */,
+				283F5E12187FE883008ECE0E /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JLV2EX;
+			productName = JLRubyChina;
+			productReference = 283F5E16187FE883008ECE0E /* JLRubyChina copy.app */;
+			productType = "com.apple.product-type.application";
+		};
 		2897EEF01856BE94000BB6B9 /* JLRubyChina */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2897EF231856BE94000BB6B9 /* Build configuration list for PBXNativeTarget "JLRubyChina" */;
@@ -1696,6 +1952,7 @@
 				2897EEF01856BE94000BB6B9 /* JLRubyChina */,
 				CE90A0471872E6910030DB1E /* JLRubyChina Dis */,
 				281ACD4B187CF26900067D9C /* JLTesterHome */,
+				283F5D58187FE883008ECE0E /* JLV2EX */,
 				2897EF111856BE94000BB6B9 /* JLRubyChinaTests */,
 			);
 		};
@@ -1804,6 +2061,113 @@
 				281ACE01187CF26900067D9C /* undo-blue@2x.png in Resources */,
 				28E07C37187D2AE500414F19 /* Default-568h@2x.png in Resources */,
 				28E07C3D187D2AE500414F19 /* icon80.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		283F5DAF187FE883008ECE0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				283F5DB0187FE883008ECE0E /* JLRubyChina-Info.plist in Resources */,
+				283F5DB1187FE883008ECE0E /* redo-black@2x.png in Resources */,
+				283F5DB2187FE883008ECE0E /* emo_016@2x.png in Resources */,
+				283F5DB3187FE883008ECE0E /* key@2x.png in Resources */,
+				283F5DB4187FE883008ECE0E /* emo_017@2x.png in Resources */,
+				283F5DB5187FE883008ECE0E /* MessageEntryBackground.png in Resources */,
+				283F5DB6187FE883008ECE0E /* redo-black.png in Resources */,
+				283F5DB7187FE883008ECE0E /* redo-blue.png in Resources */,
+				283F5DB8187FE883008ECE0E /* emo_006@2x.png in Resources */,
+				283F5DB9187FE883008ECE0E /* emo_012@2x.png in Resources */,
+				283F5DBA187FE883008ECE0E /* key-pressed.png in Resources */,
+				283F5DBB187FE883008ECE0E /* home_activity_topics.png in Resources */,
+				283F5DBC187FE883008ECE0E /* MessageEntrySendButtonPressed.png in Resources */,
+				283F5E28187FEF95008ECE0E /* Default.png in Resources */,
+				283F5DBE187FE883008ECE0E /* MessageEntryBackground@2x.png in Resources */,
+				283F5DBF187FE883008ECE0E /* TODO in Resources */,
+				283F5DC0187FE883008ECE0E /* emo_023@2x.png in Resources */,
+				283F5DC1187FE883008ECE0E /* top_members.png in Resources */,
+				283F5DC2187FE883008ECE0E /* nodes.png in Resources */,
+				283F5DC3187FE883008ECE0E /* more.png in Resources */,
+				283F5DC4187FE883008ECE0E /* emo_010@2x.png in Resources */,
+				283F5DC6187FE883008ECE0E /* emo_015@2x.png in Resources */,
+				283F5DC7187FE883008ECE0E /* emo_022@2x.png in Resources */,
+				283F5DC8187FE883008ECE0E /* CHANGES.md in Resources */,
+				283F5E2B187FEF95008ECE0E /* icon120.png in Resources */,
+				283F5DCA187FE883008ECE0E /* RCAboutAppC.xib in Resources */,
+				283F5DCB187FE883008ECE0E /* left_menu_side.png in Resources */,
+				283F5DCC187FE883008ECE0E /* emo_002@2x.png in Resources */,
+				283F5DCE187FE883008ECE0E /* MessageEntrySendButton@2x.png in Resources */,
+				283F5DD0187FE883008ECE0E /* trackpoint-white@2x.png in Resources */,
+				283F5DD1187FE883008ECE0E /* Three20.bundle in Resources */,
+				283F5DD2187FE883008ECE0E /* emo_001@2x.png in Resources */,
+				283F5DD3187FE883008ECE0E /* trackpoint-blue.png in Resources */,
+				283F5DD4187FE883008ECE0E /* 37x-Checkmark@2x.png in Resources */,
+				283F5DD5187FE883008ECE0E /* emo_019@2x.png in Resources */,
+				283F5DD6187FE883008ECE0E /* undo-black.png in Resources */,
+				283F5DD7187FE883008ECE0E /* emo_027@2x.png in Resources */,
+				283F5DD8187FE883008ECE0E /* emo_011@2x.png in Resources */,
+				283F5DD9187FE883008ECE0E /* head_s@2x.png in Resources */,
+				283F5DDA187FE883008ECE0E /* node_select.png in Resources */,
+				283F5DDB187FE883008ECE0E /* trackpoint-black.png in Resources */,
+				283F5DDC187FE883008ECE0E /* undo-blue.png in Resources */,
+				283F5DDD187FE883008ECE0E /* trackpoint-blue@2x.png in Resources */,
+				283F5DDE187FE883008ECE0E /* more_photo@2x.png in Resources */,
+				283F5DDF187FE883008ECE0E /* emo_003@2x.png in Resources */,
+				283F5DE0187FE883008ECE0E /* open_xcworkspace.jpg in Resources */,
+				283F5DE1187FE883008ECE0E /* emo_028@2x.png in Resources */,
+				283F5DE2187FE883008ECE0E /* key-blue.png in Resources */,
+				283F5DE4187FE883008ECE0E /* emo_005@2x.png in Resources */,
+				283F5DE5187FE883008ECE0E /* key-blue@2x.png in Resources */,
+				283F5E2F187FEF95008ECE0E /* logo.png in Resources */,
+				283F5DE6187FE883008ECE0E /* emo_004@2x.png in Resources */,
+				283F5DE7187FE883008ECE0E /* emo_009@2x.png in Resources */,
+				283F5DE8187FE883008ECE0E /* key.png in Resources */,
+				283F5DE9187FE883008ECE0E /* emo_008@2x.png in Resources */,
+				283F5DEA187FE883008ECE0E /* 37x-Checkmark.png in Resources */,
+				283F5E29187FEF95008ECE0E /* Default@2x.png in Resources */,
+				283F5DEB187FE883008ECE0E /* undo-black@2x.png in Resources */,
+				283F5DEC187FE883008ECE0E /* not_found_pods.png in Resources */,
+				283F5E2D187FEF95008ECE0E /* icon80.png in Resources */,
+				283F5DED187FE883008ECE0E /* topic_reply.png in Resources */,
+				283F5DEE187FE883008ECE0E /* emo_007@2x.png in Resources */,
+				283F5DEF187FE883008ECE0E /* outside_link_sites.png in Resources */,
+				283F5DF0187FE883008ECE0E /* key-pressed@2x.png in Resources */,
+				283F5DF1187FE883008ECE0E /* emo_020@2x.png in Resources */,
+				283F5E31187FEF95008ECE0E /* ruby-logo@2x.png in Resources */,
+				283F5DF2187FE883008ECE0E /* emoji_touch@2x.png in Resources */,
+				283F5DF3187FE883008ECE0E /* MessageEntrySendButton.png in Resources */,
+				283F5DF4187FE883008ECE0E /* more_photo.png in Resources */,
+				283F5DF5187FE883008ECE0E /* emoji_touch.png in Resources */,
+				283F5DF7187FE883008ECE0E /* emo_024@2x.png in Resources */,
+				283F5DF8187FE883008ECE0E /* icon_menu.png in Resources */,
+				283F5E27187FEF95008ECE0E /* Default-568h@2x.png in Resources */,
+				283F5DF9187FE883008ECE0E /* trackpoint-white.png in Resources */,
+				283F5DFA187FE883008ECE0E /* emo_026@2x.png in Resources */,
+				283F5DFC187FE883008ECE0E /* Notice in Resources */,
+				283F5E30187FEF95008ECE0E /* ruby-logo.png in Resources */,
+				283F5DFD187FE883008ECE0E /* icon_menu@2x.png in Resources */,
+				283F5DFE187FE883008ECE0E /* README.md in Resources */,
+				283F5E2C187FEF95008ECE0E /* icon58.png in Resources */,
+				283F5E00187FE883008ECE0E /* emo_025@2x.png in Resources */,
+				283F5E01187FE883008ECE0E /* MessageEntryInputField.png in Resources */,
+				283F5E02187FE883008ECE0E /* InfoPlist.strings in Resources */,
+				283F5E03187FE883008ECE0E /* head_b@2x.png in Resources */,
+				283F5E19187FE8AC008ECE0E /* JLV2EX-Info.plist in Resources */,
+				283F5E04187FE883008ECE0E /* emo_013@2x.png in Resources */,
+				283F5E05187FE883008ECE0E /* emo_018@2x.png in Resources */,
+				283F5E06187FE883008ECE0E /* head_b.png in Resources */,
+				283F5E07187FE883008ECE0E /* emo_014@2x.png in Resources */,
+				283F5E08187FE883008ECE0E /* redo-blue@2x.png in Resources */,
+				283F5E2E187FEF95008ECE0E /* icon@2x.png in Resources */,
+				283F5E09187FE883008ECE0E /* emo_021@2x.png in Resources */,
+				283F5E2A187FEF95008ECE0E /* icon.png in Resources */,
+				283F5E0A187FE883008ECE0E /* MessageEntrySendButtonPressed@2x.png in Resources */,
+				283F5E0B187FE883008ECE0E /* default.png in Resources */,
+				283F5E0C187FE883008ECE0E /* trackpoint-black@2x.png in Resources */,
+				283F5E0D187FE883008ECE0E /* head_s.png in Resources */,
+				283F5E0E187FE883008ECE0E /* API Problem.md in Resources */,
+				283F5E0F187FE883008ECE0E /* MessageEntryInputField@2x.png in Resources */,
+				283F5E10187FE883008ECE0E /* undo-blue@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2059,6 +2423,36 @@
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		283F5D59187FE883008ECE0E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		283F5E12187FE883008ECE0E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		8936B0258DC1464DA129E9AD /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2204,6 +2598,91 @@
 				281ACD98187CF26900067D9C /* RCTopMembersModel.m in Sources */,
 				281ACD99187CF26900067D9C /* RCForumTopicsC.m in Sources */,
 				281ACD9A187CF26900067D9C /* NSDateAdditions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		283F5D5A187FE883008ECE0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				283F5D5B187FE883008ECE0E /* RCCoolSitesC.m in Sources */,
+				283F5D5C187FE883008ECE0E /* RCPostModel.m in Sources */,
+				283F5D5D187FE883008ECE0E /* RCSiteEntity.m in Sources */,
+				283F5D5E187FE883008ECE0E /* RCForumNodesModel.m in Sources */,
+				283F5D5F187FE883008ECE0E /* UIFontAdditions.m in Sources */,
+				283F5D60187FE883008ECE0E /* RCNodeSectionEntity.m in Sources */,
+				283F5D61187FE883008ECE0E /* RCReplyEntity.m in Sources */,
+				283F5D62187FE883008ECE0E /* RCQuickReplyC.m in Sources */,
+				283F5D63187FE883008ECE0E /* RCTopicEntity.m in Sources */,
+				283F5D64187FE883008ECE0E /* RCAppDelegate.m in Sources */,
+				283F5D65187FE883008ECE0E /* JLNimbusMoreButton.m in Sources */,
+				283F5D66187FE883008ECE0E /* RCNodesCloudTagC.m in Sources */,
+				283F5D67187FE883008ECE0E /* JLAFHTTPClient.m in Sources */,
+				283F5D68187FE883008ECE0E /* RCTopMembersC.m in Sources */,
+				283F5D69187FE883008ECE0E /* RCContentPhotoBrowerC.m in Sources */,
+				283F5D6A187FE883008ECE0E /* RCUserHomepageC.m in Sources */,
+				283F5D6B187FE883008ECE0E /* RCNetworkSpy.m in Sources */,
+				283F5D6C187FE883008ECE0E /* RCNodeCell.m in Sources */,
+				283F5D6D187FE883008ECE0E /* RCMoreC.m in Sources */,
+				283F5D6E187FE883008ECE0E /* RCTopicBodyView.m in Sources */,
+				283F5D6F187FE883008ECE0E /* JASidePanelController.m in Sources */,
+				283F5D70187FE883008ECE0E /* JLNimbusTableViewController.m in Sources */,
+				283F5D71187FE883008ECE0E /* RCNodeEntity.m in Sources */,
+				283F5D72187FE883008ECE0E /* RCKeywordEntity.m in Sources */,
+				283F5D73187FE883008ECE0E /* MarkdownSyntaxGenerator.m in Sources */,
+				283F5D74187FE883008ECE0E /* RCUserHomepageModel.m in Sources */,
+				283F5D75187FE883008ECE0E /* RCUIHelper.m in Sources */,
+				283F5D76187FE883008ECE0E /* Reachability.m in Sources */,
+				283F5D77187FE883008ECE0E /* NSDataAdditions.m in Sources */,
+				283F5D78187FE883008ECE0E /* NSStringAdditions.m in Sources */,
+				283F5D79187FE883008ECE0E /* UIView+findViewController.m in Sources */,
+				283F5D7A187FE883008ECE0E /* RCReplyCell.m in Sources */,
+				283F5D7B187FE883008ECE0E /* NSDate+RubyChina.m in Sources */,
+				283F5D7C187FE883008ECE0E /* RCAboutAppC.m in Sources */,
+				283F5D7D187FE883008ECE0E /* RCUserFullEntity.m in Sources */,
+				283F5D7E187FE883008ECE0E /* RCForumNodesC.m in Sources */,
+				283F5D7F187FE883008ECE0E /* JLNimbusEntity.m in Sources */,
+				283F5D80187FE883008ECE0E /* NSString+stringFromValue.m in Sources */,
+				283F5D81187FE883008ECE0E /* MarkdownSyntaxModel.m in Sources */,
+				283F5D82187FE883008ECE0E /* RCGlobalConfig.m in Sources */,
+				283F5D83187FE883008ECE0E /* RCCoolSitesModel.m in Sources */,
+				283F5D84187FE883008ECE0E /* JLNimbusTableModel.m in Sources */,
+				283F5D85187FE883008ECE0E /* RCTopicDetailEntity.m in Sources */,
+				283F5D86187FE883008ECE0E /* RCLoginModel.m in Sources */,
+				283F5D87187FE883008ECE0E /* RCSiteSectionEntity.m in Sources */,
+				283F5D88187FE883008ECE0E /* RCTopicDetailModel.m in Sources */,
+				283F5D89187FE883008ECE0E /* RCTopicCell.m in Sources */,
+				283F5D8A187FE883008ECE0E /* RCTopicDetailC.m in Sources */,
+				283F5D8B187FE883008ECE0E /* UIImage+nimbusImageNamed.m in Sources */,
+				283F5D8C187FE883008ECE0E /* RCAccountEntity.m in Sources */,
+				283F5D8D187FE883008ECE0E /* RCForumTopicsModel.m in Sources */,
+				283F5D8E187FE883008ECE0E /* MarkdownTextView.m in Sources */,
+				283F5D8F187FE883008ECE0E /* RCUserLauncherButtonView.m in Sources */,
+				283F5D90187FE883008ECE0E /* RCTopicActionModel.m in Sources */,
+				283F5D91187FE883008ECE0E /* RCSiteCell.m in Sources */,
+				283F5D92187FE883008ECE0E /* KOKeyboardRow.m in Sources */,
+				283F5D93187FE883008ECE0E /* main.m in Sources */,
+				283F5D94187FE883008ECE0E /* UIWindowAdditions.m in Sources */,
+				283F5D95187FE883008ECE0E /* RCBaseTableModel.m in Sources */,
+				283F5D96187FE883008ECE0E /* RCLeftMenuC.m in Sources */,
+				283F5D97187FE883008ECE0E /* RCUserCell.m in Sources */,
+				283F5D98187FE883008ECE0E /* TSEmojiView.m in Sources */,
+				283F5D99187FE883008ECE0E /* RCRegularParser.m in Sources */,
+				283F5D9A187FE883008ECE0E /* RCReplyModel.m in Sources */,
+				283F5D9B187FE883008ECE0E /* RCLoginC.m in Sources */,
+				283F5D9C187FE883008ECE0E /* RCHomepageHeaderView.m in Sources */,
+				283F5D9D187FE883008ECE0E /* RCAPIClient.m in Sources */,
+				283F5D9E187FE883008ECE0E /* RCUserEntity.m in Sources */,
+				283F5D9F187FE883008ECE0E /* UIViewAdditions.m in Sources */,
+				283F5DA0187FE883008ECE0E /* UIViewController+JASidePanel.m in Sources */,
+				283F5DA1187FE883008ECE0E /* TTGlobalUICommon.m in Sources */,
+				283F5DA2187FE883008ECE0E /* KOSwipeButton.m in Sources */,
+				283F5DA3187FE883008ECE0E /* RCWikiC.m in Sources */,
+				283F5DA4187FE883008ECE0E /* RCPostC.m in Sources */,
+				283F5DA5187FE883008ECE0E /* TTGlobalCoreLocale.m in Sources */,
+				283F5DA6187FE883008ECE0E /* RCTopMembersModel.m in Sources */,
+				283F5DA7187FE883008ECE0E /* RCForumTopicsC.m in Sources */,
+				283F5DA8187FE883008ECE0E /* NSDateAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2466,6 +2945,44 @@
 			};
 			name = Release;
 		};
+		283F5E14187FE883008ECE0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BECB55DCFAF84993AE6D89A6 /* Pods.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JLRubyChina/JLRubyChina-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/JLRubyChina/JLV2EX-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"/Users/jimneylee/Desktop/Source/OpenSource/RubyChina/JLRubyChina-iPhone/vendor/TestFlightSDK/TestFlightSDK2.1.3",
+					"/Users/jimneylee/Desktop/Source/OpenSource/RubyChina/JLRubyChina-iPhone/vendor/TestFlightSDK",
+					"/Users/jimney/Desktop/Source/Github_jimney/RubyChina/JLRubyChina-iPhone/vendor/TestFlightSDK",
+				);
+				PRODUCT_NAME = "JLRubyChina copy";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		283F5E15187FE883008ECE0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BECB55DCFAF84993AE6D89A6 /* Pods.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JLRubyChina/JLRubyChina-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/JLRubyChina/JLV2EX-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"/Users/jimneylee/Desktop/Source/OpenSource/RubyChina/JLRubyChina-iPhone/vendor/TestFlightSDK/TestFlightSDK2.1.3",
+					"/Users/jimneylee/Desktop/Source/OpenSource/RubyChina/JLRubyChina-iPhone/vendor/TestFlightSDK",
+					"/Users/jimney/Desktop/Source/Github_jimney/RubyChina/JLRubyChina-iPhone/vendor/TestFlightSDK",
+				);
+				PRODUCT_NAME = "JLRubyChina copy";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		2897EF211856BE94000BB6B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2669,6 +3186,15 @@
 			buildConfigurations = (
 				281ACE05187CF26900067D9C /* Debug */,
 				281ACE06187CF26900067D9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		283F5E13187FE883008ECE0E /* Build configuration list for PBXNativeTarget "JLV2EX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				283F5E14187FE883008ECE0E /* Debug */,
+				283F5E15187FE883008ECE0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

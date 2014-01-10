@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+// API 接口类型:ruby-china、v2ex
+typedef enum {
+    ForumBaseAPIType_RubyChina,
+    ForumBaseAPIType_V2EX
+}ForumBaseAPIType;
+
+// 帖子类型
 typedef enum {
     RCForumTopicsType_LatestActivity,//当前活跃帖子
     RCForumTopicsType_HighQuality,//优质帖子
@@ -25,6 +32,8 @@ typedef enum {
 + (void)setMyToken:(NSString*)token;
 + (NSString*)myLoginId;
 + (void)setMyLoginId:(NSString*)loginId;
++ (void)parseAppConfig;
++ (ForumBaseAPIType)forumBaseAPIType;
 
 // Global UI
 + (MBProgressHUD*)HUDShowMessage:(NSString*)msg addedToView:(UIView*)view;

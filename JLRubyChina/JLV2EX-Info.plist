@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>Ruby China</string>
+	<string>Livid V2EX</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIcons</key>
@@ -24,7 +24,7 @@
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>cn.rafood.rubychina</string>
+	<string>cn.rafood.v2ex</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -111,12 +111,14 @@
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>HOST_URL</key>
-	<string>http://ruby-china.org</string>
+	<string>http://www.v2ex.com</string>
 	<key>HOST_API_URL</key>
-	<string>http://ruby-china.org/api/v2/</string>
+	<string>http://www.v2ex.com/api/</string>
 	<key>HOST_INTRO</key>
-	<string>Ruby China，对！没错！这里就是 Ruby 社区，目前这里已经是国内最权威的 Ruby 社区，拥有国内所有资深的 Ruby 工程师。</string>
+	<string>V2EX 是创意工作者们的社区。这里目前汇聚了超过 50000 名主要来自互联网行业、游戏行业和媒体行业的创意工作者。V2EX 希望能够成为创意工作者们的生活和事业的一部分。 </string>
 	<key>HOST_BASE_API_TYPE</key>
-	<string>rubychina</string>
+	<string>v2ex</string>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<true/>
 </dict>
 </plist>

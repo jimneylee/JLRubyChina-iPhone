@@ -14,9 +14,11 @@
 #define APP_VERSION [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]
 #define APP_ID [[[NSBundle mainBundle] objectForInfoDictionaryKey:@"APP_STORE_ID"] longValue]
 #define HOST_URL [[NSBundle mainBundle] objectForInfoDictionaryKey:@"HOST_URL"]
-#define HOST_API_URL [NSString stringWithFormat:@"%@/api/v2", HOST_URL]
+//#define HOST_API_URL [NSString stringWithFormat:@"%@/api/v2", HOST_URL]
+#define HOST_API_URL [[NSBundle mainBundle] objectForInfoDictionaryKey:@"HOST_API_URL"]
 #define HOST_WIKI_URL [NSString stringWithFormat:@"%@/wiki", HOST_URL]
 #define HOST_INTRO [[NSBundle mainBundle] objectForInfoDictionaryKey:@"HOST_INTRO"]
+#define FORUM_BASE_API_TYPE [RCGlobalConfig forumBaseAPIType]
 
 // iOS 系统版本
 #define IOS_IS_AT_LEAST_6 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0)
@@ -50,7 +52,6 @@
 
 // 左侧菜单栏可视宽度比
 #define LEFT_GAP_PERCENTAGE 0.55f
-
 // 自定义链接协议
 #define PROTOCOL_AT_SOMEONE @"atsomeone://"
 #define PROTOCOL_SHARP_FLOOR @"sharpfloor://"

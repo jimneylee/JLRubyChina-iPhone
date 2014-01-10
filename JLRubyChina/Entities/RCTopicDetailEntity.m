@@ -23,11 +23,21 @@
     
     self = [super initWithDictionary:dic];
     if (self) {
-        self.body = dic[JSON_BODY];
-        self.hitsCount = [dic[JSON_HITS_COUNT] unsignedLongValue];
-        [self parseAllKeywords];
-        if (IOS_IS_AT_LEAST_7) {
-            self.attributedBody = [self parseAttributedStringFromMarkdownString:self.body];
+        if (ForumBaseAPIType_RubyChina == FORUM_BASE_API_TYPE) {
+            self.body = dic[JSON_BODY];
+            self.hitsCount = [dic[JSON_HITS_COUNT] unsignedLongValue];
+            [self parseAllKeywords];
+            if (IOS_IS_AT_LEAST_7) {
+                self.attributedBody = [self parseAttributedStringFromMarkdownString:self.body];
+            }
+            else {
+                self.attributedBody = [[NSAttributedString alloc] initWithString:self.body];
+            }
+        }
+        else {
+            self.body = dic[JSON_CONTENT];
+            self.attributedBody = [[NSAttributedString alloc] initWithString:self.body];
+            [self parseAllKeywords];
         }
     }
     return self;

@@ -33,8 +33,14 @@ NSString *const kAPIBaseURLString = @"http://ruby-china.org/api/v2";
 {
     self = [super initWithBaseURL:url];
     if (self) {
-        // ruby china use AFJSONParameterEncoding encoding
         self.parameterEncoding = AFJSONParameterEncoding;
+        
+        // 502-bad-gateway error, set user agent from http://whatsmyuseragent.com/
+        // http://stackoverflow.com/questions/8487581/uiwebview-ios5-changing-user-agent/8666438#8666438
+        if (ForumBaseAPIType_V2EX == FORUM_BASE_API_TYPE) {
+            NSString* testUserAgent = @"Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_3 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11B508 Safari/9537.53";
+            [self setDefaultHeader:@"User-Agent" value:testUserAgent];
+        }
     }
     return self;
 }
@@ -53,14 +59,44 @@ NSString *const kAPIBaseURLString = @"http://ruby-china.org/api/v2";
 + (NSString*)relativePathForTopicsWithPageCounter:(unsigned int)pageCounter
                                      perpageCount:(unsigned int)perpageCount
 {
-    return [NSString stringWithFormat:@"topics.json?page=%u&per_page=%u",
-                                        pageCounter, perpageCount];
+    //TODO:add ForumBaseAPIType
+    if (ForumBaseAPIType_RubyChina == FORUM_BASE_API_TYPE) {
+        return [NSString stringWithFormat:@"topics.json?page=%u&per_page=%u",
+                pageCounter, perpageCount];
+    }
+    else if (ForumBaseAPIType_V2EX == FORUM_BASE_API_TYPE) {
+        return [NSString stringWithFormat:@"topics/latest.json?page=%u&per_page=%u",
+                pageCounter, perpageCount];
+    }
+    return nil;
 }
 
 // 帖子详细
 + (NSString*)relativePathForTopicDetailWithTopicId:(unsigned long)topicId
 {
-    return [NSString stringWithFormat:@"topics/%ld.json", topicId];
+    if (ForumBaseAPIType_RubyChina == FORUM_BASE_API_TYPE) {
+        return [NSString stringWithFormat:@"topics/%ld.json", topicId];
+    }
+    else if (ForumBaseAPIType_V2EX == FORUM_BASE_API_TYPE) {
+        return [NSString stringWithFormat:@"topics/show.json?id=%ld", topicId];
+        //replies/show.json?topic_id=95398
+    }
+    return nil;
+}
+
+// 帖子回复列表
++ (NSString*)relativePathForTopicRepliesWithTopicId:(unsigned long)topicId
+                                        pageCounter:(unsigned int)pageCounter
+                                       perpageCount:(unsigned int)perpageCount
+{
+    if (ForumBaseAPIType_RubyChina == FORUM_BASE_API_TYPE) {
+        return nil;
+    }
+    else if (ForumBaseAPIType_V2EX == FORUM_BASE_API_TYPE) {
+        return [NSString stringWithFormat:@"replies/show.json?topic_id=%ld&page=%u&per_page=%u",
+                                            topicId, pageCounter, perpageCount];
+    }
+    return nil;
 }
 
 // 节点帖子
@@ -68,8 +104,15 @@ NSString *const kAPIBaseURLString = @"http://ruby-china.org/api/v2";
                                  PageCounter:(unsigned int)pageCounter
                                 perpageCount:(unsigned int)perpageCount
 {
-    return [NSString stringWithFormat:@"topics/node/%u.json?page=%u&per_page=%u",
-                                        nodeId, pageCounter, perpageCount];
+    if (ForumBaseAPIType_RubyChina == FORUM_BASE_API_TYPE) {
+        return [NSString stringWithFormat:@"topics/node/%u.json?page=%u&per_page=%u",
+                                            nodeId, pageCounter, perpageCount];
+    }
+    else if (ForumBaseAPIType_V2EX == FORUM_BASE_API_TYPE) {
+        return [NSString stringWithFormat:@"nodes/show.json?id=%u&page=%u&per_page=%u",
+                                            nodeId, pageCounter, perpageCount];
+    }
+    return nil;
 }
 
 // 用户发的帖子列表
@@ -93,7 +136,13 @@ NSString *const kAPIBaseURLString = @"http://ruby-china.org/api/v2";
 // 论坛所有节点
 + (NSString*)relativePathForForumNodes
 {
-    return [NSString stringWithFormat:@"nodes.json"];
+    if (ForumBaseAPIType_RubyChina == FORUM_BASE_API_TYPE) {
+        return [NSString stringWithFormat:@"nodes.json"];
+    }
+    else if (ForumBaseAPIType_V2EX == FORUM_BASE_API_TYPE) {
+        return [NSString stringWithFormat:@"nodes/all.json"];
+    }
+    return nil;
 }
 
 // 酷站

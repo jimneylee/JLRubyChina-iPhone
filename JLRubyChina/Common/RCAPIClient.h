@@ -9,27 +9,38 @@
 #import "AFHTTPClient.h"
 #import "JLAFHTTPClient.h"
 
-/** UNDO
- GET	ruby-china.org/api/users/temp_access_token.json
+/* RubyChina
+    GET     ruby-china.org/api/topics.json
+    GET     ruby-china.org/api/topics/node/:id.json
+    POST    ruby-china.org/api/topics.json
+    GET     ruby-china.org/api/topics/:id.json
+    POST    ruby-china.org/api/topics/:id/replies.json
+    GET     ruby-china.org/api/nodes.json
+    GET     ruby-china.org/api/sites.json
+    PUT     ruby-china.org/api/user/favorite/:user/:topic.json
+    GET     ruby-china.org/api/users.json
+    GET     ruby-china.org/api/users/:user.json
+    GET     ruby-china.org/api/users/:user/topics.json
+    GET     ruby-china.org/api/users/:user/topics/favorite.json
+    POST    ruby-china.org/api/topics/:id/follow.json
+    POST    ruby-china.org/api/topics/:id/unfollow.json
+    POST    ruby-china.org/api/topics/:id/favorite.json
+    GET     ruby-china.org/api/users/temp_access_token.json
 */
 
-/* DONE
- GET    ruby-china.org/api/topics.json
- GET    ruby-china.org/api/topics/node/:id.json
- POST   ruby-china.org/api/topics.json
- GET    ruby-china.org/api/topics/:id.json
- POST   ruby-china.org/api/topics/:id/replies.json
- GET    ruby-china.org/api/nodes.json
- GET    ruby-china.org/api/sites.json
- PUT    ruby-china.org/api/user/favorite/:user/:topic.json
- GET    ruby-china.org/api/users.json
- GET	ruby-china.org/api/users/:user.json
- GET	ruby-china.org/api/users/:user/topics.json
- GET	ruby-china.org/api/users/:user/topics/favorite.json
- POST   ruby-china.org/api/topics/:id/follow.json
- POST   ruby-china.org/api/topics/:id/unfollow.json
- POST   ruby-china.org/api/topics/:id/favorite.json
+/* V2EX
+    ('/api/site/stats.json', SiteStatsHandler),
+    ('/api/site/info.json', SiteInfoHandler),
+    ('/api/nodes/all.json', NodesAllHandler),
+    ('/api/nodes/show.json', NodesShowHandler),
+    ('/api/topics/latest.json', TopicsLatestHandler),
+    ('/api/topics/show.json', TopicsShowHandler),
+    ('/api/topics/create.json', TopicsCreateHandler),
+    ('/api/replies/show.json', RepliesShowHandler),
+    ('/api/members/show.json', MembersShowHandler),
+    ('/api/currency.json', CurrencyHandler)
 */
+
 @interface RCAPIClient : JLAFHTTPClient
 
 + (RCAPIClient*)sharedClient;
@@ -51,6 +62,11 @@
 
 // 查看帖子详细 TODO:评论没有按实现先后排序，有错乱
 + (NSString*)relativePathForTopicDetailWithTopicId:(unsigned long)topicId;
+
+// 帖子回复列表
++ (NSString*)relativePathForTopicRepliesWithTopicId:(unsigned long)topicId
+                                        pageCounter:(unsigned int)pageCounter
+                                       perpageCount:(unsigned int)perpageCount;
 
 // 节点帖子
 + (NSString*)relativePathForTopicsWithNodeId:(unsigned int)nodeId

@@ -22,12 +22,24 @@
     
     self = [super initWithDictionary:dic];
     if (self) {
-        self.body = dic[JSON_BODY];
-        self.createdAtDate = [NSDate dateFromSourceDateString:dic[JSON_CREATEED_AT]];
-        self.updatedAtDate = [NSDate dateFromSourceDateString:dic[JSON_UPDATEED_AT]];
-        self.user = [RCUserEntity entityWithDictionary:dic[JSON_USER]];
-        
-        [self parseAllKeywords];
+        if (ForumBaseAPIType_RubyChina == FORUM_BASE_API_TYPE) {
+            self.body = dic[JSON_BODY];
+            self.createdAtDate = [NSDate dateFromSourceDateString:dic[JSON_CREATEED_AT]];
+            self.updatedAtDate = [NSDate dateFromSourceDateString:dic[JSON_UPDATEED_AT]];
+            self.user = [RCUserEntity entityWithDictionary:dic[JSON_USER]];
+            
+            [self parseAllKeywords];
+        }
+        else {
+            self.body = dic[JSON_CONTENT];
+            NSString* createTimestamp = dic[JSON_CREATED];
+            if (createTimestamp) {
+                self.createdAtDate = [NSDate dateWithTimeIntervalSince1970:[createTimestamp doubleValue]];
+            }
+            self.user = [RCUserEntity entityWithDictionary:dic[JSON_MEMBER]];
+            
+            [self parseAllKeywords];
+        }
     }
     return self;
 }

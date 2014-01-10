@@ -17,8 +17,16 @@
 {
 	self = [super initWithDelegate:delegate];
 	if (self) {
+        
         // TODO:数据一次性获取过来，没有分页，后面建议后台做分页
-        self.perpageCount = NSIntegerMax;
+        if (ForumBaseAPIType_RubyChina == FORUM_BASE_API_TYPE) {
+            self.perpageCount = NSIntegerMax;
+        }
+        
+        //TOPIC_PAGE_SIZE=100 see v2ex https://github.com/livid/v2ex/blob/5d8764c8ec0d138a308b5c90003261c5673124a6/topic.py
+        else if (ForumBaseAPIType_V2EX == FORUM_BASE_API_TYPE) {
+            self.perpageCount = 100;
+        }
 	}
 	return self;
 }
@@ -31,7 +39,15 @@
 - (NSString*)relativePath
 {
     // TODO: set type
-    return [RCAPIClient relativePathForTopicDetailWithTopicId:self.topicId];
+    if (ForumBaseAPIType_RubyChina == FORUM_BASE_API_TYPE) {
+        return [RCAPIClient relativePathForTopicDetailWithTopicId:self.topicId];
+    }
+    else if (ForumBaseAPIType_V2EX == FORUM_BASE_API_TYPE) {
+        return [RCAPIClient relativePathForTopicRepliesWithTopicId:self.topicId
+                                                       pageCounter:self.pageCounter
+                                                      perpageCount:self.perpageCount];
+    }
+    return nil;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

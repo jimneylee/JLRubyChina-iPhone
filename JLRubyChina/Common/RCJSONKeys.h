@@ -40,4 +40,19 @@
 #define JSON_DESCRIPTION @"desc"
 #define JSON_FAV_ICON @"favicon"
 #define JSON_URL @"url"
+
+// addition for V2EX
+#define JSON_USERNAME @"username"
+#define JSON_NODE @"node"
+#define JSON_MEMBER @"member"
+#define JSON_TAGLINE @"tagline"
+#define JSON_AVATAR_MINI @"avatar_mini"
+#define JSON_CONTENT @"content"
+#define JSON_REPLIES @"replies"
+#define JSON_CREATED @"created"
+#define JSON_LAST_MODIFIED @"last_modified"
+#define JSON_TOPICS @"topics"
+#define JSON_HEADER @"header"
+#define JSON_FOOTER @"footer"
+
 #endif

@@ -13,7 +13,6 @@
 #import "RCNodeSectionEntity.h"
 #import "SDSegmentedControl.h"
 
-
 @interface RCForumNodesC ()
 
 @property (nonatomic, strong) RCForumNodesModel* model;
@@ -62,10 +61,9 @@
     self.tableView.delegate = [self.actions forwardingTo:self];
 
     [self.model loadNodesWithBlock:^(NSArray *nodeSectionsArray, NSError *error) {
-    [self updateSegmentedControl];
-    [self reloadTableViewDataWithIndex:0];
+        [self updateSegmentedControl];
+        [self reloadTableViewDataWithIndex:0];
     }];
-
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -84,6 +82,10 @@
             if (indexPaths.count) {
                 [self.model addObjectsFromArray:indexPaths];
             }
+        }
+        else {
+            // just set empty array, show empty data but no error
+            indexPaths = [NSArray array];
         }
         [self.tableView reloadData];
     }

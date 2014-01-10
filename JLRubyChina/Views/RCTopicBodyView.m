@@ -110,7 +110,7 @@
         // body
         NIAttributedLabel* bodyLabel = [[NIAttributedLabel alloc] initWithFrame:CGRectZero];
         bodyLabel.numberOfLines = 0;
-        if (IOS_IS_AT_LEAST_7) {
+        if (IOS_IS_AT_LEAST_7 && ForumBaseAPIType_RubyChina == FORUM_BASE_API_TYPE) {
             // define font and line height in entity method: parseAttributedStringFromMarkdownString
         }
         else {
@@ -241,7 +241,7 @@
     self.nameLabel.text = topicDetailEntity.user.loginId;
     self.dateLabel.text = [NSString stringWithFormat:@"%@发布", [topicDetailEntity.createdAtDate formatRelativeTime]];
     
-    if (IOS_IS_AT_LEAST_7) {
+    if (IOS_IS_AT_LEAST_7 && ForumBaseAPIType_RubyChina == FORUM_BASE_API_TYPE) {
         // attributed body show markdown syntax
         self.bodyLabel.attributedString = topicDetailEntity.attributedBody;
     }
