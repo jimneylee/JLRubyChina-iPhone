@@ -1,18 +1,21 @@
-# 强烈提醒，勿随意发帖测试
+## 强烈提醒，勿随意发帖测试
 请把玩这个客户端源码的同学，不要在[Ruby China](http://ruby-china.org/)社区上随意发帖测试，谢谢配合。
 
-# THKS To Contributors
+## THKS To Contributors
 [**luzhiyongGit**](https://github.com/luzhiyongGit)
 
-#JLRubyChina-iPhone
+##JLRubyChina-iPhone
 [Ruby China](http://ruby-china.org/)社区的iPhone客户端。
 希望能给社区的同学带来一点帮助，节省一点时间。欢迎大家在使用过程中，提出改进建议和意见。同时期望更多的同学参与学习交流，维护和优化APP。
 
-# 开发环境
+## 开发环境
 XCode5 iOS7.x & iOS6.x
 
-# 更新依赖库
-1、submodule更新
+## 编译安装
+1、下载[最近的Release版本](https://github.com/jimneylee/JLRubyChina-iPhone/releases)，直接编译即可安装。
+
+2、fork后clone到本地，手工添加依赖库安装方法
+* 1、submodule更新
 ``` bash
 $ git submodule init 
 $ git submodule update
@@ -23,19 +26,23 @@ $ git submodule add https://github.com/jimneylee/JLNimbusTimeline.git vendor/JLN
 $ git submodule add https://github.com/jimneylee/MarkdownSyntaxEditor.git vendor/MarkdownSyntaxEditor
 $ git submodule add https://github.com/jimneylee/TSEmojiView.git vendor/TSEmojiView
 ```
-2、[CocoaPods](http://cocoapods.org)更新
+
+* 2、[CocoaPods](http://cocoapods.org)更新
 ``` bash   
 $ pod install
 ```   
 注：如需要添加其他依赖库，请修改Podfile
 
-3、 替换pod添加的依赖库
+* 3、替换pod添加的依赖库
 
-用工程中的`vendor`目录下的`Nimbus_fixbug`和`JSONKit_fixerror`中的文件，替换pod添加的对应文件。
+用工程`vendor`目录下的`Nimbus_fixbug`和`JSONKit_fixerror`中的文件，替换pod添加的对应文件。
+
 `Nimbus_fixbug`是为了解决帖子列表高亮名字或链接无法点击。
-`JSONKit_fixerror`为了解决编译引起的错误和警告。其实这个JSONKit是无用的，但是由于JSONKit是Nimbus的submodule递归依赖引入，
-所以在Nimbus没有发布新的版本，暂时只能这样处理。之前考虑过'git submodule add'依赖nimbus，去掉这个JSONKit库，但是会是工程膨胀，得不偿失。
-有问题，请添加到issue中！
+
+`JSONKit_fixerror`为了解决编译引起的错误和警告。
+
+>其实这个JSONKit是无用的，但是由于JSONKit是Nimbus的submodule递归依赖引入，所以在Nimbus没有发布新的版本，暂时只能这样处理。之前考虑过'git submodule add'依赖nimbus，去掉这个JSONKit库，但是会是工程膨胀，得不偿失。
+>有问题，请添加到issue中！
 
 4、通过'JLRubyChina.xcworkspace'打开项目，也可以[自定义xopen命令](http://jimneylee.github.io/2014/01/09/add-xopen-command-to-open-xcode-workspace/)便捷打开
 
@@ -106,7 +113,7 @@ csdn:https://code.csdn.net/jimney_ljj/JLRubyChina-iPhone
 
 使用相同的ssh key，同步还是很方便的，后面考虑进一步精简步骤，自动化发布到各个git server
 
-# DONE
+### DONE
 1、首页热门帖子显示
 
 2、帖子详细浏览、帖子回复列表
@@ -134,12 +141,12 @@ csdn:https://code.csdn.net/jimney_ljj/JLRubyChina-iPhone
 13、网络2G/3G/WIFI切换提示
 
 
-# DOING
+### DOING
 1、经公测稳定，提交AppStore审核，方便大家下载使用
 2、与后台API接口修改确认，参见API Problem文档说明
 
 
-# TODO
+### TODO
 1、与后台API接口修改确认，参见API Problem文档说明
 
 2、发帖添加表情选择
@@ -160,7 +167,7 @@ csdn:https://code.csdn.net/jimney_ljj/JLRubyChina-iPhone
 
 10、如果需要的话，添加友盟统计
 
-# LICENSE
+## LICENSE
 本项目基于MIT协议发布
 MIT: [http://rem.mit-license.org](http://rem.mit-license.org)
 
