@@ -7,6 +7,7 @@
 //
 
 #import "RCNodeEntity.h"
+#import "NSString+stringFromValue.h"
 
 @implementation RCNodeEntity
 
@@ -20,11 +21,24 @@
     self = [super initWithDictionary:dic];
     if (self) {
         self.nodeId = [dic[JSON_ID] unsignedIntegerValue];
-        self.nodeName = dic[JSON_NAME];
-        self.topicsCount = [dic[JSON_TOPICS_COUNT] longValue];
-        self.summary = dic[JSON_SUMMARY];
-        self.sectionId = [dic[JSON_SECTION_ID] unsignedIntegerValue];
-        self.sectionName = dic[JSON_SECTION_NAME];
+
+        if (ForumBaseAPIType_RubyChina == FORUM_BASE_API_TYPE) {
+            self.nodeName = dic[JSON_NAME];
+            self.topicsCount = [dic[JSON_TOPICS_COUNT] longValue];
+            self.summary = dic[JSON_SUMMARY];
+            self.sectionId = [dic[JSON_SECTION_ID] unsignedIntegerValue];
+            self.sectionName = dic[JSON_SECTION_NAME];
+        }
+        else {
+            self.nodeName = dic[JSON_TITLE];
+            self.topicsCount = [dic[JSON_TOPICS] longValue];
+            self.summary = [NSString stringFromValue:dic[JSON_HEADER]];
+            // TODO: API need add
+            self.sectionId = 1;
+            self.sectionName = @"全部暂未分组";
+            //self.sectionId = [dic[JSON_SECTION_ID] unsignedIntegerValue];
+            //self.sectionName = dic[JSON_SECTION_NAME];
+        }
     }
     return self;
 }

@@ -56,6 +56,9 @@
         [RCGlobalConfig setMyToken:account.privateToken];
     }
     
+    // Parse App Config
+    [RCGlobalConfig parseAppConfig];
+    
     // Setup testflight token, TODO: use testflight
     //[TestFlight takeOff:@"e2bd049b-2ccb-4f61-8189-636db135d001"];
 }

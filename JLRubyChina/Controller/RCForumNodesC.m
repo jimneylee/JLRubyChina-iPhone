@@ -64,10 +64,9 @@
     self.tableView.delegate = [self.actions forwardingTo:self];
 
     [self.model loadNodesWithBlock:^(NSArray *nodeSectionsArray, NSError *error) {
-    [self updateSegmentedControl];
-    [self reloadTableViewDataWithIndex:0];
+        [self updateSegmentedControl];
+        [self reloadTableViewDataWithIndex:0];
     }];
-
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////

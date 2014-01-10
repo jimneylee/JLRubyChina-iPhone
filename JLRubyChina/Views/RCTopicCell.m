@@ -161,7 +161,7 @@
 {
     [super layoutSubviews];
     
-    if (IOS_IS_AT_LEAST_7) {
+    if (IOS_IS_AT_LEAST_7 && ForumBaseAPIType_RubyChina == FORUM_BASE_API_TYPE) {
     }
     else {
         // set here compatible with ios6.x
@@ -192,7 +192,7 @@
                                             kTextLength, self.detailTextLabel.font.lineHeight);
     // replies count
     CGSize repliesCountSize = CGSizeZero;
-    if (IOS_IS_AT_LEAST_7) {
+    if (IOS_IS_AT_LEAST_7 && ForumBaseAPIType_RubyChina == FORUM_BASE_API_TYPE) {
         repliesCountSize = [self.repliesCountLabel.text sizeWithAttributes:@{NSFontAttributeName:TITLE_FONT_SIZE}];
     }
     else {

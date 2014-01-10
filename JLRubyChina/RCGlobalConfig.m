@@ -11,6 +11,8 @@
 
 static NSString* myToken = nil;
 static NSString* myLoginId = nil;
+static ForumBaseAPIType forumBaseAPIType = ForumBaseAPIType_RubyChina;
+
 @implementation RCGlobalConfig
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -39,6 +41,31 @@ static NSString* myLoginId = nil;
 + (void)setMyLoginId:(NSString*)loginId
 {
     myLoginId = [loginId copy];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - App Config
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
++ (void)parseAppConfig
+{
+    NSString* apiTypeString = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"HOST_BASE_API_TYPE"];
+    if (NSOrderedSame == [apiTypeString caseInsensitiveCompare:@"rubychina"]) {
+        forumBaseAPIType = ForumBaseAPIType_RubyChina;
+    }
+    else if (NSOrderedSame == [apiTypeString caseInsensitiveCompare:@"v2ex"]) {
+        forumBaseAPIType = ForumBaseAPIType_V2EX;
+    }
+    else {
+        forumBaseAPIType = ForumBaseAPIType_RubyChina;
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
++ (ForumBaseAPIType)forumBaseAPIType
+{
+    return forumBaseAPIType;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
