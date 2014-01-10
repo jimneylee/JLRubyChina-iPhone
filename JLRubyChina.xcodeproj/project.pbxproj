@@ -828,6 +828,9 @@
 		283F5E24187FEF95008ECE0E /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		283F5E25187FEF95008ECE0E /* ruby-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ruby-logo.png"; sourceTree = "<group>"; };
 		283F5E26187FEF95008ECE0E /* ruby-logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ruby-logo@2x.png"; sourceTree = "<group>"; };
+		283F5E33187FFA3D008ECE0E /* 0110_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0110_1.png; sourceTree = "<group>"; };
+		283F5E34187FFA3D008ECE0E /* 0110_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0110_2.png; sourceTree = "<group>"; };
+		283F5E35187FFA3D008ECE0E /* 0110_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0110_3.png; sourceTree = "<group>"; };
 		2847BE181867D86500D9CEF0 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		2847BE1A1867D91D00D9CEF0 /* NIAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIAttributedLabel.h; sourceTree = "<group>"; };
 		2847BE1B1867D91D00D9CEF0 /* NIAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIAttributedLabel.m; sourceTree = "<group>"; };
@@ -1220,6 +1223,7 @@
 		283F5E1A187FEF95008ECE0E /* V2EX */ = {
 			isa = PBXGroup;
 			children = (
+				283F5E32187FFA3D008ECE0E /* Screenshots */,
 				283F5E1B187FEF95008ECE0E /* IconDefault */,
 			);
 			path = V2EX;
@@ -1241,6 +1245,16 @@
 				283F5E26187FEF95008ECE0E /* ruby-logo@2x.png */,
 			);
 			path = IconDefault;
+			sourceTree = "<group>";
+		};
+		283F5E32187FFA3D008ECE0E /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				283F5E33187FFA3D008ECE0E /* 0110_1.png */,
+				283F5E34187FFA3D008ECE0E /* 0110_2.png */,
+				283F5E35187FFA3D008ECE0E /* 0110_3.png */,
+			);
+			path = Screenshots;
 			sourceTree = "<group>";
 		};
 		2847BE171867D86500D9CEF0 /* JSONKit_fixerror */ = {
