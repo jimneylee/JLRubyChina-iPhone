@@ -23,6 +23,7 @@
     self = [super initWithDictionary:dic];
     if (self) {
         if (ForumBaseAPIType_RubyChina == FORUM_BASE_API_TYPE) {
+            self.replyId = dic[JSON_ID];
             self.body = dic[JSON_BODY];
             self.createdAtDate = [NSDate dateFromSourceDateString:dic[JSON_CREATEED_AT]];
             self.updatedAtDate = [NSDate dateFromSourceDateString:dic[JSON_UPDATEED_AT]];
@@ -31,6 +32,7 @@
             [self parseAllKeywords];
         }
         else {
+            self.replyId = dic[JSON_ID];
             self.body = dic[JSON_CONTENT];
             NSString* createTimestamp = dic[JSON_CREATED];
             if (createTimestamp) {
