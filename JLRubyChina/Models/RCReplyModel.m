@@ -69,9 +69,7 @@
         [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSString* responseString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-//          {"id":172002,"body":"不错","body_html":"<p>不错</p>","created_at":"2013-12-17T10:36:08.090+08:00","updated_at":"2013-12-17T10:36:08.090+08:00",
-//          "user":{"id":4988,"login":"jimneylee","avatar_url":"http://ruby-china.org/avatar/67cb78ce56281adaf0724c66f99c3ca3.png?s=120"}}
-            // TODO:回复成功后，直接插入到tablview底部
+
             NSLog(@"Response: %@", responseString);
             NSError *error = nil;
             id responseJSON  = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:&error];
@@ -88,6 +86,8 @@
             failure(nil);
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
+            //{NSLocalizedRecoverySuggestion={"error":["回复内容 请勿回复无意义的内容，如你想收藏或赞这篇帖子，请用帖子后面的功能。"]},
+            //TODO:准确返回发送失败提示
             failure(nil);
         }];
         [operation start];
