@@ -29,7 +29,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-        self.title = @"分类导航";
+        self.title = @"节点分类";
     }
     return self;
 }

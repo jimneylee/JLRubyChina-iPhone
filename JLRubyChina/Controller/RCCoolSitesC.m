@@ -33,7 +33,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-        self.title = @"外链酷站";
+        self.title = @"酷站导航";
         self.navigationItem.rightBarButtonItem = [RCGlobalConfig createRefreshBarButtonItemWithTarget:self
                                                                                                action:@selector(refreshCoolSites)];
     }
