@@ -169,10 +169,6 @@
     if (!_quickReplyC) {
         _quickReplyC = [[RCQuickReplyC alloc] initWithTopicId:((RCTopicDetailModel*)self.model).topicId];
         _quickReplyC.replyDelegate = self;
-        // setting the first responder view of the table but we don't know its type (cell/header/footer)
-        // [self.view addSubview:_quickReplyC.view];
-        // so mush show it in keywindow, same to keyborad :)
-        [[UIApplication sharedApplication].keyWindow addSubview:_quickReplyC.view];
     }
     return _quickReplyC;
 }
@@ -219,6 +215,14 @@
                                 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                     [RCGlobalConfig HUDShowMessage:@"获取帖子详细失败" addedToView:self.view];
                                 }];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)popDownReplyView
+{
+    if (self.quickReplyC.textView.isFirstResponder) {
+        [self.quickReplyC.textView resignFirstResponder];
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -308,6 +312,15 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self popDownReplyView];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - RCQuickReplyDelegate
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -315,13 +328,19 @@
 {
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     
-    // 回复成功后，直接插入到tablview底部
+    // add as first index or insert at last index
     NSArray* indexPaths = [self.model addObject:replyEntity];
     if (indexPaths.count) {
         NSIndexPath* indexPath = indexPaths[0];
         replyEntity.floorNumber = indexPath.row+1;
-        [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
-        // 感觉没必要滑到底部
+        
+        if (0 == indexPath.row) {
+            [self.tableView reloadData];
+        }
+        else {
+            [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
+        // no need scroll to bottom
         //[self scrollToBottomAnimated:YES];
     }
 }
