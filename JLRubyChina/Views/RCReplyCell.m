@@ -23,7 +23,7 @@
 #define CONTENT_FONT_SIZE [UIFont fontWithName:@"STHeitiSC-Light" size:18.f]
 #define BUTTON_FONT_SIZE [UIFont boldSystemFontOfSize:13.f]
 
-#define CONTENT_LINE_HEIGHT 21.f
+#define CONTENT_LINE_HEIGHT 23.f
 #define HEAD_IAMGE_HEIGHT 34
 #define BUTTON_SIZE CGSizeMake(40.f, 22.f)
 #define CONTENT_IMAGE_HEIGHT 160
