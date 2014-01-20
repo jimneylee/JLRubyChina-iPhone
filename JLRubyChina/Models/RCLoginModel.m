@@ -24,7 +24,7 @@
     
     // 由于登录的接口与其他接口base_url不太一样，后台没有放到api路径下，故单独处理
     // ruby-china.org/account/sign_in.json
-    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://ruby-china.org/"]];
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:HOST_URL]];//@"http://ruby-china.org/"
     [httpClient setParameterEncoding:AFJSONParameterEncoding];
     [httpClient setAuthorizationHeaderWithUsername:username password:password];
     [httpClient registerHTTPOperationClass:[AFJSONRequestOperation class]];
