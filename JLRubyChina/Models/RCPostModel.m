@@ -16,7 +16,7 @@
 - (void)old_postNewTopicWithTitle:(NSString*)title
                              body:(NSString*)body
                            nodeId:(NSUInteger)nodeId
-                          success:(void(^)())success
+                          success:(void(^)(RCTopicEntity* topicEntity))success
                           failure:(void(^)(NSError *error))failure
 {
     // 不知道这么为什么不行，下面替代方法临时实现，比较丑陋
@@ -31,7 +31,7 @@
         [[RCAPIClient sharedClient] postPath:path parameters:parameters
                                      success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                          NSLog(@"%@", responseObject);
-                                         success();
+                                         success(nil);
                                      }
                                      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                          NSLog(@"%@", error);
@@ -44,7 +44,7 @@
 - (void)postNewTopicWithTitle:(NSString*)title
                          body:(NSString*)body
                        nodeId:(NSUInteger)nodeId
-                      success:(void(^)())success
+                      success:(void(^)(RCTopicEntity* topicEntity))success
                       failure:(void(^)(NSError *error))failure
 {
     // 参考：http://stackoverflow.com/questions/9562459/afnetworking-posting-malformed-json-single-quotes-and-object-refs
@@ -76,11 +76,17 @@
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSString* resultString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
             NSLog(@"Response: %@", resultString);
-            if ([resultString isEqualToString:@"true"]) {
-                success();
-            }
-            else {
-                failure(nil);
+            NSError *error = nil;
+            id responseJSON  = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:&error];
+            if ([responseJSON isKindOfClass:[NSDictionary class]]) {
+                RCTopicEntity* topicEntity = [RCTopicEntity entityWithDictionary:responseJSON];
+                if (topicEntity) {
+                    success(topicEntity);
+                    return;
+                }
+                else {
+                    NSLog(@"error:%@", error);
+                }
             }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);

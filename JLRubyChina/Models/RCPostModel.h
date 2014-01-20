@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RCTopicEntity.h"
 
 @interface RCPostModel : NSObject
 - (void)postNewTopicWithTitle:(NSString*)title
                          body:(NSString*)body
                        nodeId:(NSUInteger)nodeId
-                      success:(void(^)())success
+                      success:(void(^)(RCTopicEntity* topicEntity))success
                       failure:(void(^)(NSError *error))failure;
 @end

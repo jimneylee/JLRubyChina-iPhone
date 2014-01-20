@@ -206,6 +206,9 @@
             self.postModel = [[RCPostModel alloc] init];
         }
         
+        [self.titleTextField resignFirstResponder];
+        [self.bodyTextView resignFirstResponder];
+        
         __block MBProgressHUD* hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.mode = MBProgressHUDModeText;
         hud.labelText = @"正在发布...";
@@ -223,7 +226,7 @@
         [self.postModel postNewTopicWithTitle:title
                                          body:body
                                        nodeId:self.nodeEntity.nodeId
-                                      success:^{
+                                      success:^(RCTopicEntity* topicEntity) {
                                           hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
                                           hud.mode = MBProgressHUDModeCustomView;
                                           hud.labelText = @"发布成功";
