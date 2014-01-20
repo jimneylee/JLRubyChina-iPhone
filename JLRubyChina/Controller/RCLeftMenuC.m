@@ -226,7 +226,7 @@
             break;
             
         case LeftMenuType_Wiki:
-            title = @"RCWiki";
+            title = @"站点Wiki";
             break;
             
         case LeftMenuType_More:
