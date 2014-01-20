@@ -1,10 +1,11 @@
-## 兼容如下社区接口
+## Ruby China社区和V2EX社区接口通用客户端
+
 [Ruby China](http://ruby-china.org/)社区接口，社区有：[Ruby China](http://ruby-china.org/)、[Tester Home](http://testerhome.com/)
 
 [V2EX](http://www.v2ex.com/)社区接口：[V2EX](http://www.v2ex.com/)
 
 ## 强烈提醒，勿随意发帖测试
-请把玩这个客户端源码的同学，不要在[Ruby China](http://ruby-china.org/)社区上随意发帖测试，谢谢配合。
+请把玩这个客户端源码的同学，不要在上面几个社区上随意发帖测试，谢谢配合。
 
 ## THKS To Contributors
 [**luzhiyongGit**](https://github.com/luzhiyongGit)
