@@ -541,6 +541,187 @@
 		CE1325A3185F5A8400208653 /* outside_link_sites.png in Resources */ = {isa = PBXBuildFile; fileRef = CE13259A185F5A8400208653 /* outside_link_sites.png */; };
 		CE1325A4185F5A8400208653 /* top_members.png in Resources */ = {isa = PBXBuildFile; fileRef = CE13259B185F5A8400208653 /* top_members.png */; };
 		CE1325A5185F5A8400208653 /* topic_reply.png in Resources */ = {isa = PBXBuildFile; fileRef = CE13259C185F5A8400208653 /* topic_reply.png */; };
+		CE2F9313188EAEA600ECAACE /* RCCoolSitesC.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AED5D185975D900DEC6E2 /* RCCoolSitesC.m */; };
+		CE2F9314188EAEA600ECAACE /* RCPostModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28386D9B185A946E00D7B5C9 /* RCPostModel.m */; };
+		CE2F9315188EAEA600ECAACE /* RCSiteEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AED631859764700DEC6E2 /* RCSiteEntity.m */; };
+		CE2F9316188EAEA600ECAACE /* RCForumNodesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4F06D18584E7C00C9C858 /* RCForumNodesModel.m */; };
+		CE2F9317188EAEA600ECAACE /* UIFontAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF391856C422000BB6B9 /* UIFontAdditions.m */; };
+		CE2F9318188EAEA600ECAACE /* RCNodeSectionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F671E31871187B00DD0A93 /* RCNodeSectionEntity.m */; };
+		CE2F9319188EAEA600ECAACE /* RCReplyEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = CE96587F1857681C003066A5 /* RCReplyEntity.m */; };
+		CE2F931A188EAEA600ECAACE /* RCQuickReplyC.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEA2BEE1858C41D004FDEDF /* RCQuickReplyC.m */; };
+		CE2F931B188EAEA600ECAACE /* RCTopicEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF881856E327000BB6B9 /* RCTopicEntity.m */; };
+		CE2F931C188EAEA600ECAACE /* RCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF041856BE94000BB6B9 /* RCAppDelegate.m */; };
+		CE2F931D188EAEA600ECAACE /* JLNimbusMoreButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF4C1856C422000BB6B9 /* JLNimbusMoreButton.m */; };
+		CE2F931E188EAEA600ECAACE /* RCNodesCloudTagC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28386DE5185AE59600D7B5C9 /* RCNodesCloudTagC.m */; };
+		CE2F931F188EAEA600ECAACE /* JLAFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF471856C422000BB6B9 /* JLAFHTTPClient.m */; };
+		CE2F9320188EAEA600ECAACE /* RCTopMembersC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3A1B47185C05940081C3E9 /* RCTopMembersC.m */; };
+		CE2F9321188EAEA600ECAACE /* RCContentPhotoBrowerC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F671E6187288D100DD0A93 /* RCContentPhotoBrowerC.m */; };
+		CE2F9322188EAEA600ECAACE /* RCUserHomepageC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3A1B59185C3A170081C3E9 /* RCUserHomepageC.m */; };
+		CE2F9323188EAEA600ECAACE /* RCNetworkSpy.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4EF7A1858266700C9C858 /* RCNetworkSpy.m */; };
+		CE2F9324188EAEA600ECAACE /* RCNodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4F07018584EA500C9C858 /* RCNodeCell.m */; };
+		CE2F9325188EAEA600ECAACE /* RCMoreC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE13258C185F340200208653 /* RCMoreC.m */; };
+		CE2F9326188EAEA600ECAACE /* RCTopicBodyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4EF741857F78500C9C858 /* RCTopicBodyView.m */; };
+		CE2F9327188EAEA600ECAACE /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5936FC187D7F4100DC3A55 /* JASidePanelController.m */; };
+		CE2F9328188EAEA600ECAACE /* JLNimbusTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF401856C422000BB6B9 /* JLNimbusTableViewController.m */; };
+		CE2F9329188EAEA600ECAACE /* RCNodeEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4EF92185846CA00C9C858 /* RCNodeEntity.m */; };
+		CE2F932A188EAEA600ECAACE /* RCKeywordEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4EF80185826BF00C9C858 /* RCKeywordEntity.m */; };
+		CE2F932B188EAEA600ECAACE /* MarkdownSyntaxGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CBC11818629839007C68FC /* MarkdownSyntaxGenerator.m */; };
+		CE2F932C188EAEA600ECAACE /* RCUserHomepageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3A1B5C185C3A810081C3E9 /* RCUserHomepageModel.m */; };
+		CE2F932D188EAEA600ECAACE /* RCUIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 28386DA4185AA4C900D7B5C9 /* RCUIHelper.m */; };
+		CE2F932E188EAEA600ECAACE /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4EF841858276A00C9C858 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CE2F932F188EAEA600ECAACE /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF2D1856C422000BB6B9 /* NSDataAdditions.m */; };
+		CE2F9330188EAEA600ECAACE /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF311856C422000BB6B9 /* NSStringAdditions.m */; };
+		CE2F9331188EAEA600ECAACE /* UIView+findViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4EF771858061E00C9C858 /* UIView+findViewController.m */; };
+		CE2F9332188EAEA600ECAACE /* RCReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9658821857683A003066A5 /* RCReplyCell.m */; };
+		CE2F9333188EAEA600ECAACE /* NSDate+RubyChina.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF9D18571008000BB6B9 /* NSDate+RubyChina.m */; };
+		CE2F9334188EAEA600ECAACE /* RCAboutAppC.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB2304F185C8F2C004F54C7 /* RCAboutAppC.m */; };
+		CE2F9335188EAEA600ECAACE /* RCUserFullEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9DFAC6185C5BB1007BAE75 /* RCUserFullEntity.m */; };
+		CE2F9336188EAEA600ECAACE /* RCForumNodesC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4EF8F1858463E00C9C858 /* RCForumNodesC.m */; };
+		CE2F9337188EAEA600ECAACE /* JLNimbusEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF431856C422000BB6B9 /* JLNimbusEntity.m */; };
+		CE2F9338188EAEA600ECAACE /* NSString+stringFromValue.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7E3199185D8BDE005F583E /* NSString+stringFromValue.m */; };
+		CE2F9339188EAEA600ECAACE /* MarkdownSyntaxModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CBC11A18629839007C68FC /* MarkdownSyntaxModel.m */; };
+		CE2F933A188EAEA600ECAACE /* RCGlobalConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF781856E073000BB6B9 /* RCGlobalConfig.m */; };
+		CE2F933B188EAEA600ECAACE /* RCCoolSitesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AED601859760F00DEC6E2 /* RCCoolSitesModel.m */; };
+		CE2F933C188EAEA600ECAACE /* JLNimbusTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF491856C422000BB6B9 /* JLNimbusTableModel.m */; };
+		CE2F933D188EAEA600ECAACE /* RCTopicDetailEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = CE96587618576748003066A5 /* RCTopicDetailEntity.m */; };
+		CE2F933E188EAEA600ECAACE /* RCLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B094A7185ED92D003F8789 /* RCLoginModel.m */; };
+		CE2F933F188EAEA600ECAACE /* RCSiteSectionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AED661859769100DEC6E2 /* RCSiteSectionEntity.m */; };
+		CE2F9340188EAEA600ECAACE /* RCTopicDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE96587C185767BD003066A5 /* RCTopicDetailModel.m */; };
+		CE2F9341188EAEA600ECAACE /* RCTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF9A1856FB09000BB6B9 /* RCTopicCell.m */; };
+		CE2F9342188EAEA600ECAACE /* RCTopicDetailC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE96587918576791003066A5 /* RCTopicDetailC.m */; };
+		CE2F9343188EAEA600ECAACE /* UIImage+nimbusImageNamed.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9DFAB8185C4D17007BAE75 /* UIImage+nimbusImageNamed.m */; };
+		CE2F9344188EAEA600ECAACE /* RCAccountEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B094AA185EDD73003F8789 /* RCAccountEntity.m */; };
+		CE2F9345188EAEA600ECAACE /* RCForumTopicsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF851856E2EA000BB6B9 /* RCForumTopicsModel.m */; };
+		CE2F9346188EAEA600ECAACE /* MarkdownTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CBC11D18629839007C68FC /* MarkdownTextView.m */; };
+		CE2F9347188EAEA600ECAACE /* RCUserLauncherButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3A1B56185C35E00081C3E9 /* RCUserLauncherButtonView.m */; };
+		CE2F9348188EAEA600ECAACE /* RCTopicActionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2837D365185EA1EC00EE013D /* RCTopicActionModel.m */; };
+		CE2F9349188EAEA600ECAACE /* RCSiteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 281AED69185982E500DEC6E2 /* RCSiteCell.m */; };
+		CE2F934A188EAEA600ECAACE /* KOKeyboardRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CBC0FE18629839007C68FC /* KOKeyboardRow.m */; };
+		CE2F934B188EAEA600ECAACE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF001856BE94000BB6B9 /* main.m */; };
+		CE2F934C188EAEA600ECAACE /* UIWindowAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF3D1856C422000BB6B9 /* UIWindowAdditions.m */; };
+		CE2F934D188EAEA600ECAACE /* RCBaseTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF8E1856E3D2000BB6B9 /* RCBaseTableModel.m */; };
+		CE2F934E188EAEA600ECAACE /* RCLeftMenuC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF7B1856E11A000BB6B9 /* RCLeftMenuC.m */; };
+		CE2F934F188EAEA600ECAACE /* RCUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3A1B44185BFC670081C3E9 /* RCUserCell.m */; };
+		CE2F9350188EAEA600ECAACE /* TSEmojiView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3675A8186337A70015756D /* TSEmojiView.m */; };
+		CE2F9351188EAEA600ECAACE /* RCRegularParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4EF7C1858266700C9C858 /* RCRegularParser.m */; };
+		CE2F9352188EAEA600ECAACE /* RCReplyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3889D31858AA790052566C /* RCReplyModel.m */; };
+		CE2F9353188EAEA600ECAACE /* RCLoginC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B094A4185ED914003F8789 /* RCLoginC.m */; };
+		CE2F9354188EAEA600ECAACE /* RCHomepageHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9DFAC3185C57BD007BAE75 /* RCHomepageHeaderView.m */; };
+		CE2F9355188EAEA600ECAACE /* RCAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF6C1856C54B000BB6B9 /* RCAPIClient.m */; };
+		CE2F9356188EAEA600ECAACE /* RCUserEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF971856ECBD000BB6B9 /* RCUserEntity.m */; };
+		CE2F9357188EAEA600ECAACE /* UIViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF3B1856C422000BB6B9 /* UIViewAdditions.m */; };
+		CE2F9358188EAEA600ECAACE /* UIViewController+JASidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5936FE187D7F4100DC3A55 /* UIViewController+JASidePanel.m */; };
+		CE2F9359188EAEA600ECAACE /* TTGlobalUICommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF371856C422000BB6B9 /* TTGlobalUICommon.m */; };
+		CE2F935A188EAEA600ECAACE /* KOSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CBC10018629839007C68FC /* KOSwipeButton.m */; };
+		CE2F935B188EAEA600ECAACE /* RCWikiC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3A1B53185C28540081C3E9 /* RCWikiC.m */; };
+		CE2F935C188EAEA600ECAACE /* RCPostC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28386D9E185A97FB00D7B5C9 /* RCPostC.m */; };
+		CE2F935D188EAEA600ECAACE /* TTGlobalCoreLocale.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF351856C422000BB6B9 /* TTGlobalCoreLocale.m */; };
+		CE2F935E188EAEA600ECAACE /* RCTopMembersModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3A1B4D185C06D20081C3E9 /* RCTopMembersModel.m */; };
+		CE2F935F188EAEA600ECAACE /* RCForumTopicsC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF811856E2BE000BB6B9 /* RCForumTopicsC.m */; };
+		CE2F9360188EAEA600ECAACE /* NSDateAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF2F1856C422000BB6B9 /* NSDateAdditions.m */; };
+		CE2F9362188EAEA600ECAACE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 28AB745A186AA8CB00EF68D7 /* libz.dylib */; };
+		CE2F9363188EAEA600ECAACE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2897EEF61856BE94000BB6B9 /* CoreGraphics.framework */; };
+		CE2F9364188EAEA600ECAACE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2897EEF81856BE94000BB6B9 /* UIKit.framework */; };
+		CE2F9365188EAEA600ECAACE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2897EEF41856BE94000BB6B9 /* Foundation.framework */; };
+		CE2F9366188EAEA600ECAACE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DAEFF79992F4B9FB48FFA19 /* libPods.a */; };
+		CE2F9368188EAEA600ECAACE /* redo-black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC10918629839007C68FC /* redo-black@2x.png */; };
+		CE2F9369188EAEA600ECAACE /* emo_016@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE367598186337A70015756D /* emo_016@2x.png */; };
+		CE2F936A188EAEA600ECAACE /* key@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC10718629839007C68FC /* key@2x.png */; };
+		CE2F936B188EAEA600ECAACE /* emo_017@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE367599186337A70015756D /* emo_017@2x.png */; };
+		CE2F936C188EAEA600ECAACE /* redo-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC10818629839007C68FC /* redo-black.png */; };
+		CE2F936D188EAEA600ECAACE /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE0D187CF41100067D9C /* 37x-Checkmark.png */; };
+		CE2F936E188EAEA600ECAACE /* redo-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC10A18629839007C68FC /* redo-blue.png */; };
+		CE2F936F188EAEA600ECAACE /* MessageEntryInputField.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE1A187CF41100067D9C /* MessageEntryInputField.png */; };
+		CE2F9370188EAEA600ECAACE /* emo_006@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE36758E186337A70015756D /* emo_006@2x.png */; };
+		CE2F9371188EAEA600ECAACE /* head_s.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE11187CF41100067D9C /* head_s.png */; };
+		CE2F9372188EAEA600ECAACE /* emo_012@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE367594186337A70015756D /* emo_012@2x.png */; };
+		CE2F9373188EAEA600ECAACE /* icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E07C33187D2AE500414F19 /* icon120.png */; };
+		CE2F9374188EAEA600ECAACE /* more_photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE16187CF41100067D9C /* more_photo@2x.png */; };
+		CE2F9375188EAEA600ECAACE /* key-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC10418629839007C68FC /* key-pressed.png */; };
+		CE2F9376188EAEA600ECAACE /* home_activity_topics.png in Resources */ = {isa = PBXBuildFile; fileRef = CE132595185F5A8400208653 /* home_activity_topics.png */; };
+		CE2F9377188EAEA600ECAACE /* TODO.md in Resources */ = {isa = PBXBuildFile; fileRef = 2897EF751856C616000BB6B9 /* TODO.md */; };
+		CE2F9378188EAEA600ECAACE /* ruby-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E07C3F187D2EAC00414F19 /* ruby-logo.png */; };
+		CE2F9379188EAEA600ECAACE /* MessageEntrySendButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE1D187CF41100067D9C /* MessageEntrySendButton@2x.png */; };
+		CE2F937A188EAEA600ECAACE /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E07C36187D2AE500414F19 /* icon@2x.png */; };
+		CE2F937B188EAEA600ECAACE /* icon58.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E07C34187D2AE500414F19 /* icon58.png */; };
+		CE2F937C188EAEA600ECAACE /* emo_023@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE36759F186337A70015756D /* emo_023@2x.png */; };
+		CE2F937D188EAEA600ECAACE /* top_members.png in Resources */ = {isa = PBXBuildFile; fileRef = CE13259B185F5A8400208653 /* top_members.png */; };
+		CE2F937E188EAEA600ECAACE /* nodes.png in Resources */ = {isa = PBXBuildFile; fileRef = CE132599185F5A8400208653 /* nodes.png */; };
+		CE2F937F188EAEA600ECAACE /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E07C30187D2AE500414F19 /* Default.png */; };
+		CE2F9380188EAEA600ECAACE /* MessageEntryBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE18187CF41100067D9C /* MessageEntryBackground.png */; };
+		CE2F9381188EAEA600ECAACE /* icon_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE14187CF41100067D9C /* icon_menu@2x.png */; };
+		CE2F9382188EAEA600ECAACE /* more.png in Resources */ = {isa = PBXBuildFile; fileRef = CE132597185F5A8400208653 /* more.png */; };
+		CE2F9383188EAEA600ECAACE /* MessageEntryInputField@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE1B187CF41100067D9C /* MessageEntryInputField@2x.png */; };
+		CE2F9384188EAEA600ECAACE /* emo_010@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE367592186337A70015756D /* emo_010@2x.png */; };
+		CE2F9385188EAEA600ECAACE /* emo_015@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE367597186337A70015756D /* emo_015@2x.png */; };
+		CE2F9386188EAEA600ECAACE /* ruby-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E07C40187D2EAC00414F19 /* ruby-logo@2x.png */; };
+		CE2F9387188EAEA600ECAACE /* emo_022@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE36759E186337A70015756D /* emo_022@2x.png */; };
+		CE2F9388188EAEA600ECAACE /* CHANGES.md in Resources */ = {isa = PBXBuildFile; fileRef = CE13258F185F4F5800208653 /* CHANGES.md */; };
+		CE2F9389188EAEA600ECAACE /* RCAboutAppC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB23050185C8F2C004F54C7 /* RCAboutAppC.xib */; };
+		CE2F938A188EAEA600ECAACE /* left_menu_side.png in Resources */ = {isa = PBXBuildFile; fileRef = CE132596185F5A8400208653 /* left_menu_side.png */; };
+		CE2F938B188EAEA600ECAACE /* emo_002@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE36758A186337A70015756D /* emo_002@2x.png */; };
+		CE2F938C188EAEA600ECAACE /* MessageEntrySendButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE1E187CF41100067D9C /* MessageEntrySendButtonPressed.png */; };
+		CE2F938D188EAEA600ECAACE /* trackpoint-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC11118629839007C68FC /* trackpoint-white@2x.png */; };
+		CE2F938E188EAEA600ECAACE /* Three20.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2897EF321856C422000BB6B9 /* Three20.bundle */; };
+		CE2F938F188EAEA600ECAACE /* head_b@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE10187CF41100067D9C /* head_b@2x.png */; };
+		CE2F9390188EAEA600ECAACE /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E07C32187D2AE500414F19 /* icon.png */; };
+		CE2F9391188EAEA600ECAACE /* emo_001@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE367589186337A70015756D /* emo_001@2x.png */; };
+		CE2F9392188EAEA600ECAACE /* head_b.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE0F187CF41100067D9C /* head_b.png */; };
+		CE2F9393188EAEA600ECAACE /* trackpoint-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC10E18629839007C68FC /* trackpoint-blue.png */; };
+		CE2F9394188EAEA600ECAACE /* emo_019@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE36759B186337A70015756D /* emo_019@2x.png */; };
+		CE2F9395188EAEA600ECAACE /* icon_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE13187CF41100067D9C /* icon_menu.png */; };
+		CE2F9396188EAEA600ECAACE /* undo-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC11218629839007C68FC /* undo-black.png */; };
+		CE2F9397188EAEA600ECAACE /* emo_027@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3675A3186337A70015756D /* emo_027@2x.png */; };
+		CE2F9398188EAEA600ECAACE /* emo_011@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE367593186337A70015756D /* emo_011@2x.png */; };
+		CE2F9399188EAEA600ECAACE /* node_select.png in Resources */ = {isa = PBXBuildFile; fileRef = CE132598185F5A8400208653 /* node_select.png */; };
+		CE2F939A188EAEA600ECAACE /* trackpoint-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC10C18629839007C68FC /* trackpoint-black.png */; };
+		CE2F939B188EAEA600ECAACE /* undo-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC11418629839007C68FC /* undo-blue.png */; };
+		CE2F939C188EAEA600ECAACE /* MessageEntryBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE19187CF41100067D9C /* MessageEntryBackground@2x.png */; };
+		CE2F939D188EAEA600ECAACE /* trackpoint-blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC10F18629839007C68FC /* trackpoint-blue@2x.png */; };
+		CE2F939E188EAEA600ECAACE /* emo_003@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE36758B186337A70015756D /* emo_003@2x.png */; };
+		CE2F939F188EAEA600ECAACE /* open_xcworkspace.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2847BE221867F45900D9CEF0 /* open_xcworkspace.jpg */; };
+		CE2F93A0188EAEA600ECAACE /* emo_028@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3675A4186337A70015756D /* emo_028@2x.png */; };
+		CE2F93A1188EAEA600ECAACE /* key-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC10218629839007C68FC /* key-blue.png */; };
+		CE2F93A2188EAEA600ECAACE /* MessageEntrySendButtonPressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE1F187CF41100067D9C /* MessageEntrySendButtonPressed@2x.png */; };
+		CE2F93A3188EAEA600ECAACE /* emo_005@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE36758D186337A70015756D /* emo_005@2x.png */; };
+		CE2F93A4188EAEA600ECAACE /* 37x-Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE0E187CF41100067D9C /* 37x-Checkmark@2x.png */; };
+		CE2F93A5188EAEA600ECAACE /* key-blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC10318629839007C68FC /* key-blue@2x.png */; };
+		CE2F93A6188EAEA600ECAACE /* emo_004@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE36758C186337A70015756D /* emo_004@2x.png */; };
+		CE2F93A7188EAEA600ECAACE /* emo_009@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE367591186337A70015756D /* emo_009@2x.png */; };
+		CE2F93A8188EAEA600ECAACE /* key.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC10618629839007C68FC /* key.png */; };
+		CE2F93A9188EAEA600ECAACE /* emo_008@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE367590186337A70015756D /* emo_008@2x.png */; };
+		CE2F93AA188EAEA600ECAACE /* head_s@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE12187CF41100067D9C /* head_s@2x.png */; };
+		CE2F93AB188EAEA600ECAACE /* undo-black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC11318629839007C68FC /* undo-black@2x.png */; };
+		CE2F93AC188EAEA600ECAACE /* not_found_pods.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC1381862A09B007C68FC /* not_found_pods.png */; };
+		CE2F93AD188EAEA600ECAACE /* topic_reply.png in Resources */ = {isa = PBXBuildFile; fileRef = CE13259C185F5A8400208653 /* topic_reply.png */; };
+		CE2F93AE188EAEA600ECAACE /* emo_007@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE36758F186337A70015756D /* emo_007@2x.png */; };
+		CE2F93AF188EAEA600ECAACE /* outside_link_sites.png in Resources */ = {isa = PBXBuildFile; fileRef = CE13259A185F5A8400208653 /* outside_link_sites.png */; };
+		CE2F93B0188EAEA600ECAACE /* key-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC10518629839007C68FC /* key-pressed@2x.png */; };
+		CE2F93B1188EAEA600ECAACE /* emo_020@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE36759C186337A70015756D /* emo_020@2x.png */; };
+		CE2F93B2188EAEA600ECAACE /* emoji_touch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3675A6186337A70015756D /* emoji_touch@2x.png */; };
+		CE2F93B3188EAEA600ECAACE /* emoji_touch.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3675A5186337A70015756D /* emoji_touch.png */; };
+		CE2F93B4188EAEA600ECAACE /* emo_024@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3675A0186337A70015756D /* emo_024@2x.png */; };
+		CE2F93B5188EAEA600ECAACE /* trackpoint-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC11018629839007C68FC /* trackpoint-white.png */; };
+		CE2F93B6188EAEA600ECAACE /* emo_026@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3675A2186337A70015756D /* emo_026@2x.png */; };
+		CE2F93B7188EAEA600ECAACE /* more_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE15187CF41100067D9C /* more_photo.png */; };
+		CE2F93B8188EAEA600ECAACE /* Notice in Resources */ = {isa = PBXBuildFile; fileRef = 28D4EF8918582B0A00C9C858 /* Notice */; };
+		CE2F93B9188EAEA600ECAACE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2897EF731856C60A000BB6B9 /* README.md */; };
+		CE2F93BA188EAEA600ECAACE /* emo_025@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3675A1186337A70015756D /* emo_025@2x.png */; };
+		CE2F93BB188EAEA600ECAACE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2897EEFD1856BE94000BB6B9 /* InfoPlist.strings */; };
+		CE2F93BC188EAEA600ECAACE /* emo_013@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE367595186337A70015756D /* emo_013@2x.png */; };
+		CE2F93BD188EAEA600ECAACE /* emo_018@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE36759A186337A70015756D /* emo_018@2x.png */; };
+		CE2F93BE188EAEA600ECAACE /* MessageEntrySendButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE1C187CF41100067D9C /* MessageEntrySendButton.png */; };
+		CE2F93BF188EAEA600ECAACE /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E07C31187D2AE500414F19 /* Default@2x.png */; };
+		CE2F93C0188EAEA600ECAACE /* emo_014@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE367596186337A70015756D /* emo_014@2x.png */; };
+		CE2F93C1188EAEA600ECAACE /* redo-blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC10B18629839007C68FC /* redo-blue@2x.png */; };
+		CE2F93C2188EAEA600ECAACE /* emo_021@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE36759D186337A70015756D /* emo_021@2x.png */; };
+		CE2F93C3188EAEA600ECAACE /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = CE132594185F5A8400208653 /* default.png */; };
+		CE2F93C4188EAEA600ECAACE /* trackpoint-black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC10D18629839007C68FC /* trackpoint-black@2x.png */; };
+		CE2F93C5188EAEA600ECAACE /* API Problem.md in Resources */ = {isa = PBXBuildFile; fileRef = CE132591185F537600208653 /* API Problem.md */; };
+		CE2F93C6188EAEA600ECAACE /* undo-blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC11518629839007C68FC /* undo-blue@2x.png */; };
+		CE2F93C7188EAEA600ECAACE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E07C2F187D2AE500414F19 /* Default-568h@2x.png */; };
+		CE2F93C8188EAEA600ECAACE /* icon80.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E07C35187D2AE500414F19 /* icon80.png */; };
+		CE2F93D0188EAED500ECAACE /* JLTesterHome-Dis-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE2F93CF188EAED500ECAACE /* JLTesterHome-Dis-Info.plist */; };
 		CE3675A9186337A70015756D /* emo_001@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE367589186337A70015756D /* emo_001@2x.png */; };
 		CE3675AA186337A70015756D /* emo_002@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE36758A186337A70015756D /* emo_002@2x.png */; };
 		CE3675AB186337A70015756D /* emo_003@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE36758B186337A70015756D /* emo_003@2x.png */; };
@@ -991,6 +1172,8 @@
 		CE13259A185F5A8400208653 /* outside_link_sites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = outside_link_sites.png; sourceTree = "<group>"; };
 		CE13259B185F5A8400208653 /* top_members.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top_members.png; sourceTree = "<group>"; };
 		CE13259C185F5A8400208653 /* topic_reply.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topic_reply.png; sourceTree = "<group>"; };
+		CE2F93CD188EAEA600ECAACE /* JLTesterHome Dis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JLTesterHome Dis.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE2F93CF188EAED500ECAACE /* JLTesterHome-Dis-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "JLTesterHome-Dis-Info.plist"; sourceTree = "<group>"; };
 		CE367589186337A70015756D /* emo_001@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "emo_001@2x.png"; sourceTree = "<group>"; };
 		CE36758A186337A70015756D /* emo_002@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "emo_002@2x.png"; sourceTree = "<group>"; };
 		CE36758B186337A70015756D /* emo_003@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "emo_003@2x.png"; sourceTree = "<group>"; };
@@ -1114,6 +1297,18 @@
 				2897EF141856BE94000BB6B9 /* XCTest.framework in Frameworks */,
 				2897EF161856BE94000BB6B9 /* UIKit.framework in Frameworks */,
 				2897EF151856BE94000BB6B9 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE2F9361188EAEA600ECAACE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE2F9362188EAEA600ECAACE /* libz.dylib in Frameworks */,
+				CE2F9363188EAEA600ECAACE /* CoreGraphics.framework in Frameworks */,
+				CE2F9364188EAEA600ECAACE /* UIKit.framework in Frameworks */,
+				CE2F9365188EAEA600ECAACE /* Foundation.framework in Frameworks */,
+				CE2F9366188EAEA600ECAACE /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1288,6 +1483,7 @@
 				281ACE07187CF26900067D9C /* JLTesterHome.app */,
 				283F5D0D187FA319008ECE0E /* JLV2EX.app */,
 				2814F5F9187FFDAA0006D38B /* JLV2EX.app */,
+				CE2F93CD188EAEA600ECAACE /* JLTesterHome Dis.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1332,6 +1528,7 @@
 				2897EEFC1856BE94000BB6B9 /* JLRubyChina-Info.plist */,
 				CE90A1081872E9A90030DB1E /* JLRubyChina-Dis-Info.plist */,
 				281ACEA3187CF45400067D9C /* JLTesterHome-Info.plist */,
+				CE2F93CF188EAED500ECAACE /* JLTesterHome-Dis-Info.plist */,
 				2814F5FB187FFDE40006D38B /* JLV2EX-Info.plist */,
 				2897EEFD1856BE94000BB6B9 /* InfoPlist.strings */,
 				2897EF001856BE94000BB6B9 /* main.m */,
@@ -1914,6 +2111,25 @@
 			productReference = 2897EF121856BE94000BB6B9 /* JLRubyChinaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		CE2F9310188EAEA600ECAACE /* JLTesterHome Dis */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE2F93CA188EAEA600ECAACE /* Build configuration list for PBXNativeTarget "JLTesterHome Dis" */;
+			buildPhases = (
+				CE2F9311188EAEA600ECAACE /* Check Pods Manifest.lock */,
+				CE2F9312188EAEA600ECAACE /* Sources */,
+				CE2F9361188EAEA600ECAACE /* Frameworks */,
+				CE2F9367188EAEA600ECAACE /* Resources */,
+				CE2F93C9188EAEA600ECAACE /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "JLTesterHome Dis";
+			productName = JLRubyChina;
+			productReference = CE2F93CD188EAEA600ECAACE /* JLTesterHome Dis.app */;
+			productType = "com.apple.product-type.application";
+		};
 		CE90A0471872E6910030DB1E /* JLRubyChina Dis */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE90A1031872E6910030DB1E /* Build configuration list for PBXNativeTarget "JLRubyChina Dis" */;
@@ -1964,6 +2180,7 @@
 				2897EEF01856BE94000BB6B9 /* JLRubyChina */,
 				CE90A0471872E6910030DB1E /* JLRubyChina Dis */,
 				281ACD4B187CF26900067D9C /* JLTesterHome */,
+				CE2F9310188EAEA600ECAACE /* JLTesterHome Dis */,
 				2814F53C187FFDAA0006D38B /* JLV2EX */,
 				2897EF111856BE94000BB6B9 /* JLRubyChinaTests */,
 			);
@@ -2294,6 +2511,111 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CE2F9367188EAEA600ECAACE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE2F9368188EAEA600ECAACE /* redo-black@2x.png in Resources */,
+				CE2F9369188EAEA600ECAACE /* emo_016@2x.png in Resources */,
+				CE2F936A188EAEA600ECAACE /* key@2x.png in Resources */,
+				CE2F936B188EAEA600ECAACE /* emo_017@2x.png in Resources */,
+				CE2F936C188EAEA600ECAACE /* redo-black.png in Resources */,
+				CE2F936D188EAEA600ECAACE /* 37x-Checkmark.png in Resources */,
+				CE2F936E188EAEA600ECAACE /* redo-blue.png in Resources */,
+				CE2F936F188EAEA600ECAACE /* MessageEntryInputField.png in Resources */,
+				CE2F9370188EAEA600ECAACE /* emo_006@2x.png in Resources */,
+				CE2F9371188EAEA600ECAACE /* head_s.png in Resources */,
+				CE2F9372188EAEA600ECAACE /* emo_012@2x.png in Resources */,
+				CE2F9373188EAEA600ECAACE /* icon120.png in Resources */,
+				CE2F9374188EAEA600ECAACE /* more_photo@2x.png in Resources */,
+				CE2F9375188EAEA600ECAACE /* key-pressed.png in Resources */,
+				CE2F9376188EAEA600ECAACE /* home_activity_topics.png in Resources */,
+				CE2F9377188EAEA600ECAACE /* TODO.md in Resources */,
+				CE2F9378188EAEA600ECAACE /* ruby-logo.png in Resources */,
+				CE2F9379188EAEA600ECAACE /* MessageEntrySendButton@2x.png in Resources */,
+				CE2F937A188EAEA600ECAACE /* icon@2x.png in Resources */,
+				CE2F937B188EAEA600ECAACE /* icon58.png in Resources */,
+				CE2F937C188EAEA600ECAACE /* emo_023@2x.png in Resources */,
+				CE2F937D188EAEA600ECAACE /* top_members.png in Resources */,
+				CE2F937E188EAEA600ECAACE /* nodes.png in Resources */,
+				CE2F937F188EAEA600ECAACE /* Default.png in Resources */,
+				CE2F9380188EAEA600ECAACE /* MessageEntryBackground.png in Resources */,
+				CE2F9381188EAEA600ECAACE /* icon_menu@2x.png in Resources */,
+				CE2F9382188EAEA600ECAACE /* more.png in Resources */,
+				CE2F9383188EAEA600ECAACE /* MessageEntryInputField@2x.png in Resources */,
+				CE2F9384188EAEA600ECAACE /* emo_010@2x.png in Resources */,
+				CE2F9385188EAEA600ECAACE /* emo_015@2x.png in Resources */,
+				CE2F9386188EAEA600ECAACE /* ruby-logo@2x.png in Resources */,
+				CE2F9387188EAEA600ECAACE /* emo_022@2x.png in Resources */,
+				CE2F9388188EAEA600ECAACE /* CHANGES.md in Resources */,
+				CE2F9389188EAEA600ECAACE /* RCAboutAppC.xib in Resources */,
+				CE2F938A188EAEA600ECAACE /* left_menu_side.png in Resources */,
+				CE2F938B188EAEA600ECAACE /* emo_002@2x.png in Resources */,
+				CE2F938C188EAEA600ECAACE /* MessageEntrySendButtonPressed.png in Resources */,
+				CE2F938D188EAEA600ECAACE /* trackpoint-white@2x.png in Resources */,
+				CE2F938E188EAEA600ECAACE /* Three20.bundle in Resources */,
+				CE2F938F188EAEA600ECAACE /* head_b@2x.png in Resources */,
+				CE2F9390188EAEA600ECAACE /* icon.png in Resources */,
+				CE2F9391188EAEA600ECAACE /* emo_001@2x.png in Resources */,
+				CE2F9392188EAEA600ECAACE /* head_b.png in Resources */,
+				CE2F9393188EAEA600ECAACE /* trackpoint-blue.png in Resources */,
+				CE2F9394188EAEA600ECAACE /* emo_019@2x.png in Resources */,
+				CE2F9395188EAEA600ECAACE /* icon_menu.png in Resources */,
+				CE2F9396188EAEA600ECAACE /* undo-black.png in Resources */,
+				CE2F9397188EAEA600ECAACE /* emo_027@2x.png in Resources */,
+				CE2F9398188EAEA600ECAACE /* emo_011@2x.png in Resources */,
+				CE2F9399188EAEA600ECAACE /* node_select.png in Resources */,
+				CE2F939A188EAEA600ECAACE /* trackpoint-black.png in Resources */,
+				CE2F939B188EAEA600ECAACE /* undo-blue.png in Resources */,
+				CE2F939C188EAEA600ECAACE /* MessageEntryBackground@2x.png in Resources */,
+				CE2F939D188EAEA600ECAACE /* trackpoint-blue@2x.png in Resources */,
+				CE2F939E188EAEA600ECAACE /* emo_003@2x.png in Resources */,
+				CE2F939F188EAEA600ECAACE /* open_xcworkspace.jpg in Resources */,
+				CE2F93A0188EAEA600ECAACE /* emo_028@2x.png in Resources */,
+				CE2F93A1188EAEA600ECAACE /* key-blue.png in Resources */,
+				CE2F93A2188EAEA600ECAACE /* MessageEntrySendButtonPressed@2x.png in Resources */,
+				CE2F93A3188EAEA600ECAACE /* emo_005@2x.png in Resources */,
+				CE2F93A4188EAEA600ECAACE /* 37x-Checkmark@2x.png in Resources */,
+				CE2F93A5188EAEA600ECAACE /* key-blue@2x.png in Resources */,
+				CE2F93A6188EAEA600ECAACE /* emo_004@2x.png in Resources */,
+				CE2F93A7188EAEA600ECAACE /* emo_009@2x.png in Resources */,
+				CE2F93A8188EAEA600ECAACE /* key.png in Resources */,
+				CE2F93A9188EAEA600ECAACE /* emo_008@2x.png in Resources */,
+				CE2F93AA188EAEA600ECAACE /* head_s@2x.png in Resources */,
+				CE2F93AB188EAEA600ECAACE /* undo-black@2x.png in Resources */,
+				CE2F93AC188EAEA600ECAACE /* not_found_pods.png in Resources */,
+				CE2F93AD188EAEA600ECAACE /* topic_reply.png in Resources */,
+				CE2F93AE188EAEA600ECAACE /* emo_007@2x.png in Resources */,
+				CE2F93AF188EAEA600ECAACE /* outside_link_sites.png in Resources */,
+				CE2F93B0188EAEA600ECAACE /* key-pressed@2x.png in Resources */,
+				CE2F93B1188EAEA600ECAACE /* emo_020@2x.png in Resources */,
+				CE2F93B2188EAEA600ECAACE /* emoji_touch@2x.png in Resources */,
+				CE2F93B3188EAEA600ECAACE /* emoji_touch.png in Resources */,
+				CE2F93B4188EAEA600ECAACE /* emo_024@2x.png in Resources */,
+				CE2F93B5188EAEA600ECAACE /* trackpoint-white.png in Resources */,
+				CE2F93B6188EAEA600ECAACE /* emo_026@2x.png in Resources */,
+				CE2F93D0188EAED500ECAACE /* JLTesterHome-Dis-Info.plist in Resources */,
+				CE2F93B7188EAEA600ECAACE /* more_photo.png in Resources */,
+				CE2F93B8188EAEA600ECAACE /* Notice in Resources */,
+				CE2F93B9188EAEA600ECAACE /* README.md in Resources */,
+				CE2F93BA188EAEA600ECAACE /* emo_025@2x.png in Resources */,
+				CE2F93BB188EAEA600ECAACE /* InfoPlist.strings in Resources */,
+				CE2F93BC188EAEA600ECAACE /* emo_013@2x.png in Resources */,
+				CE2F93BD188EAEA600ECAACE /* emo_018@2x.png in Resources */,
+				CE2F93BE188EAEA600ECAACE /* MessageEntrySendButton.png in Resources */,
+				CE2F93BF188EAEA600ECAACE /* Default@2x.png in Resources */,
+				CE2F93C0188EAEA600ECAACE /* emo_014@2x.png in Resources */,
+				CE2F93C1188EAEA600ECAACE /* redo-blue@2x.png in Resources */,
+				CE2F93C2188EAEA600ECAACE /* emo_021@2x.png in Resources */,
+				CE2F93C3188EAEA600ECAACE /* default.png in Resources */,
+				CE2F93C4188EAEA600ECAACE /* trackpoint-black@2x.png in Resources */,
+				CE2F93C5188EAEA600ECAACE /* API Problem.md in Resources */,
+				CE2F93C6188EAEA600ECAACE /* undo-blue@2x.png in Resources */,
+				CE2F93C7188EAEA600ECAACE /* Default-568h@2x.png in Resources */,
+				CE2F93C8188EAEA600ECAACE /* icon80.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE90A09E1872E6910030DB1E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2477,6 +2799,36 @@
 			showEnvVarsInLog = 0;
 		};
 		C7D54B2267BB43089E7BC10A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE2F9311188EAEA600ECAACE /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CE2F93C9188EAEA600ECAACE /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2797,6 +3149,91 @@
 				2897EF5A1856C422000BB6B9 /* UIFontAdditions.m in Sources */,
 				2897EF5E1856C422000BB6B9 /* UIWindowAdditions.m in Sources */,
 				2897EF501856C422000BB6B9 /* NSDateAdditions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE2F9312188EAEA600ECAACE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE2F9313188EAEA600ECAACE /* RCCoolSitesC.m in Sources */,
+				CE2F9314188EAEA600ECAACE /* RCPostModel.m in Sources */,
+				CE2F9315188EAEA600ECAACE /* RCSiteEntity.m in Sources */,
+				CE2F9316188EAEA600ECAACE /* RCForumNodesModel.m in Sources */,
+				CE2F9317188EAEA600ECAACE /* UIFontAdditions.m in Sources */,
+				CE2F9318188EAEA600ECAACE /* RCNodeSectionEntity.m in Sources */,
+				CE2F9319188EAEA600ECAACE /* RCReplyEntity.m in Sources */,
+				CE2F931A188EAEA600ECAACE /* RCQuickReplyC.m in Sources */,
+				CE2F931B188EAEA600ECAACE /* RCTopicEntity.m in Sources */,
+				CE2F931C188EAEA600ECAACE /* RCAppDelegate.m in Sources */,
+				CE2F931D188EAEA600ECAACE /* JLNimbusMoreButton.m in Sources */,
+				CE2F931E188EAEA600ECAACE /* RCNodesCloudTagC.m in Sources */,
+				CE2F931F188EAEA600ECAACE /* JLAFHTTPClient.m in Sources */,
+				CE2F9320188EAEA600ECAACE /* RCTopMembersC.m in Sources */,
+				CE2F9321188EAEA600ECAACE /* RCContentPhotoBrowerC.m in Sources */,
+				CE2F9322188EAEA600ECAACE /* RCUserHomepageC.m in Sources */,
+				CE2F9323188EAEA600ECAACE /* RCNetworkSpy.m in Sources */,
+				CE2F9324188EAEA600ECAACE /* RCNodeCell.m in Sources */,
+				CE2F9325188EAEA600ECAACE /* RCMoreC.m in Sources */,
+				CE2F9326188EAEA600ECAACE /* RCTopicBodyView.m in Sources */,
+				CE2F9327188EAEA600ECAACE /* JASidePanelController.m in Sources */,
+				CE2F9328188EAEA600ECAACE /* JLNimbusTableViewController.m in Sources */,
+				CE2F9329188EAEA600ECAACE /* RCNodeEntity.m in Sources */,
+				CE2F932A188EAEA600ECAACE /* RCKeywordEntity.m in Sources */,
+				CE2F932B188EAEA600ECAACE /* MarkdownSyntaxGenerator.m in Sources */,
+				CE2F932C188EAEA600ECAACE /* RCUserHomepageModel.m in Sources */,
+				CE2F932D188EAEA600ECAACE /* RCUIHelper.m in Sources */,
+				CE2F932E188EAEA600ECAACE /* Reachability.m in Sources */,
+				CE2F932F188EAEA600ECAACE /* NSDataAdditions.m in Sources */,
+				CE2F9330188EAEA600ECAACE /* NSStringAdditions.m in Sources */,
+				CE2F9331188EAEA600ECAACE /* UIView+findViewController.m in Sources */,
+				CE2F9332188EAEA600ECAACE /* RCReplyCell.m in Sources */,
+				CE2F9333188EAEA600ECAACE /* NSDate+RubyChina.m in Sources */,
+				CE2F9334188EAEA600ECAACE /* RCAboutAppC.m in Sources */,
+				CE2F9335188EAEA600ECAACE /* RCUserFullEntity.m in Sources */,
+				CE2F9336188EAEA600ECAACE /* RCForumNodesC.m in Sources */,
+				CE2F9337188EAEA600ECAACE /* JLNimbusEntity.m in Sources */,
+				CE2F9338188EAEA600ECAACE /* NSString+stringFromValue.m in Sources */,
+				CE2F9339188EAEA600ECAACE /* MarkdownSyntaxModel.m in Sources */,
+				CE2F933A188EAEA600ECAACE /* RCGlobalConfig.m in Sources */,
+				CE2F933B188EAEA600ECAACE /* RCCoolSitesModel.m in Sources */,
+				CE2F933C188EAEA600ECAACE /* JLNimbusTableModel.m in Sources */,
+				CE2F933D188EAEA600ECAACE /* RCTopicDetailEntity.m in Sources */,
+				CE2F933E188EAEA600ECAACE /* RCLoginModel.m in Sources */,
+				CE2F933F188EAEA600ECAACE /* RCSiteSectionEntity.m in Sources */,
+				CE2F9340188EAEA600ECAACE /* RCTopicDetailModel.m in Sources */,
+				CE2F9341188EAEA600ECAACE /* RCTopicCell.m in Sources */,
+				CE2F9342188EAEA600ECAACE /* RCTopicDetailC.m in Sources */,
+				CE2F9343188EAEA600ECAACE /* UIImage+nimbusImageNamed.m in Sources */,
+				CE2F9344188EAEA600ECAACE /* RCAccountEntity.m in Sources */,
+				CE2F9345188EAEA600ECAACE /* RCForumTopicsModel.m in Sources */,
+				CE2F9346188EAEA600ECAACE /* MarkdownTextView.m in Sources */,
+				CE2F9347188EAEA600ECAACE /* RCUserLauncherButtonView.m in Sources */,
+				CE2F9348188EAEA600ECAACE /* RCTopicActionModel.m in Sources */,
+				CE2F9349188EAEA600ECAACE /* RCSiteCell.m in Sources */,
+				CE2F934A188EAEA600ECAACE /* KOKeyboardRow.m in Sources */,
+				CE2F934B188EAEA600ECAACE /* main.m in Sources */,
+				CE2F934C188EAEA600ECAACE /* UIWindowAdditions.m in Sources */,
+				CE2F934D188EAEA600ECAACE /* RCBaseTableModel.m in Sources */,
+				CE2F934E188EAEA600ECAACE /* RCLeftMenuC.m in Sources */,
+				CE2F934F188EAEA600ECAACE /* RCUserCell.m in Sources */,
+				CE2F9350188EAEA600ECAACE /* TSEmojiView.m in Sources */,
+				CE2F9351188EAEA600ECAACE /* RCRegularParser.m in Sources */,
+				CE2F9352188EAEA600ECAACE /* RCReplyModel.m in Sources */,
+				CE2F9353188EAEA600ECAACE /* RCLoginC.m in Sources */,
+				CE2F9354188EAEA600ECAACE /* RCHomepageHeaderView.m in Sources */,
+				CE2F9355188EAEA600ECAACE /* RCAPIClient.m in Sources */,
+				CE2F9356188EAEA600ECAACE /* RCUserEntity.m in Sources */,
+				CE2F9357188EAEA600ECAACE /* UIViewAdditions.m in Sources */,
+				CE2F9358188EAEA600ECAACE /* UIViewController+JASidePanel.m in Sources */,
+				CE2F9359188EAEA600ECAACE /* TTGlobalUICommon.m in Sources */,
+				CE2F935A188EAEA600ECAACE /* KOSwipeButton.m in Sources */,
+				CE2F935B188EAEA600ECAACE /* RCWikiC.m in Sources */,
+				CE2F935C188EAEA600ECAACE /* RCPostC.m in Sources */,
+				CE2F935D188EAEA600ECAACE /* TTGlobalCoreLocale.m in Sources */,
+				CE2F935E188EAEA600ECAACE /* RCTopMembersModel.m in Sources */,
+				CE2F935F188EAEA600ECAACE /* RCForumTopicsC.m in Sources */,
+				CE2F9360188EAEA600ECAACE /* NSDateAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3143,6 +3580,48 @@
 			};
 			name = Release;
 		};
+		CE2F93CB188EAEA600ECAACE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BECB55DCFAF84993AE6D89A6 /* Pods.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: cong wang (5S6Z92KZTX)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JLRubyChina/JLRubyChina-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/JLRubyChina/JLTesterHome-Dis-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"/Users/jimneylee/Desktop/Source/OpenSource/RubyChina/JLRubyChina-iPhone/vendor/TestFlightSDK/TestFlightSDK2.1.3",
+					"/Users/jimneylee/Desktop/Source/OpenSource/RubyChina/JLRubyChina-iPhone/vendor/TestFlightSDK",
+					"/Users/jimney/Desktop/Source/Github_jimney/RubyChina/JLRubyChina-iPhone/vendor/TestFlightSDK",
+				);
+				PRODUCT_NAME = "JLTesterHome Dis";
+				PROVISIONING_PROFILE = "1A7D4E0F-66FA-46A6-A524-4B63518773CF";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CE2F93CC188EAEA600ECAACE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BECB55DCFAF84993AE6D89A6 /* Pods.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: cong wang (5S6Z92KZTX)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JLRubyChina/JLRubyChina-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/JLRubyChina/JLTesterHome-Dis-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"/Users/jimneylee/Desktop/Source/OpenSource/RubyChina/JLRubyChina-iPhone/vendor/TestFlightSDK/TestFlightSDK2.1.3",
+					"/Users/jimneylee/Desktop/Source/OpenSource/RubyChina/JLRubyChina-iPhone/vendor/TestFlightSDK",
+					"/Users/jimney/Desktop/Source/Github_jimney/RubyChina/JLRubyChina-iPhone/vendor/TestFlightSDK",
+				);
+				PRODUCT_NAME = "JLTesterHome Dis";
+				PROVISIONING_PROFILE = "1A7D4E0F-66FA-46A6-A524-4B63518773CF";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		CE90A1041872E6910030DB1E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BECB55DCFAF84993AE6D89A6 /* Pods.xcconfig */;
@@ -3230,6 +3709,15 @@
 			buildConfigurations = (
 				2897EF271856BE94000BB6B9 /* Debug */,
 				2897EF281856BE94000BB6B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE2F93CA188EAEA600ECAACE /* Build configuration list for PBXNativeTarget "JLTesterHome Dis" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE2F93CB188EAEA600ECAACE /* Debug */,
+				CE2F93CC188EAEA600ECAACE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
