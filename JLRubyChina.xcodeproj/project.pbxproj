@@ -104,7 +104,7 @@
 		2814F5A0187FFDAA0006D38B /* more_photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE16187CF41100067D9C /* more_photo@2x.png */; };
 		2814F5A1187FFDAA0006D38B /* key-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC10418629839007C68FC /* key-pressed.png */; };
 		2814F5A2187FFDAA0006D38B /* home_activity_topics.png in Resources */ = {isa = PBXBuildFile; fileRef = CE132595185F5A8400208653 /* home_activity_topics.png */; };
-		2814F5A3187FFDAA0006D38B /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 2897EF751856C616000BB6B9 /* TODO */; };
+		2814F5A3187FFDAA0006D38B /* TODO.md in Resources */ = {isa = PBXBuildFile; fileRef = 2897EF751856C616000BB6B9 /* TODO.md */; };
 		2814F5A5187FFDAA0006D38B /* MessageEntrySendButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 281ACE1D187CF41100067D9C /* MessageEntrySendButton@2x.png */; };
 		2814F5A8187FFDAA0006D38B /* emo_023@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE36759F186337A70015756D /* emo_023@2x.png */; };
 		2814F5A9187FFDAA0006D38B /* top_members.png in Resources */ = {isa = PBXBuildFile; fileRef = CE13259B185F5A8400208653 /* top_members.png */; };
@@ -280,7 +280,7 @@
 		281ACDAC187CF26900067D9C /* emo_012@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE367594186337A70015756D /* emo_012@2x.png */; };
 		281ACDAE187CF26900067D9C /* key-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC10418629839007C68FC /* key-pressed.png */; };
 		281ACDB0187CF26900067D9C /* home_activity_topics.png in Resources */ = {isa = PBXBuildFile; fileRef = CE132595185F5A8400208653 /* home_activity_topics.png */; };
-		281ACDB3187CF26900067D9C /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 2897EF751856C616000BB6B9 /* TODO */; };
+		281ACDB3187CF26900067D9C /* TODO.md in Resources */ = {isa = PBXBuildFile; fileRef = 2897EF751856C616000BB6B9 /* TODO.md */; };
 		281ACDB4187CF26900067D9C /* emo_023@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE36759F186337A70015756D /* emo_023@2x.png */; };
 		281ACDB7187CF26900067D9C /* top_members.png in Resources */ = {isa = PBXBuildFile; fileRef = CE13259B185F5A8400208653 /* top_members.png */; };
 		281ACDBA187CF26900067D9C /* nodes.png in Resources */ = {isa = PBXBuildFile; fileRef = CE132599185F5A8400208653 /* nodes.png */; };
@@ -465,7 +465,7 @@
 		2897EF681856C422000BB6B9 /* JLNimbusMoreButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF4C1856C422000BB6B9 /* JLNimbusMoreButton.m */; };
 		2897EF721856C54B000BB6B9 /* RCAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF6C1856C54B000BB6B9 /* RCAPIClient.m */; };
 		2897EF741856C60A000BB6B9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2897EF731856C60A000BB6B9 /* README.md */; };
-		2897EF761856C616000BB6B9 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 2897EF751856C616000BB6B9 /* TODO */; };
+		2897EF761856C616000BB6B9 /* TODO.md in Resources */ = {isa = PBXBuildFile; fileRef = 2897EF751856C616000BB6B9 /* TODO.md */; };
 		2897EF791856E073000BB6B9 /* RCGlobalConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF781856E073000BB6B9 /* RCGlobalConfig.m */; };
 		2897EF7E1856E11A000BB6B9 /* RCLeftMenuC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF7B1856E11A000BB6B9 /* RCLeftMenuC.m */; };
 		2897EF821856E2BE000BB6B9 /* RCForumTopicsC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897EF811856E2BE000BB6B9 /* RCForumTopicsC.m */; };
@@ -678,7 +678,7 @@
 		CE90A0A91872E6910030DB1E /* emo_012@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE367594186337A70015756D /* emo_012@2x.png */; };
 		CE90A0AB1872E6910030DB1E /* key-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CBC10418629839007C68FC /* key-pressed.png */; };
 		CE90A0AD1872E6910030DB1E /* home_activity_topics.png in Resources */ = {isa = PBXBuildFile; fileRef = CE132595185F5A8400208653 /* home_activity_topics.png */; };
-		CE90A0B01872E6910030DB1E /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 2897EF751856C616000BB6B9 /* TODO */; };
+		CE90A0B01872E6910030DB1E /* TODO.md in Resources */ = {isa = PBXBuildFile; fileRef = 2897EF751856C616000BB6B9 /* TODO.md */; };
 		CE90A0B11872E6910030DB1E /* emo_023@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE36759F186337A70015756D /* emo_023@2x.png */; };
 		CE90A0B41872E6910030DB1E /* top_members.png in Resources */ = {isa = PBXBuildFile; fileRef = CE13259B185F5A8400208653 /* top_members.png */; };
 		CE90A0B71872E6910030DB1E /* nodes.png in Resources */ = {isa = PBXBuildFile; fileRef = CE132599185F5A8400208653 /* nodes.png */; };
@@ -883,7 +883,7 @@
 		2897EF6C1856C54B000BB6B9 /* RCAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAPIClient.m; sourceTree = "<group>"; };
 		2897EF6D1856C54B000BB6B9 /* RCJSONKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCJSONKeys.h; sourceTree = "<group>"; };
 		2897EF731856C60A000BB6B9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		2897EF751856C616000BB6B9 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
+		2897EF751856C616000BB6B9 /* TODO.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO.md; sourceTree = "<group>"; };
 		2897EF771856E073000BB6B9 /* RCGlobalConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCGlobalConfig.h; sourceTree = "<group>"; };
 		2897EF781856E073000BB6B9 /* RCGlobalConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCGlobalConfig.m; sourceTree = "<group>"; };
 		2897EF7A1856E11A000BB6B9 /* RCLeftMenuC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCLeftMenuC.h; sourceTree = "<group>"; };
@@ -1266,7 +1266,7 @@
 		2897EEE81856BE94000BB6B9 = {
 			isa = PBXGroup;
 			children = (
-				2897EF751856C616000BB6B9 /* TODO */,
+				2897EF751856C616000BB6B9 /* TODO.md */,
 				2897EF731856C60A000BB6B9 /* README.md */,
 				CE13258F185F4F5800208653 /* CHANGES.md */,
 				CE132591185F537600208653 /* API Problem.md */,
@@ -1990,7 +1990,7 @@
 				2814F5A1187FFDAA0006D38B /* key-pressed.png in Resources */,
 				2814F60E187FFE030006D38B /* icon80.png in Resources */,
 				2814F5A2187FFDAA0006D38B /* home_activity_topics.png in Resources */,
-				2814F5A3187FFDAA0006D38B /* TODO in Resources */,
+				2814F5A3187FFDAA0006D38B /* TODO.md in Resources */,
 				2814F5A5187FFDAA0006D38B /* MessageEntrySendButton@2x.png in Resources */,
 				2814F609187FFE030006D38B /* Default.png in Resources */,
 				2814F5A8187FFDAA0006D38B /* emo_023@2x.png in Resources */,
@@ -2096,7 +2096,7 @@
 				281ACE54187CF41100067D9C /* more_photo@2x.png in Resources */,
 				281ACDAE187CF26900067D9C /* key-pressed.png in Resources */,
 				281ACDB0187CF26900067D9C /* home_activity_topics.png in Resources */,
-				281ACDB3187CF26900067D9C /* TODO in Resources */,
+				281ACDB3187CF26900067D9C /* TODO.md in Resources */,
 				28E07C41187D2EAC00414F19 /* ruby-logo.png in Resources */,
 				281ACE66187CF41100067D9C /* MessageEntrySendButton@2x.png in Resources */,
 				28E07C3E187D2AE500414F19 /* icon@2x.png in Resources */,
@@ -2199,7 +2199,7 @@
 				281ACE67187CF41100067D9C /* MessageEntrySendButtonPressed.png in Resources */,
 				281ACE73187CF41100067D9C /* Default@2x.png in Resources */,
 				281ACE58187CF41100067D9C /* MessageEntryBackground@2x.png in Resources */,
-				2897EF761856C616000BB6B9 /* TODO in Resources */,
+				2897EF761856C616000BB6B9 /* TODO.md in Resources */,
 				CE3675BF186337A70015756D /* emo_023@2x.png in Resources */,
 				CE1325A4185F5A8400208653 /* top_members.png in Resources */,
 				CE1325A2185F5A8400208653 /* nodes.png in Resources */,
@@ -2313,7 +2313,7 @@
 				CE90A0AB1872E6910030DB1E /* key-pressed.png in Resources */,
 				CE90A0AD1872E6910030DB1E /* home_activity_topics.png in Resources */,
 				281ACE65187CF41100067D9C /* MessageEntrySendButton@2x.png in Resources */,
-				CE90A0B01872E6910030DB1E /* TODO in Resources */,
+				CE90A0B01872E6910030DB1E /* TODO.md in Resources */,
 				CE90A0B11872E6910030DB1E /* emo_023@2x.png in Resources */,
 				281ACEA1187CF41100067D9C /* ruby-logo@2x.png in Resources */,
 				281ACE9E187CF41100067D9C /* ruby-logo.png in Resources */,
