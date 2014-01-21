@@ -104,7 +104,7 @@
         NSError *error = nil;
         NSData* jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:NSJSONWritingPrettyPrinted error:&error];
         
-        AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:kAPIBaseURLString]];
+        AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:HOST_API_URL]];
         [httpClient setParameterEncoding:AFFormURLParameterEncoding];
         NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST"
                                                                 path:path
