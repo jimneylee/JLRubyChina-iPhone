@@ -194,9 +194,9 @@
 - (void)prepareForReuse
 {
     [super prepareForReuse];
-    if (self.headView.image) {
-        self.headView.image = nil;
-    }
+
+    self.headView.image = [UIImage nimbusImageNamed:@"head_s.png"];
+    [self.contentImageView setInitialImage:nil];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -264,7 +264,7 @@
             [self.headView setPathToNetworkImage:o.user.avatarUrl];
         }
         else {
-            [self.headView setPathToNetworkImage:nil];
+            self.headView.image = [UIImage nimbusImageNamed:@"head_s.png"];
         }
         self.textLabel.text = o.user.loginId;
         self.detailTextLabel.text = [o.createdAtDate formatRelativeTime];
