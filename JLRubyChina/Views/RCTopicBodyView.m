@@ -98,7 +98,8 @@
                                                                                      CONTENT_IMAGE_HEIGHT)];
         [self.contentView addSubview:self.contentImageView];
         self.contentImageView.userInteractionEnabled = YES;
-        UITapGestureRecognizer* tapMoreGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showMoreImages)];
+        UITapGestureRecognizer* tapMoreGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                         action:@selector(showMoreImages)];
         [self.contentImageView addGestureRecognizer:tapMoreGesture];
         
         // more images
@@ -190,15 +191,19 @@
     
     // content image
     if (self.topicDetailEntity.imageUrlsArray.count) {
-        self.contentImageView.left = (self.width - cellMargin * 2 - self.contentImageView.width) / 2;//self.headView.left;
+        self.contentImageView.hidden = NO;
+        self.contentImageView.left = (self.width - cellMargin * 2 - self.contentImageView.width) / 2;
         self.contentImageView.top = self.headView.bottom + CELL_PADDING_4;
         height = height + self.contentImageView.height;
         height = height + CELL_PADDING_4;
     }
+    else {
+        self.contentImageView.hidden = YES;
+    }
 
     // status content
     CGFloat kContentLength = self.width - sideMargin * 2;
-    self.bodyLabel.frame = CGRectMake(self.headView.left, height,//self.contentImageView.bottom + CELL_PADDING_4
+    self.bodyLabel.frame = CGRectMake(self.headView.left, height,
                                       kContentLength, 0.f);
     [self.bodyLabel sizeToFit];
     
