@@ -29,6 +29,10 @@
             self.hashId = [dic[JSON_ID] unsignedLongValue];
             self.loginId = dic[JSON_LOGIN];
             self.avatarUrl = dic[JSON_AVATAR_URL];
+            
+            if (![self.avatarUrl hasPrefix:@"http"]) {
+                self.avatarUrl = [NSString stringWithFormat:@"%@%@", HOST_URL, self.avatarUrl];
+            }
         }
         else {
             self.hashId = [dic[JSON_ID] unsignedLongValue];
