@@ -55,6 +55,10 @@
                                                                                     HEAD_IAMGE_HEIGHT)];
         self.headView.initialImage = [UIImage nimbusImageNamed:@"head_s.png"];
         [self.contentView addSubview:self.headView];
+        UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                              action:@selector(visitUserHomepage)];
+        self.headView.userInteractionEnabled = YES;
+        [self.headView addGestureRecognizer:tap];
         
         // username
         UILabel* nameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -159,6 +163,18 @@
         self.nameLabel.text = user.name.length ? user.name : user.loginId;// if no name, just set loginId
         self.loginIdLabel.text = user.loginId;
         self.tagLineLabel.text = [NSString stringWithFormat:@"签名：%@", user.tagline.length ? user.tagline : @"暂无"];
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)visitUserHomepage
+{
+    UIViewController* superviewC = self.viewController;
+    [RCGlobalConfig HUDShowMessage:self.user.loginId
+                       addedToView:[UIApplication sharedApplication].keyWindow];
+    if (superviewC) {
+        RCUserHomepageC* c = [[RCUserHomepageC alloc] initWithUserLoginId:self.user.loginId];
+        [superviewC.navigationController pushViewController:c animated:YES];
     }
 }
 

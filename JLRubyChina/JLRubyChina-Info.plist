@@ -24,7 +24,7 @@
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>com.alvin.rubychina</string>
+	<string>cn.rafood.rubychina</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -37,14 +37,6 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1.2</string>
-	<key>HOST_API_URL</key>
-	<string>http://ruby-china.org/api/v2/</string>
-	<key>HOST_BASE_API_TYPE</key>
-	<string>rubychina</string>
-	<key>HOST_INTRO</key>
-	<string>Ruby China，对！没错！这里就是 Ruby 社区，目前这里已经是国内最权威的 Ruby 社区，拥有国内所有资深的 Ruby 工程师。</string>
-	<key>HOST_URL</key>
-	<string>http://ruby-china.org</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchImages</key>
@@ -118,5 +110,13 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>HOST_URL</key>
+	<string>http://ruby-china.org</string>
+	<key>HOST_API_URL</key>
+	<string>http://ruby-china.org/api/v2/</string>
+	<key>HOST_INTRO</key>
+	<string>Ruby China，对！没错！这里就是 Ruby 社区，目前这里已经是国内最权威的 Ruby 社区，拥有国内所有资深的 Ruby 工程师。</string>
+	<key>HOST_BASE_API_TYPE</key>
+	<string>rubychina</string>
 </dict>
 </plist>
