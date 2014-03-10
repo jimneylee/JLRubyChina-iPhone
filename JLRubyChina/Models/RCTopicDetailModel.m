@@ -83,7 +83,7 @@
     }
     
     // 3、call inline sort
-    entities = [entities sortedArrayUsingSelector:@selector(compare:)];
+    //entities = [entities sortedArrayUsingSelector:@selector(compare:)];
     
     return entities;
 }
