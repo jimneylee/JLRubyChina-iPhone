@@ -8,7 +8,7 @@
 请把玩这个客户端源码的同学，不要在上面几个社区上随意发帖测试，谢谢配合。
 
 ## THKS To Contributors
-[**luzhiyongGit**](https://github.com/luzhiyongGit) [**AlvinZhu**](https://github.com/gbammc)
+[**luzhiyongGit**](https://github.com/luzhiyongGit)  [**bachue**](https://github.com/bachue)  [**gbammc**](https://github.com/gbammc)
 
 ##JLRubyChina-iPhone
 希望能给上面几个社区活跃的同学带来一点帮助，节省一点时间。欢迎大家在使用过程中，提出改进建议和意见。同时期望更多的同学参与学习交流，维护和优化APP。
