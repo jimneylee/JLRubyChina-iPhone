@@ -117,6 +117,7 @@
     self.sendBtn.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin;
     self.emojiBtn.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin;
     self.containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+    self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -265,7 +266,14 @@
 	CGRect r = self.containerView.frame;
     r.size.height -= diff;
     r.origin.y += diff;
-	self.containerView.frame = r;
+    
+    // need change view's frame as containerView
+    // otherwise can not move cusor to top side of the view
+    [UIView animateWithDuration:0.5f animations:^{
+        self.containerView.frame = r;
+    } completion:^(BOOL finished) {
+        self.view.frame = r;
+    }];
 }
 
 @end
