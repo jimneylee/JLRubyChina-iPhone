@@ -16,7 +16,7 @@
 #define PAGE_MAX_COUNT (IS_IPHONE5 ? (3 * 5) : (3*4))
 
 @interface RCTopMembersC ()<NILauncherViewModelDelegate>
-@property (nonatomic, assign) NITableViewActionBlock tapAction;
+@property (nonatomic, assign) NIActionBlock tapAction;
 @property (nonatomic, strong) RCTopMembersModel* requestModel;
 @property (nonatomic, readwrite, retain) NILauncherViewModel* launcherModel;
 @property (nonatomic, strong) NSArray* topMembersArray;

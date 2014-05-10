@@ -202,19 +202,19 @@
 - (void)loadTopicDetail
 {
     NSString* relativePath = [RCAPIClient relativePathForTopicDetailWithTopicId:((RCTopicDetailModel*)self.model).topicId];
-    [[RCAPIClient sharedClient] getPath:relativePath parameters:nil
-                                success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                    if ([responseObject isKindOfClass:[NSArray class]]) {
-                                        NSArray* array = (NSArray*)responseObject;
-                                        NSDictionary* dic = array[0];
-                                        if (dic) {
-                                            self.topicDetailEntity = [RCTopicDetailEntity entityWithDictionary:dic];
-                                            [self updateTopicHeaderView];
-                                        }
+    [[RCAPIClient sharedClient] GET:relativePath parameters:nil
+                            success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                if ([responseObject isKindOfClass:[NSArray class]]) {
+                                    NSArray* array = (NSArray*)responseObject;
+                                    NSDictionary* dic = array[0];
+                                    if (dic) {
+                                        self.topicDetailEntity = [RCTopicDetailEntity entityWithDictionary:dic];
+                                        [self updateTopicHeaderView];
                                     }
-                                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                    [RCGlobalConfig HUDShowMessage:@"获取帖子详细失败" addedToView:self.view];
-                                }];
+                                }
+                            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                [RCGlobalConfig HUDShowMessage:@"获取帖子详细失败" addedToView:self.view];
+                            }];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -252,9 +252,9 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (NITableViewActionBlock)tapAction
+- (NIActionBlock)tapAction
 {
-    return ^BOOL(id object, id target) {
+    return ^BOOL(id object, id target, NSIndexPath* indexPath) {
         if (!self.editing) {
             if ([object isKindOfClass:[RCReplyEntity class]]) {
                 //RCReplyEntity* topic = (RCReplyEntity*)object;
