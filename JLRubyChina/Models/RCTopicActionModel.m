@@ -74,7 +74,7 @@
         [parameters setObject:[RCGlobalConfig myToken] forKey:@"token"];
         
         NSString* path = [self relativePathWithTopicId:topicId actionType:actionType];
-        [[RCAPIClient sharedClient] postPath:path parameters:parameters
+        [[RCAPIClient sharedClient] POST:path parameters:parameters
                                      success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                          NSLog(@"%@", responseObject);
                                          success();
@@ -95,6 +95,8 @@
              success:(void(^)())success
              failure:(void(^)(NSError *error))failure
 {
+#warning "to use af2.0"
+#if 0
     // 参考：http://stackoverflow.com/questions/9562459/afnetworking-posting-malformed-json-single-quotes-and-object-refs
     if (topicId > 0) {
         NSMutableDictionary* parameters = [NSMutableDictionary dictionary];
@@ -133,5 +135,6 @@
         }];
         [operation start];
     }
+#endif
 }
 @end

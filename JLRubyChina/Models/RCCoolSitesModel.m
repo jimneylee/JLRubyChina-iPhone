@@ -58,7 +58,7 @@
     else {
         self.isLoading = YES;
     }
-    [[RCAPIClient sharedClient] getPath:[self relativePath] parameters:nil
+    [[RCAPIClient sharedClient] GET:[self relativePath] parameters:nil
                                 success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                     self.isLoading = NO;
                                     if ([responseObject isKindOfClass:[NSArray class]]) {
@@ -93,7 +93,7 @@
 - (void)cancelRequstOperation
 {
     if (self.isLoading) {
-        [[RCAPIClient sharedClient] cancelAllHTTPOperationsWithMethod:@"GET" path:[self relativePath]];
+        [[RCAPIClient sharedClient] cancelAllHTTPOperationsWithPath:[self relativePath]];
         self.isLoading = NO;
     }
 }

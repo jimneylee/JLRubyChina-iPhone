@@ -18,6 +18,7 @@
              success:(void(^)())success
              failure:(void(^)(NSError *error))failure
 {
+#if 0
     // 不知道这么为什么不行，下面替代方法临时实现，比较丑陋
     if (body.length) {
         NSMutableDictionary* parameters = [NSMutableDictionary dictionary];
@@ -35,6 +36,7 @@
                                          failure(error);
                                      }];
     }
+#endif
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -43,6 +45,8 @@
              success:(void(^)(RCReplyEntity* replyEntity))success
              failure:(void(^)(NSError* error))failure
 {
+#warning "to use af2.0"
+#if 0
     // 参考：http://stackoverflow.com/questions/9562459/afnetworking-posting-malformed-json-single-quotes-and-object-refs
     if (body.length) {
         NSMutableDictionary* parameters = [NSMutableDictionary dictionary];
@@ -92,5 +96,6 @@
         }];
         [operation start];
     }
+#endif
 }
 @end

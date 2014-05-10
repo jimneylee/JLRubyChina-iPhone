@@ -8,7 +8,7 @@
 
 #import "RCLoginModel.h"
 #import "RCAPIClient.h"
-#import "AFJSONRequestOperation.h"
+//#import "AFJSONRequestOperation.h"
 #import "NSDataAdditions.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -21,15 +21,15 @@
                     block:(void(^)(RCAccountEntity* user, NSError *error))block
 {
     NSString* path = [RCAPIClient relativePathForSignIn];
-    
+#if 0
     // 由于登录的接口与其他接口base_url不太一样，后台没有放到api路径下，故单独处理
     // ruby-china.org/account/sign_in.json
-    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:HOST_URL]];//@"http://ruby-china.org/"
-    [httpClient setParameterEncoding:AFJSONParameterEncoding];
+    AFHTTPRequestOperationManager *httpClient = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:HOST_URL]];//@"http://ruby-china.org/"
+//    [httpClient setParameterEncoding:AFJSONParameterEncoding];
     [httpClient setAuthorizationHeaderWithUsername:username password:password];
-    [httpClient registerHTTPOperationClass:[AFJSONRequestOperation class]];
+//    [httpClient registerHTTPOperationClass:[AFJSONRequestOperation class]];
     // Accept HTTP Header; see http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1
-	[httpClient setDefaultHeader:@"Accept" value:@"application/json"];
+//	[httpClient setDefaultHeader:@"Accept" value:@"application/json"];
     [httpClient postPath:path parameters:nil
                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                      if ([responseObject isKindOfClass:[NSDictionary class]]) {
@@ -55,6 +55,7 @@
                                          block(nil, error);
                                      }
                                  }];
+#endif
 }
 
 @end

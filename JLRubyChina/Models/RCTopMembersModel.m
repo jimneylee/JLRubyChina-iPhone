@@ -28,42 +28,42 @@
     else {
         self.isLoading = YES;
     }
-    [[RCAPIClient sharedClient] getPath:[self relativePath] parameters:nil
-                                success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                    self.isLoading = NO;
-                                    if ([responseObject isKindOfClass:[NSArray class]]) {
-                                        NSArray* sourceArray = (NSArray*)responseObject;
-                                        if (sourceArray.count) {
-                                            RCUserEntity* user = nil;
-                                            NSMutableArray* topMembersArray = [NSMutableArray arrayWithCapacity:sourceArray.count];
-                                            for (NSDictionary* dic in sourceArray) {
-                                                user = [RCUserEntity entityWithDictionary:dic];
-                                                [topMembersArray addObject:user];
-                                            }
-                                            self.topMembersArray = topMembersArray;
-                                            if (block) {
-                                                block(topMembersArray, nil);
-                                                return;
-                                            }
+    [[RCAPIClient sharedClient] GET:[self relativePath] parameters:nil
+                            success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                self.isLoading = NO;
+                                if ([responseObject isKindOfClass:[NSArray class]]) {
+                                    NSArray* sourceArray = (NSArray*)responseObject;
+                                    if (sourceArray.count) {
+                                        RCUserEntity* user = nil;
+                                        NSMutableArray* topMembersArray = [NSMutableArray arrayWithCapacity:sourceArray.count];
+                                        for (NSDictionary* dic in sourceArray) {
+                                            user = [RCUserEntity entityWithDictionary:dic];
+                                            [topMembersArray addObject:user];
+                                        }
+                                        self.topMembersArray = topMembersArray;
+                                        if (block) {
+                                            block(topMembersArray, nil);
+                                            return;
                                         }
                                     }
-                                    if (block) {
-                                        NSError* error = [[NSError alloc] init];
-                                        block(nil, error);
-                                    }
-                                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                    self.isLoading = NO;
-                                    if (block) {
-                                        block(nil, error);
-                                    }
-                                }];
+                                }
+                                if (block) {
+                                    NSError* error = [[NSError alloc] init];
+                                    block(nil, error);
+                                }
+                            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                self.isLoading = NO;
+                                if (block) {
+                                    block(nil, error);
+                                }
+                            }];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)cancelRequstOperation
 {
     if (self.isLoading) {
-        [[RCAPIClient sharedClient] cancelAllHTTPOperationsWithMethod:@"GET" path:[self relativePath]];
+        [[RCAPIClient sharedClient] cancelAllHTTPOperationsWithPath:[self relativePath]];
         self.isLoading = NO;
     }
 }

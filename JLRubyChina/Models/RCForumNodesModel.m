@@ -104,28 +104,28 @@
     }
     
     NSString* relativePath = [self relativePath];
-    [[self apiSharedClient] getPath:relativePath parameters:nil
-                            success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                self.isLoading = NO;
-                                if ([responseObject isKindOfClass:[NSArray class]]) {
-                                    NSArray* sectionsArray = [self entitiesParsedFromResponseObject:responseObject];
-                                    if (block) {
-                                        block(sectionsArray, nil);
-                                    }
-                                }
-                            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                self.isLoading = NO;
+    [[self apiSharedClient] GET:relativePath parameters:nil
+                        success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                            self.isLoading = NO;
+                            if ([responseObject isKindOfClass:[NSArray class]]) {
+                                NSArray* sectionsArray = [self entitiesParsedFromResponseObject:responseObject];
                                 if (block) {
-                                    block(nil, error);
+                                    block(sectionsArray, nil);
                                 }
-                            }];
+                            }
+                        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                            self.isLoading = NO;
+                            if (block) {
+                                block(nil, error);
+                            }
+                        }];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)cancelRequstOperation
 {
     if (self.isLoading) {
-        [[RCAPIClient sharedClient] cancelAllHTTPOperationsWithMethod:@"GET" path:[self relativePath]];
+        [[RCAPIClient sharedClient] cancelAllHTTPOperationsWithPath:[self relativePath]];
         self.isLoading = NO;
     }
 }
