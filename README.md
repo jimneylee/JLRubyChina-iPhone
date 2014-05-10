@@ -20,53 +20,31 @@ XCode5 iOS7.x & iOS6.x
 1、下载[最近的Release版本](https://github.com/jimneylee/JLRubyChina-iPhone/releases)，直接编译即可安装。
 
 2、fork后clone到本地，手工添加依赖库安装方法
-* 1、submodule更新
+* 1、git submodule
 
 ``` bash
 $ git submodule init 
 $ git submodule update
 ```
-注：`git submodule update`无法更新依赖库时，请按如下重新添加：
-``` bash
-$ git submodule add https://github.com/jimneylee/JLNimbusTimeline.git vendor/JLNimbusTimeline
-$ git submodule add https://github.com/jimneylee/MarkdownSyntaxEditor.git vendor/MarkdownSyntaxEditor
-$ git submodule add https://github.com/jimneylee/TSEmojiView.git vendor/TSEmojiView
-```
-* 2、[CocoaPods](http://cocoapods.org)更新
+
+* 2、[CocoaPods](http://cocoapods.org)
 
 ``` bash   
 $ pod install
-```   
-注：如需要添加其他依赖库，请修改Podfile
+```
 
-* 3、替换pod添加的依赖库
-   用工程`vendor`目录下的`Nimbus_fixbug`和`JSONKit_fixerror`中的文件，替换pod添加的对应文件。
-   `Nimbus_fixbug`是为了解决帖子列表高亮名字或链接无法点击。
-   `JSONKit_fixerror`为了解决编译引起的错误和警告。
-
->其实这个JSONKit是无用的，但是由于JSONKit是Nimbus的submodule递归依赖引入，所以在Nimbus没有发布新的版本，暂时只能这样处理。之前考虑过'git submodule add'依赖nimbus，去掉这个JSONKit库，但是会是工程膨胀，得不偿失。
->有问题，请添加到issue中！
-
-4、通过'JLRubyChina.xcworkspace'打开项目，也可以[自定义xopen命令](http://jimneylee.github.io/2014/01/09/add-xopen-command-to-open-xcode-workspace/)便捷打开
+3、通过'JLRubyChina.xcworkspace'打开项目，也可以[自定义xopen命令](http://jimneylee.github.io/2014/01/09/add-xopen-command-to-open-xcode-workspace/)便捷打开
 
 ![image](https://github.com/jimneylee/JLRubyChina-iPhone/raw/master/Resource/Screenshots/ErrorResolve/open_xcworkspace.jpg)
 
 # ERROR解决方法
-1、帖子列表高亮名字或链接无法点击
 
-   官方push到CocoaPods的nimbus 1.0.0版本，存在NIAttributedLabel在UITableViewCell中link无法响应touch的bug
-   请暂时用Nimbus_fix目录下的5个文件（主要就是修改了NIAttributedLabel文件）替换Pod工程中Nimbus里面对应的这5个文件
-   参考：http://stackoverflow.com/questions/17467086/using-niattributedlabel-in-uitableviewcell
-
-2、若出现这个问题：'vendor/JLNimbusTimeline' already exists in the index
+1、若出现这个问题：'vendor/JLNimbusTimeline' already exists in the index
 ``` bash
 $ git rm --cached vendor/JLNimbusTimeline
 ```
-3、若出现这个问题：fatal: not removing 'vendor/JLNimbusTimeline' recursively without -r
-``` bash
-$ git rm -r --cached vendor/JLNimbusTimeline
-```
-4、如果JLNimbusTimeline里面编译出错，`git submodule update`无法更新时，请删除JLNimbusTimeline重新添加，步骤如下：
+
+2、如果JLNimbusTimeline里面编译出错，`git submodule update`无法更新时，请删除JLNimbusTimeline重新添加，步骤如下：
 
 * 1、`.git/config`删除依赖JLNimbusTimeline相关,`vi .git/config`
 * 2、删除`.git/modules/vendor`下JLNimbusTimeline目录,`rm -rf .git/modules/vendor/JLNimbusTimeline`
@@ -81,6 +59,7 @@ $ git rm -r --cached vendor/JLNimbusTimeline
 ``` bash
 $ [sudo]pod install
 ```
+
 6、若出现这个问题：library not found for -lPods
 
    解决方法1、没有通过pod update生成的JLRubyChina.xcworkspace来打开工程
@@ -89,19 +68,6 @@ $ [sudo]pod install
 
    解决方法2、Pods工程中，试着如下修改TARGETS的Pods，今天搞了一上午才解决这个错误问题
 ![image](https://github.com/jimneylee/JLRubyChina-iPhone/raw/master/Resource/Screenshots/ErrorResolve/not_found_pods.png)
-
-7、若`git submodule add https://github.com/jimneylee/JLNimbusTimeline.git vendor/JLNimbusTimeline`出现这个问题：
-
-    A git directory for 'vendor/JLNimbusTimeline' is found locally with remote(s):
-    origin	https://github.com/jimneylee/JLNimbusTimeline.git
-    If you want to reuse this local git directory instead of cloning again from
-    https://github.com/jimneylee/JLNimbusTimeline.git
-    use the '--force' option. If the local git directory is not the correct repo
-    or you are unsure what this means choose another name with the '--name' option.
-``` bash
-$ cd ./git/modules/vendor
-$ rm -rf JLNimbusTimeline
-```
 
 # 多个git server仓库同步
 今天研究了多个git server仓库同步，把项目同步到[osc](http://git.oschina.net)和[gitcafe](https://gitcafe.com)，不熟悉如何同步到多个git server，可以参考我的[这篇blog](http://jimneylee.github.io/2013/12/20/git-push-multi-server/)，仓库地址分别如下
@@ -139,36 +105,9 @@ csdn:https://code.csdn.net/jimney_ljj/JLRubyChina-iPhone
 
 11、更多功能包含：清空缓存、更新检测、给我评分、关于APP
 
-12、帖子列表支持markdown语法解析显示(仅使用于7.x)
+12、帖子列表支持markdown语法解析显示(仅使用于7.x)，效果不是太好
 
 13、网络2G/3G/WIFI切换提示
-
-
-### DOING
-1、经公测稳定，提交AppStore审核，方便大家下载使用
-2、与后台API接口修改确认，参见API Problem文档说明
-
-
-### TODO
-1、与后台API接口修改确认，参见API Problem文档说明
-
-2、发帖添加表情选择
-
-~~3、帖子列表支持markdown语法解析显示~~
-
-~~4、分类节点做分组与排序~~
-
-5、个人主页详细资料
-
-~~6、网络2G/3G/WIFI切换提示~~
-
-7、发布模式下需屏蔽No Point分类
-
-8、增加社交组件分享
-
-9、经公测稳定，提交AppStore审核，方便大家下载使用
-
-10、如果需要的话，添加友盟统计
 
 ## LICENSE
 本项目基于MIT协议发布
