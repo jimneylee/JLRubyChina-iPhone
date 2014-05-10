@@ -12,6 +12,7 @@
 
 @property (nonatomic, assign) unsigned long hitsCount;
 @property (nonatomic, copy) NSString* body;
+@property (nonatomic, copy) NSString* bodyHTML;
 @property (nonatomic, copy) NSAttributedString* attributedBody;
 @property (nonatomic, strong) NSArray* atPersonRanges;
 @property (nonatomic, strong) NSArray* sharpFloorRanges;
