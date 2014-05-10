@@ -33,14 +33,17 @@ NSString *const kAPIBaseURLString = @"http://ruby-china.org/api/v2";
 {
     self = [super initWithBaseURL:url];
     if (self) {
-        self.parameterEncoding = AFJSONParameterEncoding;
+//        self.parameterEncoding = AFJSONParameterEncoding;
         
         // 502-bad-gateway error, set user agent from http://whatsmyuseragent.com/
         // http://stackoverflow.com/questions/8487581/uiwebview-ios5-changing-user-agent/8666438#8666438
+#warning "todo set default header for v2ex"
+#if 0
         if (ForumBaseAPIType_V2EX == FORUM_BASE_API_TYPE) {
             NSString* testUserAgent = @"Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_3 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11B508 Safari/9537.53";
             [self setDefaultHeader:@"User-Agent" value:testUserAgent];
         }
+#endif
     }
     return self;
 }

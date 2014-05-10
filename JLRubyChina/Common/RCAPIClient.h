@@ -6,8 +6,7 @@
 //  Copyright (c) 2013年 jimneylee. All rights reserved.
 //
 
-#import "AFHTTPClient.h"
-#import "JLAFHTTPClient.h"
+#import "JLAFAPIBaseClient.h"
 
 /* RubyChina
     GET     ruby-china.org/api/topics.json
@@ -41,7 +40,7 @@
     ('/api/currency.json', CurrencyHandler)
 */
 
-@interface RCAPIClient : JLAFHTTPClient
+@interface RCAPIClient : JLAFAPIBaseClient
 
 + (RCAPIClient*)sharedClient;
 
