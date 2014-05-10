@@ -10,3 +10,6 @@
 [submodule "vendor/JASidePanels"]
 	path = vendor/JASidePanels
 	url = https://github.com/gotosleep/JASidePanels.git
+[submodule "vendor/MMMarkdown"]
+	path = vendor/MMMarkdown
+	url = https://github.com/mdiep/MMMarkdown

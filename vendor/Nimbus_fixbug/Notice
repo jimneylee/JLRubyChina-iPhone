@@ -1,3 +1,0 @@
-NIAttributedLabel在tableivew中，关键字标签无法被touch。参照网上的方法，修改了touch事件处理方法
-暂时用这个修改版本替换官方版本，待官方合并这个bug的pull request，再去掉这个文件。
-参见：http://stackoverflow.com/questions/5147670/uitableview-does-not-respond-to-scrolling-and-touches
