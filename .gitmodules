@@ -1,6 +1,3 @@
-[submodule "vendor/MarkdownSyntaxEditor"]
-	path = vendor/MarkdownSyntaxEditor
-	url = https://github.com/jimneylee/MarkdownSyntaxEditor.git
 [submodule "vendor/TSEmojiView"]
 	path = vendor/TSEmojiView
 	url = https://github.com/jimneylee/TSEmojiView.git
@@ -10,6 +7,6 @@
 [submodule "vendor/JASidePanels"]
 	path = vendor/JASidePanels
 	url = https://github.com/gotosleep/JASidePanels.git
-[submodule "vendor/MMMarkdown"]
-	path = vendor/MMMarkdown
-	url = https://github.com/mdiep/MMMarkdown
+[submodule "vendor/MarkdownSyntaxEditor"]
+	path = vendor/MarkdownSyntaxEditor
+	url = https://github.com/jimneylee/MarkdownSyntaxEditor.git
