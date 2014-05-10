@@ -7,8 +7,8 @@
 //
 
 #import "RCAppDelegate.h"
-//#import "TestFlight.h"
 #import "AFNetworking.h"
+#import "AFNetworkActivityIndicatorManager.h"
 #import "MTStatusBarOverlay.h"
 #import "LTUpdate.h"
 #import "RCNetworkSpy.h"
@@ -40,12 +40,12 @@
     
     // AFNetworking
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
-    [AFJSONRequestOperation addAcceptableContentTypes:[NSSet setWithObjects:
-                                                       @"application/json",
-                                                       @"text/json",
-                                                       @"text/javascript",
-                                                       @"text/html",
-                                                       @"text/plain", nil]];
+//    [AFJSONRequestOperation addAcceptableContentTypes:[NSSet setWithObjects:
+//                                                       @"application/json",
+//                                                       @"text/json",
+//                                                       @"text/javascript",
+//                                                       @"text/html",
+//                                                       @"text/plain", nil]];
     
     // Spy network
     [[RCNetworkSpy sharedNetworkSpy] spyNetwork];
