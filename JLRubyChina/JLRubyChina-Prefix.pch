@@ -13,19 +13,20 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+
+    // Nimbus addtional header
+    #import "NimbusPagingScrollView.h"
+
+    #import "JLNimbusTimeline.h"
+    #import "TTCategoryHeader.h"
+    #import "MBProgressHUD.h"
+
+    #import "RCJSONKeys.h"
+    #import "RCGlobalConfig.h"
+    #import "MacroDefines.h"
+    #import "UIImage+nimbusImageNamed.h"
+
 #endif
-
-#import "JLNimbusTimeline.h"
-
-// Nimbus addtional header
-#import "NimbusPagingScrollView.h"
-
-#import "MBProgressHUD.h"
-
-#import "RCJSONKeys.h"
-#import "RCGlobalConfig.h"
-#import "MacroDefines.h"
-#import "UIImage+nimbusImageNamed.h"
 
 // debug log switch
 #ifdef DEBUG
