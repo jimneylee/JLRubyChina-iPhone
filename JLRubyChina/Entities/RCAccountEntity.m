@@ -15,18 +15,18 @@ NSString* kLoginId = @"LoginId";
 //{
 //    avatar =     {
 //        big =         {
-//            url = "photo/big.jpg";
+//            url = "https://ruby-china-files.b0.upaiyun.com/user/big_avatar/4988.jpg";
 //        };
 //        large =         {
-//            url = "photo/large.jpg";
+//            url = "https://ruby-china-files.b0.upaiyun.com/user/large_avatar/4988.jpg";
 //        };
 //        normal =         {
-//            url = "photo/normal.jpg";
+//            url = "https://ruby-china-files.b0.upaiyun.com/user/normal_avatar/4988.jpg";
 //        };
 //        small =         {
-//            url = "photo/small.jpg";
+//            url = "https://ruby-china-files.b0.upaiyun.com/user/small_avatar/4988.jpg";
 //        };
-//        url = "photo/.jpg";
+//        url = "https://ruby-china-files.b0.upaiyun.com/user/avatar/4988.jpg";
 //    };
 //    email = "jimneylee@gmail.com";
 //    login = jimneylee;
