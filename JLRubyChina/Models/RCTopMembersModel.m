@@ -2,7 +2,7 @@
 //  RCCoolSitesModel.m
 //  JLRubyChina
 //
-//  Created by ccjoy-jimneylee on 13-12-12.
+//  Created by jimneylee on 13-12-12.
 //  Copyright (c) 2013年 jimneylee. All rights reserved.
 //
 
@@ -16,7 +16,7 @@
 - (NSString*)relativePath
 {
     // 暂时未分页
-    return [RCAPIClient relativePathForTopMembersWithPageCounter:0 perpageCount:0];
+    return [RCAPIClient relativePathForTopMembersWithPageIndex:0 pageSize:0];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

@@ -20,12 +20,12 @@
         
         // TODO:数据一次性获取过来，没有分页，后面建议后台做分页
         if (ForumBaseAPIType_RubyChina == FORUM_BASE_API_TYPE) {
-            self.perpageCount = NSIntegerMax;
+            self.pageSize = NSIntegerMax;
         }
         
         //TOPIC_PAGE_SIZE=100 see v2ex https://github.com/livid/v2ex/blob/5d8764c8ec0d138a308b5c90003261c5673124a6/topic.py
         else if (ForumBaseAPIType_V2EX == FORUM_BASE_API_TYPE) {
-            self.perpageCount = 100;
+            self.pageSize = 100;
         }
 	}
 	return self;
@@ -44,8 +44,8 @@
     }
     else if (ForumBaseAPIType_V2EX == FORUM_BASE_API_TYPE) {
         return [RCAPIClient relativePathForTopicRepliesWithTopicId:self.topicId
-                                                       pageCounter:self.pageCounter
-                                                      perpageCount:self.perpageCount];
+                                                       pageIndex:self.pageIndex
+                                                      pageSize:self.pageSize];
     }
     return nil;
 }

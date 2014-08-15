@@ -59,17 +59,17 @@ NSString *const kAPIBaseURLString = @"http://ruby-china.org/api/v2";
 #pragma mark - Topics
 // 活跃帖子、优质帖子、无人问津、最近创建
 // TODO: add topic type:
-+ (NSString*)relativePathForTopicsWithPageCounter:(unsigned int)pageCounter
-                                     perpageCount:(unsigned int)perpageCount
++ (NSString*)relativePathForTopicsWithPageIndex:(unsigned int)pageIndex
+                                     pageSize:(unsigned int)pageSize
 {
     //TODO:add ForumBaseAPIType
     if (ForumBaseAPIType_RubyChina == FORUM_BASE_API_TYPE) {
         return [NSString stringWithFormat:@"topics.json?page=%u&per_page=%u",
-                pageCounter, perpageCount];
+                pageIndex, pageSize];
     }
     else if (ForumBaseAPIType_V2EX == FORUM_BASE_API_TYPE) {
         return [NSString stringWithFormat:@"topics/latest.json?page=%u&per_page=%u",
-                pageCounter, perpageCount];
+                pageIndex, pageSize];
     }
     return nil;
 }
@@ -89,51 +89,51 @@ NSString *const kAPIBaseURLString = @"http://ruby-china.org/api/v2";
 
 // 帖子回复列表
 + (NSString*)relativePathForTopicRepliesWithTopicId:(unsigned long)topicId
-                                        pageCounter:(unsigned int)pageCounter
-                                       perpageCount:(unsigned int)perpageCount
+                                        pageIndex:(unsigned int)pageIndex
+                                       pageSize:(unsigned int)pageSize
 {
     if (ForumBaseAPIType_RubyChina == FORUM_BASE_API_TYPE) {
         return nil;
     }
     else if (ForumBaseAPIType_V2EX == FORUM_BASE_API_TYPE) {
         return [NSString stringWithFormat:@"replies/show.json?topic_id=%ld&page=%u&per_page=%u",
-                                            topicId, pageCounter, perpageCount];
+                                            topicId, pageIndex, pageSize];
     }
     return nil;
 }
 
 // 节点帖子
 + (NSString*)relativePathForTopicsWithNodeId:(unsigned int)nodeId
-                                 PageCounter:(unsigned int)pageCounter
-                                perpageCount:(unsigned int)perpageCount
+                                 pageIndex:(unsigned int)pageIndex
+                                pageSize:(unsigned int)pageSize
 {
     if (ForumBaseAPIType_RubyChina == FORUM_BASE_API_TYPE) {
         return [NSString stringWithFormat:@"topics/node/%u.json?page=%u&per_page=%u",
-                                            nodeId, pageCounter, perpageCount];
+                                            nodeId, pageIndex, pageSize];
     }
     else if (ForumBaseAPIType_V2EX == FORUM_BASE_API_TYPE) {
         return [NSString stringWithFormat:@"nodes/show.json?id=%u&page=%u&per_page=%u",
-                                            nodeId, pageCounter, perpageCount];
+                                            nodeId, pageIndex, pageSize];
     }
     return nil;
 }
 
 // 用户发的帖子列表
 + (NSString*)relativePathForPostedTopicsWithUserLoginId:(NSString*)loginId
-                                            pageCounter:(unsigned int)pageCounter
-                                           perpageCount:(unsigned int)perpageCount
+                                            pageIndex:(unsigned int)pageIndex
+                                           pageSize:(unsigned int)pageSize
 {
     return [NSString stringWithFormat:@"users/%@/topics.json?page=%u&per_page=%u",
-                                        loginId, pageCounter, perpageCount];
+                                        loginId, pageIndex, pageSize];
 }
 
 // 用户收藏帖子列表
 + (NSString*)relativePathForFavoritedTopicsWithUserLoginId:(NSString*)loginId
-                                               pageCounter:(unsigned int)pageCounter
-                                              perpageCount:(unsigned int)perpageCount
+                                               pageIndex:(unsigned int)pageIndex
+                                              pageSize:(unsigned int)pageSize
 {
     return [NSString stringWithFormat:@"users/%@/topics/favorite.json?page=%u&per_page=%u",
-                                        loginId, pageCounter, perpageCount];
+                                        loginId, pageIndex, pageSize];
 }
 
 // 论坛所有节点
@@ -155,10 +155,10 @@ NSString *const kAPIBaseURLString = @"http://ruby-china.org/api/v2";
 }
 
 // TOP会员
-+ (NSString*)relativePathForTopMembersWithPageCounter:(unsigned int)pageCounter
-                                         perpageCount:(unsigned int)perpageCount;
++ (NSString*)relativePathForTopMembersWithPageIndex:(unsigned int)pageIndex
+                                         pageSize:(unsigned int)pageSize;
 {
-    return [NSString stringWithFormat:@"users.json?page=%u&per_page=%u", pageCounter, perpageCount];
+    return [NSString stringWithFormat:@"users.json?page=%u&per_page=%u", pageIndex, pageSize];
 }
 
 #pragma mark - Write

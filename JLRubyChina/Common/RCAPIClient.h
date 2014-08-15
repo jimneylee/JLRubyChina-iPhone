@@ -56,31 +56,31 @@
 //================================================================================
 
 // 热帖
-+ (NSString*)relativePathForTopicsWithPageCounter:(unsigned int)pageCounter
-                                     perpageCount:(unsigned int)perpageCount;
++ (NSString*)relativePathForTopicsWithPageIndex:(unsigned int)pageIndex
+                                     pageSize:(unsigned int)pageSize;
 
 // 查看帖子详细 TODO:评论没有按实现先后排序，有错乱
 + (NSString*)relativePathForTopicDetailWithTopicId:(unsigned long)topicId;
 
 // 帖子回复列表
 + (NSString*)relativePathForTopicRepliesWithTopicId:(unsigned long)topicId
-                                        pageCounter:(unsigned int)pageCounter
-                                       perpageCount:(unsigned int)perpageCount;
+                                        pageIndex:(unsigned int)pageIndex
+                                       pageSize:(unsigned int)pageSize;
 
 // 节点帖子
 + (NSString*)relativePathForTopicsWithNodeId:(unsigned int)nodeId
-                                 PageCounter:(unsigned int)pageCounter
-                                perpageCount:(unsigned int)perpageCount;
+                                 pageIndex:(unsigned int)pageIndex
+                                pageSize:(unsigned int)pageSize;
 
 // 用户发的帖子列表 TODO:此接口总是返回最新的15条:http://ruby-china.org/api/v2/users/huacnlee/topics.json?page=1&per_page=30
 + (NSString*)relativePathForPostedTopicsWithUserLoginId:(NSString*)loginId
-                                            pageCounter:(unsigned int)pageCounter
-                                           perpageCount:(unsigned int)perpageCount;
+                                            pageIndex:(unsigned int)pageIndex
+                                           pageSize:(unsigned int)pageSize;
 
 // 用户收藏帖子列表
 + (NSString*)relativePathForFavoritedTopicsWithUserLoginId:(NSString*)loginId
-                                               pageCounter:(unsigned int)pageCounter
-                                              perpageCount:(unsigned int)perpageCount;
+                                               pageIndex:(unsigned int)pageIndex
+                                              pageSize:(unsigned int)pageSize;
 
 // 论坛所有节点
 + (NSString*)relativePathForForumNodes;
@@ -89,8 +89,8 @@
 + (NSString*)relativePathForCoolSites;
 
 // TOP会员
-+ (NSString*)relativePathForTopMembersWithPageCounter:(unsigned int)pageCounter
-                                         perpageCount:(unsigned int)perpageCount;
++ (NSString*)relativePathForTopMembersWithPageIndex:(unsigned int)pageIndex
+                                         pageSize:(unsigned int)pageSize;
 
 //================================================================================
 // topic write

@@ -18,7 +18,7 @@
 	self = [super initWithDelegate:delegate];
 	if (self) {
         // TODO:数据一次性获取过来，没有分页，后面建议后台做分页
-        self.perpageCount = NSIntegerMax;
+        self.pageSize = NSIntegerMax;
 	}
 	return self;
 }

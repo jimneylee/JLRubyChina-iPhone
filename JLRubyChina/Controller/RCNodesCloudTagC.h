@@ -2,7 +2,7 @@
 //  RCForumNodesCloudTagC.h
 //  JLRubyChina
 //
-//  Created by ccjoy-jimneylee on 13-12-13.
+//  Created by jimneylee on 13-12-13.
 //  Copyright (c) 2013年 jimneylee. All rights reserved.
 //
 

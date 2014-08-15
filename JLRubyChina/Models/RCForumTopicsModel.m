@@ -2,7 +2,7 @@
 //  RCForumTopicsModel.m
 //  JLRubyChina
 //
-//  Created by ccjoy-jimneylee on 13-12-10.
+//  Created by jimneylee on 13-12-10.
 //  Copyright (c) 2013年 jimneylee. All rights reserved.
 //
 
@@ -33,25 +33,25 @@
     NSString* path = nil;
     switch (self.topicsType) {
         case RCForumTopicsType_LatestActivity:
-            path = [RCAPIClient relativePathForTopicsWithPageCounter:self.pageCounter
-                                                        perpageCount:self.perpageCount];
+            path = [RCAPIClient relativePathForTopicsWithPageIndex:self.pageIndex
+                                                        pageSize:self.pageSize];
             break;
         case RCForumTopicsType_NodeList:
             path = [RCAPIClient relativePathForTopicsWithNodeId:self.nodeId
-                                                    PageCounter:self.pageCounter
-                                                   perpageCount:self.perpageCount];
+                                                    pageIndex:self.pageIndex
+                                                   pageSize:self.pageSize];
             break;
             
         case RCForumTopicsType_UserPosted:
             path = [RCAPIClient relativePathForPostedTopicsWithUserLoginId:self.loginId
-                                                               pageCounter:self.pageCounter
-                                                              perpageCount:self.perpageCount];
+                                                               pageIndex:self.pageIndex
+                                                              pageSize:self.pageSize];
             break;
             
         case RCForumTopicsType_UserFavorited:
             path = [RCAPIClient relativePathForFavoritedTopicsWithUserLoginId:self.loginId
-                                                                  pageCounter:self.pageCounter
-                                                                 perpageCount:self.perpageCount];
+                                                                  pageIndex:self.pageIndex
+                                                                 pageSize:self.pageSize];
             break;
             
         default:
