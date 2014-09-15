@@ -10,6 +10,6 @@
 [submodule "vendor/MarkdownSyntaxEditor"]
 	path = vendor/MarkdownSyntaxEditor
 	url = https://github.com/jimneylee/MarkdownSyntaxEditor.git
-[submodule "Vendor/320Categories"]
-	path = Vendor/320Categories
+[submodule "vendor/320Categories"]
+	path = vendor/320Categories
 	url = https://github.com/jimneylee/320Categories.git
