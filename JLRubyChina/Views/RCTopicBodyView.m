@@ -190,15 +190,15 @@
                                             topWidth, self.dateLabel.font.lineHeight);
     
     // content image
+    NSString* firstImageUrl = nil;
     if (self.topicDetailEntity.imageUrlsArray.count) {
-        self.contentImageView.hidden = NO;
+        firstImageUrl = self.topicDetailEntity.imageUrlsArray[0];
+    }
+    if (firstImageUrl.length) {
         self.contentImageView.left = (self.width - cellMargin * 2 - self.contentImageView.width) / 2;
         self.contentImageView.top = self.headView.bottom + CELL_PADDING_4;
         height = height + self.contentImageView.height;
         height = height + CELL_PADDING_4;
-    }
-    else {
-        self.contentImageView.hidden = YES;
     }
 
     // status content
@@ -254,15 +254,19 @@
         self.bodyLabel.text = topicDetailEntity.body;
     }
     
+    NSString* firstImageUrl = nil;
     if (self.topicDetailEntity.imageUrlsArray.count) {
-        NSString* firstImageUrl = self.topicDetailEntity.imageUrlsArray[0];
-        if (firstImageUrl.length) {
-            [self.contentImageView setPathToNetworkImage:firstImageUrl contentMode:UIViewContentModeScaleAspectFill];
-        }
-        else {
-            [self.contentImageView setPathToNetworkImage:nil];
-        }
+        firstImageUrl = self.topicDetailEntity.imageUrlsArray[0];
     }
+    if (firstImageUrl.length) {
+        self.contentImageView.hidden = NO;
+        [self.contentImageView setPathToNetworkImage:firstImageUrl contentMode:UIViewContentModeScaleAspectFill];
+    }
+    else {
+        self.contentImageView.hidden = YES;
+        [self.contentImageView setPathToNetworkImage:nil];
+    }
+    
     // if more than one image, show more image
     if (self.topicDetailEntity.imageUrlsArray.count > 1) {
         self.moreImageView.hidden = NO;

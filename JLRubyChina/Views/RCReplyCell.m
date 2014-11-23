@@ -273,14 +273,18 @@
         [self showAllKeywordsInContentLabel:self.contentLabel
                                  withStatus:o fromLocation:0];
         
+        NSString* firstImageUrl = nil;
         if (o.imageUrlsArray.count) {
-            NSString* firstImageUrl = o.imageUrlsArray[0];
-            if (firstImageUrl.length) {
-                [self.contentImageView setPathToNetworkImage:firstImageUrl contentMode:UIViewContentModeScaleAspectFill];
-            }
-            else {
-                [self.contentImageView setPathToNetworkImage:nil];
-            }
+            firstImageUrl = o.imageUrlsArray[0];
+
+        }
+        if (firstImageUrl.length) {
+            self.contentImageView.hidden = NO;
+            [self.contentImageView setPathToNetworkImage:firstImageUrl contentMode:UIViewContentModeScaleAspectFill];
+        }
+        else {
+            self.contentImageView.hidden = YES;
+            [self.contentImageView setPathToNetworkImage:nil];
         }
         
         // if more than one
