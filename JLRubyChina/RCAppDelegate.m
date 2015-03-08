@@ -40,16 +40,24 @@
     
     // AFNetworking
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
-//    [AFJSONRequestOperation addAcceptableContentTypes:[NSSet setWithObjects:
-//                                                       @"application/json",
-//                                                       @"text/json",
-//                                                       @"text/javascript",
-//                                                       @"text/html",
-//                                                       @"text/plain", nil]];
-    
-    // Spy network
-    [[RCNetworkSpy sharedNetworkSpy] spyNetwork];
-    [RCNetworkSpy sharedNetworkSpy].spyDelegate = self;
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        NSString* title = @"网络未连接";
+        switch (status) {
+            case AFNetworkReachabilityStatusNotReachable:
+                title = @"网络未连接";
+                break;
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+                title = @"当前wifi已连接";
+                break;
+            case AFNetworkReachabilityStatusReachableViaWWAN:
+                title = @"当前2g/3g已连接";
+                break;
+            default:
+                break;
+        }
+        [RCGlobalConfig HUDShowMessage:title addedToView:[UIApplication sharedApplication].keyWindow];
+    }];
     
     // Load logined account
     RCAccountEntity* account = [RCAccountEntity loadStoredUserAccount];
