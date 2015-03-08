@@ -159,14 +159,6 @@
 {
     [super layoutSubviews];
     
-    if (IOS_IS_AT_LEAST_7 && ForumBaseAPIType_RubyChina == FORUM_BASE_API_TYPE) {
-    }
-    else {
-        // set here compatible with ios6.x
-        self.textLabel.backgroundColor = [UIColor clearColor];
-        self.detailTextLabel.backgroundColor = [UIColor clearColor];
-    }
-    
     // layout
     CGFloat cellMargin = CELL_PADDING_4;
     CGFloat contentViewMarin = CELL_PADDING_6;
@@ -190,12 +182,8 @@
                                             kTextLength, self.detailTextLabel.font.lineHeight);
     // replies count
     CGSize repliesCountSize = CGSizeZero;
-    if (IOS_IS_AT_LEAST_7 && ForumBaseAPIType_RubyChina == FORUM_BASE_API_TYPE) {
-        repliesCountSize = [self.repliesCountLabel.text sizeWithAttributes:@{NSFontAttributeName:TITLE_FONT_SIZE}];
-    }
-    else {
-        repliesCountSize = [self.repliesCountLabel.text sizeWithFont:TITLE_FONT_SIZE];
-    }
+    repliesCountSize = [self.repliesCountLabel.text sizeWithAttributes:@{NSFontAttributeName:TITLE_FONT_SIZE}];
+
     self.repliesCountLabel.frame = CGRectMake(0.f, self.textLabel.top,
                                               repliesCountSize.width + CELL_PADDING_6,
                                               self.repliesCountLabel.font.lineHeight);

@@ -99,20 +99,16 @@
                             - TTKeyboardHeightForOrientation(self.interfaceOrientation)
                             - NIStatusBarHeight() - NIToolbarHeightForOrientation(self.interfaceOrientation);
         CGFloat kTextViewWidth = self.view.width;
-        Class class = IOS_IS_AT_LEAST_7 ? [MarkdownTextView class] : [UITextView class];
+        Class class = [MarkdownTextView class];
         _bodyTextView = [[class alloc] initWithFrame:CGRectMake(0.f, 0.f, kTextViewWidth, kViewHeight)];
         _bodyTextView.contentInset = UIEdgeInsetsMake(0, 5, 0, 5);
         _bodyTextView.returnKeyType = UIReturnKeyDefault;
         _bodyTextView.font = [UIFont systemFontOfSize:18.0f];
         
-        if (IOS_IS_AT_LEAST_7) {
-            // TODO:字数合理不好判断了
-            [[NSNotificationCenter defaultCenter]
-             addObserver:self selector:@selector(textViewDidChange:) name:UITextViewTextDidChangeNotification object:nil];
-        }
-        else {
-            _bodyTextView.delegate = self;
-        }
+        // TODO:字数合理不好判断了
+        [[NSNotificationCenter defaultCenter]
+         addObserver:self selector:@selector(textViewDidChange:) name:UITextViewTextDidChangeNotification object:nil];
+
         _bodyTextView.scrollIndicatorInsets = UIEdgeInsetsMake(5, 0, 5, 0);
         _bodyTextView.backgroundColor = [UIColor whiteColor];
 

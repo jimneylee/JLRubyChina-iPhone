@@ -32,27 +32,22 @@
             self.hitsCount = [dic[JSON_HITS_COUNT] unsignedLongValue];
 //            [self parseAllKeywords];
             
-            if (IOS_IS_AT_LEAST_7) {
-                // learn from here http://initwithfunk.com/blog/2013/09/29/easy-markdown-rendering-with-nsattributedstring-on-ios-7/
-                NSDictionary *options = @{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType};
-                
-                NSMutableAttributedString *mAttributedString = [[NSMutableAttributedString alloc] initWithData:[self.bodyHTML dataUsingEncoding:NSUTF8StringEncoding]
-                                                                       options:options documentAttributes:nil error:nil];
-                // set line height
-                NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
-                NSDictionary *defaultAttributes = @{NSFontAttributeName : CONTENT_FONT_SIZE};
-
-                paragraphStyle.minimumLineHeight = 21.f;
-                [mAttributedString addAttribute:NSParagraphStyleAttributeName
-                                         value:paragraphStyle
-                                         range:NSMakeRange(0, mAttributedString.length)];
-                [mAttributedString addAttributes:defaultAttributes
-                                           range:NSMakeRange(0, mAttributedString.length)];
-                self.attributedBody = mAttributedString;
-            }
-            else {
-                self.attributedBody = [[NSAttributedString alloc] initWithString:self.body];
-            }
+            // learn from here http://initwithfunk.com/blog/2013/09/29/easy-markdown-rendering-with-nsattributedstring-on-ios-7/
+            NSDictionary *options = @{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType};
+            
+            NSMutableAttributedString *mAttributedString = [[NSMutableAttributedString alloc] initWithData:[self.bodyHTML dataUsingEncoding:NSUTF8StringEncoding]
+                                                                                                   options:options documentAttributes:nil error:nil];
+            // set line height
+            NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
+            NSDictionary *defaultAttributes = @{NSFontAttributeName : CONTENT_FONT_SIZE};
+            
+            paragraphStyle.minimumLineHeight = 21.f;
+            [mAttributedString addAttribute:NSParagraphStyleAttributeName
+                                      value:paragraphStyle
+                                      range:NSMakeRange(0, mAttributedString.length)];
+            [mAttributedString addAttributes:defaultAttributes
+                                       range:NSMakeRange(0, mAttributedString.length)];
+            self.attributedBody = mAttributedString;
         }
         else {
             self.body = dic[JSON_CONTENT];

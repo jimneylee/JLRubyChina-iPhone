@@ -108,9 +108,7 @@
 
 - (UIView*)createTableHeaderView
 {
-    CGFloat tableHeaderHeight = IOS_IS_AT_LEAST_7
-    ? NIStatusBarHeight() + NIToolbarHeightForOrientation(self.interfaceOrientation)
-    : NIToolbarHeightForOrientation(self.interfaceOrientation);
+    CGFloat tableHeaderHeight = NIStatusBarHeight() + NIToolbarHeightForOrientation(self.interfaceOrientation);
     
     // copy from nimbus CustomTextAttributedLabelViewController
     UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.width, tableHeaderHeight)];
@@ -326,28 +324,5 @@
         }
     }
 }
-
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-//{
-//    CGFloat tableHeaderHeight = IOS_IS_AT_LEAST_7
-//    ? NIStatusBarHeight() + NIToolbarHeightForOrientation(self.interfaceOrientation)
-//    : NIToolbarHeightForOrientation(self.interfaceOrientation);
-//    
-//    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.width, tableHeaderHeight)];
-//    view.backgroundColor = [UIColor clearColor];
-//    
-//    UIImageView* logoImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ruby-logo.png"]];
-//    logoImageView.center = CGPointMake(view.width / 2, view.height / 2);
-//    [view addSubview:logoImageView];
-//    return view;
-//}
-//
-//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-//{
-//    CGFloat tableHeaderHeight = IOS_IS_AT_LEAST_7
-//    ? NIStatusBarHeight() + NIToolbarHeightForOrientation(self.interfaceOrientation)
-//    : NIToolbarHeightForOrientation(self.interfaceOrientation);
-//    return tableHeaderHeight;
-//}
 
 @end

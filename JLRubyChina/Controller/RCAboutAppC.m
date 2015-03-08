@@ -14,7 +14,7 @@
 #define CREATE_DEFAULT_IMAGE 0
 
 @interface RCAboutAppC ()<NIAttributedLabelDelegate>
-
+@property (nonatomic, assign) BOOL toCreateLauchImage;
 @end
 
 @implementation RCAboutAppC
@@ -22,6 +22,16 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - UIViewController
+
+- (instancetype)initWithCreateLauchImage:(BOOL)toCreateLauchImage
+{
+    self = [super initWithNibName:NSStringFromClass([RCAboutAppC class])
+                           bundle:nil];
+    if (self) {
+        self.toCreateLauchImage = toCreateLauchImage;
+    }
+    return self;
+}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -44,33 +54,27 @@
     [self setupSiteUrlLabel];
     [self setupSiteIntroduceTextView];
     [self setupDevIntroduceLabel];
+    
     self.versionLabel.text = [NSString stringWithFormat:@"version: %@", APP_VERSION];
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (BOOL)prefersStatusBarHidden {
-#if CREATE_DEFAULT_IMAGE
-    return YES;
-#else
-    return NO; 
-#endif
+    self.versionLabel.hidden = self.toCreateLauchImage;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-#if CREATE_DEFAULT_IMAGE
-    // for screenshot create default image, donot laught at me! :)
-    if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]) {
-        [self prefersStatusBarHidden];
-        [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
+    
+    if (self.toCreateLauchImage) {
+        // for screenshot create default image, donot laught at me! :)
+        if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]) {
+            [self prefersStatusBarHidden];
+            [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
+        }
+        else {
+            // iOS 6
+            [[UIApplication sharedApplication] setStatusBarHidden:YES
+                                                    withAnimation:UIStatusBarAnimationSlide];
+        }
     }
-    else {
-        // iOS 6
-        [[UIApplication sharedApplication] setStatusBarHidden:YES
-                                                withAnimation:UIStatusBarAnimationSlide];
-    }
-#endif
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -159,6 +163,20 @@ shouldPresentActionSheet:(UIActionSheet *)actionSheet
  withTextCheckingResult:(NSTextCheckingResult *)result atPoint:(CGPoint)point
 {
     return NO;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Override
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (BOOL)prefersStatusBarHidden {
+    if (self.toCreateLauchImage) {
+        return YES;
+    }
+    else {
+        return NO;
+    }
 }
 
 @end

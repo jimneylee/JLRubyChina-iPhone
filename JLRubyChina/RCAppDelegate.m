@@ -9,109 +9,20 @@
 #import "RCAppDelegate.h"
 #import "AFNetworking.h"
 #import "AFNetworkActivityIndicatorManager.h"
+#import "JASidePanelController.h"
 #import "MTStatusBarOverlay.h"
 #import "LTUpdate.h"
-#import "RCNetworkSpy.h"
+
 #import "RCAccountEntity.h"
 #import "RCUserHomepageC.h"
 #import "RCAboutAppC.h"
-
-#import "JASidePanelController.h"
 #import "RCForumTopicsC.h"
 #import "RCLeftMenuC.h"
 
-@interface RCAppDelegate()<RCNetworkSpyDelegate>
+@interface RCAppDelegate()
 @end
 
 @implementation RCAppDelegate
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
-#pragma mark - Private
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)prepareForLaunching
-{
-    // Disk cache
-    NSURLCache *URLCache = [[NSURLCache alloc] initWithMemoryCapacity:4 * 1024 * 1024
-                                                         diskCapacity:20 * 1024 * 1024
-                                                             diskPath:nil];
-    [NSURLCache setSharedURLCache:URLCache];
-    
-    // AFNetworking
-    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
-    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
-    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-        NSString* title = @"网络未连接";
-        switch (status) {
-            case AFNetworkReachabilityStatusNotReachable:
-                title = @"网络未连接";
-                break;
-            case AFNetworkReachabilityStatusReachableViaWiFi:
-                title = @"当前wifi已连接";
-                break;
-            case AFNetworkReachabilityStatusReachableViaWWAN:
-                title = @"当前2g/3g已连接";
-                break;
-            default:
-                break;
-        }
-        [RCGlobalConfig HUDShowMessage:title addedToView:[UIApplication sharedApplication].keyWindow];
-    }];
-    
-    // Load logined account
-    RCAccountEntity* account = [RCAccountEntity loadStoredUserAccount];
-    if (account) {
-        [RCGlobalConfig setMyLoginId:account.loginId];
-        [RCGlobalConfig setMyToken:account.privateToken];
-    }
-    
-    // Parse App Config
-    [RCGlobalConfig parseAppConfig];
-    
-    // Setup testflight token, TODO: use testflight
-    //[TestFlight takeOff:@"e2bd049b-2ccb-4f61-8189-636db135d001"];
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)appearanceChange
-{
-    [[UIBarButtonItem appearance] setTintColor:[UIColor blackColor]];
-    [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
-    
-    // MTStatusBarOverlay change to white, maybe better
-    UIView* bgView = [[UIView alloc] initWithFrame:[UIApplication sharedApplication].statusBarFrame];
-    bgView.backgroundColor = [UIColor whiteColor];
-    [[MTStatusBarOverlay sharedOverlay] addSubviewToBackgroundView:bgView atIndex:1];// above statusBarBackgroundImageView
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (BOOL)prefersStatusBarHidden
-{
-    return YES;
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
-#pragma mark - RCNetworkSpyDelegate
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)didNetworkChangedReachable:(BOOL)reachable viaWifi:(BOOL)viaWifi
-{
-    NSString* title = @"网络未连接";
-    
-    if (!reachable) {
-        title = @"网络未连接";
-    }
-    else if (viaWifi) {
-        title = @"当前wifi已连接";
-    }
-    else {
-        title = @"当前2g/3g已连接";
-    }
-    // TODO: 4g is long long after
-    [RCGlobalConfig HUDShowMessage:title addedToView:[UIApplication sharedApplication].keyWindow];
-}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -120,9 +31,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [self prepareForLaunching];
+    [self configBeforeLaunching];
     
-    // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 #if 1
     RCForumTopicsC *forumTopics = [[RCForumTopicsC alloc] initWithTopicsType:RCForumTopicsType_LatestActivity];
@@ -135,10 +45,11 @@
     self.sidePanelController.leftPanel = leftSideC;
     self.window.rootViewController = self.sidePanelController;
     [self.window makeKeyAndVisible];
-    [[LTUpdate shared] update];
-    [self appearanceChange];
+    
+    [self configAfterLaunched];
+
 #else
-    RCAboutAppC* c = [[RCAboutAppC alloc] initWithNibName:@"RCAboutAppC" bundle:nil];
+    RCAboutAppC* c = [[RCAboutAppC alloc] initWithCreateLauchImage:YES];
     self.window.rootViewController = c;
     [self.window makeKeyAndVisible];
 #endif
@@ -175,6 +86,69 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Private
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)configBeforeLaunching
+{
+    // Disk cache
+    NSURLCache *URLCache = [[NSURLCache alloc] initWithMemoryCapacity:4 * 1024 * 1024
+                                                         diskCapacity:20 * 1024 * 1024
+                                                             diskPath:nil];
+    [NSURLCache setSharedURLCache:URLCache];
+    
+    // AFNetworking
+    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        NSString* title = @"网络未连接";
+        switch (status) {
+            case AFNetworkReachabilityStatusNotReachable:
+                title = @"网络未连接";
+                break;
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+                title = @"当前wifi已连接";
+                break;
+            case AFNetworkReachabilityStatusReachableViaWWAN:
+                title = @"当前2g/3g已连接";
+                break;
+            default:
+                break;
+        }
+        [RCGlobalConfig HUDShowMessage:title addedToView:[UIApplication sharedApplication].keyWindow];
+    }];
+    
+    // Load logined account
+    RCAccountEntity* account = [RCAccountEntity loadStoredUserAccount];
+    if (account) {
+        [RCGlobalConfig setMyLoginId:account.loginId];
+        [RCGlobalConfig setMyToken:account.privateToken];
+    }
+    
+    [RCGlobalConfig parseAppConfig];
+    
+    [self appearanceChange];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)appearanceChange
+{
+    [[UIBarButtonItem appearance] setTintColor:[UIColor blackColor]];
+    [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
+    
+    // MTStatusBarOverlay change to white, maybe better
+    UIView* bgView = [[UIView alloc] initWithFrame:[UIApplication sharedApplication].statusBarFrame];
+    bgView.backgroundColor = [UIColor whiteColor];
+    [[MTStatusBarOverlay sharedOverlay] addSubviewToBackgroundView:bgView atIndex:1];// above statusBarBackgroundImageView
+}
+
+- (void)configAfterLaunched
+{
+    [[LTUpdate shared] update];
 }
 
 @end
